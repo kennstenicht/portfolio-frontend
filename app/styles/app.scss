@@ -44,6 +44,10 @@
 @import "inuitcss/objects/objects.wrapper";
 
 // COMPONENTS
+@import "components/application/components.application-footer";
+@import "components/application/components.application-frame";
+@import "components/application/components.application-header";
+@import "components/application/components.application-wrapper";
 
 // UTILITIES
 @import "inuitcss/utilities/utilities.clearfix";

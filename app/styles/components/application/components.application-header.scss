@@ -1,0 +1,34 @@
+/* ==========================================================================
+   #APPLICATION HEADER
+   ========================================================================== */
+
+.c-application-header {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  z-index: 999;
+  width: 100vw;
+
+  @include inuit-font-size($inuit-global-font-size--small, false);
+  mix-blend-mode: difference;
+
+  &__logo {
+    position: absolute;
+    top: spacing('large');
+    left: spacing('large');
+    width: 80px;
+    height: 80px;
+    color: #000;
+    text-transform: uppercase;
+    word-break: break-all;
+    letter-spacing: 0.5em;
+    font-weight: 700;
+  }
+
+  &__navigation {
+    position: absolute;
+    top: spacing('large');
+    right: spacing('large');
+  }
+}

@@ -19,6 +19,11 @@ module.exports = function(environment) {
       modDelimiter: '--',
       useKeyValuedMods: true,
     },
+
+    'ember-scrollmagic': {
+      indicators: true
+    },
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

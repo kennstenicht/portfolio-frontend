@@ -1,0 +1,23 @@
+/* ==========================================================================
+   #APPLICATION FOOTER
+   ========================================================================== */
+
+.c-application-footer {
+  position: relative;
+
+  &__copy {
+    position: fixed;
+    right: spacing('large');
+    bottom: - spacing();
+    text-transform: lowercase;
+    font-weight: bold;
+    transition: bottom $transition--base;
+    transform-origin: 100% 100%;
+
+    @include inuit-font-size($inuit-global-font-size--small);
+  }
+
+  &--toggled &__copy {
+    bottom: spacing();
+  }
+}

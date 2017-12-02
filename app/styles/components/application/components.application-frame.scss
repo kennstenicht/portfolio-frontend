@@ -1,0 +1,40 @@
+/* ==========================================================================
+   #APPLICATION FRAME
+   ========================================================================== */
+
+$frame-segment-width: spacing();
+
+.c-application-frame {
+  &__segment {
+    position: fixed;
+    background-color: #000;
+
+    &--top {
+      top: 0px;
+      right: 0px;
+      left: 0px;
+      height: $frame-segment-width;
+    }
+
+    &--right {
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      width: $frame-segment-width;
+    }
+
+    &--bottom {
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      height: $frame-segment-width;
+    }
+
+    &--left {
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      width: $frame-segment-width;
+    }
+  }
+}

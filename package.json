@@ -34,12 +34,16 @@
     "ember-cli-shims": "^1.1.0",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^2.0.0",
+    "ember-concurrency": "^0.8.12",
     "ember-data": "~2.16.2",
     "ember-export-application-global": "^2.0.0",
+    "ember-gsap": "^1.0.0-beta1",
     "ember-load-initializers": "^1.0.0",
     "ember-resolver": "^4.0.0",
+    "ember-scrollmagic": "^1.0.0-beta3",
     "ember-source": "~2.16.0",
     "emberfire": "^2.0.8",
+    "eslint-plugin-ember": "^5.0.1",
     "loader.js": "^4.2.3"
   },
   "engines": {
