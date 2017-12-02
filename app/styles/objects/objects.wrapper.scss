@@ -1,0 +1,54 @@
+/* ==========================================================================
+   #RAPPER EXTENSION
+   ========================================================================== */
+
+/*
+ * Overwrite default wrapper margin to align wrapper left
+ */
+
+.o-wrapper {
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+
+
+
+
+/* Position variants.
+   ========================================================================== */
+
+.o-wrapper--left {
+  margin-right: auto;
+  margin-left: 0px;
+}
+
+.o-wrapper--center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.o-wrapper--right {
+  margin-right: 0px;
+  margin-left: auto;
+}
+
+
+
+
+
+
+/* Size variants.
+   ========================================================================== */
+
+.o-wrapper--full {
+  margin-right: 0px;
+  margin-left: 0px;
+  max-width: 100%;
+}
+
+.o-wrapper--no-padding {
+  padding: 0px;
+}
