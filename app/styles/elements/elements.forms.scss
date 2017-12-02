@@ -10,11 +10,12 @@
 /* Input
    ========================================================================== */
 
-input:not([type=submit]):not([type=file]) {
-  padding: spacing('tiny') 0;
-  border: 0px;
-  background-color: transparent;
-  color: inherit;
+input:not([type=submit]):not([type=file]):not([type=search]) {
+  padding: spacing('small') spacing('small');
+  width: 100%;
+  border-width: $border-width--small;
+  border-style: solid;
+  border-color: $color-black;
 
   @include inuit-font-size($inuit-global-font-size);
 
@@ -23,21 +24,40 @@ input:not([type=submit]):not([type=file]) {
   }
 }
 
-input:not([type=submit]):not([type=file]):not([type=search]) {
-  width: 100%;
-}
-
 input:not([type=button]) {
   border: 0px;
 }
 
 
 
-/* Button
+
+
+/* Textarea
    ========================================================================== */
 
-button {
-  border: 0px;
+textarea {
+  padding: spacing('tiny') spacing('small');
+  padding: spacing();
+  width: 100%;
+  border-width: $border-width--small;
+  border-style: solid;
+  border-color: $color-black;
 
-  -webkit-appearance: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+
+
+
+
+/* Label
+   ========================================================================== */
+
+label {
+  display: block;
+  color: $color-black;
+
+  @include inuit-font-size($inuit-global-font-size--small);
 }

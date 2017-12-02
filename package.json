@@ -40,11 +40,14 @@
     "ember-gsap": "^1.0.0-beta1",
     "ember-load-initializers": "^1.0.0",
     "ember-resolver": "^4.0.0",
+    "ember-route-action-helper": "^2.0.6",
     "ember-scrollmagic": "^1.0.0-beta3",
+    "ember-sortable": "^1.10.0",
     "ember-source": "~2.16.0",
     "emberfire": "^2.0.8",
     "eslint-plugin-ember": "^5.0.1",
-    "loader.js": "^4.2.3"
+    "loader.js": "^4.2.3",
+    "torii": "^0.9.6"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"

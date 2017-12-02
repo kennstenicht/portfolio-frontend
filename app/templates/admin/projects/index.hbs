@@ -1,0 +1,13 @@
+{{#sortable-group tagName="div" class="o-flex-table" onChange="reorderItems" as |group|}}
+  {{#each projects as |project|}}
+    {{#sortable-item tagName="div" class="o-flex-table__row" model=project group=group handle=".handle"}}
+      <div class="o-flex-table__column u-10/12">
+        <span class="handle">&varr;</span>
+        {{#link-to 'admin.projects.edit' project.id}}{{project.title}}{{/link-to}}
+      </div>
+      <div class="o-flex-table__column u-2/12">
+        {{boolean-label project.visible 'Veröffentlicht' 'Entwurf'}}
+      </div>
+    {{/sortable-item}}
+  {{/each}}
+{{/sortable-group}}

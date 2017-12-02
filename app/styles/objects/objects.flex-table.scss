@@ -1,0 +1,81 @@
+/* ==========================================================================
+   #FLEX TABLE
+   ========================================================================== */
+
+/**
+ * Horizontal flexbox object with by default not growing child elements.
+ * The Elements with the --flexible modifier will fill the remaining space.
+ */
+
+.o-flex-table {
+  width: 100%;
+
+  &__row {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: spacing('small') 0;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+  &__column {
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding: 0;
+  }
+}
+
+
+/* Size variants.
+   ========================================================================== */
+
+.o-flex-table {
+  &--tiny &__row {
+    padding: spacing('tiny') 0;
+  }
+
+  &--tiny &__column {
+    padding: 0 spacing('tiny');
+  }
+
+}
+
+.o-flex-table {
+  &--small &__row {
+    padding: spacing('small') 0;
+  }
+
+  &--small &__column {
+    padding: 0 spacing('small');
+  }
+
+}
+
+.o-flex-table {
+  &--large &__row {
+    padding: spacing('large') 0;
+  }
+
+  &--large &__column {
+    padding: 0 spacing('large');
+  }
+
+}
+
+.o-flex-table {
+  &--huge &__row {
+    padding: spacing('huge') 0;
+  }
+
+  &--huge &__column {
+    padding: 0 spacing('huge');
+  }
+
+}

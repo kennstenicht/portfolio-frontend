@@ -7,6 +7,15 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  // Admin and Login
+  this.authenticatedRoute('admin');
+  this.route('admin', function() {
+    this.route('projects', function() {
+      this.route('edit', {path: ':id'});
+      this.route('new');
+    });
+    this.route('login');
+  });
 });
 
 export default Router;

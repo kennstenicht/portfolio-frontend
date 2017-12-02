@@ -66,17 +66,13 @@ $color-grey--darker:                #14120f;
    ========================================================================== */
 
 // Border
-$border:                       1px solid;
-
-// Wrapper Width
-$application-wrapper:          1300px;
-
-// Navigation Width
-$sidebar-width:                300px;
-$sidebar-width--home:          500px;
+$border-width--small:               1px;
+$border-width:                      2px;
+$border-width--large:               4px;
+$border-width--huge:                10px;
 
 // Transition
-$transition--base:             0.3s ease-in-out;
+$transition--base:                  0.3s ease-in-out;
 
 // Breakpoints
 $mq-breakpoints: (
@@ -86,3 +82,13 @@ $mq-breakpoints: (
     wide:    1200px,
     huge:    1600px
 );
+
+// Object Layout
+$inuit-use-markup-fix:              false;
+
+// Object Wrapper
+$inuit-wrapper-width:               1800px;
+
+// Utilities Widths
+$inuit-fractions:                   1 2 3 4 5 6 12;
+$inuit-offsets:                     true;
