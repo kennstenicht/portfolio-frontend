@@ -1,0 +1,34 @@
+/* ==========================================================================
+   #INUIT SPACING
+   ========================================================================== */
+
+/**
+ * Inuit Addon
+ *
+ * provide basic spacing variables and a spacing function to calculate a
+ * spacing with an optional offset (e.g. if the element has a board)
+ *
+ * required tools: inuit-rem
+ *
+ * @param {String} size
+ * @param {String} offset in px, em, rem,...
+ * @return {Value} spacing with offset
+ */
+
+$spacings: (
+  'base':  $inuit-global-spacing-unit,
+  'tiny':  $inuit-global-spacing-unit-tiny,
+  'small': $inuit-global-spacing-unit-small,
+  'large': $inuit-global-spacing-unit-large,
+  'big':   $inuit-global-spacing-unit-large + $inuit-global-spacing-unit,
+  'huge':  $inuit-global-spacing-unit-huge,
+  'none':  0
+) !default;
+
+@function spacing($spacing_name: 'base', $offset: 0px, $rem: true) {
+  @if ($rem) {
+    @return inuit-rem(map-get($spacings, $spacing_name) + $offset);
+  } @else {
+    @return map-get($spacings, $spacing_name) + $offset;
+  }
+}

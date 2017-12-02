@@ -1,0 +1,34 @@
+/* ==========================================================================
+   #HEADINGS
+   ========================================================================== */
+
+
+
+/* Mobile headline sizes
+  ========================================================================== */
+
+@include mq($until: desktop) {
+  h1 {
+    @include inuit-font-size($inuit-font-size-mobile-h1);
+  }
+
+  h2 {
+    @include inuit-font-size($inuit-font-size-mobile-h2);
+  }
+
+  h3 {
+    @include inuit-font-size($inuit-font-size-mobile-h3);
+  }
+
+  h4 {
+    @include inuit-font-size($inuit-font-size-mobile-h4);
+  }
+
+  h5{
+    @include inuit-font-size($inuit-font-size-mobile-h5);
+  }
+
+  h6 {
+    @include inuit-font-size($inuit-font-size-mobile-h6);
+  }
+}

@@ -1,0 +1,43 @@
+/* ==========================================================================
+   #Forms
+   ========================================================================== */
+
+/**
+ * Simple default style for all form elements. Anything more opinionated
+ * than simple basic style changes should likely be applied via classes
+ */
+
+/* Input
+   ========================================================================== */
+
+input:not([type=submit]):not([type=file]) {
+  padding: spacing('tiny') 0;
+  border: 0px;
+  background-color: transparent;
+  color: inherit;
+
+  @include inuit-font-size($inuit-global-font-size);
+
+  &:focus {
+    outline: none;
+  }
+}
+
+input:not([type=submit]):not([type=file]):not([type=search]) {
+  width: 100%;
+}
+
+input:not([type=button]) {
+  border: 0px;
+}
+
+
+
+/* Button
+   ========================================================================== */
+
+button {
+  border: 0px;
+
+  -webkit-appearance: none;
+}

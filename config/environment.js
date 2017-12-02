@@ -13,6 +13,12 @@ module.exports = function(environment) {
       databaseURL: process.env.DATABASE_URL,
       storageBucket: process.env.STORAGE_BUCKET,
     },
+
+    'ember-cli-bem': {
+      elemDelimiter: '__',
+      modDelimiter: '--',
+      useKeyValuedMods: true,
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

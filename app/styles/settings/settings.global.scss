@@ -5,6 +5,84 @@
 // The global settings file contains any project-wide variables; things that
 // need to be made available to the entire codebase.
 
-// Standardise some UI treatments.
-$global-radius: 3px !default;
-$global-transition: all 300ms ease-in-out !default;
+
+/* Typographic
+   ========================================================================== */
+
+// Base font size
+$inuit-global-font-size:              16px;
+$inuit-global-font-size--small:       13px;
+$inuit-global-font-size--tiny:        11px;
+
+
+// Heading sizes
+$inuit-font-size-h1:                  76px;
+$inuit-font-size-h2:                  36px;
+$inuit-font-size-h3:                  $inuit-global-font-size;
+$inuit-font-size-h4:                  $inuit-global-font-size--small;
+$inuit-font-size-h5:                  $inuit-global-font-size--small;
+$inuit-font-size-h6:                  $inuit-global-font-size--small;
+
+$inuit-font-size-mobile-h1:           26px;
+$inuit-font-size-mobile-h2:           $inuit-global-font-size;
+$inuit-font-size-mobile-h3:           $inuit-global-font-size;
+$inuit-font-size-mobile-h4:           $inuit-global-font-size--small;
+$inuit-font-size-mobile-h5:           $inuit-global-font-size--small;
+$inuit-font-size-mobile-h6:           $inuit-global-font-size--small;
+
+// Line height
+$inuit-global-line-height:            26px;
+
+// Letter spacing
+$inuit-global-letter-spacing:         0em;
+
+// Font family
+$font-default:                        'Fira Mono', Mono, Helvetica;
+$font-decoration:                     'Fira Sans', Sans;
+
+
+/* Color
+   ========================================================================== */
+
+// Base colors
+$color-primary:                     #46A7C9;
+$color-secondary:                   rgb(92, 109, 159);
+$color-black:                       #000;
+$color-white:                       #fff;
+
+// Shades of grey
+$color-grey--lighter:               #fbfbfb;
+$color-grey--light:                 #f6f6f6;
+$color-grey:                        #dfdfdf;
+$color-grey--dark:                  #e3e3e3;
+$color-grey--darker:                #14120f;
+
+
+
+
+
+
+/* Stuff
+   ========================================================================== */
+
+// Border
+$border:                       1px solid;
+
+// Wrapper Width
+$application-wrapper:          1300px;
+
+// Navigation Width
+$sidebar-width:                300px;
+$sidebar-width--home:          500px;
+
+// Transition
+$transition--base:             0.3s ease-in-out;
+
+// Breakpoints
+$mq-breakpoints: (
+    mobile:  320px,
+    tablet:  740px,
+    desktop: 1024px,
+    wide:    1200px,
+    huge:    1600px
+);

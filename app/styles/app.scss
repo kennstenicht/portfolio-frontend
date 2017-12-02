@@ -8,6 +8,8 @@
 @import "inuitcss/tools/tools.clearfix";
 @import "inuitcss/tools/tools.hidden";
 @import "sass-mq/mq";
+@import "tools/tools.rem";
+@import "tools/tools.spacing";
 
 // GENERIC
 @import "inuitcss/generic/generic.box-sizing";
@@ -20,6 +22,12 @@
 @import "inuitcss/elements/elements.images";
 @import "inuitcss/elements/elements.headings";
 @import "inuitcss/elements/elements.tables";
+@import "elements/elements.forms";
+@import "elements/elements.headings";
+@import "elements/elements.images";
+@import "elements/elements.links";
+@import "elements/elements.page";
+@import "elements/elements.videos";
 
 // OBJECTS
 @import "inuitcss/objects/objects.block";
@@ -36,7 +44,6 @@
 @import "inuitcss/objects/objects.wrapper";
 
 // COMPONENTS
-@import "components/_example.components.button";
 
 // UTILITIES
 @import "inuitcss/utilities/utilities.clearfix";
