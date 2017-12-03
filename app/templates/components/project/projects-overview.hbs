@@ -1,0 +1,5 @@
+{{#swiper-container options=swiperOptions}}
+  {{#each projects as |project|}}
+    {{project/project-preview project=project data-slug=project.slug}}
+  {{/each}}
+{{/swiper-container}}

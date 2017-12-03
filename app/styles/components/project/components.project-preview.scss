@@ -1,0 +1,51 @@
+.c-project-preview {
+  position: relative;
+  flex-shrink: 0;
+  width: 40vw;
+  height: 40vh;
+  // outline: $border-width--huge solid red;
+  background-color: $color-grey;
+  background-position: bottom center;
+  background-size: cover;
+
+  &--binuu {
+    background-image: url('projects/binuu/binuu_preview.jpg');
+  }
+
+  &--eels {
+    background-image: url('projects/eels/eels_preview.jpg');
+  }
+
+  &--disaster-mgmt {
+    background-image: url('projects/disaster-mgmt/disaster-mgmt_preview.jpg');
+  }
+
+  &--ad-hoc {
+    background-image: url('projects/ad-hoc/ad-hoc_preview.jpg');
+  }
+
+  &--flutkoerper {
+    background-image: url('projects/flutkoerper/flutkoerper_preview.jpg');
+  }
+
+  &--active {
+    z-index: 999;
+  }
+
+  h2 {
+    position: absolute;
+    bottom: -50px;
+    left: 20px;
+  }
+}
+
+
+@include mq($until: tablet) {
+  .c-project-preview {
+    position: relative;
+    flex-shrink: 0;
+    width: 70vw;
+    height: 30vh;
+    background-color: $color-grey;
+  }
+}

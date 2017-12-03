@@ -13,7 +13,7 @@ export default Component.extend(BEM, ScrollMagicComponentMixin, {
 
   // Scrollmagic scene settings
   duration: 0,
-  offset: 52,
+  offset: 23,
   indicators: {name: 'footer'},
 
   // Class bindings

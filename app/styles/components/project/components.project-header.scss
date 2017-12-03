@@ -1,0 +1,27 @@
+.c-project-header {
+  width: 100%;
+  height: calc(100vh - #{spacing('large')});
+  background-color: $color-grey;
+  background-position: bottom center;
+  background-size: cover;
+
+  &--binuu {
+    background-image: url('projects/binuu/binuu_preview.jpg');
+  }
+
+  &--eels {
+    background-image: url('projects/eels/eels_preview.jpg');
+  }
+
+  &--disaster-mgmt {
+    background-image: url('projects/disaster-mgmt/disaster-mgmt_preview.jpg');
+  }
+
+  &--ad-hoc {
+    background-image: url('projects/ad-hoc/ad-hoc_preview.jpg');
+  }
+
+  &--flutkoerper {
+    background-image: url('projects/flutkoerper/flutkoerper_preview.jpg');
+  }
+}

@@ -5,6 +5,9 @@
 $frame-segment-width: spacing();
 
 .c-application-frame {
+  position: fixed;
+  z-index: 9999;
+
   &__segment {
     position: fixed;
     background-color: #000;

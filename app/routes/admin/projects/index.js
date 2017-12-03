@@ -17,7 +17,7 @@ export default Route.extend({
   // Actions
   actions: {
     reorderItems(itemModels) {
-      const controller = this.controllerFor('admin.projects.index').
+      const controller = this.controllerFor('admin.projects.index');
 
       itemModels.forEach(function (project, index) {
         set(project, 'position', index);

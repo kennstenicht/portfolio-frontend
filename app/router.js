@@ -11,10 +11,14 @@ Router.map(function() {
   this.authenticatedRoute('admin');
   this.route('admin', function() {
     this.route('projects', function() {
-      this.route('edit', {path: ':id'});
+      this.route('edit', { path: ':id' });
       this.route('new');
     });
     this.route('login');
+  });
+
+  this.route('projects', function() {
+    this.route('show', { path: ':project_slug' });
   });
 });
 
