@@ -1,10 +1,9 @@
 /* ==========================================================================
-   #APPLICATION WRAPPER
+   #APPLICATION CONTENT
    ========================================================================== */
 
-.c-application-wrapper {
+.c-application-content {
   position: relative;
-  padding: spacing();
-  min-height: 100vh;
-  height: 1px;
+  z-index: 1;
+  min-height: 100%;
 }

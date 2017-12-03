@@ -1,6 +1,8 @@
 {{#application/application-wrapper}}
   {{application/application-frame}}
   {{application/application-header}}
-  {{outlet}}
+  {{#application/application-content}}
+    {{outlet}}
+  {{/application/application-content}}
   {{application/application-footer}}
 {{/application/application-wrapper}}

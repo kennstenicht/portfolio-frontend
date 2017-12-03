@@ -20,7 +20,7 @@ export default Component.extend(BEM, {
         provider: provider,
         email: get(this,'email'),
         password: get(this,'password')
-      }).then(bind(this, function(data) {
+      }).then(bind(this, function() {
         this.sendAction('signedIn');
       }));
     }
