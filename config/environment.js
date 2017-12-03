@@ -28,6 +28,11 @@ module.exports = function(environment) {
       sessionServiceName: 'session'
     },
 
+    ifa: {
+      enabled: true,
+      inline: true
+    },
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

@@ -14,6 +14,10 @@
   top: 32vh;
 }
 
+.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+  bottom: 12vh;
+}
+
 .swiper-pagination-bullet {
   width: 4vw;
   height: 1vh;
