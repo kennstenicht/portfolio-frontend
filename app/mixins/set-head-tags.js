@@ -1,16 +1,17 @@
 import Mixin from '@ember/object/mixin';
 import { inject as service } from '@ember/service';
 import { set, get } from '@ember/object';
+import { bind } from '@ember/runloop';
 
 export default Mixin.create({
-  assetMap: service(),
+  firebaseApp: service(),
 
   afterModel() {
     this.setHeadTags();
   },
 
   setHeadTags() {
-    let image = get(this, 'assetMap').resolve(get(this, 'metaImage'));
+    const storageRef = this.get('firebaseApp').storage().ref();
     let headTags = new Array();
 
     if(get(this, 'metaTitle')) {
@@ -78,29 +79,35 @@ export default Mixin.create({
       headTags = headTags.concat(descriptionTags);
     }
 
-    if(image) {
-      let imageTags = [
-        // OG Description
-        {
-          type: 'meta',
-          tagId: 'meta-og-image',
-          attrs: {
-            property: 'og:image',
-            content: 'https://wiedenmann.io' + image
+    if(get(this, 'metaImage')) {
+      const imageRef = storageRef.child( get(this, 'metaImage') );
+      imageRef.getDownloadURL().then(bind(this, function(url) {
+        let imageTags = [
+          // OG Description
+          {
+            type: 'meta',
+            tagId: 'meta-og-image',
+            attrs: {
+              property: 'og:image',
+              content: url
+            }
+          },
+          // Twitter Image
+          {
+            type: 'meta',
+            tagId: 'meta-twitter-image',
+            attrs: {
+              property: 'twitter:image',
+              content: url
+            }
           }
-        },
-        // Twitter Image
-        {
-          type: 'meta',
-          tagId: 'meta-twitter-image',
-          attrs: {
-            property: 'twitter:image',
-            content: 'https://wiedenmann.io' + image
-          }
-        }
-      ];
+        ];
 
-      headTags = headTags.concat(imageTags);
+        if(get(this, 'headTags')) {
+          headTags = get(this, 'headTags').concat(imageTags);
+        }
+        set(this, 'headTags', headTags);
+      }));
     }
 
     if(get(this, 'metaType') == 'article') {

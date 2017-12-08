@@ -11,7 +11,7 @@ export default Route.extend(ScrollControllerRouteMixin, SetHeadTags, {
   // Variables
   metaTitle: 'A berlin based Front-End Engenieer & UI/UX-Designer | Christoph Wiedenmann',
   metaDescription: 'ag-prop ist ein Berliner Digitalstudio. Für unsere Kunden entwickeln wir digitale Produkte, Services und Kommunikationsstrategien.',
-  metaImage: 'assets/default_sharing.jpg',
+  metaImage: 'images/default_sharing.jpg',
 
   // Hooks
   beforeModel: function() {

@@ -28,7 +28,6 @@
     "ember-cli-head": "^0.4.0",
     "ember-cli-htmlbars": "^2.0.1",
     "ember-cli-htmlbars-inline-precompile": "^1.0.0",
-    "ember-cli-ifa": "^0.6.1",
     "ember-cli-inject-live-reload": "^1.4.1",
     "ember-cli-inuitcss": "^1.0.1",
     "ember-cli-meta-tags": "^4.0.0",
