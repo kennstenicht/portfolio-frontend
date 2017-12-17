@@ -17,6 +17,7 @@ Router.map(function() {
     this.route('login');
   });
 
+  this.route('home', { path: '/' });
   this.route('projects', function() {
     this.route('show', { path: ':project_slug' });
   });
