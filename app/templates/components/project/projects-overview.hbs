@@ -1,4 +1,7 @@
-{{#swiper-container options=swiperOptions}}
+{{#swiper-container
+  options=swiperOptions
+  currentSlide=swiper.position
+}}
   {{#each projects as |project|}}
     {{project/project-preview project=project data-slug=project.slug}}
   {{/each}}

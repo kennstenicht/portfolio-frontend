@@ -11,7 +11,7 @@
    ========================================================================== */
 
 input:not([type=submit]):not([type=file]):not([type=search]) {
-  padding: spacing('small') spacing('small');
+  padding: spacing('small');
   width: 100%;
   border-width: $border-width--small;
   border-style: solid;
@@ -36,8 +36,7 @@ input:not([type=button]) {
    ========================================================================== */
 
 textarea {
-  padding: spacing('tiny') spacing('small');
-  padding: spacing();
+  padding: spacing('small');
   width: 100%;
   border-width: $border-width--small;
   border-style: solid;

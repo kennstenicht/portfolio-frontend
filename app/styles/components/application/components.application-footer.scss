@@ -9,6 +9,7 @@
     position: fixed;
     right: spacing('large');
     bottom: - spacing();
+    z-index: 999;
     text-transform: lowercase;
     font-weight: bold;
     transition: bottom $transition--base;

@@ -2,7 +2,7 @@
   <div class="o-layout__item u-3/4">
     <div class="o-layout">
       <div class="o-layout__item u-1/2">
-        <label>Client</label>
+        <label>Title</label>
         {{input value=project.title}}
       </div>
       <div class="o-layout__item u-1/2">
@@ -12,7 +12,7 @@
     </div>
     <div class="o-layout">
       <div class="o-layout__item">
-        <label>Project Title</label>
+        <label>Subtitle</label>
         {{input value=project.subtitle}}<br>
       </div>
     </div>
@@ -38,4 +38,4 @@
   </div>
 </div>
 
-<div {{action 'save' project}}>Save</div>
+<div {{action 'save' project}} class="o-btn">Save</div>

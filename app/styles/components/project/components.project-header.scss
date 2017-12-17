@@ -1,4 +1,5 @@
 .c-project-header {
+  position: relative;
   width: 100%;
   height: calc(100vh - #{spacing('large')});
   background-color: $color-grey;
@@ -23,5 +24,11 @@
 
   &--flutkoerper {
     background-image: url('projects/flutkoerper/flutkoerper_preview.jpg');
+  }
+
+  &__title {
+    position: absolute;
+    bottom: spacing('large');
+    left: spacing();
   }
 }
