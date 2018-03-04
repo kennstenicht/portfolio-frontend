@@ -49,6 +49,7 @@
     "ember-source": "~2.16.0",
     "emberfire": "^2.0.8",
     "eslint-plugin-ember": "^5.0.1",
+    "inuitcss": "^6.0.0",
     "liquid-fire": "^0.29.1",
     "loader.js": "^4.2.3",
     "torii": "^0.9.6"
