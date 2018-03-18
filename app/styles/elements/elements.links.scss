@@ -8,7 +8,16 @@
  */
 
 a {
+  background-image: linear-gradient(70deg, #84fab0 0%, #8fd3f4 100%);
+  background-position: 0 88%;
+  background-size: 100% 0.2em;
+  background-repeat: no-repeat;
   color: inherit;
   text-decoration: none;
   cursor: pointer;
+  transition: background-size 0.25s ease-in-out;
+
+  @include attention() {
+    background-size: 100% 100%;
+  }
 }

@@ -1,0 +1,9 @@
+a {
+  &.u-no-underline {
+    background-image: none;
+  }
+
+  &.u-no-start-underline {
+    background-size: 100% 0px;
+  }
+}
