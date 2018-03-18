@@ -61,7 +61,38 @@ $color-grey--dark:                  #e3e3e3;
 $color-grey--darker:                #14120f;
 
 
-
+$page-colors: (
+  'default': (
+    'primary'     : #000000,
+    'secondary'   : #000000,
+    'typo'        : #000000,
+    'background'  : #ffffff
+  ),
+  'ad-hoc': (
+    'primary'     : #3c9588,
+    'secondary'   : #7ea61c,
+    'typo'        : #ffffff,
+    'background'  : #ffffff
+  ),
+  'eels': (
+    'primary'     : #dda73f,
+    'secondary'   : #7ea61c,
+    'typo'        : #000000,
+    'background'  : #ffffff
+  ),
+  'binuu': (
+    'primary'     : #f7e54e,
+    'secondary'   : #7ea61c,
+    'typo'        : #ffffff,
+    'background'  : #ffffff
+  ),
+  'disaster-mgmt': (
+    'primary'     : #f7e54e,
+    'secondary'   : #7ea61c,
+    'typo'        : #ffffff,
+    'background'  : #ffffff
+  )
+);
 
 
 

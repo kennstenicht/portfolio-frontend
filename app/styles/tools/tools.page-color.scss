@@ -1,0 +1,28 @@
+/* ==========================================================================
+   #SECTION COLOR
+   ========================================================================== */
+/**
+ * Apply section-color modifier in one go.
+ */
+
+
+@mixin page-color($modifierElement: 'c-application-wrapper', $property: 'background-color', $opacity: 1, $type: 'primary') {
+  @each $page, $colors in $page-colors {
+    @if ($page == 'default') {
+      & {
+        #{$property}: rgba(map-get($colors, $type), $opacity);
+      }
+    } @else {
+      @if( $modifierElement == 'self') {
+        &--#{$page} {
+          #{$property}: rgba(map-get($colors, $type), $opacity);
+        }
+      } @else {
+        .#{$modifierElement}--#{$page} & {
+          #{$property}: rgba(map-get($colors, $type), $opacity);
+        }
+      }
+
+    }
+  }
+}

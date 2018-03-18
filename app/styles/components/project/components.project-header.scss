@@ -6,6 +6,8 @@
   background-position: bottom center;
   background-size: cover;
 
+  @include page-color($modifierElement: 'self', $property: 'color', $type: 'typo');
+
   &--binuu {
     background-image: url('projects/binuu/binuu_preview.jpg');
   }
