@@ -5,12 +5,13 @@
 .c-application-footer {
   position: relative;
 
-  &__copy {
+  &__wrapper {
     position: fixed;
-    right: spacing('large');
+    right: spacing('large+small');
     bottom: - spacing();
-    z-index: 999;
-    text-transform: lowercase;
+    left: spacing('large+small');
+    z-index: 900;
+    display: flex;
     font-weight: bold;
     transition: bottom $transition--base;
     transform-origin: 100% 100%;
@@ -18,7 +19,23 @@
     @include inuit-font-size($inuit-global-font-size--small);
   }
 
-  &--toggled &__copy {
-    bottom: spacing();
+  &--toggled &__wrapper{
+    bottom: spacing('base');
   }
+
+    &__navigation {
+      margin: 0px;
+      width: 50%;
+      text-transform: lowercase;
+    }
+
+      &__item {
+        display: inline-block;
+      }
+
+    &__copy {
+      width: 50%;
+      text-align: right;
+      text-transform: lowercase;
+    }
 }
