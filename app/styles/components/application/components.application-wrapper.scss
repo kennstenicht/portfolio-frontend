@@ -4,7 +4,7 @@
 
 .c-application-wrapper {
   position: relative;
-  padding: spacing();
+  padding: spacing('small');
   min-height: 100vh;
   height: 1px;
 }

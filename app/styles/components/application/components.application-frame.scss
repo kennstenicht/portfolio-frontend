@@ -2,7 +2,7 @@
    #APPLICATION FRAME
    ========================================================================== */
 
-$frame-segment-width: spacing();
+$frame-segment-width: spacing('small');
 
 .c-application-frame {
   position: fixed;
@@ -10,13 +10,16 @@ $frame-segment-width: spacing();
 
   &__segment {
     position: fixed;
-    background-color: #000;
+    background-color: RGB(66, 150, 143);
+    background-image: linear-gradient(70deg, #84fab0 10%, #8fd3f4 90%);
+
 
     &--top {
       top: 0px;
       right: 0px;
       left: 0px;
       height: $frame-segment-width;
+      transform: rotate(180deg);
     }
 
     &--right {
@@ -24,6 +27,7 @@ $frame-segment-width: spacing();
       right: 0px;
       bottom: 0px;
       width: $frame-segment-width;
+      transform: rotate(180deg);
     }
 
     &--bottom {
