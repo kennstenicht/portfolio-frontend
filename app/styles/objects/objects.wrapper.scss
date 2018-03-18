@@ -43,6 +43,12 @@
 /* Size variants.
    ========================================================================== */
 
+.o-wrapper--small {
+  margin-right: auto;
+  margin-left: spacing('huge+large');
+  max-width: $inuit-wrapper-width--small;
+}
+
 .o-wrapper--full {
   margin-right: 0px;
   margin-left: 0px;
