@@ -1,7 +1,7 @@
 .c-project-header {
   position: relative;
   width: 100%;
-  height: calc(100vh - #{spacing('large')});
+  height: calc(100vh - #{spacing()});
   background-color: $color-grey;
   background-position: bottom center;
   background-size: cover;
