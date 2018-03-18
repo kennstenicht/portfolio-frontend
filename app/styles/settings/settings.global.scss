@@ -9,10 +9,13 @@
 /* Typographic
    ========================================================================== */
 
+// Baseline
+$inuit-global-baseline: 8px;
+
 // Base font size
 $inuit-global-font-size:              16px;
-$inuit-global-font-size--small:       13px;
-$inuit-global-font-size--tiny:        11px;
+$inuit-global-font-size--small:       14px;
+$inuit-global-font-size--tiny:        12px;
 
 
 // Heading sizes
@@ -74,7 +77,13 @@ $border-width--huge:                10px;
 // Transition
 $transition--base:                  0.3s ease-in-out;
 
-// Breakpoints
+
+
+
+
+/* Breakpoints
+   ========================================================================== */
+
 $mq-breakpoints: (
     mobile:  320px,
     tablet:  740px,
@@ -83,11 +92,25 @@ $mq-breakpoints: (
     huge:    1600px
 );
 
+
+
+
+
+/* Objects
+   ========================================================================== */
+
 // Object Layout
 $inuit-use-markup-fix:              false;
 
 // Object Wrapper
 $inuit-wrapper-width:               1800px;
+
+
+
+
+
+/* Utilities
+   ========================================================================== */
 
 // Utilities Widths
 $inuit-fractions:                   1 2 3 4 5 6 12;

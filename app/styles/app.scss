@@ -1,7 +1,8 @@
 // SETTINGS
-@import "inuitcss/settings/settings.core";
 @import "settings/settings.config";
+@import "settings/settings.fonts";
 @import "settings/settings.global";
+@import "inuitcss/settings/settings.core";
 
 // TOOLS
 @import "inuitcss/tools/tools.font-size";
