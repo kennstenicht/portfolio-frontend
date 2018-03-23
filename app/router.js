@@ -22,6 +22,7 @@ Router.map(function() {
     this.route('show', { path: ':project_slug' });
   });
   this.route('imprint');
+  this.route('about');
 });
 
 export default Router;
