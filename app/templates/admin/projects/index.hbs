@@ -1,3 +1,12 @@
+<div class="o-layout">
+  <div class="o-layout__item u-10/12">
+    <h1>Projects</h1>
+  </div>
+  <div class="o-layout__item u-2/12 u-align-right">
+    {{#link-to 'admin.projects.new'}}New{{/link-to}}
+  </div>
+</div>
+
 {{#sortable-group tagName="div" class="o-flex-table" onChange="reorderItems" as |group|}}
   {{#each projects as |project|}}
     {{#sortable-item tagName="div" class="o-flex-table__row" model=project group=group handle=".handle"}}
@@ -5,7 +14,7 @@
         <span class="handle">&varr;</span>
         {{#link-to 'admin.projects.edit' project.id}}{{project.title}}{{/link-to}}
       </div>
-      <div class="o-flex-table__column u-2/12">
+      <div class="o-flex-table__column u-2/12 u-align-right">
         {{boolean-label project.visible 'Veröffentlicht' 'Entwurf'}}
       </div>
     {{/sortable-item}}
