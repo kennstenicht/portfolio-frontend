@@ -5,7 +5,7 @@ const Project = DS.Model.extend({
   slug: DS.attr('string'),
   subtitle: DS.attr('string'),
   excerpt: DS.attr('string'),
-  meta: DS.attr('string'),
+  metaInfo: DS.attr('string'),
   visible: DS.attr('boolean'),
 
   position: DS.attr('number')

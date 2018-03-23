@@ -41,20 +41,20 @@
     "ember-concurrency": "^0.8.12",
     "ember-data": "~3.0.0",
     "ember-export-application-global": "^2.0.0",
+    "ember-fetch": "^3.4.4",
     "ember-gsap": "^1.0.0-beta1",
     "ember-load-initializers": "^1.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-resolver": "^4.0.0",
     "ember-route-action-helper": "^2.0.6",
     "ember-scrollmagic": "^1.0.0-beta3",
+    "ember-simple-auth": "^1.5.1",
     "ember-sortable": "^1.10.0",
     "ember-source": "~3.0.0",
-    "emberfire": "^2.0.9",
     "eslint-plugin-ember": "^5.0.1",
     "inuitcss": "^6.0.0",
     "liquid-fire": "^0.29.1",
-    "loader.js": "^4.2.3",
-    "torii": "^0.9.6"
+    "loader.js": "^4.2.3"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"

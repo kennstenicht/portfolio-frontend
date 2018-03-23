@@ -4,12 +4,7 @@ import SetHeadTags from '../../mixins/set-head-tags';
 
 export default Route.extend(SetHeadTags, {
   model(params) {
-    return get(this, 'store').query('project', {
-      orderBy: 'slug',
-      equalTo: params.project_slug
-    }).then(function(data) {
-      return data.get('firstObject');
-    });
+    return get(this, 'store').findRecord('project', params.project_slug);
   },
 
   afterModel(model) {

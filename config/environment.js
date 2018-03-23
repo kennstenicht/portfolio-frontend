@@ -6,12 +6,6 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
-    firebase: {
-      apiKey: process.env.API_KEY,
-      authDomain: process.env.AUTH_DOMAIN,
-      databaseURL: process.env.DATABASE_URL,
-      storageBucket: process.env.STORAGE_BUCKET,
-    },
 
     'ember-cli-bem': {
       elemDelimiter: '__',
@@ -23,13 +17,13 @@ module.exports = function(environment) {
       indicators: true
     },
 
-    torii: {
-      sessionServiceName: 'session'
-    },
-
     ifa: {
       enabled: true,
       inline: true
+    },
+
+    fastboot: {
+      hostWhitelist: ['wiedenmann.io', 'staging.wiedenmann.io', /^localhost:\d+$/]
     },
 
     EmberENV: {

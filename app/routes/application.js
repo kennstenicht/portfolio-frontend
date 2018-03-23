@@ -13,11 +13,6 @@ export default Route.extend(ScrollControllerRouteMixin, SetHeadTags, {
   metaDescription: 'ag-prop ist ein Berliner Digitalstudio. Für unsere Kunden entwickeln wir digitale Produkte, Services und Kommunikationsstrategien.',
   metaImage: 'images/default_sharing.jpg',
 
-  // Hooks
-  beforeModel: function() {
-    return get(this, 'session').fetch().catch(function() {});
-  },
-
   // Actions
   actions: {
     accessDenied() {

@@ -16,13 +16,13 @@ export default Component.extend(BEM, {
   // Actions
   actions: {
     signIn: function(provider) {
-      get(this,'session').open('firebase', {
-        provider: provider,
-        email: get(this,'email'),
-        password: get(this,'password')
-      }).then(bind(this, function() {
-        this.sendAction('signedIn');
-      }));
+      // get(this,'session').open('firebase', {
+      //   provider: provider,
+      //   email: get(this,'email'),
+      //   password: get(this,'password')
+      // }).then(bind(this, function() {
+      //   this.sendAction('signedIn');
+      // }));
     }
   }
 });

@@ -1,9 +1,8 @@
 import Route from '@ember/routing/route';
+import { get } from '@ember/object';
 
 export default Route.extend({
   model(params) {
-    let projects = this.modelFor('admin.projects');
-
-    return projects.findBy('id', params.id);
+    return get(this, 'store').findRecord('project', params.id);
   }
 });

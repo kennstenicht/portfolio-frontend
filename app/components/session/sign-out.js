@@ -15,7 +15,7 @@ export default Component.extend(BEM, {
   // Actions
   actions: {
     signOut: function() {
-      get(this,'session').close();
+      get(this, 'session').invalidate();
     },
   }
 });

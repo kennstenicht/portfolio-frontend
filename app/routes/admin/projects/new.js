@@ -1,7 +1,8 @@
 import Route from '@ember/routing/route';
+import { get } from '@ember/object';
 
 export default Route.extend({
   model() {
-    return this.store.createRecord('project');
+    return get(this, 'store').createRecord('project');
   }
 });
