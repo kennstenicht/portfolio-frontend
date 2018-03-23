@@ -1,6 +1,12 @@
 .c-projects-overview {
   width: 100%;
   height: calc(100vh - #{spacing('large')});
+
+  &__header {
+    position: absolute;
+    top: 20vh;
+    right: 0vw;
+  }
 }
 
 .swiper-container {
@@ -11,16 +17,19 @@
   height: 100%;
 }
 
-.swiper-wrapper {
-  top: 32vh;
-}
-
 .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
-  bottom: 12vh;
+  position: relative;
+  bottom: 10vh;
+  word-spacing: 0px;
+  font-size: 0px;
+  transition: all 0s ease-in-out;
 }
 
 .swiper-pagination-bullet {
-  width: 4vw;
+  display: inline-block;
+  margin-right: spacing('tiny');
+  width: 4%;
   height: 1vh;
   border-radius: 0px;
+  transition: all $transition--base;
 }

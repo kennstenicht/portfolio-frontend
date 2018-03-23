@@ -1,8 +1,14 @@
-{{#swiper-container
-  options=swiperOptions
-  currentSlide=swiper.position
-}}
-  {{#each projects as |project|}}
-    {{project/project-preview project=project data-slug=project.slug}}
-  {{/each}}
-{{/swiper-container}}
+<header class="{{elem 'header'}}">
+  <h1 class="{{elem 'title'}}">Projects</h1>
+</header>
+
+<section class="{{elem 'swiper'}}">
+  {{#swiper-container
+    options=swiperOptions
+    currentSlide=swiper.position
+  }}
+    {{#each projects as |project|}}
+      {{project/project-preview project=project data-preview-background=project.slug}}
+    {{/each}}
+  {{/swiper-container}}
+</section>

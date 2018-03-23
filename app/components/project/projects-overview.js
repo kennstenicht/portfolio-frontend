@@ -7,22 +7,23 @@ export default Component.extend(BEM, {
   // Services
   swiper: service(),
 
-  // Class bindings
+  // Defaults
+  tagName: 'article',
   blockName: 'c-projects-overview',
 
-  // Swiper Options
+  // Computed Properties
   swiperOptions: computed(function () {
     return {
       slidesPerView: 'auto',
       centeredSlides: true,
       grapCursor: true,
       freeMode: true,
-      freeModeSticky: true,
       keyboardControl: true,
       mousewheelControl: true,
       mousewheelReleaseOnEdges: true,
 
       pagination: '.swiper-pagination',
+
       paginationClickable: true,
 
       slideClass: 'c-project-preview',
