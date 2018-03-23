@@ -12,6 +12,9 @@ export default Component.extend({
       model.save().then(this._transitionToProjects.bind(this));
     },
 
+    deleteRecord(model) {
+      model.destroyRecord().then(this._transitionToProjects.bind(this));
+    },
   },
 
   // Privat functions
