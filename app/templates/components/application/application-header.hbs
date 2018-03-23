@@ -1,7 +1,8 @@
 {{#link-to 'home' class=(concat (elem 'logo') ' u-no-underline')}}Christoph Wiedenmann{{/link-to}}
 <div class="{{elem 'navigation'}}">
   <ul class="o-list-inline">
-    <li class="o-list-inline__item">{{link-to 'Projects' 'projects' class="u-no-underline"}}</li>
+    <li class="o-list-inline__item">{{link-to 'Projects' 'projects' class="u-no-underline"}} —</li>
+    <li class="o-list-inline__item">{{link-to 'About' 'about' class="u-no-underline"}}</li>
     {{#if session.isAuthenticated}}
       <li class="o-list-inline__item">{{link-to 'Admin' 'admin.projects'}}</li>
       <li class="o-list-inline__item">{{session/sign-out signedOut=(route-action 'transitionTo' 'home')}}</li>

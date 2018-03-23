@@ -1,33 +1,45 @@
 export default function(){
+  const projectExplodeDuration = 600;
+
   this.transition(
     this.fromRoute('projects.index'),
     this.toRoute('projects.show'),
     this.use('explode', {
-      matchBy: 'data-slug',
-      use: ['fly-to', {duration: 1000, easing: 'easeInOutQuart'}]
+      matchBy: 'data-preview-background',
+      use: ['fly-to', {duration: projectExplodeDuration, easing: 'easeInOutQuart'}]
     },{
       pickOld: '.c-project-preview--prev',
-      use: ['toLeft', {duration: 1000, easing: 'easeInOutQuart'}]
+      use: ['toLeft', {duration: projectExplodeDuration, easing: 'easeInOutQuart'}]
     },{
       pickOld: '.c-project-preview--next',
-      use: ['toRight', {duration: 1000, easing: 'easeInOutQuart'}]
+      use: ['toRight', {duration: projectExplodeDuration, easing: 'easeInOutQuart'}]
     },{
-      matchBy: 'data-title',
-      use: ['fly-to', {duration: 1000, easing: 'easeInOutQuart'}]
+      matchBy: 'data-preview-title',
+      use: ['typo', ['font-size', 'padding-left'], {duration: projectExplodeDuration, easing: 'easeInOutQuart'}]
     },{
-      use: ['fade', {duration: 1000 / 2}]
+      use: ['fade', {duration: projectExplodeDuration / 2}]
     }),
     this.reverse('scrollThen', 'explode', { duration: 500 }, {
-      matchBy: 'data-slug',
-      use: ['fly-to', {duration: 1000, easing: 'easeInOutQuart'}]
+      matchBy: 'data-preview-background',
+      use: ['fly-to', {duration: projectExplodeDuration, easing: 'easeInOutQuart'}]
     },{
       pickNew: '.c-project-preview--prev',
-      use: ['toRight', {duration: 1000, easing: 'easeInOutQuart'}]
+      use: ['toRight', {duration: projectExplodeDuration, easing: 'easeInOutQuart'}]
     },{
       pickNew: '.c-project-preview--next',
-      use: ['toLeft', {duration: 1000, easing: 'easeInOutQuart'}]
-    }, {
-      use: ['fade', {duration: 1000 / 2}]
+      use: ['toLeft', {duration: projectExplodeDuration, easing: 'easeInOutQuart'}]
+    },{
+      matchBy: 'data-preview-title',
+      use: ['typo', ['font-size', 'padding-left'], {duration: projectExplodeDuration, easing: 'easeInOutQuart'}]
+    },{
+      use: ['fade', {duration: projectExplodeDuration / 2}]
     })
+  );
+
+  this.transition(
+    this.fromRoute('home'),
+    this.toRoute('projects'),
+    this.use('toLeft'),
+    this.reverse('toRight')
   );
 }

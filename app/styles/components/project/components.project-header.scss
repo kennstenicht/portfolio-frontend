@@ -5,9 +5,26 @@
   background-color: $color-grey;
   background-position: bottom center;
   background-size: cover;
+  color: #fff;
+  // @include page-color($modifierElement: 'self', $property: 'color', $type: 'typo');
 
-  @include page-color($modifierElement: 'self', $property: 'color', $type: 'typo');
+  &__header {
+    position: absolute;
+    bottom: spacing();
+    left: spacing();
+    color: #fff;
+  }
+}
 
+
+
+
+
+
+/* Project Images
+   ========================================================================== */
+
+.c-project-header {
   &--binuu {
     background-image: url('projects/binuu/binuu_preview.jpg');
   }
@@ -26,11 +43,5 @@
 
   &--flutkoerper {
     background-image: url('projects/flutkoerper/flutkoerper_preview.jpg');
-  }
-
-  &__title {
-    position: absolute;
-    bottom: spacing('large');
-    left: spacing();
   }
 }

@@ -1,14 +1,36 @@
 .c-project-preview {
   position: relative;
   flex-shrink: 0;
-  margin: 0 20px;
+  margin: auto spacing();
   width: 40vw;
-  height: 40vh;
-  // outline: $border-width--huge solid red;
+  height: 36vh;
   background-color: $color-grey;
   background-position: bottom center;
   background-size: cover;
+  box-shadow: 0px 0px spacing('large') rgba(34, 34, 34, 0.6);
+  cursor: pointer;
 
+  @include page-color($modifierElement: 'self', $property: 'color', $type: 'typo');
+
+  &--active {
+    z-index: 999;
+  }
+
+  &__header {
+    position: absolute;
+    bottom: spacing();
+    left: spacing();
+  }
+}
+
+
+
+
+
+/* Project Images
+   ========================================================================== */
+
+.c-project-preview {
   &--binuu {
     background-image: url('projects/binuu/binuu_preview.jpg');
   }
@@ -28,18 +50,14 @@
   &--flutkoerper {
     background-image: url('projects/flutkoerper/flutkoerper_preview.jpg');
   }
-
-  &--active {
-    z-index: 999;
-  }
-
-  h2 {
-    position: absolute;
-    bottom: -50px;
-    left: 20px;
-  }
 }
 
+
+
+
+
+/* Media Queries
+   ========================================================================== */
 
 @include mq($until: tablet) {
   .c-project-preview {

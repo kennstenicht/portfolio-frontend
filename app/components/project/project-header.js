@@ -8,7 +8,7 @@ export default Component.extend(BEM, {
   swiper: service(),
 
   // Attribute bidnings
-  attributeBindings: ['data-slug'],
+  attributeBindings: ['data-preview-background'],
 
   // Class bindings
   blockName: 'c-project-header',
