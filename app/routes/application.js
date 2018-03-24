@@ -1,5 +1,4 @@
 import Route from '@ember/routing/route';
-import { get } from '@ember/object';
 import { inject as service } from '@ember/service';
 import ScrollControllerRouteMixin from 'ember-scrollmagic/mixins/scroll-controllers/route-mixin';
 import SetHeadTags from '../mixins/set-head-tags';
@@ -15,10 +14,6 @@ export default Route.extend(ScrollControllerRouteMixin, SetHeadTags, {
 
   // Actions
   actions: {
-    accessDenied() {
-      this.transitionTo('admin.login');
-    },
-
     transitionTo(route, model) {
       if(model) {
         this.transitionTo(route, model);
