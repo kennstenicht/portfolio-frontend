@@ -1,7 +1,6 @@
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
-import { bind } from '@ember/runloop';
-import { get } from '@ember/object';
+import { get, set } from '@ember/object';
 import BEM from 'ember-cli-bem/mixins/bem';
 
 export default Component.extend(BEM, {
@@ -15,14 +14,13 @@ export default Component.extend(BEM, {
 
   // Actions
   actions: {
-    signIn: function(provider) {
-      // get(this,'session').open('firebase', {
-      //   provider: provider,
-      //   email: get(this,'email'),
-      //   password: get(this,'password')
-      // }).then(bind(this, function() {
-      //   this.sendAction('signedIn');
-      // }));
+    authenticate: function() {
+      var credentials = this.getProperties('identification', 'password'),
+        authenticator = 'authenticator:token';
+
+      this.get('session').authenticate(authenticator, credentials).catch((reason) => {
+        set(this, 'errorMessage', reason.error || reason);
+      });
     }
   }
 });

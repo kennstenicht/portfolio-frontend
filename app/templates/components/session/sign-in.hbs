@@ -1,12 +1,11 @@
 <br><br><br><br><br><br>
-{{#if session.isAuthenticated}}
-  <p>Du bist bereits eingeloggt</p>
-  {{session/sign-out}}
-{{else}}
-  E-Mail: <br>
-  {{input type="text" value=email}}
-  Password: <br>
-  {{input type="password" value=password}}
-
-  <button {{action "signIn" "password"}}>Sign in</button>
-{{/if}}
+<form {{action 'authenticate' on='submit'}}>
+  <label for="identification">Login</label>
+  {{input id='identification' placeholder='Enter Login' value=identification}}
+  <label for="password">Password</label>
+  {{input id='password' placeholder='Enter Password' type='password' value=password}}
+  <button type="submit">Login</button>
+  {{#if errorMessage}}
+    <p>{{errorMessage}}</p>
+  {{/if}}
+</form>

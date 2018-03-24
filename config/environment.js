@@ -26,6 +26,22 @@ module.exports = function(environment) {
       hostWhitelist: ['wiedenmann.io', 'staging.wiedenmann.io', /^localhost:\d+$/]
     },
 
+    'ember-simple-auth':  {
+      authorizer: 'authorizer:token'
+    },
+
+    'ember-simple-auth-token':  {
+      serverTokenEndpoint: 'http://localhost:3000/api/v1/user_token',
+      identificationField: 'email',
+      passwordField: 'password',
+      tokenPropertyName: 'jwt',
+      refreshTokenPropertyName: 'jwt',
+      authorizationPrefix: 'Bearer ',
+      authorizationHeaderName: 'Authorization',
+      headers: {
+      }
+    },
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
