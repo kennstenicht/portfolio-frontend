@@ -13,8 +13,8 @@ Router.map(function() {
       this.route('edit', { path: ':id' });
       this.route('new');
     });
-    this.route('login');
   });
+  this.route('login');
 
   this.route('home', { path: '/' });
   this.route('projects', function() {
