@@ -4,6 +4,8 @@ import { get } from '@ember/object';
 import BEM from 'ember-cli-bem/mixins/bem';
 
 export default Component.extend(BEM, {
+  tagName: 'span',
+
   // Services
   session: service(),
 
@@ -12,10 +14,8 @@ export default Component.extend(BEM, {
   blockNames: 'c-sign-out',
 
 
-  // Actions
-  actions: {
-    signOut: function() {
-      get(this, 'session').invalidate();
-    },
+  // Events
+  click() {
+    get(this, 'session').invalidate();
   }
 });
