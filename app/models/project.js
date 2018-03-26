@@ -1,6 +1,6 @@
 import DS from 'ember-data';
 
-const Project = DS.Model.extend({
+export default DS.Model.extend({
   title: DS.attr('string'),
   slug: DS.attr('string'),
   subtitle: DS.attr('string'),
@@ -10,5 +10,3 @@ const Project = DS.Model.extend({
 
   position: DS.attr('number')
 });
-
-export default Project;
