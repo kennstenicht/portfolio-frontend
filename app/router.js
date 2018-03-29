@@ -13,15 +13,23 @@ Router.map(function() {
       this.route('edit', { path: ':id' });
       this.route('new');
     });
+    this.route('pages', function() {
+      this.route('edit', { path: ':id' });
+      this.route('new');
+    });
   });
   this.route('login');
 
-  this.route('home', { path: '/' });
+  // Pages
+  this.route('pages', { path: '/' }, function() {
+    this.route('show', { path: ':page_slug' });
+    this.route('home', { path: '/' });
+  });
+
+  // Projects
   this.route('projects', function() {
     this.route('show', { path: ':project_slug' });
   });
-  this.route('imprint');
-  this.route('about');
 });
 
 export default Router;

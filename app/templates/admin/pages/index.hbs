@@ -1,0 +1,19 @@
+<div class="o-layout">
+  <div class="o-layout__item u-10/12">
+    <h1>Pages</h1>
+  </div>
+  <div class="o-layout__item u-2/12 u-align-right">
+    {{#link-to 'admin.pages.new'}}New{{/link-to}}
+  </div>
+</div>
+
+{{#sortable-group tagName="div" class="o-flex-table" onChange="reorderItems" as |group|}}
+  {{#each pages as |page|}}
+    {{#sortable-item tagName="div" class="o-flex-table__row" model=page group=group handle=".handle"}}
+      <div class="o-flex-table__column u-12/12">
+        <span class="handle">&varr;</span>
+        {{#link-to 'admin.pages.edit' page}}{{page.title}}{{/link-to}}
+      </div>
+    {{/sortable-item}}
+  {{/each}}
+{{/sortable-group}}

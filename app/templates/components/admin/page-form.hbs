@@ -1,0 +1,27 @@
+<div class="o-layout">
+  <div class="o-layout__item u-3/4">
+    <div class="o-layout">
+      <div class="o-layout__item u-1/2">
+        <label>Title</label>
+        {{input value=page.title}}
+      </div>
+      <div class="o-layout__item u-1/2">
+        <label>Slug</label>
+        {{input value=page.slug}}<br>
+      </div>
+    </div>
+    <div class="o-layout">
+      <div class="o-layout__item">
+        <label>Content</label>
+        {{#each-in page.content as |sectionName sectionContent|}}
+          {{input value=sectionName}}
+          {{textarea value=sectionContent}}
+        {{/each-in}}
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div {{action 'save' page}} class="o-btn">Save</div>
+<div {{action 'deleteRecord' page}} class="o-btn">Delete</div>
