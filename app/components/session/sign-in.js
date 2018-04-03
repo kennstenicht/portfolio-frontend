@@ -1,16 +1,15 @@
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
-import { get, set } from '@ember/object';
+import { set } from '@ember/object';
 import BEM from 'ember-cli-bem/mixins/bem';
 
 export default Component.extend(BEM, {
   // Services
   session: service(),
 
-
-  // Class bindings
+  // Defaults
+  tagName: 'section',
   blockNames: 'c-sign-in',
-
 
   // Actions
   actions: {

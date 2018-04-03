@@ -1,11 +1,21 @@
-<br><br><br><br><br><br>
+<h1>{{t 'signIn.headline'}}</h1>
 <form {{action 'authenticate' on='submit'}}>
-  <label for="identification">Login</label>
-  {{input id='identification' placeholder='Enter Login' value=identification}}
-  <label for="password">Password</label>
-  {{input id='password' placeholder='Enter Password' type='password' value=password}}
-  <button type="submit">Login</button>
-  {{#if errorMessage}}
-    <p>{{errorMessage}}</p>
-  {{/if}}
+  <div class="o-layout">
+    <div class="o-layout__item u-1/1 u-1/2@tablet">
+      <label for="identification">{{t 'signIn.identification.label'}}</label>
+      {{input id='identification' placeholder=(t 'signIn.identification.placeholder') value=identification}}
+    </div>
+    <div class="o-layout__item u-1/1 u-1/2@tablet">
+      <label for="password">{{t 'signIn.password.label'}}</label>
+      {{input id='password' placeholder=(t 'signIn.password.placeholder') type='password' value=password}}
+    </div>
+  </div>
+  <div class="o-layout">
+    <div class="o-layout__item u-1/1">
+      <button type="submit" class="o-btn">{{t 'signIn.submit'}}</button>
+      {{#if errorMessage}}
+        <p>{{errorMessage}}</p>
+      {{/if}}
+    </div>
+  </div>
 </form>

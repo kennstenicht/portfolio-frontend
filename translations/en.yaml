@@ -4,6 +4,15 @@ navigation:
   projects: 'Projects'
   pages: 'Pages'
 
+signIn:
+  headline: 'Sign In'
+  identification:
+    label: 'E-Mail'
+    placeholder: 'Enter E-Mail addresse'
+  password:
+    label: 'Password'
+    placeholder: 'Enter Password'
+  submit: 'Sign In'
 
 admin:
   action:
