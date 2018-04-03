@@ -9,7 +9,9 @@
 .o-wrapper {
   position: relative;
   margin-right: auto;
-  margin-left: auto;
+  margin-left: 0px;
+  padding-right: spacing('large');
+  padding-left: spacing('huge+large');
 }
 
 
@@ -44,8 +46,6 @@
    ========================================================================== */
 
 .o-wrapper--small {
-  margin-right: auto;
-  margin-left: spacing('huge+large');
   max-width: $inuit-wrapper-width--small;
 }
 
