@@ -1,11 +1,10 @@
 import Route from '@ember/routing/route';
-import { get, set } from '@ember/object';
+import { set } from '@ember/object';
 
 export default Route.extend({
   // Hooks
   model() {
-    return get(this, 'store').findAll('project').then(this._sortModel);
-  },
+    return this.modelFor('admin.projects');  },
 
   setupController(controller, model) {
     this._super(controller, model);
@@ -29,10 +28,5 @@ export default Route.extend({
 
   shouldReloadRecord() {
     return true;
-  },
-
-  // Privat functions
-  _sortModel(model) {
-    return model.sortBy('position');
   },
 });

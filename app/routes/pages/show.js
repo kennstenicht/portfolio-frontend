@@ -4,7 +4,10 @@ import SetHeadTags from 'portfolio/mixins/set-head-tags';
 
 export default Route.extend(SetHeadTags, {
   model(params) {
-    return get(this, 'store').findRecord('page', params.page_slug);
+    return get(this, 'store').query('page', {filter: { slug: params.page_slug }})
+      .then((pages) => {
+        return pages.get('firstObject');
+      });
   },
 
   afterModel(model) {

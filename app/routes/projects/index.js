@@ -7,11 +7,6 @@ export default Route.extend(SetHeadTags, {
   metaDescription: 'Lorem ipsum',
 
   model() {
-    return get(this, 'store').findAll('project').then(this._sortModel);
-  },
-
-  // Privat functions
-  _sortModel(model) {
-    return model.sortBy('position');
-  },
+    return this.modelFor('projects');
+  }
 });
