@@ -48,11 +48,11 @@
 @import "components/application/components.application-frame";
 @import "components/application/components.application-header";
 @import "components/application/components.application";
-@import "components/project/components.project-header";
-@import "components/project/components.project-preview";
-@import "components/project/components.project-summary";
-@import "components/project/components.projects-overview";
+@import "components/project/components.project-detail-header";
+@import "components/project/components.project-detail-summary";
 @import "components/project/components.project-detail";
+@import "components/project/components.project-list-preview";
+@import "components/project/components.project-list";
 
 // UTILITIES
 @import "inuitcss/utilities/utilities.clearfix";
