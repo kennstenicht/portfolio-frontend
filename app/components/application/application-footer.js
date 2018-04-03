@@ -13,7 +13,6 @@ export default Component.extend(BEM, ScrollMagicComponentMixin, {
 
   // Scrollmagic scene settings
   duration: 0,
-  indicators: { name: 'footer' },
 
   // Class bindings
   blockName: 'c-application-footer',
