@@ -10,7 +10,7 @@ export default Component.extend(BEM, {
 
   // Class bindings
   classNameBindings: ['currentRouteClass'],
-  blockName: 'c-application-wrapper',
+  blockName: 'c-application',
 
   currentRouteClass: computed('router.currentURL', function() {
     let routeSegments = get(this, 'router.currentURL').substring(1).split('/');

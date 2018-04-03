@@ -6,7 +6,7 @@
  */
 
 
-@mixin page-color($modifierElement: 'c-application-wrapper', $property: 'background-color', $opacity: 1, $type: 'primary') {
+@mixin page-color($modifierElement: 'c-application', $property: 'background-color', $opacity: 1, $type: 'primary') {
   @each $page, $colors in $page-colors {
     @if ($page == 'default') {
       & {
@@ -22,7 +22,6 @@
           #{$property}: rgba(map-get($colors, $type), $opacity);
         }
       }
-
     }
   }
 }
