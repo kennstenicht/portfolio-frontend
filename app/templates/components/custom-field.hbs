@@ -1,0 +1,11 @@
+{{#if hasBlock}}
+  {{yield (hash
+    isLoading=fetchData.isRunning
+    data=customField)}}
+{{else}}
+  {{#if fetchData.isRunning}}
+    Loading...
+  {{else}}
+    {{customField.value}}
+  {{/if}}
+{{/if}}

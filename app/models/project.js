@@ -8,6 +8,7 @@ export default DS.Model.extend({
   metaInfo: DS.attr('string'),
   content: DS.attr('string'),
   visible: DS.attr('boolean'),
+  position: DS.attr('number'),
 
-  position: DS.attr('number')
+  customFields: DS.hasMany('custom-field')
 });
