@@ -1,0 +1,22 @@
+<div class="o-layout">
+  <div class="o-layout__item u-1/1">
+    {{#each model.customFields as |customField|}}
+      <div class="o-layout">
+        <div class="o-layout__item u-3/4">
+          {{textarea value=customField.value rows="6"}}
+        </div>
+        <div class="o-layout__item u-1/4">
+          <div class="o-layout">
+            <div class="o-layout__item u-1/1">
+              {{input value=customField.key}}
+            </div>
+            <div class="o-layout__item u-1/1">
+              <div class="o-btn o-btn--full" {{action 'removeCustomField' customField}}>Remove Field</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+    <div class="o-btn" {{action 'addCustomField'}}>Add Field</div>
+  </div>
+</div>
