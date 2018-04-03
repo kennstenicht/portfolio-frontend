@@ -2,35 +2,35 @@
   <div class="o-layout__item u-3/4">
     <div class="o-layout">
       <div class="o-layout__item u-1/2">
-        <label>Title</label>
+        <label>{{t 'admin.project.field.title'}}</label>
         {{input value=model.title}}
       </div>
       <div class="o-layout__item u-1/2">
-        <label>Slug</label>
+        <label>{{t 'admin.project.field.slug'}}</label>
         {{input value=model.slug}}<br>
       </div>
     </div>
     <div class="o-layout">
       <div class="o-layout__item">
-        <label>Subtitle</label>
+        <label>{{t 'admin.project.field.subtitle'}}</label>
         {{input value=model.subtitle}}<br>
       </div>
     </div>
 
     <div class="o-layout">
       <div class="o-layout__item u-2/3">
-        <label>Excerpt</label>
+        <label>{{t 'admin.project.field.excerpt'}}</label>
         {{textarea value=model.excerpt rows="6"}}
       </div>
       <div class="o-layout__item u-1/3">
-        <label>Meta</label>
+        <label>{{t 'admin.project.field.meta'}}</label>
         {{textarea value=model.metaInfo rows="6"}}
       </div>
     </div>
 
     <div class="o-layout">
       <div class="o-layout__item u-1/1">
-        <label>Content</label>
+        <label>{{t 'admin.project.field.content'}}</label>
         {{textarea value=model.content rows="12"}}
       </div>
     </div>
@@ -38,7 +38,7 @@
   <div class="o-layout__item u-1/4">
     <div class="o-layout">
       <div class="o-layout__item u-1/2">
-        <label>Visible</label>
+        <label>{{t 'admin.project.field.visible'}}</label>
         {{input checked=model.visible type="checkbox"}}
       </div>
     </div>
@@ -46,6 +46,3 @@
 </div>
 
 {{admin-form/custom-fields model=model}}
-
-<div {{action 'save'}} class="o-btn">Save</div>
-<div {{action 'deleteRecord'}} class="o-btn">Delete</div>

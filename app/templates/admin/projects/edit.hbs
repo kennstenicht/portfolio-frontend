@@ -1,9 +1,11 @@
 <div class="o-layout">
   <div class="o-layout__item u-10/12">
-    <h1>Edit Project</h1>
+    <h1>{{t 'admin.project.headline.edit'}}</h1>
   </div>
   <div class="o-layout__item u-2/12 u-align-right">
-    {{#link-to 'admin.projects.new'}}New{{/link-to}}
+    {{#link-to 'admin.projects.new'}}
+      {{t 'admin.action.new'}}
+    {{/link-to}}
   </div>
 </div>
 

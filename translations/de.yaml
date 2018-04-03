@@ -1,0 +1,43 @@
+navigation:
+  about: 'Über mich'
+  imprint: 'Impressum'
+  projects: 'Projekte'
+  pages: 'Seiten'
+
+
+admin:
+  action:
+    addField: 'Feld hinzufügen'
+    removeField: 'Feld entfernen'
+    save: 'Speichern'
+    delete: 'Löschen'
+    edit: 'Bearbeiten'
+    new: 'Neu'
+
+  label:
+    published: 'Veröffentlicht'
+    draft: 'Entwurf'
+
+  page:
+    headline:
+      edit: 'Seite bearbeiten'
+      new: 'Neue Seite'
+      index: 'Seiten'
+    field:
+      title: 'Titel'
+      slug: 'Slug'
+      content: 'Inhalt'
+
+  project:
+    headline:
+      edit: 'Projekt bearbeiten'
+      new: 'Neues Projekt'
+      index: 'Projekte'
+    field:
+      title: 'Titel'
+      slug: 'Slug'
+      content: 'Inhalt'
+      subtitle: 'Untertitel'
+      excerpt: 'Auszug'
+      meta: 'Meta Informationen'
+      visible: 'Veröffentlicht'

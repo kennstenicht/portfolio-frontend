@@ -1,0 +1,43 @@
+navigation:
+  about: 'About'
+  imprint: 'Imprint'
+  projects: 'Projects'
+  pages: 'Pages'
+
+
+admin:
+  action:
+    addField: 'Add Field'
+    removeField: 'Remove Field'
+    save: 'Save'
+    delete: 'Delete'
+    edit: 'Edit'
+    new: 'New'
+
+  label:
+    published: 'Published'
+    draft: 'Draft'
+
+  page:
+    headline:
+      edit: 'Edit Page'
+      new: 'New Page'
+      index: 'Pages'
+    field:
+      title: 'Titel'
+      slug: 'Slug'
+      content: 'Content'
+
+  project:
+    headline:
+      edit: 'Edit Project'
+      new: 'New Project'
+      index: 'Projects'
+    field:
+      title: 'Titel'
+      slug: 'Slug'
+      content: 'Content'
+      subtitle: 'Subtitle'
+      excerpt: 'Excerpt'
+      meta: 'Meta'
+      visible: 'Visible'

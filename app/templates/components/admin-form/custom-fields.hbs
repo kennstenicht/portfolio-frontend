@@ -11,12 +11,16 @@
               {{input value=customField.key}}
             </div>
             <div class="o-layout__item u-1/1">
-              <div class="o-btn o-btn--full" {{action 'removeCustomField' customField}}>Remove Field</div>
+              <div class="o-btn o-btn--full" {{action 'removeCustomField' customField}}>
+                {{t 'admin.action.removeField'}}
+              </div>
             </div>
           </div>
         </div>
       </div>
     {{/each}}
-    <div class="o-btn" {{action 'addCustomField'}}>Add Field</div>
+    <div class="o-btn" {{action 'addCustomField'}}>
+      {{t 'admin.action.addField'}}
+    </div>
   </div>
 </div>
