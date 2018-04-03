@@ -1,4 +1,4 @@
-.c-project-preview {
+.c-project-list-preview {
   position: relative;
   flex-shrink: 0;
   margin: auto spacing();
@@ -30,7 +30,7 @@
 /* Project Images
    ========================================================================== */
 
-.c-project-preview {
+.c-project-list-preview {
   &--binuu {
     background-image: url('projects/binuu/binuu_preview.jpg');
   }

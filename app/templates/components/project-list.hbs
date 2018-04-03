@@ -8,7 +8,7 @@
     currentSlide=swiper.position
   }}
     {{#each projects as |project|}}
-      {{project/project-preview project=project data-preview-background=project.slug}}
+      {{project-list/preview project=project data-preview-background=project.slug}}
     {{/each}}
   {{/swiper-container}}
 </section>

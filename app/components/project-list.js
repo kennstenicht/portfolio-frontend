@@ -9,7 +9,7 @@ export default Component.extend(BEM, {
 
   // Defaults
   tagName: 'article',
-  blockName: 'c-projects-overview',
+  blockName: 'c-project-list',
 
   // Computed Properties
   swiperOptions: computed(function () {
@@ -26,15 +26,15 @@ export default Component.extend(BEM, {
 
       paginationClickable: true,
 
-      slideClass: 'c-project-preview',
-      slideActiveClass: 'c-project-preview--active',
-      slideDuplicatedActiveClass: 'c-project-preview--duplicated-active',
-      slideVisibleClass: 'c-project-preview--visible',
-      slideDuplicateClass: 'c-project-preview--duplicatd',
-      slideNextClass: 'c-project-preview--next',
-      slideDuplicatedNextClass: 'c-project-preview--duplicated-next',
-      slidePrevClass: 'c-project-preview--prev',
-      slideDuplicatedPrevClass: 'c-project-preview--duplicated-prev'
+      slideClass: 'c-project-list-preview',
+      slideActiveClass: 'c-project-list-preview--active',
+      slideDuplicatedActiveClass: 'c-project-list-preview--duplicated-active',
+      slideVisibleClass: 'c-project-list-preview--visible',
+      slideDuplicateClass: 'c-project-list-preview--duplicatd',
+      slideNextClass: 'c-project-list-preview--next',
+      slideDuplicatedNextClass: 'c-project-list-preview--duplicated-next',
+      slidePrevClass: 'c-project-list-preview--prev',
+      slideDuplicatedPrevClass: 'c-project-list-preview--duplicated-prev'
     }
   }),
 

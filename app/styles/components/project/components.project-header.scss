@@ -1,4 +1,4 @@
-.c-project-header {
+.c-project-detail-header {
   position: fixed;
   width: 100%;
   height: calc(100vh - #{spacing()});
@@ -29,7 +29,7 @@
 /* Project Images
    ========================================================================== */
 
-.c-project-header {
+.c-project-detail-header {
   &--binuu {
     background-image: url('projects/binuu/binuu_preview.jpg');
   }
