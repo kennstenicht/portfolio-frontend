@@ -1,0 +1,19 @@
+.c-project-summary {
+  display: flex;
+  margin: 0 spacing('small');
+  padding: spacing('base+small');
+
+  @include page-color($property: 'background-color', $type: 'secondary');
+  @include page-color($property: 'color', $type: 'typo');
+
+  &__excerpt {
+    width: 66.6666%;
+  }
+
+  &__meta-info {
+    padding-left: spacing('huge');
+    width: 33.3333%;
+
+    @include inuit-font-size($inuit-global-font-size--small);
+  }
+}
