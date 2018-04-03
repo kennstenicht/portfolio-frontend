@@ -1,8 +1,9 @@
 .c-project-header {
-  position: relative;
+  position: fixed;
   width: 100%;
   height: calc(100vh - #{spacing()});
   background-color: $color-grey;
+  background-attachment: fixed;
   background-position: bottom center;
   background-size: cover;
   color: #fff;
@@ -10,9 +11,13 @@
 
   &__header {
     position: absolute;
-    bottom: spacing();
-    left: spacing();
+    bottom: spacing('large');
+    left: spacing('large');
     color: #fff;
+  }
+
+  &__title {
+    font-style: italic;
   }
 }
 
