@@ -6,7 +6,7 @@
     {{#if session.isAuthenticated}}
     <li class="o-list-inline__item"> | {{link-to (t 'navigation.projects') 'admin.projects' class="u-no-underline"}}</li>
 <li class="o-list-inline__item"> — {{link-to (t 'navigation.pages') 'admin.pages' class="u-no-underline"}}</li>
-      <li class="o-list-inline__item"> | {{session/sign-out signedOut=(route-action 'transitionTo' 'login')}}</li>
+      <li class="o-list-inline__item"> | {{session/sign-out}}</li>
     {{/if}}
   </ul>
 </div>

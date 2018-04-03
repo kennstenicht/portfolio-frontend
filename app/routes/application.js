@@ -18,16 +18,5 @@ export default Route.extend(ApplicationRouteMixin, ScrollControllerRouteMixin, S
   beforeModel() {
     // TODO: Add language switch
     get(this, 'intl').setLocale('de');
-  },
-
-  // Actions
-  actions: {
-    transitionTo(route, model) {
-      if(model) {
-        this.transitionTo(route, model);
-      } else {
-        this.transitionTo(route);
-      }
-    }
-  },
+  }
 });
