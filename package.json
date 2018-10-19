@@ -56,7 +56,6 @@
     "ember-sortable": "^1.11.2",
     "ember-source": "~3.5.0",
     "eslint-plugin-ember": "^5.2.0",
-    "liquid-fire": "^0.29.5",
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.8.0",
     "sass": "^1.14.3"
