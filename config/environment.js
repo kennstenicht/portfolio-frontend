@@ -30,16 +30,12 @@ module.exports = function(environment) {
       authorizer: 'authorizer:token'
     },
 
-    'ember-simple-auth-token':  {
-      serverTokenEndpoint: 'http://localhost:3000/api/v1/user_token',
-      identificationField: 'email',
-      passwordField: 'password',
+    'ember-simple-auth-token': {
+      serverTokenEndpoint: '/api/v1/user_token',
       tokenPropertyName: 'jwt',
-      refreshTokenPropertyName: 'jwt',
-      authorizationPrefix: 'Bearer ',
-      authorizationHeaderName: 'Authorization',
-      headers: {
-      }
+      refreshAccessTokens: false,
+      tokenExpirationInvalidateSession: true,
+      tokenExpireName: 'exp'
     },
 
     EmberENV: {

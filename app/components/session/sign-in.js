@@ -1,6 +1,5 @@
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
-import { set } from '@ember/object';
 import BEM from 'ember-cli-bem/mixins/bem';
 
 export default Component.extend(BEM, {
@@ -14,12 +13,27 @@ export default Component.extend(BEM, {
   // Actions
   actions: {
     authenticate: function() {
-      var credentials = this.getProperties('identification', 'password'),
-        authenticator = 'authenticator:token';
+      const credentials = {
+        "auth": {
+          "password": this.password,
+          "email": this.identification
+        }
+      };
+      const authenticator = 'authenticator:jwt';
 
-      this.get('session').authenticate(authenticator, credentials).catch((reason) => {
-        set(this, 'errorMessage', reason.error || reason);
-      });
+      this.session.authenticate(authenticator, credentials)
+        .then(this._authenticated.bind(this))
+        .catch(this._rejected.bind(this));
     }
+  },
+
+
+  // Privat functions
+  _authenticated() {
+    console.log('Loged in');
+  },
+
+  _rejected(reason) {
+    console.log(reason);
   }
 });
