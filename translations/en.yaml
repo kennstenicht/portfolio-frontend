@@ -4,16 +4,35 @@ navigation:
   projects: 'Projects'
   pages: 'Pages'
 
-signIn:
-  headline: 'Sign In'
-  identification:
-    label: 'E-Mail'
-    placeholder: 'Enter E-Mail addresse'
-  password:
-    label: 'Password'
-    placeholder: 'Enter Password'
-  submit: 'Sign In'
+session:
+  signIn:
+    headline: 'Sign In'
+    identification:
+      label: 'E-Mail'
+      placeholder: 'Enter E-Mail addresse'
+    password:
+      label: 'Password'
+      placeholder: 'Enter Password'
+    submit: 'Sign In'
+  signOut:
+    signOut: 'Sign Out'
 
+application:
+  header:
+    siteTitle: 'Christoph Wiedenmann'
+  footer:
+    copy: '&copy; {year} by Christoph Wiedenmann'
+    social:
+      twitter: 'Twitter'
+      github: 'GitHub'
+      linkedin: 'LinkedIn'
+
+projectList:
+  title: 'Projects'
+
+customField:
+  loading: 'Loading...'
+  
 admin:
   action:
     addField: 'Add Field'

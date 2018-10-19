@@ -1,9 +1,18 @@
-<div class="{{elem 'wrapper'}}">
-  <ul class="{{elem 'navigation'}}">
-    <li class="{{elem 'item'}}"><a href="https://github.com/kennstenicht" rel="external" target="_blank">GitHub</a> —</li>
-    <li class="{{elem 'item'}}"><a href="https://www.linkedin.com/in/christoph-wiedenmann" rel="external" target="_blank">LinkedIn</a> —</li>
-    <li class="{{elem 'item'}}"><a href="https://twitter.com/herrwiedenmann" rel="external" target="_blank">Twitter</a></li>
+<div class={{elem "wrapper"}}>
+  <ul class={{elem "navigation"}}>
+    {{! template-lint-disable attribute-indentation}}
+    <li class={{elem "item"}}>
+      <a href="https://github.com/kennstenicht" rel="noopener" target="_blank">{{t "application.footer.social.github"}}</a>
+    </li>
+    <li class={{elem "item"}}>
+      <a href="https://www.linkedin.com/in/christoph-wiedenmann" rel="noopener" target="_blank">{{t "application.footer.social.linkedin"}}</a>
+    </li>
+    <li class={{elem "item"}}>
+      <a href="https://twitter.com/herrwiedenmann" rel="noopener" target="_blank">{{t "application.footer.social.twitter"}}</a>
+    </li>
   </ul>
 
-  <div class="{{elem 'copy'}}">&copy; {{currentYear}} by Christoph Wiedenmann — {{link-to (t 'navigation.imprint') 'pages.show' 'imprint'}}</div>
+  <div class={{elem "copy"}}>
+    {{t "application.footer.copy" year=currentYear htmlSafe=true}} — {{link-to (t "navigation.imprint") "pages.show" "imprint"}}
+  </div>
 </div>

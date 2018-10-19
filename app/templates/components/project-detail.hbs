@@ -1,6 +1,9 @@
-{{project-detail/header project=project data-preview-background=project.slug}}
+{{project-detail/header
+  project=project
+  data-preview-background=project.slug
+}}
 
-<div class="{{elem 'content'}}">
+<div class={{elem "content"}}>
   {{project-detail/summary project=project}}
 
   {{partial projectTemplate}}

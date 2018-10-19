@@ -1,6 +1,5 @@
 import Mixin from '@ember/object/mixin';
 import { set, get } from '@ember/object';
-import { bind } from '@ember/runloop';
 
 export default Mixin.create({
   afterModel() {

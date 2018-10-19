@@ -1,12 +1,27 @@
-{{#link-to 'pages.home' class=(concat (elem 'logo') ' u-no-underline')}}Christoph Wiedenmann{{/link-to}}
-<div class="{{elem 'navigation'}}">
+{{#link-to
+  "pages.home"
+  class=(concat (elem "logo") " u-no-underline")
+}}
+  {{t "application.header.siteTitle"}}
+{{/link-to}}
+<div class={{elem "navigation"}}>
   <ul class="o-list-inline">
-    <li class="o-list-inline__item">{{link-to (t 'navigation.projects') 'projects' class="u-no-underline"}}</li>
-    <li class="o-list-inline__item"> — {{link-to (t 'navigation.about') 'pages.show' 'about' class="u-no-underline"}}</li>
+    <li class="o-list-inline__item">
+      {{link-to (t "navigation.projects") "projects" class="u-no-underline"}}
+    </li>
+    <li class="o-list-inline__item">
+      — {{link-to (t "navigation.about") "pages.show" "about" class="u-no-underline"}}
+    </li>
     {{#if session.isAuthenticated}}
-    <li class="o-list-inline__item"> | {{link-to (t 'navigation.projects') 'admin.projects' class="u-no-underline"}}</li>
-<li class="o-list-inline__item"> — {{link-to (t 'navigation.pages') 'admin.pages' class="u-no-underline"}}</li>
-      <li class="o-list-inline__item"> | {{session/sign-out}}</li>
+      <li class="o-list-inline__item">
+        | {{link-to (t "navigation.projects") "admin.projects" class="u-no-underline"}}
+      </li>
+      <li class="o-list-inline__item">
+        — {{link-to (t "navigation.pages") "admin.pages" class="u-no-underline"}}
+      </li>
+      <li class="o-list-inline__item">
+        | {{session/sign-out}}
+      </li>
     {{/if}}
   </ul>
 </div>

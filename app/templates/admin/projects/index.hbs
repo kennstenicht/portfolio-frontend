@@ -1,23 +1,40 @@
 <div class="o-layout">
   <div class="o-layout__item u-10/12">
-    <h1>{{t 'admin.project.headline.index'}}</h1>
+    <h1>{{t "admin.project.headline.index"}}</h1>
   </div>
   <div class="o-layout__item u-2/12 u-align-right">
-    {{#link-to 'admin.projects.new'}}
-      {{t 'admin.action.new'}}
+    {{#link-to "admin.projects.new"}}
+      {{t "admin.action.new"}}
     {{/link-to}}
   </div>
 </div>
 
-{{#sortable-group tagName="div" class="o-flex-table" onChange="reorderItems" as |group|}}
+{{#sortable-group
+  tagName="div"
+  class="o-flex-table"
+  onChange="reorderItems"
+as |group|
+}}
   {{#each projects as |project|}}
-    {{#sortable-item tagName="div" class="o-flex-table__row" model=project group=group handle=".handle"}}
+    {{#sortable-item
+      tagName="div"
+      class="o-flex-table__row"
+      model=project
+      group=group
+      handle=".handle"
+    }}
       <div class="o-flex-table__column u-10/12">
         <span class="handle">&varr;</span>
-        {{#link-to 'admin.projects.edit' project.id}}{{project.title}}{{/link-to}}
+        {{#link-to "admin.projects.edit" project.id}}
+          {{project.title}}
+        {{/link-to}}
       </div>
       <div class="o-flex-table__column u-2/12 u-align-right">
-        {{boolean-label project.visible (t 'admin.label.published') (t 'admin.label.draft')}}
+        {{boolean-label
+          project.visible
+          (t "admin.label.published")
+          (t "admin.label.draft")
+        }}
       </div>
     {{/sortable-item}}
   {{/each}}
