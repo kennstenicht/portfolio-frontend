@@ -18,13 +18,20 @@ export default Component.extend(BEM, {
       centeredSlides: true,
       grapCursor: true,
       freeMode: true,
-      keyboardControl: true,
-      mousewheelControl: true,
-      mousewheelReleaseOnEdges: true,
 
-      pagination: '.swiper-pagination',
+      keyboard: {
+         enabled: true,
+         onlyInViewport: false,
+      },
 
-      paginationClickable: true,
+      mousewheel: {
+        releaseOnEdges: true
+      },
+
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
 
       slideClass: 'c-project-list-preview',
       slideActiveClass: 'c-project-list-preview--active',
@@ -36,6 +43,5 @@ export default Component.extend(BEM, {
       slidePrevClass: 'c-project-list-preview--prev',
       slideDuplicatedPrevClass: 'c-project-list-preview--duplicated-prev'
     }
-  }),
-
+  })
 });
