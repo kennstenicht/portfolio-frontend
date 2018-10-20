@@ -1,5 +1,5 @@
 import Mixin from '@ember/object/mixin';
-import { set, get } from '@ember/object';
+import { set } from '@ember/object';
 
 export default Mixin.create({
   afterModel() {
@@ -9,13 +9,13 @@ export default Mixin.create({
   setHeadTags() {
     let headTags = new Array();
 
-    if(get(this, 'metaTitle')) {
+    if(this.metaTitle) {
       const titleTags = [
         // Title Tag
         {
           type: 'title',
           tagId: 'title-tag',
-          content: get(this, 'metaTitle')
+          content: this.metaTitle
         },
         // OG Title
         {
@@ -23,7 +23,7 @@ export default Mixin.create({
           tagId: 'meta-og-title',
           attrs: {
             property: 'og:title',
-            content: get(this, 'metaTitle')
+            content: this.metaTitle
           }
         },
         // Twitter Title
@@ -32,7 +32,7 @@ export default Mixin.create({
            tagId: 'meta-twitter-title',
            attrs: {
              property: 'twitter:title',
-             content: get(this, 'metaTitle')
+             content: this.metaTitle
            }
          }
       ]
@@ -40,7 +40,7 @@ export default Mixin.create({
       headTags = headTags.concat(titleTags);
     }
 
-    if(get(this, 'metaDescription')) {
+    if(this.metaDescription) {
       let descriptionTags = [
         // Meta Description
         {
@@ -48,7 +48,7 @@ export default Mixin.create({
           tagId: 'meta-description',
           attrs: {
             name: 'description',
-            content: get(this, 'metaDescription')
+            content: this.metaDescription
           }
         },
         // OG Description
@@ -57,7 +57,7 @@ export default Mixin.create({
           tagId: 'meta-og-description',
           attrs: {
             property: 'og:description',
-            content: get(this, 'metaDescription')
+            content: this.metaDescription
           }
         },
         // Twitter Description
@@ -66,7 +66,7 @@ export default Mixin.create({
           tagId: 'meta-twitter-description',
           attrs: {
             property: 'twitter:description',
-            content: get(this, 'metaDescription')
+            content: this.metaDescription
           }
         }
       ];
@@ -74,8 +74,8 @@ export default Mixin.create({
       headTags = headTags.concat(descriptionTags);
     }
 
-    // if(get(this, 'metaImage')) {
-    //   const imageRef = storageRef.child( get(this, 'metaImage') );
+    // if(this.metaImage')) {
+    //   const imageRef = storageRef.child( this.metaImage') );
     //   imageRef.getDownloadURL().then(bind(this, function(url) {
     //     let imageTags = [
     //       // OG Description
@@ -98,14 +98,14 @@ export default Mixin.create({
     //       }
     //     ];
     //
-    //     if(get(this, 'headTags')) {
-    //       headTags = get(this, 'headTags').concat(imageTags);
+    //     if(this.headTags')) {
+    //       headTags = this.headTags').concat(imageTags);
     //     }
     //     set(this, 'headTags', headTags);
     //   }));
     // }
 
-    if(get(this, 'metaType') == 'article') {
+    if(this.metaType == 'article') {
       let articleTags = [
         // OG Type
         {
@@ -130,8 +130,8 @@ export default Mixin.create({
       headTags = headTags.concat(articleTags);
     }
 
-    if(get(this, 'headTags')) {
-      headTags = get(this, 'headTags').concat(headTags);
+    if(this.headTags) {
+      headTags = this.headTags.concat(headTags);
     }
     set(this, 'headTags', headTags);
   }

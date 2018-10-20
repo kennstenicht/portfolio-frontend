@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { get, computed } from '@ember/object';
+import { computed } from '@ember/object';
 import { inject as service } from "@ember/service";
 import BEM from 'ember-cli-bem/mixins/bem';
 
@@ -13,9 +13,9 @@ export default Component.extend(BEM, {
   blockName: 'c-application',
 
   currentRouteClass: computed('router.currentURL', function() {
-    let routeSegments = get(this, 'router.currentURL').substring(1).split('/');
-    let routeName = get(this, 'router.currentRouteName').replace('.', '-');
-    let blockName = get(this, 'blockName');
+    let routeSegments = this.router.currentURL.substring(1).split('/');
+    let routeName = this.router.currentRouteName.replace('.', '-');
+    let blockName = this.blockName;
     let classes = new Array();
 
     routeSegments.forEach(function (segement) {

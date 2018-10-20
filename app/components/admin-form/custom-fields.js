@@ -1,5 +1,4 @@
 import Component from '@ember/component';
-import { get } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default Component.extend({
@@ -9,9 +8,9 @@ export default Component.extend({
   // Actions
   actions: {
     addCustomField() {
-      let customField = get(this, 'store').createRecord('customField');
+      let customField = this.store.createRecord('customField');
 
-      get(this, 'model.customFields').pushObject(customField);
+      this.model.customFields.pushObject(customField);
     },
 
     removeCustomField(customField) {

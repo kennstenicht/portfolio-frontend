@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import { get, set } from '@ember/object';
+import { set } from '@ember/object';
 import SetHeadTags from '../../mixins/set-head-tags';
 
 export default Route.extend(SetHeadTags, {
@@ -9,9 +9,9 @@ export default Route.extend(SetHeadTags, {
   },
 
   afterModel(model) {
-    set(this, 'metaTitle', get(model, 'title') + ' » ' + get(model, 'subtitle') + ' | Christoph Wiedenmann');
-    set(this, 'metaDescription', get(model, 'excerpt').replace(/(<([^>]+)>)/ig,'') );
-    set(this, 'metaImage', `images/projects/${get(model, 'slug')}/${get(model, 'slug')}_preview.jpg`);
+    set(this, 'metaTitle', model.title + ' » ' + model.subtitle + ' | Christoph Wiedenmann');
+    set(this, 'metaDescription', model.excerpt.replace(/(<([^>]+)>)/ig,'') );
+    set(this, 'metaImage', `images/projects/${model.slug}/${model.slug}_preview.jpg`);
     set(this, 'metaType', 'article');
 
     this.setHeadTags(model);
@@ -19,7 +19,7 @@ export default Route.extend(SetHeadTags, {
 
   serialize(model){
     return {
-      project_slug: get(model, 'slug')
+      project_slug: model.slug
     };
   },
 });

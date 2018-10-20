@@ -1,5 +1,4 @@
 import Route from '@ember/routing/route';
-import { get } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default Route.extend({
@@ -9,7 +8,7 @@ export default Route.extend({
 
   // Hooks
   beforeModel() {
-    if(get(this, 'session.isAuthenticated')) {
+    if(this.session.isAuthenticated) {
       this.transitionTo('admin');
     }
   }

@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { get, computed } from '@ember/object';
+import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { getOwner } from '@ember/application';
 
@@ -9,7 +9,7 @@ export default Component.extend({
 
   // Computed properties
   formTemplate: computed('model.constructor.modelName', function () {
-    let modelName = get(this,'model.constructor.modelName');
+    let modelName = this.model.constructor.modelName;
 
     if(getOwner(this).lookup('template:components/admin-form/-' + modelName)) {
       return 'components/admin-form/-' + modelName;
@@ -21,10 +21,10 @@ export default Component.extend({
   // Actions
   actions: {
     save() {
-      Promise.all(get(this, 'model.customFields').invoke('save'))
+      Promise.all(this.model.customFields.invoke('save'))
         .then((customFields) => {
-          get(this, 'model').set('customFields', customFields);
-          get(this, 'model').save()
+          this.model.set('customFields', customFields);
+          this.model.save()
             .then(this._transitionToIndex.bind(this))
             .catch(this._throwError.bind(this));
         })
@@ -33,7 +33,7 @@ export default Component.extend({
     },
 
     deleteRecord() {
-      get(this, 'model').destroyRecord()
+      this.model.destroyRecord()
         .then(this._transitionToIndex.bind(this))
         .catch(this._throwError.bind(this));
     }
@@ -42,7 +42,7 @@ export default Component.extend({
   // Privat functions
   _transitionToIndex() {
     // TODO add type to transition
-    get(this, 'router').transitionTo('admin.pages');
+    this.router.transitionTo('admin.pages');
   },
 
   _throwError(reason) {

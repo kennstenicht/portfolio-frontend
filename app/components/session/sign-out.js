@@ -14,6 +14,6 @@ export default Component.extend(BEM, {
 
   // Events
   click() {
-    get(this, 'session').invalidate();
+    this.session.invalidate();
   }
 });

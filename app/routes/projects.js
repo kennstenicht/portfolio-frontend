@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import { get, set } from '@ember/object';
+import { set } from '@ember/object';
 import { inject as service } from '@ember/service';
 import SetHeadTags from '../mixins/set-head-tags';
 
@@ -12,7 +12,7 @@ export default Route.extend(SetHeadTags, {
   metaDescription: 'Lorem ipsum',
 
   model() {
-    return get(this, 'store').query('project', { sort: 'position' });
+    return this.store.query('project', { sort: 'position' });
   },
 
   // Actions

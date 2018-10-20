@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { computed, get } from '@ember/object';
+import { computed } from '@ember/object';
 import { inject as service } from "@ember/service";
 import BEM from 'ember-cli-bem/mixins/bem';
 import ScrollMagicComponentMixin from 'ember-scrollmagic/mixins/components/scene-mixin';
@@ -23,7 +23,7 @@ export default Component.extend(BEM, ScrollMagicComponentMixin, {
   }),
 
   setupScene() {
-    let opts = get(this, 'mergedOptions'),
+    let opts = this.mergedOptions,
         scene = new ScrollMagic.Scene(opts);
 
     scene.setClassToggle(this.element, 'c-application-footer--toggled')

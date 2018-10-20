@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { computed, get } from '@ember/object';
+import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import BEM from 'ember-cli-bem/mixins/bem';
 
@@ -14,12 +14,12 @@ export default Component.extend(BEM, {
   attributeBindings: ['data-preview-background'],
 
   // Computed Properties
-  slug: computed(function() {
-    return get(this, 'blockName') + '--' + get(this, 'project.slug');
+  slug: computed('blockName', 'project.slug', function() {
+    return this.blockName + '--' + this.project.slug;
   }),
 
   // Events
   click() {
-    get(this, 'router').transitionTo('projects.show', get(this, 'project'));
+    this.router.transitionTo('projects.show', this.project);
   }
 });
