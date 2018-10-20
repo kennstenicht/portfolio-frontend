@@ -26,10 +26,6 @@ module.exports = function(environment) {
       hostWhitelist: ['wiedenmann.io', 'staging.wiedenmann.io', /^localhost:\d+$/]
     },
 
-    'ember-simple-auth':  {
-      authorizer: 'authorizer:token'
-    },
-
     'ember-simple-auth-token': {
       serverTokenEndpoint: '/api/v1/user_token',
       tokenPropertyName: 'jwt',
