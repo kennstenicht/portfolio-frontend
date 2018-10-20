@@ -2,47 +2,18 @@
    #APPLICATION FRAME
    ========================================================================== */
 
-$frame-segment-width: spacing('small');
-
 .c-application-frame {
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: 998;
+  width: 100%;
+  height: 100%;
+  border-width: spacing('small');
+  border-style: solid;
+  border-image: linear-gradient(70deg, #10a49b 10%, #008d84 90%);
+  border-image-slice: 1;
+  pointer-events: none;
 
-  &__segment {
-    position: fixed;
-    transition: background-color 1s ease-in-out;
-    // background-image: linear-gradient(70deg, #84fab0 10%, #8fd3f4 90%);
-
-    @include page-color($property: 'background-color', $type: 'primary');
-
-    &--top {
-      top: 0px;
-      right: 0px;
-      left: 0px;
-      height: $frame-segment-width;
-      transform: rotate(180deg);
-    }
-
-    &--right {
-      top: 0px;
-      right: 0px;
-      bottom: 0px;
-      width: $frame-segment-width;
-      transform: rotate(180deg);
-    }
-
-    &--bottom {
-      right: 0px;
-      bottom: 0px;
-      left: 0px;
-      height: $frame-segment-width;
-    }
-
-    &--left {
-      top: 0px;
-      bottom: 0px;
-      left: 0px;
-      width: $frame-segment-width;
-    }
-  }
+  // @include page-color($property: 'border-color', $type: 'primary');
 }
