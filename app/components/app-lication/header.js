@@ -7,5 +7,6 @@ export default Component.extend(BEM, {
   session: service(),
 
   // Class bindings
+  tagName: 'header',
   blockName: 'c-application-header',
 });
