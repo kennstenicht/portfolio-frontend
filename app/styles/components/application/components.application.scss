@@ -4,7 +4,9 @@
 
 .c-application {
   position: relative;
+  overflow: auto;
   padding: spacing('small');
-  min-height: 100vh;
-  height: 1px;
+  height: 100%;
+
+  overflow-scrolling: touch
 }

@@ -2,6 +2,11 @@
    #EXTEND PAGE
    ========================================================================== */
 
+html,
+body {
+  overflow: hidden;
+  height: 100%;
+}
 body {
   background-color: $color-white;
   letter-spacing: $inuit-global-letter-spacing;
@@ -9,8 +14,4 @@ body {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  & >.ember-view {
-    min-height: 100%;
-  }
 }
