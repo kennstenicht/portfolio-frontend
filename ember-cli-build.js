@@ -4,6 +4,14 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
+    autoprefixer: {
+      browsers: [
+        "last 1 version",
+        "> 1%",
+        "IE 10"
+      ],
+      cascade: false
+    }
     // Add options here
   });
 
