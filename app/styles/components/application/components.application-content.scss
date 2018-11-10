@@ -5,5 +5,7 @@
 .c-application-content {
   position: relative;
   z-index: 1;
-  background-color: #fff;
+
+  @include page-color($property: 'background-color', $type: 'background');
+
 }
