@@ -1,6 +1,8 @@
 <header class={{elem "header"}} data-preview-header={{project.slug}}>
-  <h1 class="{{elem "title"}} u-h2" data-preview-title={{project.slug}}>
+  <div class={{elem "index"}} data-swiper-parallax="90">{{index-number index}}</div>
+  <h1 class={{elem "title"}} data-preview-title={{project.slug}} data-swiper-parallax="100">
     {{project.title}}
   </h1>
-  <div class={{elem "subtitle"}}>{{project.subtitle}}</div>
+  <div class={{elem "subtitle"}} data-swiper-parallax="50">{{project.subtitle}}</div>
 </header>
+<div class={{elem "meta"}}>Concept & Development</div>

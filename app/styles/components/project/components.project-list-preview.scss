@@ -1,16 +1,32 @@
 .c-project-list-preview {
   position: relative;
   flex-shrink: 0;
-  margin: auto spacing();
+  margin: auto spacing('huge');
   width: 40vw;
   height: 36vh;
   background-color: $color-grey;
   background-position: bottom center;
   background-size: cover;
-  box-shadow: 0px 0px spacing('large') rgba(34, 34, 34, 0.6);
+  // @include page-color($modifierElement: 'self', $property: 'color', $type: 'typo');
+  color: #000;
+  // filter: grayscale(1);
   cursor: pointer;
 
-  @include page-color($modifierElement: 'self', $property: 'color', $type: 'typo');
+  &--eels {
+    margin-top: 10vh;
+  }
+
+  &--ad-hoc {
+    margin-top: 40vh;
+  }
+
+  &--disaster-mgmt {
+    margin-top: 25vh;
+  }
+
+  &--binuu {
+    width: 32vw;
+  }
 
   &--active {
     z-index: 999;
@@ -18,8 +34,33 @@
 
   &__header {
     position: absolute;
-    bottom: spacing();
+    bottom: spacing('base+small');
     left: spacing();
+    transform: translateY(100%);
+  }
+
+    &__title {
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.3rem;
+    }
+
+  &__index {
+    position: absolute;
+    top: 12px;
+    left: - spacing();
+    border-bottom: 1px solid #000;
+    transform: translateY(80%);
+  }
+
+  &__meta {
+    position: absolute;
+    top: spacing();
+    right: - spacing('small+tiny');
+    width: 100px;
+    text-transform: uppercase;
+    transform: rotate(90deg) translateX(100%);
+    transform-origin: 100% 0%;
   }
 }
 
