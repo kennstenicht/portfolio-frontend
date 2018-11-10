@@ -11,9 +11,9 @@
   height: 100%;
   border-width: spacing('small');
   border-style: solid;
-  border-image: linear-gradient(70deg, #10a49b 10%, #008d84 90%);
+  // border-image: linear-gradient(70deg, #10a49b 10%, #008d84 90%);
   border-image-slice: 1;
   pointer-events: none;
 
-  // @include page-color($property: 'border-color', $type: 'primary');
+  @include page-color($property: 'border-color', $type: 'primary');
 }
