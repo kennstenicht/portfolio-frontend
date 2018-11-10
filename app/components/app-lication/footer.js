@@ -8,20 +8,20 @@ export default Component.extend(BEM, ScrollMagicComponentMixin, {
   // Services
   scrollMagic: service(),
 
-  // Tag
-  tagName: 'footer',
 
-  // Scrollmagic scene settings
+  // Defaults
+  tagName: 'footer',
+  blockName: 'c-application-footer',
   duration: 0,
 
-  // Class bindings
-  blockName: 'c-application-footer',
 
   // Computed properties
   currentYear: computed(function () {
     return new Date().getFullYear();
   }),
 
+
+  // Functions
   setupScene() {
     let opts = this.mergedOptions,
         scene = new ScrollMagic.Scene(opts);
