@@ -1,14 +1,5 @@
-<header class={{elem "header"}}>
-  <h1 class={{elem "title"}}>{{t "projectList.title"}}</h1>
-</header>
-
-<section class={{elem "swiper"}}>
-  {{#swiper-container
-    options=swiperOptions
-    currentSlide=swiper.position
-  }}
-    {{#each projects as |project|}}
-      {{project-list/preview project=project data-preview-background=project.slug}}
-    {{/each}}
-  {{/swiper-container}}
-</section>
+<div class={{elem "wrapper"}}>
+  {{#each projects as |project index|}}
+    {{project-list/preview project=project index=index data-preview-background=project.slug}}
+  {{/each}}
+</div>

@@ -1,35 +1,14 @@
 .c-project-list {
-  width: 100%;
-  height: calc(100vh - #{spacing('large')});
+  width: calc(100vw - #{spacing('base')});
+  height: calc(100vh - #{spacing('base')});
 
-  &__header {
-    position: absolute;
-    top: 20vh;
-    right: 0vw;
+  &__wrapper {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    box-sizing: content-box;
+    width: 100%;
+    height: 100%;
+    transition-property: transform;
   }
-}
-
-.swiper-container {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
-  position: relative;
-  bottom: 10vh;
-  word-spacing: 0px;
-  font-size: 0px;
-  transition: all 0s ease-in-out;
-}
-
-.swiper-pagination-bullet {
-  display: inline-block;
-  margin-right: spacing('tiny');
-  width: 4%;
-  height: 1vh;
-  border-radius: 0px;
-  transition: all $transition--base;
 }
