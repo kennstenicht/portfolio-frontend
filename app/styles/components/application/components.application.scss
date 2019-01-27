@@ -12,4 +12,13 @@
   transition: all $transition--base;
 
   @include page-color($modifierElement: 'self', $property: 'border-color', $type: 'primary');
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    min-height: 100%;
+    background-image: radial-gradient(#ffffff, #f2f2f2);
+
+    @include page-color($property: 'background-color', $type: 'background');
+  }
 }
