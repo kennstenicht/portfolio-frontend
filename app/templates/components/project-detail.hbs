@@ -1,10 +1,13 @@
-{{project-detail/header
-  project=project
-  data-preview-background=project.slug
-}}
+{{#animated-value project as |project|}}
+  {{project-detail/header
+    project=project
+  }}
+{{/animated-value}}
 
 <div class={{elem "content"}}>
   {{project-detail/summary project=project}}
 
-  {{partial projectTemplate}}
+  <div class={{elem "wrapper"}}>
+    {{partial projectTemplate}}
+  </div>
 </div>

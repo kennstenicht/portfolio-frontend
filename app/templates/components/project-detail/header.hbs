@@ -1,6 +1,14 @@
-<header class={{elem "header"}} data-preview-header={{project.slug}}>
-  <h1 class={{elem "title"}} data-preview-title={{project.slug}}>
-    {{project.title}}
-  </h1>
-  <div class={{elem "subtitle"}}>{{project.subtitle}}</div>
+{{#animated-value project.slug use=backgroundTransition duration=duration as |slug|}}
+  <div class="{{elem "background"}} {{elem "background"}}--{{slug}}"></div>
+{{/animated-value}}
+<header class={{elem "header"}}>
+  {{#animated-value project.title use=typoTransition duration=duration  as |title|}}
+    <h1 class={{elem "title"}}>
+      {{title}}
+    </h1>
+  {{/animated-value}}
+  {{#animated-value project.subtitle use=typoTransition duration=duration  as |subtitle|}}
+    <div class={{elem "subtitle"}}>{{subtitle}}</div>
+  {{/animated-value}}
 </header>
+{{!--  --}}

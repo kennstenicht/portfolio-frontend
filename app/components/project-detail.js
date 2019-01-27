@@ -17,5 +17,5 @@ export default Component.extend(BEM, {
     } else {
       return 'components/project-detail/-default';
     }
-  }),
+  })
 });

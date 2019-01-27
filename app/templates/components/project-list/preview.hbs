@@ -1,8 +1,15 @@
-<header class={{elem "header"}} data-preview-header={{project.slug}}>
-  <div class={{elem "index"}} data-swiper-parallax="90">{{index-number index}}</div>
-  <h1 class={{elem "title"}} data-preview-title={{project.slug}} data-swiper-parallax="100">
-    {{project.title}}
-  </h1>
-  <div class={{elem "subtitle"}} data-swiper-parallax="50">{{project.subtitle}}</div>
+{{#animated-value project.slug use=backgroundTransition duration=duration as |slug|}}
+  <div class="{{elem "background"}} {{elem "background"}}--{{slug}}"></div>
+{{/animated-value}}
+<header class={{elem "header"}}>
+  <div class={{elem "index"}} data-swiper-parallax="50">{{index-number index}}</div>
+  {{#animated-value project.title use=typoTransition duration=duration as |title|}}
+    <h1 class={{elem "title"}}>
+      {{title}}
+    </h1>
+  {{/animated-value}}
+  {{#animated-value project.subtitle use=typoTransition duration=duration as |subtitle|}}
+    <div class={{elem "subtitle"}} data-swiper-parallax="90">{{subtitle}}</div>
+  {{/animated-value}}
 </header>
 <div class={{elem "meta"}}>Concept & Development</div>

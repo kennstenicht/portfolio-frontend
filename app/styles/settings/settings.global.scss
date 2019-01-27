@@ -37,7 +37,9 @@ $inuit-font-size-mobile-h6:           $inuit-global-font-size--small;
 $inuit-global-line-height:            26px;
 
 // Letter spacing
-$inuit-global-letter-spacing:         0em;
+$letter-spacing:                      0rem;
+$letter-spacing--large:               0.3rem;
+$inuit-global-letter-spacing:         $letter-spacing;
 
 // Font family
 $font-default:                        'IBM Plex Mono', Courier, monospace;
@@ -62,40 +64,40 @@ $color-grey--darker:                #14120f;
 
 $page-colors: (
   'default': (
-    'primary'     : #000000,
+    'primary'     : #fff,
     'secondary'   : #000000,
     'typo'        : #000000,
     'background'  : #f2f2f2
   ),
   'ad-hoc': (
     'primary'     : #008d84,
-    'secondary'   : #055751,
+    'secondary'   : #037d75,
     'typo'        : #ffffff,
-    'background'  : #ffffff
+    'background'  : #f2f2f2
   ),
   'eels': (
     'primary'     : #4a4747,
-    'secondary'   : #2e2e2e,
-    'typo'        : #000000,
-    'background'  : #ffffff
+    'secondary'   : #3b3838,
+    'typo'        : #ffffff,
+    'background'  : #f2f2f2
   ),
   'binuu': (
     'primary'     : #eff24e,
     'secondary'   : #e8eb49,
     'typo'        : #ffffff,
-    'background'  : #ffffff
+    'background'  : #000000
   ),
   'disaster-mgmt': (
     'primary'     : #ffa045,
-    'secondary'   : #eb8c30,
+    'secondary'   : #f29234,
     'typo'        : #ffffff,
-    'background'  : #ffffff
+    'background'  : #000000
   ),
   'flutkoerper': (
     'primary'     : #ffffff,
     'secondary'   : #f1e7df,
     'typo'        : #000000,
-    'background'  : #ffffff
+    'background'  : #f2f2f2
   )
 );
 

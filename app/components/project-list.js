@@ -2,6 +2,8 @@ import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import BEM from 'ember-cli-bem/mixins/bem';
 import Swiper from 'swiper';
+import move from 'ember-animated/motions/move';
+import { easeOut, easeIn } from 'ember-animated/easings/cosine';
 
 export default Component.extend(BEM, {
   // Services
@@ -20,7 +22,8 @@ export default Component.extend(BEM, {
     new Swiper(this.element, {
       slidesPerView: 'auto',
       centeredSlides: true,
-      grapCursor: true,
+      grapCursor: false,
+      simulateTouch: false,
       parallax: true,
       freeMode: true,
       initialSlide: this.swiper.position,
@@ -58,5 +61,34 @@ export default Component.extend(BEM, {
       slidePrevClass: 'c-project-list-preview--prev',
       slideDuplicatedPrevClass: 'c-project-list-preview--duplicated-prev'
     })
+  },
+
+  preserveScrollPosition: true,
+
+  // eslint-disable-next-line require-yield
+  listTransition: function * ({ insertedSprites, removedSprites, sentSprites, receivedSprites }) {
+    receivedSprites.concat(sentSprites).forEach(sprite => {
+      sprite.applyStyles({
+        'z-index': 801
+      });
+    });
+
+    insertedSprites.forEach(sprite => {
+      const center = (window.innerWidth * 0.5) - (sprite.absoluteFinalBounds.width / 2);
+      const start = sprite.absoluteFinalBounds.left >= center ? window.innerWidth * 2 : - sprite.finalBounds.width * 2;
+
+      sprite.startAtPixel({ x: start });
+      sprite.applyStyles({ 'z-index': 800 });
+      move(sprite, { easing: easeOut });
+    });
+
+    removedSprites.forEach(sprite => {
+      const center = (window.innerWidth * 0.5) - (sprite.absoluteInitialBounds.width / 2);
+      const end = sprite.absoluteInitialBounds.left >= center ? window.innerWidth * 2 : - sprite.initialBounds.width * 2;
+
+      sprite.applyStyles({ 'z-index': 800 });
+      sprite.endAtPixel({ x: end });
+      move(sprite, { easing: easeIn });
+    });
   }
 });

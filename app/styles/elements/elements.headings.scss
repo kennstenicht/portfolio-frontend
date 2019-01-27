@@ -2,7 +2,11 @@
    #HEADINGS
    ========================================================================== */
 
-
+h1 {
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing--large;
+  line-height: 0.9;
+}
 
 /* Mobile headline sizes
   ========================================================================== */
