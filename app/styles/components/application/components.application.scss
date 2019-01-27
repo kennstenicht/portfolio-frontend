@@ -5,8 +5,11 @@
 .c-application {
   position: relative;
   overflow: auto;
-  padding: spacing('small');
+  -webkit-overflow-scrolling: touch;
   height: 100%;
+  border-width: spacing('small');
+  border-style: solid;
+  transition: all $transition--base;
 
-  overflow-scrolling: touch
+  @include page-color($modifierElement: 'self', $property: 'border-color', $type: 'primary');
 }
