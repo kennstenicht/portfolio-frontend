@@ -10,7 +10,7 @@
 /* Input
    ========================================================================== */
 
-input:not([type=submit]):not([type=file]):not([type=search]) {
+input:not([type=submit]):not([type=file]):not([type=search]):not([type=range]) {
   padding: spacing('small');
   width: 100%;
   border-width: $border-width--small;
