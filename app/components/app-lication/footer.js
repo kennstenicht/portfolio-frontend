@@ -21,15 +21,13 @@ export default Component.extend(BEM, {
 
     const controller = new ScrollMagic.Controller();
 
-    const scene = new ScrollMagic.Scene({
+    new ScrollMagic.Scene({
         triggerElement: '.c-application-footer',
         duration: 500,
         triggerHook: 1
       })
       .setClassToggle(this.element, 'c-application-footer--toggled')
       .addTo(controller);
-
-    console.log(this.element);
   },
 
 });

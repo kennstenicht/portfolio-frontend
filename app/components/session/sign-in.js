@@ -30,10 +30,12 @@ export default Component.extend(BEM, {
 
   // Privat functions
   _authenticated() {
+    // eslint-disable-next-line no-console
     console.log('Loged in');
   },
 
   _rejected(reason) {
+    // eslint-disable-next-line no-console
     console.log(reason);
   }
 });

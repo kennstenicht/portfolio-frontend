@@ -1,14 +1,31 @@
-{{#animated-value project.slug use=backgroundTransition duration=duration as |slug|}}
+{{#animated-value
+  project.slug
+  use=backgroundTransition
+  duration=duration
+as |slug|
+}}
   <div class="{{elem "background"}} {{elem "background"}}--{{slug}}"></div>
 {{/animated-value}}
+
 <header class={{elem "header"}}>
-  {{#animated-value project.title use=typoTransition duration=duration  as |title|}}
+  {{#animated-value
+    project.title
+    use=typoTransition
+    duration=duration
+  as |title|
+  }}
     <h1 class={{elem "title"}}>
       {{title}}
     </h1>
   {{/animated-value}}
-  {{#animated-value project.subtitle use=typoTransition duration=duration  as |subtitle|}}
-    <div class={{elem "subtitle"}}>{{subtitle}}</div>
+  {{#animated-value
+    project.subtitle
+    use=typoTransition
+    duration=duration
+  as |subtitle|
+  }}
+    <div class={{elem "subtitle"}}>
+      {{subtitle}}
+    </div>
   {{/animated-value}}
 </header>
-{{!--  --}}

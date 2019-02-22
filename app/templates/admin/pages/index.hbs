@@ -25,7 +25,9 @@ as |group|
     }}
       <div class="o-flex-table__column u-12/12">
         <span class="handle">&varr;</span>
-        {{#link-to "admin.pages.edit" page}}{{page.title}}{{/link-to}}
+        {{#link-to "admin.pages.edit" page}}
+          {{page.title}}
+        {{/link-to}}
       </div>
     {{/sortable-item}}
   {{/each}}

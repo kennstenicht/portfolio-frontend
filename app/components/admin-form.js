@@ -47,6 +47,7 @@ export default Component.extend({
 
   _throwError(reason) {
     let error = reason.errors || reason;
+    // eslint-disable-next-line no-console
     console.log(error);
   }
 });
