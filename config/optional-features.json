@@ -1,4 +1,4 @@
 {
   "application-template-wrapper": false,
-  "jquery-integration": true
+  "jquery-integration": false
 }

@@ -1,14 +1,10 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import { inject as service } from "@ember/service";
 import BEM from 'ember-cli-bem/mixins/bem';
-import ScrollMagicComponentMixin from 'ember-scrollmagic/mixins/components/scene-mixin';
+import ScrollMagic from 'scrollmagic';
+import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators';
 
-export default Component.extend(BEM, ScrollMagicComponentMixin, {
-  // Services
-  scrollMagic: service(),
-
-
+export default Component.extend(BEM, {
   // Defaults
   tagName: 'footer',
   blockName: 'c-application-footer',
@@ -20,14 +16,20 @@ export default Component.extend(BEM, ScrollMagicComponentMixin, {
     return new Date().getFullYear();
   }),
 
+  didInsertElement() {
+    this._super(...arguments);
 
-  // Functions
-  setupScene() {
-    let opts = this.mergedOptions,
-        scene = new ScrollMagic.Scene(opts);
+    const controller = new ScrollMagic.Controller();
 
-    scene.setClassToggle(this.element, 'c-application-footer--toggled')
+    const scene = new ScrollMagic.Scene({
+        triggerElement: '.c-application-footer',
+        duration: 500,
+        triggerHook: 1
+      })
+      .setClassToggle(this.element, 'c-application-footer--toggled')
+      .addTo(controller);
 
-    return scene;
-  }
+    console.log(this.element);
+  },
+
 });

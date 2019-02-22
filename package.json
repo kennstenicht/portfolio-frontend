@@ -18,11 +18,9 @@
     "test": "ember test"
   },
   "devDependencies": {
-    "@ember/jquery": "^0.6.0",
     "@ember/optional-features": "^0.7.0",
     "broccoli-asset-rev": "^3.0.0",
     "broccoli-stew": "^2.0.1",
-    "ember-ajax": "^4.0.2",
     "ember-animated": "^0.4.1",
     "ember-animated-tools": "^0.4.0",
     "ember-auto-import": "^1.2.19",
@@ -54,7 +52,6 @@
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-qunit": "^4.2.0",
     "ember-resolver": "^5.0.1",
-    "ember-scrollmagic": "^1.0.0-beta3",
     "ember-simple-auth": "^1.8.1",
     "ember-simple-auth-token": "^4.0.6",
     "ember-sortable": "^1.12.4",
@@ -63,6 +60,7 @@
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.8.4",
     "sass": "^1.16.1",
+    "scrollmagic": "^2.0.6",
     "swiper": "^4.4.6"
   },
   "engines": {

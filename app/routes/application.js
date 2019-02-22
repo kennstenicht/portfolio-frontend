@@ -1,10 +1,9 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import ScrollControllerRouteMixin from 'ember-scrollmagic/mixins/scroll-controllers/route-mixin';
 import SetHeadTags from '../mixins/set-head-tags';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 
-export default Route.extend(ApplicationRouteMixin, ScrollControllerRouteMixin, SetHeadTags, {
+export default Route.extend(ApplicationRouteMixin, SetHeadTags, {
   // Services
   session: service(),
   intl: service(),
