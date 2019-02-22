@@ -1,18 +1,20 @@
 import Component from '@ember/component';
-import { inject as service } from '@ember/service';
+import { inject as service } from '@ember-decorators/service';
 import BEM from 'ember-cli-bem/mixins/bem';
 
-export default Component.extend(BEM, {
+export default class SessionSignOut extends Component.extend(
+  BEM
+) {
   // Services
-  session: service(),
-  router: service(),
+  @service session;
+  @service router;
 
   // Defaults
-  tagName: 'span',
-  blockNames: 'c-sign-out',
+  tagName = 'span';
+  blockNames = 'c-sign-out';
 
   // Events
   click() {
     this.session.invalidate();
   }
-});
+}

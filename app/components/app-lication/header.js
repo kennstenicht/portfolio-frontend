@@ -1,12 +1,15 @@
 import Component from '@ember/component';
-import { inject as service } from '@ember/service';
+import { inject as service } from '@ember-decorators/service';
 import BEM from 'ember-cli-bem/mixins/bem';
 
-export default Component.extend(BEM, {
+export default class AppLicationHeaderComponent extends Component.extend(
+  BEM
+) {
   // Services
-  session: service(),
+  @service session;
 
-  // Class bindings
-  tagName: 'header',
-  blockName: 'c-application-header',
-});
+
+  // Defaults
+  tagName = 'header';
+  blockName = 'c-application-header';
+}

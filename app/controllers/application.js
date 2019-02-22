@@ -1,10 +1,11 @@
 import Controller from '@ember/controller';
-import { computed } from '@ember/object';
 import ENV from 'portfolio/config/environment';
+import { computed } from '@ember-decorators/object';
 
-export default Controller.extend({
+export default class ApllicationController extends Controller {
   // Computed properties
-  isDevelopment: computed(function () {
+  @computed
+  get isDevelopment() {
     return ENV.environment == 'development'
-  }),
-});
+  }
+}

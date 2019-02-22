@@ -1,6 +1,7 @@
-import DS from 'ember-data';
+import Model from 'ember-data/model';
+import { attr } from '@ember-decorators/data';
 
-export default DS.Model.extend({
-  key: DS.attr('string'),
-  value: DS.attr('string')
-});
+export default class CustomFieldModel extends Model {
+  @attr('string') key;
+  @attr('string') value;
+}

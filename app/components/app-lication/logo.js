@@ -1,61 +1,58 @@
 import Component from '@ember/component';
-import { computed } from '@ember/object';
+import { computed } from '@ember-decorators/object';
 import BEM from 'ember-cli-bem/mixins/bem';
 import { TweenLite, easing } from 'gsap';
 const { Power1 } = easing;
 
-export default Component.extend(BEM, {
+export default class AppLicationLogoComponent extends Component.extend(
+  BEM
+) {
   // Defaults
-  blockName: 'c-application-logo',
+  blockName = 'c-application-logo';
+  words = [
+    'Christoph Wiedenmann',
+    'Handcrafted with ♥♥♥',
+    'Javascript Developer',
+    'Experience Designer ',
+    'Frontend  Engineer  ',
+    'Stylesheet Architect',
+    'Interactive Concepts',
+    'Addicted to Ember.js',
+    'Basedin   Neu- kölln',
+    '1000101101 sommelier',
+    'Buildcode not  walls',
+    'Pushing boundaries  ',
+    'Backend Developer   ',
+    'Digital Craftsman   ',
+    'Open ··¦··mindedness',
+    'working atag—prop   ',
+    'creative  </>  coder',
+    'embereño  from heart',
+    'open source lover ♥♥',
+    'master  ofdisaster  ',
+    'fusion of design&dev',
+    'Progressive WebApps ',
+    'No border, No nation'
+  ];
 
 
   // Computed properties
-  defaultWord: computed(function () {
+  @computed
+  get defaultWord() {
     return this.words.objectAt(0).split('');
-  }),
-
-
-  // Hooks
-  init() {
-    this.words = [
-      'Christoph Wiedenmann',
-      'Handcrafted with ♥♥♥',
-      'Javascript Developer',
-      'Experience Designer ',
-      'Frontend  Engineer  ',
-      'Stylesheet Architect',
-      'Interactive Concepts',
-      'Addicted to Ember.js',
-      'Basedin   Neu- kölln',
-      '1000101101 sommelier',
-      'Buildcode not  walls',
-      'Pushing boundaries  ',
-      'Backend Developer   ',
-      'Digital Craftsman   ',
-      'Open ··¦··mindedness',
-      'working atag—prop   ',
-      'creative  </>  coder',
-      'embereño  from heart',
-      'open source lover ♥♥',
-      'master  ofdisaster  ',
-      'fusion of design&dev',
-      'Progressive WebApps ',
-      'No border, No nation'
-    ];
-    this._super();
-  },
+  }
 
 
   // Events
   mouseEnter() {
     this.explode();
-  },
+  }
 
 
   // Functions
   random(min, max) {
     return Math.floor(Math.random()*(max-min+1)+min)
-  },
+  }
 
   explode() {
     const letters = this.element.querySelectorAll('.' + this.blockName + "__letter");
@@ -78,7 +75,7 @@ export default Component.extend(BEM, {
         },
       );
     }, this);
-  },
+  }
 
   implode(element, newLetter) {
     element.innerHTML = newLetter;
@@ -95,4 +92,4 @@ export default Component.extend(BEM, {
       }
     );
   }
-});
+}

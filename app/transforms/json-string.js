@@ -1,12 +1,12 @@
-import DS from 'ember-data';
+import Transform from 'ember-data/transform';
 import { isBlank } from '@ember/utils';
 
-export default DS.Transform.extend({
+export default class JsonStringTransform extends Transform {
   deserialize(serialized) {
     return isBlank(serialized) ? {} : JSON.parse(serialized);
-  },
+  }
 
   serialize(deserialized) {
     return isBlank(deserialized) ? '{}' : JSON.stringify(deserialized);
   }
-});
+}

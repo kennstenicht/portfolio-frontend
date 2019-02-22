@@ -1,7 +1,9 @@
 import Component from '@ember/component';
 import BEM from 'ember-cli-bem/mixins/bem';
 
-export default Component.extend(BEM, {
+export default class ProjectDetailSummaryComponent extends Component.extend(
+  BEM
+) {
   // Defaults
-  blockName: 'c-project-detail-summary',
-});
+  blockName = 'c-project-detail-summary';
+}

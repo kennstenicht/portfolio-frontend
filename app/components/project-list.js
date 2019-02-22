@@ -1,19 +1,24 @@
 import Component from '@ember/component';
-import { inject as service } from '@ember/service';
+import { inject as service } from '@ember-decorators/service';
 import BEM from 'ember-cli-bem/mixins/bem';
 import Swiper from 'swiper';
 import move from 'ember-animated/motions/move';
 import { easeOut, easeIn } from 'ember-animated/easings/cosine';
 
-export default Component.extend(BEM, {
+export default class ProjectList extends Component.extend(
+  BEM
+) {
   // Services
-  swiper: service(),
+  @service swiper;
+
 
   // Defaults
-  tagName: 'article',
-  blockName: 'c-project-list',
+  tagName = 'article';
+  blockName = 'c-project-list';
+  preserveScrollPosition = true;
 
 
+  // Hooks
   didInsertElement() {
     this._super(...arguments);
 
@@ -61,12 +66,11 @@ export default Component.extend(BEM, {
       slidePrevClass: 'c-project-list-preview--prev',
       slideDuplicatedPrevClass: 'c-project-list-preview--duplicated-prev'
     })
-  },
+  }
 
-  preserveScrollPosition: true,
 
   // eslint-disable-next-line require-yield
-  listTransition: function * ({ insertedSprites, removedSprites, sentSprites, receivedSprites }) {
+  listTransition = function * ({ insertedSprites, removedSprites, sentSprites, receivedSprites }) {
     receivedSprites.concat(sentSprites).forEach(sprite => {
       sprite.applyStyles({
         'z-index': 801
@@ -91,4 +95,4 @@ export default Component.extend(BEM, {
       move(sprite, { easing: easeIn });
     });
   }
-});
+}

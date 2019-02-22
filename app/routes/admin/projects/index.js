@@ -1,32 +1,29 @@
 import Route from '@ember/routing/route';
 import { set } from '@ember/object';
+import { action } from '@ember-decorators/object';
 
-export default Route.extend({
+export default class AdminProjectsIndexRoute extends Route {
   // Hooks
   model() {
-    return this.modelFor('admin.projects');  },
+    return this.modelFor('admin.projects');
+  }
 
   setupController(controller, model) {
     this._super(controller, model);
 
     set(controller, 'projects', model);
-  },
+  }
 
 
   // Actions
-  actions: {
-    reorderItems(itemModels) {
-      const controller = this.controllerFor('admin.projects.index');
+  @action
+  reorderItems(itemModels) {
+    const controller = this.controllerFor('admin.projects.index');
 
-      itemModels.forEach(function (project, index) {
-        set(project, 'position', index);
-        project.save();
-      });
-      set(controller, 'projects', itemModels);
-    }
-  },
-
-  shouldReloadRecord() {
-    return true;
-  },
-});
+    itemModels.forEach(function (project, index) {
+      set(project, 'position', index);
+      project.save();
+    });
+    set(controller, 'projects', itemModels);
+  }
+}

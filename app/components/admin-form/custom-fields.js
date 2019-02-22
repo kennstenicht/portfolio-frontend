@@ -1,20 +1,21 @@
 import Component from '@ember/component';
-import { inject as service } from '@ember/service';
+import { action } from '@ember-decorators/object';
+import { inject as service } from '@ember-decorators/service';
 
-export default Component.extend({
+export default class AdminFormCustomFieldComponent extends Component {
   // Services
-  store: service(),
+  @service store;
 
   // Actions
-  actions: {
-    addCustomField() {
-      let customField = this.store.createRecord('customField');
+  @action
+  addCustomField() {
+    let customField = this.store.createRecord('customField');
 
-      this.model.customFields.pushObject(customField);
-    },
+    this.model.customFields.pushObject(customField);
+  }
 
-    removeCustomField(customField) {
-      customField.destroyRecord();
-    }
-  },
-});
+  @action
+  removeCustomField(customField) {
+    customField.destroyRecord();
+  }
+}

@@ -2,11 +2,12 @@ import Route from '@ember/routing/route';
 import { set } from '@ember/object';
 import SetHeadTags from '../../mixins/set-head-tags';
 
-export default Route.extend(SetHeadTags, {
+export default class ProjectsShowRoute extends Route.extend(SetHeadTags) {
+  // Hooks
   model(params) {
     return this.modelFor('projects')
       .findBy('slug', params.project_slug);
-  },
+  }
 
   afterModel(model) {
     set(this, 'metaTitle', model.title + ' » ' + model.subtitle + ' | Christoph Wiedenmann');
@@ -15,11 +16,11 @@ export default Route.extend(SetHeadTags, {
     set(this, 'metaType', 'article');
 
     this.setHeadTags(model);
-  },
+  }
 
   serialize(model){
     return {
       project_slug: model.slug
     };
-  },
-});
+  }
+}

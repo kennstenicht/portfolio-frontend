@@ -1,15 +1,19 @@
 import Component from '@ember/component';
-import { computed } from '@ember/object';
+import { computed } from '@ember-decorators/object';
 import { getOwner } from '@ember/application';
 import BEM from 'ember-cli-bem/mixins/bem';
 
-export default Component.extend(BEM, {
+export default class ProjectDetail extends Component.extend(
+  BEM
+) {
   // Defaults
-  tagName: 'article',
-  blockName: 'c-project-detail',
+  tagName = 'article';
+  blockName = 'c-project-detail';
+
 
   // Computed properties
-  projectTemplate: computed('project.slug', function () {
+  @computed('project.slug')
+  get projectTemplate() {
     let slug = this.project.slug;
 
     if(getOwner(this).lookup('template:components/project-detail/-' + slug)) {
@@ -17,5 +21,5 @@ export default Component.extend(BEM, {
     } else {
       return 'components/project-detail/-default';
     }
-  })
-});
+  }
+}

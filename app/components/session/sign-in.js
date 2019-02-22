@@ -1,41 +1,45 @@
-import { inject as service } from '@ember/service';
 import Component from '@ember/component';
+import { action } from '@ember-decorators/object';
+import { inject as service } from '@ember-decorators/service';
 import BEM from 'ember-cli-bem/mixins/bem';
 
-export default Component.extend(BEM, {
+export default class SessionSignIn extends Component.extend(
+  BEM
+) {
   // Services
-  session: service(),
+  @service session;
+
 
   // Defaults
-  tagName: 'section',
-  blockNames: 'c-sign-in',
+  tagName = 'section';
+  blockNames = 'c-sign-in';
+
 
   // Actions
-  actions: {
-    authenticate: function() {
-      const credentials = {
-        "auth": {
-          "password": this.password,
-          "email": this.identification
-        }
-      };
-      const authenticator = 'authenticator:jwt';
+  @action
+  authenticate() {
+    const credentials = {
+      "auth": {
+        "password": this.password,
+        "email": this.identification
+      }
+    };
+    const authenticator = 'authenticator:jwt';
 
-      this.session.authenticate(authenticator, credentials)
-        .then(this._authenticated.bind(this))
-        .catch(this._rejected.bind(this));
-    }
-  },
+    this.session.authenticate(authenticator, credentials)
+      .then(this._authenticated.bind(this))
+      .catch(this._rejected.bind(this));
+  }
 
 
   // Privat functions
   _authenticated() {
     // eslint-disable-next-line no-console
     console.log('Loged in');
-  },
+  }
 
   _rejected(reason) {
     // eslint-disable-next-line no-console
     console.log(reason);
   }
-});
+}

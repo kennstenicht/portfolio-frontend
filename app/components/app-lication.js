@@ -1,20 +1,24 @@
 import Component from '@ember/component';
-import { computed } from '@ember/object';
-import { inject as service } from '@ember/service';
+import { className } from '@ember-decorators/component';
+import { computed } from '@ember-decorators/object';
+import { inject as service } from '@ember-decorators/service';
 import BEM from 'ember-cli-bem/mixins/bem';
 
-export default Component.extend(BEM, {
+export default class AppLication extends Component.extend(
+  BEM
+) {
   // Services
-  router: service(),
+  @service router;
 
 
-  // Class bindings
-  classNameBindings: ['currentRouteClass'],
-  blockName: 'c-application',
+  // Defaults
+  blockName = 'c-application';
 
 
   // Computed Properties
-  currentRouteClass: computed('router.currentURL', function() {
+  @className
+  @computed('router.currentURL')
+  get currentRouteClass() {
     let routeSegments = this.router.currentURL.substring(1).split('/');
     let routeName = this.router.currentRouteName.replace('.', '-');
     let blockName = this.blockName;
@@ -33,5 +37,5 @@ export default Component.extend(BEM, {
     }
 
     return classes.join(' ');
-  })
-});
+  }
+}

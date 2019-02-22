@@ -1,9 +1,9 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
+import { inject as service } from '@ember-decorators/service';
 
-export default Route.extend({
+export default class LoginRoute extends Route {
   // Services
-  session: service(),
+  @service session;
 
 
   // Hooks
@@ -12,4 +12,4 @@ export default Route.extend({
       this.transitionTo('admin');
     }
   }
-});
+}

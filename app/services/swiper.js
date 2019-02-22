@@ -1,5 +1,5 @@
 import Service from '@ember/service';
 
-export default Service.extend({
-  position: 0
-});
+export default class SwiperService extends Service {
+  position = 0;
+}

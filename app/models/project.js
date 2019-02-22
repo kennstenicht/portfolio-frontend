@@ -1,14 +1,16 @@
-import DS from 'ember-data';
+import Model from 'ember-data/model';
+import { attr } from '@ember-decorators/data';
+import { hasMany } from '@ember-decorators/data';
 
-export default DS.Model.extend({
-  title: DS.attr('string'),
-  slug: DS.attr('string'),
-  subtitle: DS.attr('string'),
-  excerpt: DS.attr('string'),
-  metaInfo: DS.attr('string'),
-  content: DS.attr('string'),
-  visible: DS.attr('boolean'),
-  position: DS.attr('number'),
+export default class ProjectModel extends Model {
+  @attr('string') title;
+  @attr('string') slug;
+  @attr('string') subtitle;
+  @attr('string') excerpt;
+  @attr('string') metaInfo;
+  @attr('string') content;
+  @attr('boolean') visible;
+  @attr('number') position;
 
-  customFields: DS.hasMany('custom-field')
-});
+  @hasMany('custom-field') customFields;
+}
