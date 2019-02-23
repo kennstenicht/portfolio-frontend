@@ -1,8 +1,7 @@
 import Component from '@ember/component';
 import { computed } from '@ember-decorators/object';
 import BEM from 'ember-cli-bem/mixins/bem';
-import { TweenLite, easing } from 'gsap';
-const { Power1 } = easing;
+import { TweenLite, Power1 } from 'gsap/TweenLite';
 
 export default class AppLicationLogoComponent extends Component.extend(
   BEM
