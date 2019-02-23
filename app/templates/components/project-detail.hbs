@@ -1,14 +1,14 @@
 {{! template-lint-disable no-partial }}
-{{#animated-value project as |project|}}
+{{#animated-value @project as |project|}}
   {{project-detail/header
     project=project
   }}
 {{/animated-value}}
 
 <div class={{elem "content"}}>
-  {{project-detail/summary project=project}}
+  {{project-detail/summary project=@project}}
 
   <div class={{elem "wrapper"}}>
-    {{partial projectTemplate}}
+    {{partial this.projectTemplate}}
   </div>
 </div>

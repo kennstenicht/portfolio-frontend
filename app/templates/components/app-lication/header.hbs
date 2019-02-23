@@ -13,7 +13,7 @@
     <li class="o-list-inline__item">
       — {{link-to (t "navigation.about") "pages.show" "about" class="u-no-underline"}}
     </li>
-    {{#if session.isAuthenticated}}
+    {{#if this.session.isAuthenticated}}
       <li class="o-list-inline__item">
         | {{link-to (t "navigation.projects") "admin.projects" class="u-no-underline"}}
       </li>

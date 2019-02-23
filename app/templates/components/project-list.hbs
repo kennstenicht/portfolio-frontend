@@ -1,9 +1,9 @@
-<div class={{elem 'wrapper'}}>
+<div class={{elem "wrapper"}}>
   {{#animated-each
-    projects
+    @projects
     initialInsertion=true
     finalRemoval=true
-    use=listTransition
+    use=this.listTransition
     duration=600
   as |project index|
   }}

@@ -1,7 +1,7 @@
 {{#animated-value
-  project.slug
-  use=backgroundTransition
-  duration=duration
+  @project.slug
+  use=this.backgroundTransition
+  duration=this.duration
 as |slug|
 }}
   <div class="{{elem "background"}} {{elem "background"}}--{{slug}}"></div>
@@ -9,9 +9,9 @@ as |slug|
 
 <header class={{elem "header"}}>
   {{#animated-value
-    project.title
-    use=typoTransition
-    duration=duration
+    @project.title
+    use=this.typoTransition
+    duration=this.duration
   as |title|
   }}
     <h1 class={{elem "title"}}>
@@ -19,9 +19,9 @@ as |slug|
     </h1>
   {{/animated-value}}
   {{#animated-value
-    project.subtitle
-    use=typoTransition
-    duration=duration
+    @project.subtitle
+    use=this.typoTransition
+    duration=this.duration
   as |subtitle|
   }}
     <div class={{elem "subtitle"}}>
