@@ -45,6 +45,7 @@
     "ember-cli-uglify": "^2.1.0",
     "ember-cli-update": "^0.29.2",
     "ember-concurrency": "^0.8.26",
+    "ember-concurrency-decorators": "^0.5.3",
     "ember-data": "~3.7.0",
     "ember-decorators": "^5.1.3",
     "ember-export-application-global": "^2.0.0",

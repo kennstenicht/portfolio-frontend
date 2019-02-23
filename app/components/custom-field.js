@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { set } from '@ember/object';
-import { task } from 'ember-concurrency';
+import { task } from 'ember-concurrency-decorators';
 
 export default class CustomFields extends Component {
   // Defaults
@@ -13,14 +13,16 @@ export default class CustomFields extends Component {
     let key = this.key;
     let model = this.model;
 
-    this.fetchData.perform(key, model);
+    this.get('fetchData').perform(key, model);
   }
 
-
-  fetchData = task(function* (key, model) {
+  @task({
+    restartable: true
+  })
+  *fetchData(key, model) {
     let customFields = yield model.customFields
     let customField = customFields.findBy('key', key);
 
     return set(this, 'customField', customField);
-  }).restartable()
+  }
 }
