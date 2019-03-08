@@ -3,7 +3,7 @@ import { computed } from '@ember-decorators/object';
 import { getOwner } from '@ember/application';
 import BEM from 'ember-cli-bem/mixins/bem';
 
-export default class ProjectDetail extends Component.extend(
+export default class ProjectDetailComponent extends Component.extend(
   BEM
 ) {
   // Defaults
@@ -16,7 +16,7 @@ export default class ProjectDetail extends Component.extend(
   get projectTemplate() {
     let slug = this.project.slug;
 
-    if(getOwner(this).lookup('template:components/project-detail/-' + slug)) {
+    if (getOwner(this).lookup('template:components/project-detail/-' + slug)) {
       return 'components/project-detail/-' + slug;
     } else {
       return 'components/project-detail/-default';

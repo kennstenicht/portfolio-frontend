@@ -5,7 +5,7 @@ import Swiper from 'swiper';
 import move from 'ember-animated/motions/move';
 import { easeOut, easeIn } from 'ember-animated/easings/cosine';
 
-export default class ProjectList extends Component.extend(
+export default class ProjectListComponent extends Component.extend(
   BEM
 ) {
   // Services

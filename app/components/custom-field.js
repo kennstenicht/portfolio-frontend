@@ -2,7 +2,7 @@ import Component from '@ember/component';
 import { set } from '@ember/object';
 import { task } from 'ember-concurrency-decorators';
 
-export default class CustomFields extends Component {
+export default class CustomFieldsComponent extends Component {
   // Defaults
   static positionalParams = ['key', 'model'];
   tagName = '';
