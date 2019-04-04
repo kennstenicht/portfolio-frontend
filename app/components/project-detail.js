@@ -10,7 +10,6 @@ export default class ProjectDetailComponent extends Component.extend(
   tagName = 'article';
   blockName = 'c-project-detail';
 
-
   // Computed properties
   @computed('project.slug')
   get projectTemplate() {

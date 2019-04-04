@@ -3,7 +3,7 @@ module.exports = {
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 2017,
-    sourceType: 'module'
+    sourceType: 'module',
   },
   plugins: [
     'ember'
@@ -31,7 +31,10 @@ module.exports = {
       ],
       parserOptions: {
         sourceType: 'script',
-        ecmaVersion: 2015
+        ecmaVersion: 2015,
+        ecmaFeatures: {
+          experimentalDecorators: true,
+        } 
       },
       env: {
         browser: false,
