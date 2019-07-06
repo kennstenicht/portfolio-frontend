@@ -7,21 +7,30 @@ import { getOwner } from '@ember/application';
 export default class AdminFormComponent extends Component {
   // Services
   @service router;
+  @service intl;
 
 
   // Computed properties
   @computed('model.constructor.modelName')
-  get formTemplate() {
+  get headline() {
+    const modelName = this.model.constructor.modelName;
+    const mode = this.model.isNew ? 'new' : 'edit';
+
+    return this.intl.t(`admin.${modelName}.headline.${mode}`);
+  }
+
+  @computed('model.constructor.modelName')
+  get componentName() {
     let modelName = this.model.constructor.modelName;
 
-    if(getOwner(this).lookup('template:components/admin-form/-' + modelName)) {
-      return 'components/admin-form/-' + modelName;
+    if(getOwner(this).lookup('template:components/admin-form/' + modelName)) {
+      return 'admin-form/' + modelName;
     } else {
-      return 'components/admin-form/-default';
+      return 'admin-form/default';
     }
   }
 
-
+  
   // Actions
   @action
   save() {

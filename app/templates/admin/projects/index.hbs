@@ -9,21 +9,19 @@
   </div>
 </div>
 
-{{#sortable-group
-  tagName="div"
+<SortableGroup
   class="o-flex-table"
-  onChange="reorderItems"
-as |group|
-}}
-  {{#each @projects as |project|}}
-    {{#sortable-item
-      tagName="div"
+  onChange="reorderItems" as |group|
+>
+  {{#each this.projects as |project|}}
+    <SortableItem
       class="o-flex-table__row"
-      model=project
-      group=group
-      handle=".handle"
-    }}
+      @model={{project}}
+      @group={{group}}
+      @handle=".handle"
+    >
       <div class="o-flex-table__column u-10/12">
+        {{! template-lint-disable no-bare-strings }}
         <span class="handle">&varr;</span>
         {{#link-to "admin.projects.edit" project.id}}
           {{project.title}}
@@ -36,6 +34,6 @@ as |group|
           (t "admin.label.draft")
         }}
       </div>
-    {{/sortable-item}}
+    </SortableItem>
   {{/each}}
-{{/sortable-group}}
+</SortableGroup>
