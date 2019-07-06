@@ -1,14 +1,16 @@
-{{! template-lint-disable no-partial }}
-{{#animated-value @project as |project|}}
-  {{project-detail/header
-    project=project
-  }}
-{{/animated-value}}
+<article class={{bem this.block}}>
+  {{#animated-value @project as |project|}}
+    <ProjectDetail::Header
+      @project={{project}}
+    />
+  {{/animated-value}}
 
-<div class={{elem "content"}}>
-  {{project-detail/summary project=@project}}
-
-  <div class={{elem "wrapper"}}>
-    {{partial this.projectTemplate}}
+  <div class={{bem this.block "content"}}>
+    <ProjectDetail::Summary
+      @project={{@project}}
+    />
+    <div class={{bem this.block "wrapper"}}>
+      {{component (concat "project-detail/" @project.slug) project=@project}}
+    </div>
   </div>
-</div>
+</article>

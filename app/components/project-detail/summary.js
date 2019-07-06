@@ -1,9 +1,6 @@
-import Component from '@ember/component';
-import BEM from 'ember-cli-bem/mixins/bem';
+import Component from '@glimmer/component';
 
-export default class ProjectDetailSummaryComponent extends Component.extend(
-  BEM
-) {
+export default class ProjectDetailSummaryComponent extends Component {
   // Defaults
-  blockName = 'c-project-detail-summary';
+  block = 'c-project-detail-summary';
 }

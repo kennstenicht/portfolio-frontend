@@ -1,31 +1,41 @@
-{{#animated-value
-  @project.slug
-  use=this.backgroundTransition
-  duration=this.duration
-as |slug|
-}}
-  <div class="{{elem "background"}} {{elem "background"}}--{{slug}}"></div>
-{{/animated-value}}
+<div
+  class={{bem this.block modifiers=(hash
+    style=@project.slug
+  )}}
+  ...attributes
+>
+  {{#animated-value
+    @project.slug
+    use=this.backgroundTransition
+    duration=this.duration
+    as |slug|
+  }}
+    <div class={{bem this.block "background" modifiers=(hash
+      style=slug
+    )}}></div>
+  {{/animated-value}}
 
-<header class={{elem "header"}}>
-  {{#animated-value
-    @project.title
-    use=this.typoTransition
-    duration=this.duration
-  as |title|
-  }}
-    <h1 class={{elem "title"}}>
-      {{title}}
-    </h1>
-  {{/animated-value}}
-  {{#animated-value
-    @project.subtitle
-    use=this.typoTransition
-    duration=this.duration
-  as |subtitle|
-  }}
-    <div class={{elem "subtitle"}}>
-      {{subtitle}}
-    </div>
-  {{/animated-value}}
-</header>
+  <header class={{bem this.block "header"}}>
+    {{#animated-value
+      @project.title
+      use=this.typoTransition
+      duration=this.duration
+      as |title|
+    }}
+      <h1 class={{bem this.block "title"}}>
+        {{title}}
+      </h1>
+    {{/animated-value}}
+
+    {{#animated-value
+      @project.subtitle
+      use=this.typoTransition
+      duration=this.duration
+      as |subtitle|
+    }}
+      <div class={{bem this.block "subtitle"}}>
+        {{subtitle}}
+      </div>
+    {{/animated-value}}
+  </header>
+</div>

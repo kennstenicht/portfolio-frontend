@@ -35,32 +35,37 @@
 
 
 
-/* Project Images
+/* Project spesific styles
    ========================================================================== */
 
-.c-project-detail-header__background {
-  &--binuu {
+.c-project-detail-header {
+  &__background--style-binuu {
     background-image: url('projects/binuu/binuu_preview.jpg');
   }
 
-  &--eels {
+  &__background--style-eels {
     background-image: url('projects/eels/eels_preview.jpg');
   }
 
-  &--disaster-mgmt {
+  &__background--style-disaster-mgmt {
     background-image: url('projects/disaster-mgmt/disaster-mgmt_preview.jpg');
   }
 
-  &--ad-hoc {
+  &__background--style-ad-hoc {
     background-image: url('projects/ad-hoc/ad-hoc_preview.jpg');
   }
 
-  &--flutkoerper {
+  &__background--style-flutkoerper {
     background-image: url('projects/flutkoerper/flutkoerper_preview.jpg');
   }
 }
 
 
+
+
+
+/* Media queries
+   ========================================================================== */
 
 @include mq($until: tablet) {
   .c-project-detail-header {

@@ -1,29 +1,24 @@
-import Component from '@ember/component';
-import { set } from '@ember/object';
+import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
-import BEM from 'ember-cli-bem/mixins/bem';
 import move from 'ember-animated/motions/move';
 import resize from 'ember-animated/motions/resize';
 import { parallel } from 'ember-animated';
 
-export default class ProjectDetailHeaderComponent extends Component.extend(
-  BEM
-) {
+export default class ProjectDetailHeaderComponent extends Component {
   // Services
   @service swiper;
 
 
   // Defaults
-  tagName = 'header';
-  blockName = 'c-project-detail-header';
+  block = 'c-project-detail-header';
   duration = 600;
 
 
   // Hooks
-  didInsertElement() {
-    this._super(...arguments);
+  constructor() {
+    super(...arguments);
 
-    set(this, 'swiper.position', this.project.position);
+    this.swiper.position = this.args.project.position;
   }
 
 
