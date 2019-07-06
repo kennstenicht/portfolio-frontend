@@ -2,14 +2,42 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'my-app',
+    modulePrefix: 'portfolio',
     environment,
     rootURL: '/',
     locationType: 'auto',
+
+    'ember-cli-bem': {
+      elemDelimiter: '__',
+      modDelimiter: '--',
+      useKeyValuedMods: true,
+    },
+
+    'ember-scrollmagic': {
+      indicators: true
+    },
+
+    ifa: {
+      enabled: true,
+      inline: true
+    },
+
+    fastboot: {
+      hostWhitelist: ['wiedenmann.io', 'staging.wiedenmann.io', /^localhost:\d+$/]
+    },
+
+    'ember-simple-auth-token': {
+      serverTokenEndpoint: '/api/v1/user_token',
+      tokenPropertyName: 'jwt',
+      refreshAccessTokens: false,
+      tokenExpirationInvalidateSession: true,
+      tokenExpireName: 'exp'
+    },
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
-        // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
+        EMBER_NATIVE_DECORATOR_SUPPORT: true
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
