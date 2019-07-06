@@ -1,30 +1,25 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import Swiper from 'swiper';
 import move from 'ember-animated/motions/move';
 import { easeOut, easeIn } from 'ember-animated/easings/cosine';
-import BEM from 'ember-cli-bem/mixins/bem';
 
-export default class ProjectListComponent extends Component.extend(
-  BEM
-) {
+export default class ProjectListComponent extends Component {
   // Services
   @service swiper;
 
 
   // Defaults
-  tagName = 'article';
-  blockName = 'c-project-list';
+  block = 'c-project-list';
   preserveScrollPosition = true;
+  duration = 600;
 
 
-  // Hooks
-  didInsertElement() {
-    this._super(...arguments);
-
+  // Functions
+  initSwiper(element) {
     // Swiper.use([Pagination, Keyboard, Mousewheel, Parallax]);
 
-    new Swiper(this.element, {
+    this.swiper.instance = new Swiper(element, {
       slidesPerView: 'auto',
       centeredSlides: true,
       grapCursor: false,
@@ -68,9 +63,17 @@ export default class ProjectListComponent extends Component.extend(
     })
   }
 
+  destroySwiper() {
+    this.swiper.instance.destroy();
+  }
 
   // eslint-disable-next-line require-yield
-  listTransition = function * ({ insertedSprites, removedSprites, sentSprites, receivedSprites }) {
+  listTransition = function * ({
+    insertedSprites,
+    removedSprites,
+    sentSprites,
+    receivedSprites
+  }) {
     receivedSprites.concat(sentSprites).forEach(sprite => {
       sprite.applyStyles({
         'z-index': 801

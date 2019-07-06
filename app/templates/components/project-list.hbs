@@ -1,15 +1,22 @@
-<div class={{elem "wrapper"}}>
-  {{#animated-each
-    @projects
-    initialInsertion=true
-    finalRemoval=true
-    use=this.listTransition
-    duration=600
-  as |project index|
-  }}
-    {{project-list/preview
-      project=project
-      index=index
+<div
+  class={{bem this.block}}
+  {{did-insert (action this.initSwiper)}}
+  {{will-destroy (action this.destroySwiper)}}
+  ...attributes
+>
+  <div class={{bem this.block "wrapper"}}>
+    {{#animated-each
+      @projects
+      initialInsertion=true
+      finalRemoval=true
+      use=this.listTransition
+      duration=this.duration
+      as |project index|
     }}
-  {{/animated-each}}
+      {{project-list/preview
+        project=project
+        index=index
+      }}
+    {{/animated-each}}
+  </div>
 </div>
