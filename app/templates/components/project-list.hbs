@@ -13,10 +13,10 @@
       duration=this.duration
       as |project index|
     }}
-      {{project-list/preview
-        project=project
-        index=index
-      }}
+      <ProjectList::Preview
+        @project={{project}}
+        @index={{index}}
+      />
     {{/animated-each}}
   </div>
 </div>

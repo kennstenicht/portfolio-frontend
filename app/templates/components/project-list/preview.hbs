@@ -1,36 +1,51 @@
-{{#animated-value
-  @project.slug
-  use=this.backgroundTransition
-  duration=this.duration
-as |slug|
-}}
-  <div class="{{elem "background"}} {{elem "background"}}--{{slug}}"></div>
-{{/animated-value}}
+<article
+  class={{bem this.block}}
+  ...attributes
+>
+  <LinkTo @route="projects.show" @model={{@project}}>
+    {{#animated-value
+      @project.slug
+      use=this.backgroundTransition
+      duration=this.duration
+      as |slug|
+    }}
+      <div class={{bem this.block "background"
+        modifiers=(hash
+          style=slug
+        )}}
+      ></div>
+    {{/animated-value}}
 
-<header class={{elem "header"}}>
-  <div class={{elem "index"}} data-swiper-parallax="50">
-    {{index-number index}}
-  </div>
-  {{#animated-value
-    @project.title
-    use=this.typoTransition
-    duration=this.duration
-  as |title|
-  }}
-    <h1 class={{elem "title"}}>
-      {{title}}
-    </h1>
-  {{/animated-value}}
-  {{#animated-value
-    @project.subtitle
-    use=this.typoTransition
-    duration=this.duration
-  as |subtitle|
-  }}
-    <div class={{elem "subtitle"}} data-swiper-parallax="90">
-      {{subtitle}}
+    <header class={{bem this.block "header"}}>
+      <div class={{bem this.block "index"}} data-swiper-parallax="50">
+        {{index-number @index}}
+      </div>
+
+      {{#animated-value
+        @project.title
+        use=this.typoTransition
+        duration=this.duration
+        as |title|
+      }}
+        <h1 class={{bem this.block "title"}}>
+          {{title}}
+        </h1>
+      {{/animated-value}}
+
+      {{#animated-value
+        @project.subtitle
+        use=this.typoTransition
+        duration=this.duration
+        as |subtitle|
+      }}
+        <div class={{bem this.block "subtitle"}} data-swiper-parallax="90">
+          {{subtitle}}
+        </div>
+      {{/animated-value}}
+    </header>
+
+    <div class={{bem this.block "meta"}}>
+      Concept & Development
     </div>
-  {{/animated-value}}
-</header>
-
-<div class={{elem "meta"}}>Concept & Development</div>
+  </LinkTo>
+</article>

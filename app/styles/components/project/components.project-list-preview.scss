@@ -7,27 +7,6 @@
   color: $color-black;
   cursor: pointer;
 
-  &--eels {
-    margin-top: 25vh;
-  }
-
-  &--ad-hoc {
-    margin-top: 40vh;
-  }
-
-  &--disaster-mgmt {
-    margin-top: 20vh;
-  }
-
-  &--binuu {
-    width: 40vw;
-  }
-
-  &--flutkoerper {
-    margin-top: 12vh;
-    width: 50vw;
-  }
-
   &--active {
     z-index: 999;
   }
@@ -83,27 +62,50 @@
 
 
 
-/* Project Images
+/* Project specific styles
    ========================================================================== */
 
-.c-project-list-preview__background {
-  &--binuu {
+
+
+.c-project-list-preview {
+  &--style-binuu {
+    width: 40vw;
+  }
+
+  &__background--style-binuu  {
     background-image: url('projects/binuu/binuu_preview.jpg');
   }
 
-  &--eels {
+  &--style-eels {
+    margin-top: 25vh;
+  }
+
+  &__background--style-eels {
     background-image: url('projects/eels/eels_preview.jpg');
   }
 
-  &--disaster-mgmt {
+  &--style-disaster-mgmt {
+    margin-top: 20vh;
+  }
+
+  &__background--style-disaster-mgmt {
     background-image: url('projects/disaster-mgmt/disaster-mgmt_preview.jpg');
   }
 
-  &--ad-hoc {
+  &--style-ad-hoc {
+    margin-top: 40vh;
+  }
+
+  &__background--style-ad-hoc {
     background-image: url('projects/ad-hoc/ad-hoc_preview.jpg');
   }
 
-  &--flutkoerper {
+  &--style-flutkoerper {
+    margin-top: 12vh;
+    width: 50vw;
+  }
+
+  &__background--style-flutkoerper {
     background-image: url('projects/flutkoerper/flutkoerper_preview.jpg');
   }
 }
