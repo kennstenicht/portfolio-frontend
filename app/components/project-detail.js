@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { computed } from '@ember-decorators/object';
+import { computed } from '@ember/object';
 import { getOwner } from '@ember/application';
 import BEM from 'ember-cli-bem/mixins/bem';
 

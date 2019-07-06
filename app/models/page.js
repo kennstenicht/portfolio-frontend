@@ -1,12 +1,11 @@
+import DS from 'ember-data';
 import Model from 'ember-data/model';
-import { attr } from '@ember-decorators/data';
-import { hasMany } from '@ember-decorators/data';
 
 export default class PageModel extends Model {
-  @attr('string') title;
-  @attr('string') slug;
-  @attr('string') content;
-  @attr('number') position;
+  @DS.attr('string') title;
+  @DS.attr('string') slug;
+  @DS.attr('string') content;
+  @DS.attr('number') position;
 
-  @hasMany('custom-field') customFields;
+  @DS.hasMany('custom-field') customFields;
 }

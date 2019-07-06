@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route';
 import { set } from '@ember/object';
-import { inject as service } from '@ember-decorators/service';
-import { action } from '@ember-decorators/object';
+import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
 import SetHeadTags from '../mixins/set-head-tags';
 
 export default class ProjectsRoute extends Route.extend(SetHeadTags) {

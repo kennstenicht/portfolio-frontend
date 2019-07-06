@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { computed } from '@ember-decorators/object';
+import { computed } from '@ember/object';
 import BEM from 'ember-cli-bem/mixins/bem';
 import { TweenLite, Power1 } from 'gsap/TweenLite';
 

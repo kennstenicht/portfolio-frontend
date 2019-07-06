@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { inject as service } from '@ember-decorators/service';
+import { inject as service } from '@ember/service';
 import BEM from 'ember-cli-bem/mixins/bem';
 
 export default class AppLicationHeaderComponent extends Component.extend(

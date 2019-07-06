@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember-decorators/service';
+import { inject as service } from '@ember/service';
 import SetHeadTags from '../mixins/set-head-tags';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 

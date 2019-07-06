@@ -1,9 +1,9 @@
 import Component from '@ember/component';
-import { inject as service } from '@ember-decorators/service';
-import BEM from 'ember-cli-bem/mixins/bem';
+import { inject as service } from '@ember/service';
 import Swiper from 'swiper';
 import move from 'ember-animated/motions/move';
 import { easeOut, easeIn } from 'ember-animated/easings/cosine';
+import BEM from 'ember-cli-bem/mixins/bem';
 
 export default class ProjectListComponent extends Component.extend(
   BEM
