@@ -1,9 +1,8 @@
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
   parserOptions: {
-    ecmaVersion: 2017,
-    sourceType: 'module',
+    ecmaVersion: 2018,
+    sourceType: 'module'
   },
   plugins: [
     'ember'
@@ -27,19 +26,25 @@ module.exports = {
         'testem.js',
         'blueprints/*/index.js',
         'config/**/*.js',
-        'lib/*/index.js'
+        'lib/*/index.js',
+        'server/**/*.js'
       ],
       parserOptions: {
         sourceType: 'script',
-        ecmaVersion: 2015,
-        ecmaFeatures: {
-          experimentalDecorators: true,
-        } 
+        ecmaVersion: 2015
       },
       env: {
         browser: false,
         node: true
-      }
+      },
+      plugins: ['node'],
+      rules: Object.assign({}, require('eslint-plugin-node').configs.recommended.rules, {
+        // add your custom rules and overrides for node files here
+
+        // this can be removed once the following is fixed
+        // https://github.com/mysticatea/eslint-plugin-node/issues/77
+        'node/no-unpublished-require': 'off'
+      })
     }
   ]
 };
