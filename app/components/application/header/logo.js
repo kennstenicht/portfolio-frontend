@@ -1,13 +1,10 @@
-import Component from '@ember/component';
-import { computed } from '@ember/object';
-import BEM from 'ember-cli-bem/mixins/bem';
-import { TweenLite, Power1 } from 'gsap/TweenLite';
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
+import { TweenLite, Power1 } from 'gsap/TweenMax';
 
-export default class AppLicationLogoComponent extends Component.extend(
-  BEM
-) {
+export default class AppLicationLogoComponent extends Component {
   // Defaults
-  blockName = 'c-application-logo';
+  block = 'c-application-logo';
   words = [
     'Christoph Wiedenmann',
     'Handcrafted with ♥♥♥',
@@ -31,56 +28,63 @@ export default class AppLicationLogoComponent extends Component.extend(
     'master  ofdisaster  ',
     'fusion of design&dev',
     'Progressive WebApps ',
-    'No border, No nation'
+    'No border, No nation',
+    'Make Code not  war  ',
+    '01100011    01110111',
+    'Rescue is not acrime',
   ];
 
 
   // Computed properties
-  @computed
-  get defaultWord() {
+  get defaultLetters() {
     return this.words.objectAt(0).split('');
   }
 
 
-  // Events
-  mouseEnter() {
-    this.explode();
-  }
-
-
   // Functions
-  random(min, max) {
+  randomBetween(min, max) {
     return Math.floor(Math.random()*(max-min+1)+min)
   }
 
-  explode() {
-    const letters = this.element.querySelectorAll('.' + this.blockName + "__letter");
-    const newWord = this.words.objectAt(this.random(1, this.words.length)).split('');
 
-    letters.forEach(function (element, index) {
+  // Actions
+  @action
+  setElement(element) {
+    this.element = element;
+  }
+
+  @action
+  explode() {
+    const letters = this.element
+      .querySelectorAll('.' + this.block + "__letter");
+    const newWord = this.words
+      .objectAt(this.randomBetween(1, this.words.length))
+      .split('');
+
+    letters.forEach(function (letter, index) {
       const newLetter = newWord.objectAt(index);
 
       TweenLite.to(
-        element,
+        letter,
         0.3,
         {
           css: {
-            left: this.random(-100,100) + 'px',
-            top: this.random(-100,100) + 'px'
+            left: this.randomBetween(-100,100) + 'px',
+            top: this.randomBetween(-100,100) + 'px'
           },
           onComplete: this.implode,
-          onCompleteParams: [element, newLetter],
+          onCompleteParams: [letter, newLetter],
           ease: Power1.easeOut
         },
       );
     }, this);
   }
 
-  implode(element, newLetter) {
-    element.innerHTML = newLetter;
+  implode(letter, newLetter) {
+    letter.innerHTML = newLetter;
 
     TweenLite.to(
-      element,
+      letter,
       0.3,
       {
         css: {

@@ -1,29 +1,21 @@
-import Component from '@ember/component';
-import { computed } from '@ember/object';
-import BEM from 'ember-cli-bem/mixins/bem';
+import Component from '@glimmer/component';
 import ScrollMagic from 'scrollmagic';
 import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators';
 
-export default class AppLicationFooterComponent extends Component.extend(
-  BEM
-) {
+export default class AppLicationFooterComponent extends Component {
   // Defaults
-  tagName = 'footer';
-  blockName = 'c-application-footer';
+  block = 'c-application-footer';
   duration = 0;
 
 
   // Computed properties
-  @computed
   get currentYear() {
     return new Date().getFullYear();
   }
 
 
-  // Hooks
-  didInsertElement() {
-    this._super(...arguments);
-
+  // Functions
+  setupAnimation(element) {
     const controller = new ScrollMagic.Controller();
 
     new ScrollMagic.Scene({
@@ -31,7 +23,7 @@ export default class AppLicationFooterComponent extends Component.extend(
         duration: 500,
         triggerHook: 1
       })
-      .setClassToggle(this.element, 'c-application-footer--toggled')
+      .setClassToggle(element, 'c-application-footer--toggled')
       .addTo(controller);
   }
 }

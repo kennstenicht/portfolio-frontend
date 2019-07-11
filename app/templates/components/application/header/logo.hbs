@@ -1,0 +1,13 @@
+<div
+  class={{bem this.block}}
+  {{did-insert this.setElement}}
+  {{action this.explode on="mouseEnter"}}
+  role="button"
+  ...attributes
+>
+  {{#each this.defaultLetters as |letter|}}
+    <span class={{bem this.block "letter"}}>
+      {{letter}}
+    </span>
+  {{/each}}
+</div>

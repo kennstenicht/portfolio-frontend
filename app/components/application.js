@@ -1,18 +1,15 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { className } from '@ember-decorators/component';
-import BEM from 'ember-cli-bem/mixins/bem';
 
-export default class AppLicationComponent extends Component.extend(
-  BEM
-) {
+export default class AppLicationComponent extends Component {
   // Services
   @service router;
 
 
   // Defaults
-  blockName = 'c-application';
+  block = 'c-application';
 
 
   // Computed Properties
