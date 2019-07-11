@@ -1,5 +1,6 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
 import Swiper from 'swiper';
 import move from 'ember-animated/motions/move';
 import { easeOut, easeIn } from 'ember-animated/easings/cosine';
@@ -16,6 +17,7 @@ export default class ProjectListComponent extends Component {
 
 
   // Functions
+  @action
   initSwiper(element) {
     // Swiper.use([Pagination, Keyboard, Mousewheel, Parallax]);
 
@@ -63,6 +65,7 @@ export default class ProjectListComponent extends Component {
     })
   }
 
+  @action
   destroySwiper() {
     this.swiper.instance.destroy();
   }
