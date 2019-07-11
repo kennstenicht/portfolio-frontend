@@ -33,7 +33,9 @@
           </LinkTo>
         </li>
         <li class="o-list-inline__item">
-          {{session/sign-out}}
+          <button {{action "signOut"}}>
+            {{t "navigation.signOut"}}
+          </button>
         </li>
       {{/if}}
     </ul>

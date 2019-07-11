@@ -3,6 +3,8 @@ navigation:
   imprint: 'Imprint'
   projects: 'Projects'
   pages: 'Pages'
+  signOut: Sign Out
+
 
 session:
   signIn:
@@ -14,8 +16,6 @@ session:
       label: 'Password'
       placeholder: 'Enter Password'
     submit: 'Sign In'
-  signOut:
-    signOut: 'Sign Out'
 
 application:
   header:
@@ -32,7 +32,7 @@ projectList:
 
 customField:
   loading: 'Loading...'
-  
+
 admin:
   action:
     addField: 'Add Field'

@@ -3,6 +3,7 @@ navigation:
   imprint: "Impressum"
   projects: "Projekte"
   pages: "Seiten"
+  signOut: Ausloggen
 
 session:
   signIn:
@@ -14,8 +15,6 @@ session:
       label: "Passwort"
       placeholder: "Passwort eingeben"
     submit: "Einloggen"
-  signOut:
-    signOut: "Ausloggen"
 
 application:
   header:
