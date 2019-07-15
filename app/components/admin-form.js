@@ -3,6 +3,7 @@ import { action } from '@ember/object';
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { getOwner } from '@ember/application';
+import { pluralize } from 'ember-inflector';
 
 export default class AdminFormComponent extends Component {
   // Services
@@ -12,19 +13,21 @@ export default class AdminFormComponent extends Component {
 
   // Computed properties
   @computed('model.constructor.modelName')
-  get headline() {
-    const modelName = this.model.constructor.modelName;
-    const mode = this.model.isNew ? 'new' : 'edit';
-
-    return this.intl.t(`admin.${modelName}.headline.${mode}`);
+  get modelName() {
+    return this.model.constructor.modelName;
   }
 
-  @computed('model.constructor.modelName')
-  get componentName() {
-    let modelName = this.model.constructor.modelName;
+  @computed('model.isNew', 'modelName')
+  get headline() {
+    const action = this.model.isNew ? 'new' : 'edit';
 
-    if(getOwner(this).lookup('template:components/admin-form/' + modelName)) {
-      return 'admin-form/' + modelName;
+    return this.intl.t(`admin.${this.modelName}.headline.${action}`);
+  }
+
+  @computed('modelName')
+  get componentName() {
+    if(getOwner(this).lookup('template:components/admin-form/' + this.modelName)) {
+      return 'admin-form/' + this.modelName;
     } else {
       return 'admin-form/default';
     }
@@ -55,8 +58,9 @@ export default class AdminFormComponent extends Component {
 
   // Privat functions
   _transitionToIndex() {
+    let indexRoute = pluralize(this.modelName);
     // TODO: add type to transition
-    this.router.transitionTo('admin.pages');
+    this.router.transitionTo(`admin.${indexRoute}`);
   }
 
   _throwError(reason) {
