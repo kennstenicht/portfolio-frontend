@@ -27,7 +27,7 @@ module.exports = function(environment) {
     },
 
     'ember-simple-auth-token': {
-      serverTokenEndpoint: '/api/v1/user_token',
+      serverTokenEndpoint: '/de/v1/user_token',
       tokenPropertyName: 'jwt',
       refreshAccessTokens: false,
       tokenExpirationInvalidateSession: true,
