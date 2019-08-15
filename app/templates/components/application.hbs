@@ -1,4 +1,9 @@
-<div class={{bem this.block}}>
+<div
+  class={{bem this.block modifiers=(hash
+    style=this.urlSegments
+  )}}
+  ...attributes
+>
   <Application::Header />
   <main class="c-application__content">
     {{yield}}
