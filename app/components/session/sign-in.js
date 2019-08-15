@@ -1,18 +1,14 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
-import BEM from 'ember-cli-bem/mixins/bem';
 
-export default class SessionSignIn extends Component.extend(
-  BEM
-) {
+export default class SessionSignIn extends Component {
   // Services
   @service session;
 
 
   // Defaults
-  tagName = 'section';
-  blockNames = 'c-sign-in';
+  block = 'c-sign-in';
 
 
   // Actions

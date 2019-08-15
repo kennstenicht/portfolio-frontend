@@ -1,9 +1,13 @@
 import Route from '@ember/routing/route';
+import {computed} from '@ember/object';
 import { inject as service } from '@ember/service';
 import SetHeadTags from '../mixins/set-head-tags';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 
-export default class ApplicationRoute extends Route.extend(ApplicationRouteMixin, SetHeadTags) {
+export default class ApplicationRoute extends Route.extend(
+  ApplicationRouteMixin,
+  SetHeadTags
+) {
   // Services
   @service session
   @service intl
@@ -13,6 +17,15 @@ export default class ApplicationRoute extends Route.extend(ApplicationRouteMixin
   metaTitle = 'A berlin based Front-End Engenieer & UI/UX-Designer | Christoph Wiedenmann';
   metaDescription = 'ag-prop ist ein Berliner Digitalstudio. Für unsere Kunden entwickeln wir digitale Produkte, Services und Kommunikationsstrategien.';
   metaImage = 'images/default_sharing.jpg';
+
+
+  get routeAfterAuthentication() {
+    return 'admin.projects'
+  }
+
+  get routeIfAlreadyAuthenticated() {
+    return 'admin.projects'
+  }
 
 
   // Hooks

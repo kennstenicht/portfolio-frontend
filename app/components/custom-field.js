@@ -1,28 +1,25 @@
-import Component from '@ember/component';
-import { set } from '@ember/object';
+import Component from '@glimmer/component';
 import { task } from 'ember-concurrency-decorators';
 
 export default class CustomFieldsComponent extends Component {
   // Defaults
   static positionalParams = ['key', 'model'];
-  tagName = '';
 
 
   // Hooks
-  didReceiveAttrs() {
-    let key = this.key;
-    let model = this.model;
+  constructor() {
+    super(...arguments);
 
-    this.get('fetchData').perform(key, model);
+    this.fetchData.perform(this.model, this.key);
   }
 
   @task({
     restartable: true
   })
-  *fetchData(key, model) {
+  *fetchData(model, key) {
     let customFields = yield model.customFields
-    let customField = customFields.findBy('key', key);
+    let customField = yield customFields.findBy('key', key);
 
-    return set(this, 'customField', customField);
+    return this.customField = customField;
   }
 }

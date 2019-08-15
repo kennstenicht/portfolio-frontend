@@ -1,30 +1,35 @@
-<h1>{{t "session.signIn.headline"}}</h1>
-<form {{action "authenticate" on="submit"}}>
-  <div class="o-layout">
-    <div class="o-layout__item u-1/1 u-1/2@tablet">
-      <label for="identification">{{t "session.signIn.identification.label"}}</label>
-      {{input
-        id="identification"
-        placeholder=(t "session.signIn.identification.placeholder")
-        value=identification
-      }}
+<div
+  class={{bem this.block}}
+  ...attributes
+>
+  <h1>{{t "session.signIn.headline"}}</h1>
+  <form {{action "authenticate" on="submit"}}>
+    <div class="o-layout">
+      <div class="o-layout__item u-1/1 u-1/2@tablet">
+        <label for="identification">{{t "session.signIn.identification.label"}}</label>
+        <Input
+          @value={{identification}}
+          id="identification"
+          placeholder={{t "session.signIn.identification.placeholder"}}
+        />
+      </div>
+      <div class="o-layout__item u-1/1 u-1/2@tablet">
+        <label for="password">{{t "session.signIn.password.label"}}</label>
+        <Input
+          @value={{password}}
+          id="password"
+          placeholder={{t "session.signIn.password.placeholder"}}
+          type="password"
+        />
+      </div>
     </div>
-    <div class="o-layout__item u-1/1 u-1/2@tablet">
-      <label for="password">{{t "session.signIn.password.label"}}</label>
-      {{input
-        id="password"
-        placeholder=(t "session.signIn.password.placeholder")
-        type="password"
-        value=password
-      }}
+    <div class="o-layout">
+      <div class="o-layout__item u-1/1">
+        <button type="submit" class="o-btn">{{t "session.signIn.submit"}}</button>
+        {{#if errorMessage}}
+          <p>{{errorMessage}}</p>
+        {{/if}}
+      </div>
     </div>
-  </div>
-  <div class="o-layout">
-    <div class="o-layout__item u-1/1">
-      <button type="submit" class="o-btn">{{t "session.signIn.submit"}}</button>
-      {{#if errorMessage}}
-        <p>{{errorMessage}}</p>
-      {{/if}}
-    </div>
-  </div>
-</form>
+  </form>
+</div>

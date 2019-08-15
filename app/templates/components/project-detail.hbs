@@ -1,4 +1,7 @@
-<article class={{bem this.block}}>
+<article
+  class={{bem this.block}}
+  ...attributes
+>
   {{#animated-value @project as |project|}}
     <ProjectDetail::Header
       @project={{project}}

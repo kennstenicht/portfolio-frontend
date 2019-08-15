@@ -1,19 +1,24 @@
-<div class="o-layout">
-  <div class="o-layout__item u-10/12">
-    <h1>
-      {{this.headline}}
-    </h1>
+<div
+  class={{bem this.block}}
+  ...attributes
+>
+  <div class="o-layout">
+    <div class="o-layout__item u-10/12">
+      <h1>
+        {{this.headline}}
+      </h1>
+    </div>
+    <div class="o-layout__item u-2/12 u-align-right">
+      {{#link-to "admin.projects.new"}}
+        {{t "admin.action.new"}}
+      {{/link-to}}
+    </div>
   </div>
-  <div class="o-layout__item u-2/12 u-align-right">
-    {{#link-to "admin.projects.new"}}
-      {{t "admin.action.new"}}
-    {{/link-to}}
-  </div>
+  {{component this.componentName model=model}}
+  <button class="o-btn" {{action "save"}}>
+    {{t "admin.action.save"}}
+  </button>
+  <button class="o-btn" {{action "deleteRecord"}}>
+    {{t "admin.action.delete"}}
+  </button>
 </div>
-{{component this.componentName model=model}}
-<button class="o-btn" {{action "save"}}>
-  {{t "admin.action.save"}}
-</button>
-<button class="o-btn" {{action "deleteRecord"}}>
-  {{t "admin.action.delete"}}
-</button>
