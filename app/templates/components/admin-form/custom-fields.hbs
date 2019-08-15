@@ -1,14 +1,14 @@
 <div class="o-layout">
   <div class="o-layout__item u-1/1">
-    {{#each @model.customFields as |customField|}}
+    {{#each @record.customFields as |customField|}}
       <div class="o-layout">
         <div class="o-layout__item u-3/4">
-          {{textarea value=customField.value rows="6"}}
+          <Textarea @value={{customField.value}} rows="6" />
         </div>
         <div class="o-layout__item u-1/4">
           <div class="o-layout">
             <div class="o-layout__item u-1/1">
-              {{input value=customField.key}}
+              <Input @value={{customField.key}} />
             </div>
             <div class="o-layout__item u-1/1">
               <button

@@ -1,8 +1,6 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
-import { getOwner } from '@ember/application';
 import { pluralize } from 'ember-inflector';
 
 export default class AdminFormComponent extends Component {
@@ -16,35 +14,24 @@ export default class AdminFormComponent extends Component {
 
 
   // Computed properties
-  @computed('model.constructor.modelName')
   get modelName() {
-    return this.model.constructor.modelName;
+    return this.args.record.constructor.modelName;
   }
 
-  @computed('model.isNew', 'modelName')
   get headline() {
-    const action = this.model.isNew ? 'new' : 'edit';
+    const action = this.args.record.isNew ? 'new' : 'edit';
 
     return this.intl.t(`admin.${this.modelName}.headline.${action}`);
-  }
-
-  @computed('modelName')
-  get componentName() {
-    if(getOwner(this).lookup('template:components/admin-form/' + this.modelName)) {
-      return 'admin-form/' + this.modelName;
-    } else {
-      return 'admin-form/default';
-    }
   }
 
 
   // Actions
   @action
   save() {
-    Promise.all(this.model.customFields.invoke('save'))
+    Promise.all(this.args.record.customFields.invoke('save'))
       .then((customFields) => {
-        this.model.set('customFields', customFields);
-        this.model.save()
+        this.args.record.set('customFields', customFields);
+        this.args.record.save()
           .then(this._transitionToIndex.bind(this))
           .catch(this._throwError.bind(this));
       })
@@ -54,7 +41,7 @@ export default class AdminFormComponent extends Component {
 
   @action
   deleteRecord() {
-    this.model.destroyRecord()
+    this.args.record.destroyRecord()
       .then(this._transitionToIndex.bind(this))
       .catch(this._throwError.bind(this));
   }

@@ -5,18 +5,18 @@
   ...attributes
 >
   <div class={{bem this.block "wrapper"}}>
-    {{#animated-each
-      @projects
-      initialInsertion=true
-      finalRemoval=true
-      use=this.listTransition
-      duration=this.duration
+    <AnimatedEach
+      @items={{@projects}}
+      @initialInsertion={{true}}
+      @finalRemoval={{true}}
+      @use={{this.listTransition}}
+      @duration={{this.duration}}
       as |project index|
-    }}
+    >
       <ProjectList::Preview
         @project={{project}}
         @index={{index}}
       />
-    {{/animated-each}}
+    </AnimatedEach>
   </div>
 </div>

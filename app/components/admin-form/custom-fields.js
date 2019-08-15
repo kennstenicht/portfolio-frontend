@@ -11,7 +11,7 @@ export default class AdminFormCustomFieldComponent extends Component {
   addCustomField() {
     let customField = this.store.createRecord('customField');
 
-    this.model.customFields.pushObject(customField);
+    this.args.record.customFields.pushObject(customField);
   }
 
   @action

@@ -9,12 +9,14 @@
       </h1>
     </div>
     <div class="o-layout__item u-2/12 u-align-right">
-      {{#link-to "admin.projects.new"}}
+      <LinkTo @route="admin.projects.new">
         {{t "admin.action.new"}}
-      {{/link-to}}
+      </LinkTo>
     </div>
   </div>
-  {{component this.componentName model=model}}
+
+  {{component (concat "admin-form/" this.modelName) record=@record}}
+
   <button class="o-btn" {{action "save"}}>
     {{t "admin.action.save"}}
   </button>

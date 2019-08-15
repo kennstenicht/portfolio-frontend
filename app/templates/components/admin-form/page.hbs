@@ -3,20 +3,20 @@
     <div class="o-layout">
       <div class="o-layout__item u-1/2">
         <label>{{t "admin.page.field.title"}}</label>
-        {{input value=@model.title}}
+        <Input @value={{@record.title}} />
       </div>
       <div class="o-layout__item u-1/2">
         <label>{{t "admin.page.field.slug"}}</label>
-        {{input value=@model.slug}}<br>
+        <Input @value={{@record.slug}} />
       </div>
     </div>
     <div class="o-layout">
       <div class="o-layout__item">
         <label>{{t "admin.page.field.content"}}</label>
-        {{textarea value=@model.content rows="12"}}
+        <Textarea @value={{@record.content}} rows="12" />
       </div>
     </div>
   </div>
 </div>
 
-{{admin-form/custom-fields model=@model}}
+<AdminForm::CustomFields @record={{@record}} />

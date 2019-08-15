@@ -4,38 +4,38 @@
   )}}
   ...attributes
 >
-  {{#animated-value
-    @project.slug
-    use=this.backgroundTransition
-    duration=this.duration
+  <AnimatedValue
+    @value={{@project.slug}}
+    @use={{this.backgroundTransition}}
+    @duration={{this.duration}}
     as |slug|
-  }}
+  >
     <div class={{bem this.block "background" modifiers=(hash
       style=slug
     )}}></div>
-  {{/animated-value}}
+  </AnimatedValue>
 
   <header class={{bem this.block "header"}}>
-    {{#animated-value
-      @project.title
-      use=this.typoTransition
-      duration=this.duration
+    <AnimatedValue
+      @value={{@project.title}}
+      @use={{this.typoTransition}}
+      @duration={{this.duration}}
       as |title|
-    }}
+    >
       <h1 class={{bem this.block "title"}}>
         {{title}}
       </h1>
-    {{/animated-value}}
+    </AnimatedValue>
 
-    {{#animated-value
-      @project.subtitle
-      use=this.typoTransition
-      duration=this.duration
+    <AnimatedValue
+      @value={{@project.subtitle}}
+      @use={{this.typoTransition}}
+      @duration={{this.duration}}
       as |subtitle|
-    }}
+    >
       <div class={{bem this.block "subtitle"}}>
         {{subtitle}}
       </div>
-    {{/animated-value}}
+    </AnimatedValue>
   </header>
 </div>
