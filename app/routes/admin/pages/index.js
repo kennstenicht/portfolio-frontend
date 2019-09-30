@@ -9,7 +9,7 @@ export default class AdminPagesIndexRoute extends Route {
   }
 
   setupController(controller, model) {
-    this._super(controller, model);
+    super.setupController(controller, model);
 
     set(controller, 'pages', model);
   }
