@@ -5,7 +5,9 @@
   bottom: spacing('small');
   left: spacing('small');
 
-  // @include page-color($modifierElement: 'self', $property: 'color', $type: 'typo');
+  // @include page-color('self') using ($colors) {
+  //   color: map-get($colors, 'typo');
+  // };
 
   &__background {
     width: 100%;

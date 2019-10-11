@@ -11,13 +11,20 @@
   border-style: solid;
   transition: all $transition--base;
 
-  @include page-color($modifierElement: 'self', $property: 'border-color', $type: 'primary');
+  @include page-color('self') using ($colors) {
+    border-color: map-get($colors, 'primary');
+  };
 
   &__content {
     position: relative;
     min-height: 100%;
-    background-image: radial-gradient(#ffffff, #f2f2f2);
+    transition: all $transition--base;
 
-    @include page-color($property: 'background-color', $type: 'background');
+    @include page-color() using ($colors) {
+      $background: map-get($colors, 'background');
+
+      background: radial-gradient($background, darken($background, 3%));
+      color: map-get($colors, 'typo');
+    };
   }
 }

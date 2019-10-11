@@ -1,31 +1,23 @@
 /* ==========================================================================
-   #SECTION COLOR
+   # PAGE COLOR
    ========================================================================== */
 /**
- * Apply section-color modifier in one go.
+ * Apply page-color modifier in one go.
  */
 
 
-@mixin page-color(
-  $modifierElement: 'c-application',
-  $property: 'background-color',
-  $opacity: 1,
-  $type: 'primary'
-) {
+@mixin page-color($modifierElement: '.c-application') {
   @each $page, $colors in $page-colors {
-    @if ($page == 'default') {
-      & {
-        #{$property}: rgba(map-get($colors, $type), $opacity);
+    $isDefault: $page == 'default';
+    $modifier: if($isDefault, '', '--style-#{$page}');
+
+    @if( $modifierElement == 'self') {
+      &#{$modifier} {
+        @content($colors);
       }
     } @else {
-      @if( $modifierElement == 'self') {
-        &--style-#{$page} {
-          #{$property}: rgba(map-get($colors, $type), $opacity);
-        }
-      } @else {
-        .#{$modifierElement}--style-#{$page} & {
-          #{$property}: rgba(map-get($colors, $type), $opacity);
-        }
+      #{$modifierElement}#{$modifier} & {
+        @content($colors);
       }
     }
   }

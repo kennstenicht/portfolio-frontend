@@ -8,6 +8,9 @@
   &__wrapper {
     margin-top: spacing('small');
 
-    @include page-color($property: 'background-color', $type: 'background');
+    @include page-color() using ($colors) {
+      background-color: map-get($colors, 'background');
+      color: map-get($colors, 'typo');
+    }
   }
 }

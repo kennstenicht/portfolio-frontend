@@ -3,8 +3,10 @@
   margin: 0 spacing('small');
   padding: spacing('base+small');
 
-  @include page-color($property: 'background-color', $type: 'secondary');
-  @include page-color($property: 'color', $type: 'typo');
+  @include page-color() using ($colors) {
+    background-color: map-get($colors, 'secondary');
+    color: map-get($colors, 'typo');
+  };
 
   &__excerpt {
     width: 66.6666%;
