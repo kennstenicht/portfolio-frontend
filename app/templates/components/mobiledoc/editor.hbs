@@ -1,0 +1,124 @@
+<MobiledocEditor
+  @mobiledoc={{@record}}
+  @atoms={{this.atoms}}
+  @cards={{this.cards}}
+  @on-change={{fn (mut @record)}}
+  @did-create-editor={{this.didCreateEditor}}
+  class={{bem this.block}}
+  as |editor|
+>
+  <div class={{bem this.block "toolbar"}}>
+    <MobiledocSectionButton
+      @editor={{editor}}
+      @for="p"
+      class={{bem this.block "button" modifiers=(hash
+        icon-p=true
+        is-active=editor.activeSectionTagNames.isP
+      )}}
+    >
+      {{svg-jar "format_paragraph"}}
+    </MobiledocSectionButton>
+
+    <MobiledocSectionButton
+      @editor={{editor}}
+      @for="h2"
+      class={{bem this.block "button" modifiers=(hash
+        icon-h2=true
+        is-active=editor.activeSectionTagNames.isH2
+      )}}
+    >
+      {{svg-jar "format_h2"}}
+    </MobiledocSectionButton>
+
+    <MobiledocSectionButton
+      @editor={{editor}}
+      @for="h3"
+      class={{bem this.block "button" modifiers=(hash
+        icon-h3=true
+        is-active=editor.activeSectionTagNames.isH3
+      )}}
+    >
+      {{svg-jar "format_h3"}}
+    </MobiledocSectionButton>
+
+    <div class={{bem this.block "divider"}}></div>
+
+    <MobiledocSectionButton
+      @editor={{editor}}
+      @for="ul"
+      class={{bem this.block "button" modifiers=(hash
+        icon-ul=true
+        is-active=editor.activeSectionTagNames.isUl
+      )}}
+    >
+      {{svg-jar "format_list_bulleted"}}
+    </MobiledocSectionButton>
+
+    <MobiledocSectionButton
+      @editor={{editor}}
+      @for="ol"
+      class={{bem this.block "button" modifiers=(hash
+        icon-ol=true
+        is-active=editor.activeSectionTagNames.isOl
+      )}}
+    >
+      {{svg-jar "format_list_numbered"}}
+    </MobiledocSectionButton>
+
+    <div class={{bem this.block "divider"}}></div>
+
+    <MobiledocMarkupButton
+      @editor={{editor}}
+      @for="strong"
+      class={{bem this.block "button" modifiers=(hash
+        icon-strong=true
+        is-active=editor.activeMarkupTagNames.isStrong
+      )}}
+    >
+      {{svg-jar "format_bold"}}
+    </MobiledocMarkupButton>
+
+    <MobiledocMarkupButton
+      @editor={{editor}}
+      @for="em"
+      class={{bem this.block "button" modifiers=(hash
+        icon-em=true
+        is-active=editor.activeMarkupTagNames.isEm
+      )}}
+    >
+      {{svg-jar "format_italic"}}
+    </MobiledocMarkupButton>
+
+    <MobiledocMarkupButton
+      @editor={{editor}}
+      @for="u"
+      class={{bem this.block "button" modifiers=(hash
+        icon-u=true
+        is-active=editor.activeMarkupTagNames.isU
+      )}}
+    >
+      {{svg-jar "format_underlined"}}
+    </MobiledocMarkupButton>
+
+    <div class={{bem this.block "divider"}}></div>
+
+    <MobiledocLinkButton
+      @editor={{editor}}
+      class={{bem this.block "button" modifiers=(hash
+        icon-link=true
+        is-active=editor.activeMarkupTagNames.isA
+      )}}
+    >
+      {{svg-jar "link"}}
+    </MobiledocLinkButton>
+
+    <button
+      class={{bem this.block "button" modifiers=(hash
+        icon-image=true
+      )}}
+      {{on "click" (fn editor.addCardInEditMode "mobiledoc/cards/image")}}
+    >
+      {{svg-jar "image"}}
+    </button>
+  </div>
+</MobiledocEditor>

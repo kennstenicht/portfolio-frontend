@@ -1,6 +1,6 @@
 <div class="c-page">
-  <div class="o-wrapper o-wrapper--small">
-    <h1>{{model.title}}</h1>
-    {{model.content}}
+  <div class="o-wrapper">
+    <h1>{{this.model.title}}</h1>
+    <Mobiledoc::Renderer @mobiledoc={{this.model.content}} />
   </div>
 </div>

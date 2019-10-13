@@ -1,0 +1,18 @@
+<div class="meme-card-editor">
+  <img src={{payload.imgSrc}} alt="">
+  <Input @value={{this.imgSrc}} />
+  <Input @value={{this.alt}} />
+  <button
+    onclick={{action this.saveCard (hash
+      imgSrc=this.imgSrc
+      alt=this.alt
+    )}}
+  >
+    {{t "admin.action.save"}}
+  </button>
+  <button
+    onclick={{action this.removeCard}}
+  >
+    {{t "admin.action.delete"}}
+  </button>
+</div>

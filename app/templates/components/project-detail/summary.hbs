@@ -3,9 +3,9 @@
   ...attributes
 >
   <div class={{bem this.block "excerpt"}}>
-    {{@project.excerpt}}
+    <Mobiledoc::Renderer @mobiledoc={{@project.excerpt}} />
   </div>
   <div class={{bem this.block "meta-info"}}>
-    {{@project.metaInfo}}
+    <Mobiledoc::Renderer @mobiledoc={{@project.metaInfo}} />
   </div>
 </div>

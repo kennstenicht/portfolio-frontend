@@ -20,18 +20,18 @@
     <div class="o-layout">
       <div class="o-layout__item u-2/3">
         <label>{{t "admin.project.field.excerpt"}}</label>
-        <Textarea @value={{@record.excerpt}} rows="6" />
+        <Mobiledoc::Editor @record={{@record.excerpt}} />
       </div>
       <div class="o-layout__item u-1/3">
         <label>{{t "admin.project.field.meta"}}</label>
-        <Textarea @value={{@record.metaInfo}} rows="6" />
+        <Mobiledoc::Editor @record={{@record.metaInfo}} />
       </div>
     </div>
 
     <div class="o-layout">
       <div class="o-layout__item u-1/1">
         <label>{{t "admin.project.field.content"}}</label>
-        <Textarea @value={{@record.content}} rows="12" />
+        <Mobiledoc::Editor @record={{@record.content}} />
       </div>
     </div>
   </div>

@@ -23,7 +23,12 @@ module.exports = function(environment) {
     },
 
     fastboot: {
-      hostWhitelist: ['wiedenmann.io', 'staging.wiedenmann.io', /^localhost:\d+$/]
+      hostWhitelist: [
+        'wiedenmann.io',
+        'staging.wiedenmann.io',
+        /^localhost:\d+$/,
+        /^192\.168\.[0-9.]*:\d+$/
+      ],
     },
 
     'ember-simple-auth-token': {
