@@ -1,8 +1,11 @@
 import Route from '@ember/routing/route';
-import { set } from '@ember/object';
-import SetHeadTags from 'portfolio/mixins/set-head-tags';
+import { inject as service} from '@ember/service';
 
-export default class PagesShowRoute extends Route.extend(SetHeadTags) {
+export default class PagesShowRoute extends Route {
+  // Services
+  @service headData;
+
+
   // Hooks
   model(params) {
     return this.store.query('page', {
@@ -16,11 +19,9 @@ export default class PagesShowRoute extends Route.extend(SetHeadTags) {
   }
 
   afterModel(model) {
-    set(this, 'metaTitle', model.title + ' | Christoph Wiedenmann');
-    set(this, 'metaDescription', model.content.replace(/(<([^>]+)>)/ig,'') );
-    set(this, 'metaType', 'article');
-
-    this.setHeadTags(model);
+    this.headData.title = `${model.title} | christoph wiedenmann`;
+    this.headData.description = model.content;
+    this.headData.type = 'article';
   }
 
   serialize(model){

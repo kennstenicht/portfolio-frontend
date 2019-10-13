@@ -1,17 +1,10 @@
 import Route from '@ember/routing/route';
-import { set } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
-import SetHeadTags from '../mixins/set-head-tags';
 
-export default class ProjectsRoute extends Route.extend(SetHeadTags) {
+export default class ProjectsRoute extends Route {
   // Services
   @service swiper;
-
-
-  // Defaults
-  metaTitle = 'projekte << christoph wiedenmann';
-  metaDescription = 'Lorem ipsum';
 
 
   // Hooks
@@ -24,7 +17,7 @@ export default class ProjectsRoute extends Route.extend(SetHeadTags) {
   @action
   willTransition(transition) {
     if(transition.targetName.match(/^projects./i) == null) {
-      set(this, 'swiper.position', 0);
+      this.swiper.position = 0;
     }
   }
 }
