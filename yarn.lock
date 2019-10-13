@@ -993,6 +993,18 @@
   resolved "https://registry.yarnpkg.com/@ember/edition-utils/-/edition-utils-1.1.1.tgz#d5732c3da593f202e6e1ac6dbee56a758242403f"
   integrity sha512-GEhri78jdQp/xxPpM6z08KlB0wrHfnfrJ9dmQk7JeQ4XCiMzXsJci7yooQgg/IcTKCM/PxE/IkGCQAo80adMkw==
 
+"@ember/jquery@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@ember/jquery/-/jquery-1.1.0.tgz#33d062610a5ceaa5c5c8a3187f870d47d6595940"
+  integrity sha512-zePT3LiK4/2bS4xafrbOlwoLJrDFseOZ95OOuVDyswv8RjFL+9lar+uxX6+jxRb0w900BcQSWP/4nuFSK6HXXw==
+  dependencies:
+    broccoli-funnel "^2.0.2"
+    broccoli-merge-trees "^3.0.2"
+    ember-cli-babel "^7.11.1"
+    ember-cli-version-checker "^3.1.3"
+    jquery "^3.4.1"
+    resolve "^1.11.1"
+
 "@ember/optional-features@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@ember/optional-features/-/optional-features-1.0.0.tgz#8e54ff37f4d9642212b45387f182cf7322aaaab9"
@@ -1091,20 +1103,20 @@
     "@glimmer/util" "^0.41.3"
     "@glimmer/wire-format" "^0.41.3"
 
-"@glimmer/component@^0.14.0-alpha.7":
-  version "0.14.0-alpha.8"
-  resolved "https://registry.yarnpkg.com/@glimmer/component/-/component-0.14.0-alpha.8.tgz#5f710b0dc67e8f4512191489333601ff4e731283"
-  integrity sha512-NA9vZNxMyFEgOwDojoP9MIBfInXmMXtRQEA3tsPqgDptRBarDGSFLQcaBYSytnvPHZRjLsjE8XfvQhxl3tNbPA==
+"@glimmer/component@^0.14.0-alpha.14":
+  version "0.14.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@glimmer/component/-/component-0.14.0-alpha.13.tgz#5e1912bee8a00504e8ea20cc59600956a9c435ee"
+  integrity sha512-dYXfMwIyOUi0XEYJMiGo1/1LiN3QQO0fuUqmEIb5Wj5po3eXch6FV3Vdq5RoekCuVfIUfD32CseEMC8qbj6R/Q==
   dependencies:
     "@glimmer/di" "^0.1.9"
     "@glimmer/env" "^0.1.7"
     "@glimmer/reference" "^0.41.0"
     "@glimmer/runtime" "^0.41.0"
-    "@glimmer/tracking" "^0.14.0-alpha.8"
+    "@glimmer/tracking" "^0.14.0-alpha.13"
     "@glimmer/util" "^0.41.0"
     broccoli-file-creator "^2.1.1"
     broccoli-merge-trees "^3.0.2"
-    ember-cli-babel "^7.2.0"
+    ember-cli-babel "^7.7.3"
     ember-cli-get-component-path-option "^1.0.0"
     ember-cli-is-package-missing "^1.0.0"
     ember-cli-normalize-entity-name "^1.0.0"
@@ -1192,10 +1204,10 @@
     handlebars "^4.0.13"
     simple-html-tokenizer "^0.5.7"
 
-"@glimmer/tracking@^0.14.0-alpha.8":
-  version "0.14.0-alpha.8"
-  resolved "https://registry.yarnpkg.com/@glimmer/tracking/-/tracking-0.14.0-alpha.8.tgz#2cce6c42bd7faf77190f7fd82069bf688b92b9ec"
-  integrity sha512-uR4c6X2CF3Cog8QcNAaoJTvQVgW3yvndxZb8/Je4N159BD83eGAfXG36Ls+AT41PSZ3k/r3ta5v2+/2o3+MW1Q==
+"@glimmer/tracking@^0.14.0-alpha.13":
+  version "0.14.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@glimmer/tracking/-/tracking-0.14.0-alpha.13.tgz#aac853f3bd1ce2e076b9dec3495e5af84e9156de"
+  integrity sha512-JI6sI/v6c7mjWu4k9++/LVakEyvOxcUqpbJ7W4KwgpcYHtv8giVzQkR3gECJZp+PKRnhnU5OVyG+KsN1ZV2ptQ==
   dependencies:
     "@glimmer/di" "^0.1.9"
     "@glimmer/env" "^0.1.7"
@@ -3197,7 +3209,7 @@ broccoli-funnel-reducer@^1.0.0:
   resolved "https://registry.yarnpkg.com/broccoli-funnel-reducer/-/broccoli-funnel-reducer-1.0.0.tgz#11365b2a785aec9b17972a36df87eef24c5cc0ea"
   integrity sha1-ETZbKnha7JsXlyo234fu8kxcwOo=
 
-broccoli-funnel@^1.0.0, broccoli-funnel@^1.0.1:
+broccoli-funnel@^1.0.0, broccoli-funnel@^1.0.1, broccoli-funnel@^1.1.0, broccoli-funnel@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/broccoli-funnel/-/broccoli-funnel-1.2.0.tgz#cddc3afc5ff1685a8023488fff74ce6fb5a51296"
   integrity sha1-zdw6/F/xaFqAI0iP/3TOb7WlEpY=
@@ -4924,7 +4936,7 @@ ember-cli-babel-plugin-helpers@^1.0.0, ember-cli-babel-plugin-helpers@^1.1.0:
   resolved "https://registry.yarnpkg.com/ember-cli-babel-plugin-helpers/-/ember-cli-babel-plugin-helpers-1.1.0.tgz#de3baedd093163b6c2461f95964888c1676325ac"
   integrity sha512-Zr4my8Xn+CzO0gIuFNXji0eTRml5AxZUTDQz/wsNJ5AJAtyFWCY4QtKdoELNNbiCVGt1lq5yLiwTm4scGKu6xA==
 
-ember-cli-babel@^6.0.0, ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.0.0-beta.7, ember-cli-babel@^6.11.0, ember-cli-babel@^6.12.0, ember-cli-babel@^6.16.0, ember-cli-babel@^6.17.0, ember-cli-babel@^6.3.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.8.1, ember-cli-babel@^6.8.2:
+ember-cli-babel@^6.0.0, ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.0.0-beta.7, ember-cli-babel@^6.10.0, ember-cli-babel@^6.11.0, ember-cli-babel@^6.12.0, ember-cli-babel@^6.16.0, ember-cli-babel@^6.17.0, ember-cli-babel@^6.3.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.7.2, ember-cli-babel@^6.8.1, ember-cli-babel@^6.8.2:
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-6.18.0.tgz#3f6435fd275172edeff2b634ee7b29ce74318957"
   integrity sha512-7ceC8joNYxY2wES16iIBlbPSxwKDBhYwC8drU3ZEvuPDMwVv1KzxCNu1fvxyFEBWhwaRNTUxSCsEVoTd9nosGA==
@@ -4943,7 +4955,7 @@ ember-cli-babel@^6.0.0, ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.0.0-be
     ember-cli-version-checker "^2.1.2"
     semver "^5.5.0"
 
-ember-cli-babel@^7.1.0, ember-cli-babel@^7.1.2, ember-cli-babel@^7.1.3, ember-cli-babel@^7.2.0, ember-cli-babel@^7.4.2, ember-cli-babel@^7.5.0, ember-cli-babel@^7.7.0, ember-cli-babel@^7.7.3, ember-cli-babel@^7.8.0:
+ember-cli-babel@^7.1.0, ember-cli-babel@^7.1.2, ember-cli-babel@^7.1.3, ember-cli-babel@^7.4.2, ember-cli-babel@^7.5.0, ember-cli-babel@^7.7.0, ember-cli-babel@^7.7.3, ember-cli-babel@^7.8.0:
   version "7.8.0"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-7.8.0.tgz#e596500eca0f5a7c9aaee755f803d1542f578acf"
   integrity sha512-xUBgJQ81fqd7k/KIiGU+pjpoXhrmmRf9pUrqLenNSU5N+yeNFT5a1+w0b+p1F7oBphfXVwuxApdZxrmAHOdA3Q==
@@ -5094,7 +5106,7 @@ ember-cli-htmlbars-inline-precompile@^3.0.0:
     heimdalljs-logger "^0.1.9"
     silent-error "^1.1.0"
 
-ember-cli-htmlbars@^2.0.3:
+ember-cli-htmlbars@^2.0.1, ember-cli-htmlbars@^2.0.3:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-2.0.5.tgz#b5a105429a6bce4f7c9c97b667e3b8926e31397f"
   integrity sha512-3f3PAxdnQ/fhQa8XP/3z4RLRgLHxV8j4Ln75aHbRdemOCjBa048KxL9l+acRLhCulbGQCMnLiIUIC89PAzLrcA==
@@ -5515,7 +5527,7 @@ ember-get-config@^0.2.3, ember-get-config@^0.2.4:
     broccoli-file-creator "^1.1.1"
     ember-cli-babel "^6.3.0"
 
-"ember-getowner-polyfill@^1.1.0 || ^2.0.0":
+"ember-getowner-polyfill@^1.1.0 || ^2.0.0", ember-getowner-polyfill@^2.0.1:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/ember-getowner-polyfill/-/ember-getowner-polyfill-2.2.0.tgz#38e7dccbcac69d5ec694000329ec0b2be651d2b2"
   integrity sha512-rwGMJgbGzxIAiWYjdpAh04Abvt0s3HuS/VjHzUFhVyVg2pzAuz45B9AzOxYXzkp88vFC7FPaiA4kE8NxNk4A4Q==
@@ -5580,6 +5592,32 @@ ember-maybe-import-regenerator@^0.1.5, ember-maybe-import-regenerator@^0.1.6:
     broccoli-merge-trees "^1.0.0"
     ember-cli-babel "^6.0.0-beta.4"
     regenerator-runtime "^0.9.5"
+
+ember-mobiledoc-dom-renderer@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/ember-mobiledoc-dom-renderer/-/ember-mobiledoc-dom-renderer-0.6.0.tgz#82274e257d19a4cd08c03dc641e3072c4cd25d6e"
+  integrity sha1-gidOJX0ZpM0IwD3GQeMHLEzSXW4=
+  dependencies:
+    broccoli-funnel "^1.2.0"
+    broccoli-merge-trees "^2.0.0"
+    ember-cli-babel "^6.8.1"
+    ember-cli-htmlbars "^2.0.3"
+    ember-getowner-polyfill "^2.0.1"
+    ember-wormhole "^0.5.2"
+    mobiledoc-dom-renderer "^0.6.5"
+
+ember-mobiledoc-editor@^0.5.15:
+  version "0.5.15"
+  resolved "https://registry.yarnpkg.com/ember-mobiledoc-editor/-/ember-mobiledoc-editor-0.5.15.tgz#eeb7943741763648a836e7bbfe8c760b498f23a8"
+  integrity sha512-3UzgKJ6DFzRlXob0ahu5OpnP1yrbedvEXSAgXRTrHLCiWmI0YxzTXpzTl0NjELuHbF7HiTU0M8LLu9x+FoJ8eg==
+  dependencies:
+    broccoli-funnel "^1.1.0"
+    broccoli-merge-trees "^2.0.0"
+    ember-cli-babel "^6.7.2"
+    ember-cli-htmlbars "^2.0.3"
+    ember-wormhole "^0.5.1"
+    mobiledoc-dom-renderer "^0.6.5"
+    mobiledoc-kit "^0.11.1"
 
 ember-modifier-manager-polyfill@^1.0.1:
   version "1.0.3"
@@ -5730,6 +5768,14 @@ ember-test-waiters@^1.0.0:
   integrity sha512-0VP7oTTur/wm2///9EuMwg1/6KP6yRAamyP7DaiYfrY1js1vHtZU2fDPgjwuL0QL4FG1chyUiL/Gi3+dIaqQmA==
   dependencies:
     ember-cli-babel "^7.1.2"
+
+ember-wormhole@^0.5.1, ember-wormhole@^0.5.2:
+  version "0.5.5"
+  resolved "https://registry.yarnpkg.com/ember-wormhole/-/ember-wormhole-0.5.5.tgz#db417ff748cb21e574cd5f233889897bc27096cb"
+  integrity sha512-z8l3gpoKmRA2BnTwvnYRk4jKVcETKHpddsD6kpS+EJ4EfyugadFS3zUqBmRDuJhFbNP8BVBLXlbbATj+Rk1Kgg==
+  dependencies:
+    ember-cli-babel "^6.10.0"
+    ember-cli-htmlbars "^2.0.1"
 
 emoji-regex@^7.0.1:
   version "7.0.3"
@@ -9317,6 +9363,29 @@ mktemp@~0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/mktemp/-/mktemp-0.4.0.tgz#6d0515611c8a8c84e484aa2000129b98e981ff0b"
   integrity sha1-bQUVYRyKjITkhKogABKbmOmB/ws=
+
+mobiledoc-dom-renderer@0.6.5:
+  version "0.6.5"
+  resolved "https://registry.yarnpkg.com/mobiledoc-dom-renderer/-/mobiledoc-dom-renderer-0.6.5.tgz#56c0302c4f9c30840ab5b9b20dfe905aed1e437b"
+  integrity sha1-VsAwLE+cMIQKtbmyDf6QWu0eQ3s=
+
+mobiledoc-dom-renderer@^0.6.5:
+  version "0.6.6"
+  resolved "https://registry.yarnpkg.com/mobiledoc-dom-renderer/-/mobiledoc-dom-renderer-0.6.6.tgz#4161e7b74dbf82b15c637385ecc3135bc663d149"
+  integrity sha512-zROTcb/LJyH9udDO1d3zludyP4cOaBdb6HtueP6yXWOxKy6hxr/mM6tgJTVOfYTRMThNytctOAuDG703dMMbdg==
+
+mobiledoc-kit@^0.11.1:
+  version "0.11.2"
+  resolved "https://registry.yarnpkg.com/mobiledoc-kit/-/mobiledoc-kit-0.11.2.tgz#969a8eb795ba1ae39ebc1c47f1dce53b053b210a"
+  integrity sha512-rD+ZB4cmlIlX1hWjtIO2+DchYGB7JOw4fqClhfUNXu7kNIJLaF2R4Z8dGehhy3bLr8+/2DwLTWGawbDhCs/oLA==
+  dependencies:
+    mobiledoc-dom-renderer "0.6.5"
+    mobiledoc-text-renderer "0.3.2"
+
+mobiledoc-text-renderer@0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/mobiledoc-text-renderer/-/mobiledoc-text-renderer-0.3.2.tgz#126a167a6cf8b6cd7e58c85feb18043603834580"
+  integrity sha1-EmoWemz4ts1+WMhf6xgENgODRYA=
 
 morgan@^1.9.1:
   version "1.9.1"

@@ -1,4 +1,3 @@
-
 import { helper } from '@ember/component/helper';
 import { isEmpty } from '@ember/utils';
 import { isArray } from '@ember/array';
@@ -14,9 +13,14 @@ export function bem(params, { modifiers }) {
     Object.keys(modifiers).forEach((key) => {
       let modifier = modifiers[key];
 
-      if(typeof modifier === 'boolean') {
-        let type = modifier ? 'is' : 'is-not';
-        classes.push(`${baseClass}--${type}-${key}`);
+      if(isEmpty(modifier)) {
+        return
+      }
+
+      if(typeof modifier === 'boolean' && modifier) {
+        if(modifier) {
+          classes.push(`${baseClass}--${key}`);
+        }
       } else if(isArray(modifier)) {
         modifier.forEach((modifier) => {
           classes.push(`${baseClass}--${key}-${modifier}`);
