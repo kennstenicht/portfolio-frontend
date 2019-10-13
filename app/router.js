@@ -30,8 +30,6 @@ Router.map(function() {
   this.route('projects', function() {
     this.route('show', { path: ':project_slug' });
   });
-
-  this.route('test', function() {});
 });
 
 export default Router;
