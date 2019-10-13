@@ -20,7 +20,7 @@ $inuit-global-font-size--tiny:        12px;
 
 // Heading sizes
 $inuit-font-size-h1:                  76px;
-$inuit-font-size-h2:                  36px;
+$inuit-font-size-h2:                  20px;
 $inuit-font-size-h3:                  $inuit-global-font-size;
 $inuit-font-size-h4:                  $inuit-global-font-size--small;
 $inuit-font-size-h5:                  $inuit-global-font-size--small;
@@ -65,38 +65,44 @@ $color-grey--darker:                #14120f;
 $page-colors: (
   'default': (
     'primary'     : #fff,
-    'secondary'   : #000000,
-    'typo'        : #000000,
-    'background'  : #f2f2f2
+    'secondary'   : #fff,
+    'typo'        : #333333,
+    'background'  : #fcfcfc
+  ),
+  'about': (
+    'primary'     : #121212,
+    'secondary'   : #fff,
+    'typo'        : #f2f2f2,
+    'background'  : #111111
   ),
   'ad-hoc': (
     'primary'     : #008d84,
-    'secondary'   : #037d75,
-    'typo'        : #ffffff,
-    'background'  : #f2f2f2
+    'secondary'   : #242a30,
+    'typo'        : #f2f2f2,
+    'background'  : #181d1f
   ),
   'eels': (
-    'primary'     : #4a4747,
-    'secondary'   : #3b3838,
-    'typo'        : #ffffff,
+    'primary'     : #e9e3e3,
+    'secondary'   : #e0dbdb,
+    'typo'        : #333333,
     'background'  : #f2f2f2
   ),
   'binuu': (
-    'primary'     : #eff24e,
-    'secondary'   : #e8eb49,
-    'typo'        : #ffffff,
-    'background'  : #000000
+    'primary'     : #ebf20d,
+    'secondary'   : #343434,
+    'typo'        : #f2f2f2,
+    'background'  : #202020
   ),
   'disaster-mgmt': (
     'primary'     : #ffa045,
-    'secondary'   : #f29234,
-    'typo'        : #ffffff,
-    'background'  : #000000
+    'secondary'   : #4e4e4e,
+    'typo'        : #f2f2f2,
+    'background'  : #383636
   ),
   'flutkoerper': (
     'primary'     : #ffffff,
     'secondary'   : #f1e7df,
-    'typo'        : #000000,
+    'typo'        : #333333,
     'background'  : #f2f2f2
   )
 );
