@@ -1,5 +1,5 @@
 /* ==========================================================================
-   #APPLICATION
+   # APPLICATION
    ========================================================================== */
 
 .c-application {
@@ -9,22 +9,15 @@
   height: 100%;
   border-width: spacing('small');
   border-style: solid;
-  transition: all $transition--base;
+  transition: all $transition--slow;
 
   @include page-color('self') using ($colors) {
     border-color: map-get($colors, 'primary');
-  };
+  }
 
   &__content {
     position: relative;
     min-height: 100%;
     transition: all $transition--base;
-
-    @include page-color() using ($colors) {
-      $background: map-get($colors, 'background');
-
-      background: radial-gradient($background, darken($background, 3%));
-      color: map-get($colors, 'typo');
-    };
   }
 }

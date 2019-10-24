@@ -1,5 +1,7 @@
 <div
-  class={{bem this.block}}
+  class={{bem this.block modifiers=(hash
+    style="projects"
+  )}}
   {{did-insert this.initSwiper}}
   {{will-destroy this.destroySwiper}}
   ...attributes

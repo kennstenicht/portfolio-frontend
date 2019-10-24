@@ -1,3 +1,7 @@
+/* ==========================================================================
+   # PROJECT DETAIL
+   ========================================================================== */
+
 .c-project-detail {
   &__content {
     position: relative;
@@ -8,7 +12,7 @@
   &__wrapper {
     margin-top: spacing('small');
 
-    @include page-color() using ($colors) {
+    @include page-color('.c-project-detail') using ($colors) {
       background-color: map-get($colors, 'background');
       color: map-get($colors, 'typo');
     }

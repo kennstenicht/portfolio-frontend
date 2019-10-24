@@ -1,5 +1,7 @@
 <article
-  class={{bem this.block}}
+  class={{bem this.block modifiers=(hash
+    style=@project.slug
+  )}}
   ...attributes
 >
   <AnimatedValue @value={{@project}} as |project|>

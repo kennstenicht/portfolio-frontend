@@ -4,4 +4,11 @@
 
 .c-page {
   padding: spacing('huge+large') 0 spacing('huge');
+
+  @include page-color('self') using ($colors) {
+    $background: map-get($colors, 'background');
+
+    background: radial-gradient($background, darken($background, 3%));
+    color: map-get($colors, 'typo');
+  }
 }

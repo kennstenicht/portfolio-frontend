@@ -1,6 +1,17 @@
+/* ==========================================================================
+   # PROJECT LIST
+   ========================================================================== */
+
+//  Variables
+$colors: map-get($page-colors, 'default');
+$background: map-get($colors, 'background');
+
+// Component class
 .c-project-list {
   width: calc(100vw - #{spacing('base')});
   height: calc(100vh - #{spacing('base')});
+  background: radial-gradient($background, darken($background, 3%));
+  color: map-get($colors, 'typo');
 
   &__wrapper {
     position: relative;
