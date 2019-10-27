@@ -13,11 +13,11 @@ export default class ApplicationRoute extends Route.extend(
 
   // Getter and setter
   get routeAfterAuthentication() {
-    return 'admin.projects'
+    return 'admin.projects';
   }
 
   get routeIfAlreadyAuthenticated() {
-    return 'admin.projects'
+    return 'admin.projects';
   }
 
 
