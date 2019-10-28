@@ -43,6 +43,10 @@ $inuit-global-letter-spacing:         $letter-spacing;
 
 // Font family
 $font-default:                        'IBM Plex Mono', Courier, monospace;
+$font-decoration:                     'Playfair Display', Times;
+
+
+
 
 
 /* Color
@@ -109,6 +113,8 @@ $page-colors: (
 
 
 
+
+
 /* Stuff
    ========================================================================== */
 
@@ -136,6 +142,7 @@ $mq-breakpoints: (
     wide:    1200px,
     huge:    1600px
 );
+
 
 
 

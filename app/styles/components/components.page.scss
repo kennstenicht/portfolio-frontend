@@ -4,11 +4,25 @@
 
 .c-page {
   padding: spacing('huge+large') 0 spacing('huge');
+  height: 100%;
 
   @include page-color('self') using ($colors) {
     $background: map-get($colors, 'background');
 
     background: radial-gradient($background, darken($background, 3%));
     color: map-get($colors, 'typo');
+  }
+
+  &__huge-text {
+    position: absolute;
+    top: 70px;
+    left: 300px;
+    width: 1650px;
+    font-weight: bold;
+    font-size: 15vw;
+    font-family: $font-decoration;
+    line-height: 1;
+    transform: rotate(90deg) translate(0, -100%);
+    transform-origin: top left;
   }
 }
