@@ -4,7 +4,7 @@ import { inject as service } from '@ember/service';
 export default class ProjectsIndexRoute extends Route {
   // Services
   @service headData;
-
+  @service intl;
 
   // Hooks
   model() {
@@ -12,7 +12,8 @@ export default class ProjectsIndexRoute extends Route {
   }
 
   afterModel() {
-    this.headData.title = 'meine arbeiten | christoph wiedenmann';
-    this.headData.description = 'lorem ipsum';
+    this.headData.routeMetaTags = {
+      title: this.intl.t('projects.index.metaTitle')
+    }
   }
 }

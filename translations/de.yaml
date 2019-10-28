@@ -1,70 +1,83 @@
 navigation:
-  about: "Über mich"
-  imprint: "Impressum"
-  projects: "Projekte"
-  pages: "Seiten"
+  about: Über mich
+  imprint: Impressum
+  projects: Projekte
+  pages: Seiten
   signOut: Ausloggen
 
 session:
   signIn:
-    headline: "Anmelden"
+    headline: Anmelden
     identification:
-      label: "E-Mail"
-      placeholder: "E-Mail Adresse eingeben"
+      label: E-Mail
+      placeholder: E-Mail Adresse eingeben
     password:
-      label: "Passwort"
-      placeholder: "Passwort eingeben"
-    submit: "Einloggen"
+      label: Passwort
+      placeholder: Passwort eingeben
+    submit: Einloggen
 
 application:
   header:
-    siteTitle: "Christoph Wiedenmann"
+    siteTitle: Christoph Wiedenmann
   footer:
     copy: "&copy; {year} by Christoph Wiedenmann"
     social:
-      twitter: "Twitter"
-      github: "GitHub"
-      linkedin: "LinkedIn"
+      twitter: Twitter
+      github: GitHub
+      linkedin: LinkedIn
 
 projectList:
-  title: "Projekte"
+  title: Projekte
 
 customField:
   loading: 'Loading...'
 
 admin:
   action:
-    addField: "Feld hinzufügen"
-    removeField: "Feld entfernen"
-    save: "Speichern"
-    delete: "Löschen"
-    edit: "Bearbeiten"
-    new: "Neu"
+    addField: Feld hinzufügen
+    removeField: Feld entfernen
+    save: Speichern
+    delete: Löschen
+    edit: Bearbeiten
+    new: Neu
 
   label:
-    published: "Veröffentlicht"
-    draft: "Entwurf"
+    published: Veröffentlicht
+    draft: Entwurf
 
   page:
     headline:
-      edit: "Seite bearbeiten"
-      new: "Neue Seite"
-      index: "Seiten"
+      edit: Seite bearbeiten
+      new: Neue Seite
+      index: Seiten
     field:
-      title: "Titel"
-      slug: "Slug"
-      content: "Inhalt"
+      title: Titel
+      slug: Slug
+      content: Inhalt
 
   project:
     headline:
-      edit: "Projekt bearbeiten"
-      new: "Neues Projekt"
-      index: "Projekte"
+      edit: Projekt bearbeiten
+      new: Neues Projekt
+      index: Projekte
     field:
-      title: "Titel"
-      slug: "Slug"
-      content: "Inhalt"
-      subtitle: "Untertitel"
-      excerpt: "Auszug"
-      meta: "Meta Informationen"
-      visible: "Veröffentlicht"
+      title: Titel
+      slug: Slug
+      content: Inhalt
+      subtitle: Untertitel
+      excerpt: Auszug
+      meta: Meta Informationen
+      visible: Veröffentlicht
+
+
+
+
+
+# Routes
+error:
+  metaTitle: 404 » nicht gefunden
+  metaDescription: wir konnten die seite leider nicht finden. entweder ist die seite nicht mehr vorhanden oder du hast in der url etwas falsches eingeben.
+
+projects:
+  index:
+    metaTitle: meine arbeiten

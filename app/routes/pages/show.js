@@ -9,19 +9,28 @@ export default class PagesShowRoute extends Route {
   // Hooks
   model(params) {
     return this.store.query('page', {
-        filter: {
-          slug: params.page_slug
-        }
-      })
-      .then((pages) => {
-        return pages.get('firstObject');
-      });
+      filter: {
+        slug: params.page_slug
+      }
+    })
+    .then((pages) => {
+      return pages.get('firstObject');
+    });
   }
 
   afterModel(model) {
-    this.headData.title = `${model.title} | christoph wiedenmann`;
-    this.headData.description = model.content;
-    this.headData.type = 'article';
+    if(model) {
+      this.headData.routeMetaTags = {
+        title: model.title,
+        description: model.content,
+        type: 'article',
+      }
+    } else {
+      throw {
+        code: 404,
+        message: 'not found'
+      };
+    }
   }
 
   serialize(model){

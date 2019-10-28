@@ -1,71 +1,84 @@
 navigation:
-  about: 'About'
-  imprint: 'Imprint'
-  projects: 'Projects'
-  pages: 'Pages'
+  about: About
+  imprint: Imprint
+  projects: Projects
+  pages: Pages
   signOut: Sign Out
 
 
 session:
   signIn:
-    headline: 'Sign In'
+    headline: Sign In
     identification:
-      label: 'E-Mail'
-      placeholder: 'Enter E-Mail addresse'
+      label: E-Mail
+      placeholder: Enter E-Mail addresse
     password:
-      label: 'Password'
-      placeholder: 'Enter Password'
-    submit: 'Sign In'
+      label: Password
+      placeholder: Enter Password
+    submit: Sign In
 
 application:
   header:
-    siteTitle: 'Christoph Wiedenmann'
+    siteTitle: Christoph Wiedenmann
   footer:
-    copy: '&copy; {year} by Christoph Wiedenmann'
+    copy: "&copy; {year} by Christoph Wiedenmann"
     social:
-      twitter: 'Twitter'
-      github: 'GitHub'
-      linkedin: 'LinkedIn'
+      twitter: Twitter
+      github: GitHub
+      linkedin: LinkedIn
 
 projectList:
-  title: 'Projects'
+  title: Projects
 
 customField:
-  loading: 'Loading...'
+  loading: Loading...
 
 admin:
   action:
-    addField: 'Add Field'
-    removeField: 'Remove Field'
-    save: 'Save'
-    delete: 'Delete'
-    edit: 'Edit'
-    new: 'New'
+    addField: Add Field
+    removeField: Remove Field
+    save: Save
+    delete: Delete
+    edit: Edit
+    new: New
 
   label:
-    published: 'Published'
-    draft: 'Draft'
+    published: Published
+    draft: Draft
 
   page:
     headline:
-      edit: 'Edit Page'
-      new: 'New Page'
-      index: 'Pages'
+      edit: Edit Page
+      new: New Page
+      index: Pages
     field:
-      title: 'Titel'
-      slug: 'Slug'
-      content: 'Content'
+      title: Titel
+      slug: Slug
+      content: Content
 
   project:
     headline:
-      edit: 'Edit Project'
-      new: 'New Project'
-      index: 'Projects'
+      edit: Edit Project
+      new: New Project
+      index: Projects
     field:
-      title: 'Titel'
-      slug: 'Slug'
-      content: 'Content'
-      subtitle: 'Subtitle'
-      excerpt: 'Excerpt'
-      meta: 'Meta'
-      visible: 'Visible'
+      title: Titel
+      slug: Slug
+      content: Content
+      subtitle: Subtitle
+      excerpt: Excerpt
+      meta: Meta
+      visible: Visible
+
+
+
+
+
+# Routes
+error:
+  metaTitle: 404 » not found
+  metaDescription: we can't find the page you are looking for. either the page is not available anymore or you have entered a wrong url.
+
+projects:
+  index:
+    metaTitle: my works
