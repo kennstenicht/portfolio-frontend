@@ -1,0 +1,9 @@
+cookieNotice:
+  allowAllCookies: Allow cookies
+  allowSelectedCookies: Allow selection
+  headline: This website uses cookies
+  message: We use cookies to analyse the access to our website and to offer you the best possible user experience. The results help us to constantly improve our website. You can also find further information in the <a href="/privacy">Privacy policy</a> and in the <a href="/imprint">Imprint</a>.
+  options:
+    analyse: Statistics
+    marketing: Marketing
+    required: Only required

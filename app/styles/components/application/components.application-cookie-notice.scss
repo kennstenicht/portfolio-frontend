@@ -1,0 +1,83 @@
+/* ==========================================================================
+   # APPLICATION COOCKIE NOTICE
+   ========================================================================== */
+
+.c-application-cookie-notice {
+  position: fixed;
+  bottom: spacing();
+  z-index: 999;
+  color: $color-black;
+  max-height: calc(100vh - #{spacing('large')});
+  background-color: $color-white;
+  transition: transform 0.3s ease-in-out;
+  transform: translate(0, 150%);
+  border: 2px solid $color-black;
+
+  &--is-visible {
+    transform: translate(0, 0);
+  }
+
+  &__header {
+    font-weight: bold;
+  }
+
+  &__content {
+    overflow: auto;
+    display: flex;
+  }
+
+    &__message {
+      flex-grow: 1;
+    }
+
+    &__settings {
+      flex-shrink: 0;
+    }
+
+      &__button {
+        margin-top: spacing('small');
+
+        &::before {
+          background-color: $color-black;
+          color: $color-white;
+        }
+      }
+}
+
+
+
+
+
+/* Media queries
+  ========================================================================== */
+
+@include mq($until: desktop) {
+  .c-application-cookie-notice {
+    right: spacing('small');
+    left: spacing('small');
+    padding: spacing('small');
+    @include inuit-font-size($inuit-global-font-size--small);
+
+    &__content {
+      flex-direction: column;
+    }
+
+      &__settings {
+        margin-top: spacing();
+        width: 100%;
+      }
+  }
+}
+
+@include mq($from: desktop) {
+  .c-application-cookie-notice {
+    right: spacing('large');
+    left: spacing('large');
+    padding: spacing();
+
+    &__settings {
+      margin-left: spacing();
+      width: 300px;
+    }
+  }
+}

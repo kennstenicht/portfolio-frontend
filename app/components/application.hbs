@@ -15,5 +15,10 @@
   <main class="c-application__content">
     {{yield}}
   </main>
+
+  <Application::CookieNotice
+    @showCookieNotice={{this.showCookieNotice}}
+    @toggleCookieNotice={{this.toggleCookieNotice}}
+  />
   <Application::Footer />
 </div>

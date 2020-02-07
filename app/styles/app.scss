@@ -43,6 +43,7 @@
 @import "objects/objects.wrapper";
 
 // COMPONENTS
+@import "components/application/components.application-cookie-notice";
 @import "components/application/components.application-footer";
 @import "components/application/components.application-header";
 @import "components/application/components.application-logo";
@@ -65,3 +66,15 @@
 @import "utilities/utilities.headings";
 @import "utilities/utilities.link-underline";
 @import "utilities/utilities.text-align";
+
+
+
+.c-row {
+  display: flex;
+  border: 1px solid red;
+  width: 100%;
+}
+
+.c-column {
+  border: 1px solid green;
+}
