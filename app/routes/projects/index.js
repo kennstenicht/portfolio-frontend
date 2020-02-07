@@ -10,10 +10,4 @@ export default class ProjectsIndexRoute extends Route {
   model() {
     return this.modelFor('projects');
   }
-
-  afterModel() {
-    this.headData.routeMetaTags = {
-      title: this.intl.t('projects.index.metaTitle')
-    }
-  }
 }

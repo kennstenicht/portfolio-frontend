@@ -57,16 +57,3 @@ admin:
       edit: Edit Project
       new: New Project
       index: Projects
-
-
-
-
-
-# Routes
-error:
-  metaTitle: 404 » not found
-  metaDescription: we can't find the page you are looking for. either the page is not available anymore or you have entered a wrong url.
-
-projects:
-  index:
-    metaTitle: my works

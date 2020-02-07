@@ -56,16 +56,3 @@ admin:
       edit: Projekt bearbeiten
       new: Neues Projekt
       index: Projekte
-
-
-
-
-
-# Routes
-error:
-  metaTitle: 404 » nicht gefunden
-  metaDescription: wir konnten die seite leider nicht finden. entweder ist die seite nicht mehr vorhanden oder du hast in der url etwas falsches eingeben.
-
-projects:
-  index:
-    metaTitle: meine arbeiten

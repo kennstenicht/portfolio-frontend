@@ -1,0 +1,23 @@
+application:
+  meta:
+    blurTitle: ">>>> Click here now <<<<"
+    description: 'i’m a berlin base web engenieer with a strong ux background and a love for details. i worked with many frameworks in different languages, but i prefer to work with ember.js or ruby on rails.'
+    title: Christoph Wiedenmann » Software Engenieer & UX Designer
+admin:
+  meta:
+    title: Administration Area
+    description: This is the administration area to manage the website of Christoph Wiedenmann.
+error:
+  meta:
+    description: We can't find the page you are looking for. either the page is not available anymore or you have entered a wrong url.
+    title: 404 » not found
+login:
+  title: Login
+  meta:
+    description: You can't come in here! This is the internal area of the website and made just for me.
+    title: Login
+projects:
+  meta:
+    description: Für unsere unsere Kunden entwickeln wir digitale Produkte, Services und Kommunikationsstrategien.
+    title: My works
+

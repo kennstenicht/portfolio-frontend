@@ -1,0 +1,22 @@
+application:
+  meta:
+    blurTitle: ">>>>  Schnell hier klicken  <<<<"
+    description: Moin, ich bin Christoph und ein Berliner Software Entwickler mit einem starken UX-Hintergrund und eine liebe zu Details. Neben diversen Sprachen und Frameworks bevorzuge ich ember.js und Ruby on Rails.
+    title: Christoph Wiedenmann » Software Engenieer & UX Designer
+admin:
+  meta:
+    title: Administration
+    description: Dies ist der Administrationsbereich zur verwaltung der Webseite von Christoph Wiedenmann.
+error:
+  meta:
+    description: Wir konnten die Seite leider nicht finden. Entweder ist die Seite nicht mehr vorhanden oder du hast in der url etwas falsches eingeben.
+    title: 404 » nicht gefunden
+login:
+  title: Login
+  meta:
+    description: Du kommst hier nicht rein! Das ist der internen Bereich der Webseite und ganz alleine nur für mich gemacht.
+    title: Login
+projects:
+  meta:
+    description: Für unsere unsere Kunden entwickeln wir digitale Produkte, Services und Kommunikationsstrategien.
+    title: Meine Arbeiten

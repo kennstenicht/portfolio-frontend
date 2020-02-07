@@ -22,9 +22,19 @@ export default class ApplicationRoute extends Route.extend(
 
 
   // Hooks
-  beforeModel() {
-    // TODO: Add language switch
+  constructor() {
+    super(...arguments);
+
     this.intl.setLocale('de');
-    this.headData.locale = 'de';
+
+    this.headData.fallbackMetaTags = {
+      title: this.intl.t('application.meta.title'),
+      description: this.intl.t('application.meta.description'),
+      image: '/assets/meta/sharing-image--default.jpg',
+      type: 'website',
+      structuredData: null,
+    }
   }
+
+
 }
