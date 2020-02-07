@@ -3,9 +3,9 @@
     <h1>{{t "admin.project.headline.index"}}</h1>
   </div>
   <div class="o-layout__item u-2/12 u-align-right">
-    {{#link-to "admin.projects.new"}}
+    <LinkTo @route="admin.projects.new">
       {{t "admin.action.new"}}
-    {{/link-to}}
+    </LinkTo>
   </div>
 </div>
 
@@ -23,9 +23,9 @@
       <div class="o-flex-table__column u-10/12">
         {{! template-lint-disable no-bare-strings }}
         <span class="handle">&varr;</span>
-        {{#link-to "admin.projects.edit" project.id}}
+        <LinkTo @route="admin.projects.edit" @model={{project.id}}>
           {{project.title}}
-        {{/link-to}}
+        </LinkTo>
       </div>
       <div class="o-flex-table__column u-2/12 u-align-right">
         {{boolean-label

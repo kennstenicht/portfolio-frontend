@@ -3,9 +3,9 @@
     <h1>{{t "admin.page.headline.index"}}</h1>
   </div>
   <div class="o-layout__item u-2/12 u-align-right">
-    {{#link-to "admin.pages.new"}}
+    <LinkTo @route="admin.pages.new">
       {{t "admin.action.new"}}
-    {{/link-to}}
+    </LinkTo>
   </div>
 </div>
 
@@ -23,9 +23,9 @@
       <div class="o-flex-table__column u-12/12">
         {{! template-lint-disable no-bare-strings }}
         <span class="handle">&varr;</span>
-        {{#link-to "admin.pages.edit" page}}
+        <LinkTo @route="admin.pages.edit" @model={{page}}>
           {{page.title}}
-        {{/link-to}}
+        </LinkTo>
       </div>
     </SortableItem>
   {{/each}}
