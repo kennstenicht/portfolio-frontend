@@ -26,7 +26,7 @@ export default class ProjectDetailHeaderComponent extends Component {
   backgroundTransition = function * ({ sentSprites, receivedSprites }) {
     receivedSprites.concat(sentSprites).forEach(sprite => {
       sprite.applyStyles({
-        'z-index': 802
+        'z-index': '802'
       });
     });
 
@@ -38,7 +38,7 @@ export default class ProjectDetailHeaderComponent extends Component {
   typoTransition = function * ({ sentSprites, receivedSprites }) {
     receivedSprites.concat(sentSprites).forEach(sprite => {
       sprite.applyStyles({
-        'z-index': 803
+        'z-index': '803'
       });
     });
 

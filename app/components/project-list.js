@@ -79,7 +79,7 @@ export default class ProjectListComponent extends Component {
   }) {
     receivedSprites.concat(sentSprites).forEach(sprite => {
       sprite.applyStyles({
-        'z-index': 801
+        'z-index': '801'
       });
     });
 
@@ -87,8 +87,13 @@ export default class ProjectListComponent extends Component {
       const center = (window.innerWidth * 0.5) - (sprite.absoluteFinalBounds.width / 2);
       const start = sprite.absoluteFinalBounds.left >= center ? window.innerWidth * 2 : - sprite.finalBounds.width * 2;
 
-      sprite.startAtPixel({ x: start });
-      sprite.applyStyles({ 'z-index': 800 });
+      sprite.startAtPixel({
+        x: start
+      });
+      sprite.applyStyles({
+        'z-index': '800'
+      });
+
       move(sprite, { easing: easeOut });
     });
 
@@ -96,8 +101,12 @@ export default class ProjectListComponent extends Component {
       const center = (window.innerWidth * 0.5) - (sprite.absoluteInitialBounds.width / 2);
       const end = sprite.absoluteInitialBounds.left >= center ? window.innerWidth * 2 : - sprite.initialBounds.width * 2;
 
-      sprite.applyStyles({ 'z-index': 800 });
-      sprite.endAtPixel({ x: end });
+      sprite.applyStyles({
+        'z-index': '800'
+      });
+      sprite.endAtPixel({
+        x: end
+      });
       move(sprite, { easing: easeIn });
     });
   }
