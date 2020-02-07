@@ -15,9 +15,9 @@ export default class ProjectsShowRoute extends Route {
 
   afterModel(model) {
     if(model) {
-      this.headData.routeMetaTags = {
-        title: `${model.title} » ${model.subtitle} | christoph wiedenmann`,
-        description: model.excerpt,
+      this.metaTags = {
+        title: model.metaTitle || model.metaTitleFallback,
+        description: model.metaDescription || model.metaDescriptionFallback,
         type: 'article',
         image: `images/projects/${model.slug}/${model.slug}_preview.jpg`
       }

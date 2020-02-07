@@ -20,9 +20,9 @@ export default class PagesShowRoute extends Route {
 
   afterModel(model) {
     if(model) {
-      this.headData.routeMetaTags = {
-        title: model.title,
-        description: model.content,
+      this.metaTags = {
+        title: model.metaTitle || model.metaTitleFallback,
+        description: model.metaDescription || model.metaDescriptionFallback,
         type: 'article',
       }
     } else {

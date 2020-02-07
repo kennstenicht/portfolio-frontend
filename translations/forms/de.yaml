@@ -1,0 +1,20 @@
+forms:
+  page:
+    fields:
+      content: Inhalt
+      metaTitle: Meta Title
+      metaDescription: Meta Beschreibung
+      slug: Slug
+      title: Title
+      visible: Öffentlich
+  project:
+    fields:
+      content: Inhalt
+      excerpt: Vorschautext
+      facts: Fakten
+      metaTitle: Meta Title
+      metaDescription: Meta Beschreibung
+      slug: Slug
+      subtitle: Subtitle
+      title: Projekttitel
+      visible: Öffentlich

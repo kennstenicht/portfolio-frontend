@@ -57,6 +57,7 @@
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-mobiledoc-dom-renderer": "^0.6.0",
     "ember-mobiledoc-editor": "^0.5.15",
+    "ember-mobiledoc-text-renderer": "^0.4.0",
     "ember-qunit": "^4.5.1",
     "ember-resolver": "^5.3.0",
     "ember-simple-auth": "^1.8.1",

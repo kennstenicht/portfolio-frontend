@@ -2,21 +2,56 @@
   <div class="o-layout__item u-3/4">
     <div class="o-layout">
       <div class="o-layout__item u-1/2">
-        <label>{{t "admin.page.field.title"}}</label>
+        <label>{{t "forms.page.fields.title"}}</label>
         <Input @value={{@record.title}} />
       </div>
       <div class="o-layout__item u-1/2">
-        <label>{{t "admin.page.field.slug"}}</label>
+        <label>{{t "forms.page.fields.slug"}}</label>
         <Input @value={{@record.slug}} />
       </div>
     </div>
+
     <div class="o-layout">
       <div class="o-layout__item">
-        <label>{{t "admin.page.field.content"}}</label>
+        <label>{{t "forms.page.fields.content"}}</label>
         <Mobiledoc::Editor @record={{@record.content}} />
+      </div>
+    </div>
+  </div>
+
+  <div class="o-layout__item u-1/4">
+    <div class="o-layout">
+      <div class="o-layout__item u-1/2">
+        <label>{{t "forms.page.fields.visible"}}</label>
+        <Input @checked={{@record.visible}} type="checkbox" />
       </div>
     </div>
   </div>
 </div>
 
 <AdminForm::CustomFields @record={{@record}} />
+
+<div class="o-layout">
+  <div class="o-layout__item u-3/4">
+    <div class="o-layout">
+      <div class="o-layout__item">
+        <label>{{t "forms.page.fields.metaTitle"}}</label>
+        <Input
+          @value={{@record.metaTitle}}
+          placeholder={{@record.metaTitleFallback}}
+        />
+      </div>
+    </div>
+
+    <div class="o-layout">
+      <div class="o-layout__item">
+        <label>{{t "forms.page.fields.metaDescription"}}</label>
+        <Textarea
+          @value={{@record.metaDescription}}
+          placeholder={{@record.metaDescriptionFallback}}
+          rows="4"
+        />
+      </div>
+    </div>
+  </div>
+</div>

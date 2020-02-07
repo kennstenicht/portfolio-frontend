@@ -1,0 +1,20 @@
+forms:
+  page:
+    fields:
+      content: Content
+      metaTitle: Meta Title
+      metaDescription: Meta Description
+      slug: Slug
+      title: Title
+      visible: Public
+  project:
+    fields:
+      content: Content
+      excerpt: Excerpt
+      facts: Facts
+      metaTitle: Meta Title
+      metaDescription: Meta Description
+      slug: Slug
+      subtitle: Subtitle
+      title: Projecttitle
+      visible: Public

@@ -6742,6 +6742,14 @@ ember-mobiledoc-editor@^0.5.15:
     mobiledoc-dom-renderer "^0.6.5"
     mobiledoc-kit "^0.11.1"
 
+ember-mobiledoc-text-renderer@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/ember-mobiledoc-text-renderer/-/ember-mobiledoc-text-renderer-0.4.0.tgz#05fed07a224e067e06587bc0525aa8c9c1d2b8e3"
+  integrity sha512-0OdE3Y3CRCLqckES7XlrSN/E2WmVt5ap2/0CTn4Yi7CyS49I50JmVc/DgVIEWQGo6r1L7VYTc6pD772UrCFfiw==
+  dependencies:
+    ember-cli-babel "^7.7.3"
+    mobiledoc-text-renderer "^0.3.1"
+
 ember-modifier-manager-polyfill@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/ember-modifier-manager-polyfill/-/ember-modifier-manager-polyfill-1.0.3.tgz#6554b70d09a7d3b80d366b72ed482fb9a3e813c0"
@@ -10703,7 +10711,7 @@ mobiledoc-kit@^0.11.1:
     mobiledoc-dom-renderer "0.6.5"
     mobiledoc-text-renderer "0.3.2"
 
-mobiledoc-text-renderer@0.3.2:
+mobiledoc-text-renderer@0.3.2, mobiledoc-text-renderer@^0.3.1:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/mobiledoc-text-renderer/-/mobiledoc-text-renderer-0.3.2.tgz#126a167a6cf8b6cd7e58c85feb18043603834580"
   integrity sha1-EmoWemz4ts1+WMhf6xgENgODRYA=

@@ -1,15 +1,33 @@
-import DS from 'ember-data';
-import Model from 'ember-data/model';
+import Model, { attr, hasMany } from '@ember-data/model';
+import TextRenderer from 'ember-mobiledoc-text-renderer';
 
 export default class ProjectModel extends Model {
-  @DS.attr('string') title;
-  @DS.attr('string') slug;
-  @DS.attr('string') subtitle;
-  @DS.attr('mobiledoc') excerpt;
-  @DS.attr('mobiledoc') metaInfo;
-  @DS.attr('mobiledoc') content;
-  @DS.attr('boolean') visible;
-  @DS.attr('number') position;
+  // Attributes
+  @attr('mobiledoc') content;
+  @attr('mobiledoc') excerpt;
+  @attr('mobiledoc') facts;
+  @attr('string') metaTitle;
+  @attr('string') metaDescription;
+  @attr('number') position;
+  @attr('string') slug;
+  @attr('string') subtitle;
+  @attr('string') title;
+  @attr('boolean') visible;
 
-  @DS.hasMany('custom-field') customFields;
+
+  // Relations
+  @hasMany('custom-field') customFields;
+
+
+  // Getter and setter
+  get metaTitleFallback() {
+    return `${this.title} » ${this.subtitle}`;
+  }
+
+  get metaDescriptionFallback() {
+    let textRenderer = new TextRenderer({cards: []});
+    let rendered = textRenderer.render(this.excerpt);
+
+    return rendered.result.replace(/(\r\n|\n|\r)/gm, "").trim();
+  }
 }

@@ -50,24 +50,12 @@ admin:
       edit: Seite bearbeiten
       new: Neue Seite
       index: Seiten
-    field:
-      title: Titel
-      slug: Slug
-      content: Inhalt
 
   project:
     headline:
       edit: Projekt bearbeiten
       new: Neues Projekt
       index: Projekte
-    field:
-      title: Titel
-      slug: Slug
-      content: Inhalt
-      subtitle: Untertitel
-      excerpt: Auszug
-      meta: Meta Informationen
-      visible: Veröffentlicht
 
 
 

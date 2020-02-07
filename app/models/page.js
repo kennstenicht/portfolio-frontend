@@ -1,11 +1,30 @@
-import DS from 'ember-data';
-import Model from 'ember-data/model';
+import Model, { attr, hasMany } from '@ember-data/model';
+import TextRenderer from 'ember-mobiledoc-text-renderer';
 
 export default class PageModel extends Model {
-  @DS.attr('string') title;
-  @DS.attr('string') slug;
-  @DS.attr('mobiledoc') content;
-  @DS.attr('number') position;
+  // Attributes
+  @attr('mobiledoc') content;
+  @attr('string') metaTitle;
+  @attr('string') metaDescription;
+  @attr('string') slug;
+  @attr('number') position;
+  @attr('string') slug;
+  @attr('string') title;
 
-  @DS.hasMany('custom-field') customFields;
+
+  // Relations
+  @hasMany('custom-field') customFields;
+
+
+  // Getter and setter
+  get metaTitleFallback() {
+    return this.title;
+  }
+
+  get metaDescriptionFallback() {
+    let textRenderer = new TextRenderer({cards: []});
+    let rendered = textRenderer.render(this.content);
+
+    return rendered.result.replace(/(\r\n|\n|\r)/gm, "").trim();
+  }
 }

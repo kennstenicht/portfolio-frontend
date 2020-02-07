@@ -51,24 +51,12 @@ admin:
       edit: Edit Page
       new: New Page
       index: Pages
-    field:
-      title: Titel
-      slug: Slug
-      content: Content
 
   project:
     headline:
       edit: Edit Project
       new: New Project
       index: Projects
-    field:
-      title: Titel
-      slug: Slug
-      content: Content
-      subtitle: Subtitle
-      excerpt: Excerpt
-      meta: Meta
-      visible: Visible
 
 
 
