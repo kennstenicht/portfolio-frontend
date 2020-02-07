@@ -17,10 +17,13 @@
 
   {{component (concat "admin-form/" this.modelName) record=@record}}
 
-  <button class="o-btn" {{action "save"}}>
+  <button class="o-btn" {{on "click" (fn @save @record)}}>
     {{t "admin.action.save"}}
   </button>
-  <button class="o-btn" {{action "deleteRecord"}}>
+  <button class="o-btn" {{on "click" (fn @cancel this.modelName)}}>
+    {{t "admin.action.cancel"}}
+  </button>
+  <button class="o-btn" {{on "click" (fn @delete @record)}}>
     {{t "admin.action.delete"}}
   </button>
 </div>

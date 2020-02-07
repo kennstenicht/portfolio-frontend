@@ -27,4 +27,8 @@ export default class PageModel extends Model {
 
     return rendered.result.replace(/(\r\n|\n|\r)/gm, "").trim();
   }
+
+  get displayLabel() {
+    return this.title;
+  }
 }
