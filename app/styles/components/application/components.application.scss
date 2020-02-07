@@ -15,6 +15,13 @@
     border-color: map-get($colors, 'primary');
   }
 
+  &__flash-messages {
+    position: fixed;
+    bottom: spacing();
+    right: spacing();
+    z-index: 998;
+  }
+
   &__content {
     position: relative;
     min-height: 100%;

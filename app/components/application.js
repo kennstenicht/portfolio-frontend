@@ -5,7 +5,7 @@ import { inject as service } from '@ember/service';
 export default class AppLicationComponent extends Component {
   // Services
   @service router;
-
+  @service flashMessages;
 
   // Defaults
   block = 'c-application';

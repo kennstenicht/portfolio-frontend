@@ -4,6 +4,8 @@ application:
     description: 'i’m a berlin base web engenieer with a strong ux background and a love for details. i worked with many frameworks in different languages, but i prefer to work with ember.js or ruby on rails.'
     title: Christoph Wiedenmann » Software Engenieer & UX Designer
 admin:
+  deleteRecord: '"{title}" was successfully deleted.'
+  saveRecord: '"{title}" was successfully saved.'
   meta:
     title: Administration Area
     description: This is the administration area to manage the website of Christoph Wiedenmann.

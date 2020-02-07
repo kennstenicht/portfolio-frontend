@@ -22,6 +22,11 @@ module.exports = function(environment) {
       inline: true
     },
 
+    flashMessageDefaults: {
+      timeout: 4000,
+      extendedTimeout: 500
+    },
+
     fastboot: {
       hostWhitelist: [
         'wiedenmann.io',

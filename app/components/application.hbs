@@ -5,6 +5,13 @@
   ...attributes
 >
   <Application::Header />
+
+  <div class={{bem this.block "flash-messages"}}>
+    {{#each this.flashMessages.queue as |flash|}}
+      <Application::Notification @flash={{flash}} />
+    {{/each}}
+  </div>
+
   <main class="c-application__content">
     {{yield}}
   </main>
