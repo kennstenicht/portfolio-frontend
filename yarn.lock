@@ -6706,7 +6706,7 @@ ember-get-config@^0.2.3, ember-get-config@^0.2.4:
     broccoli-file-creator "^1.1.1"
     ember-cli-babel "^6.3.0"
 
-"ember-getowner-polyfill@^1.1.0 || ^2.0.0", ember-getowner-polyfill@^2.0.1:
+"ember-getowner-polyfill@^1.1.0 || ^2.0.0", ember-getowner-polyfill@^2.0.0, ember-getowner-polyfill@^2.0.1:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/ember-getowner-polyfill/-/ember-getowner-polyfill-2.2.0.tgz#38e7dccbcac69d5ec694000329ec0b2be651d2b2"
   integrity sha512-rwGMJgbGzxIAiWYjdpAh04Abvt0s3HuS/VjHzUFhVyVg2pzAuz45B9AzOxYXzkp88vFC7FPaiA4kE8NxNk4A4Q==
@@ -6858,6 +6858,14 @@ ember-rfc176-data@^0.3.9:
   resolved "https://registry.yarnpkg.com/ember-rfc176-data/-/ember-rfc176-data-0.3.9.tgz#44b6e051ead6c044ea87bd551f402e2cf89a7e3d"
   integrity sha512-EiTo5YQS0Duy0xp9gCP8ekzv9vxirNi7MnIB4zWs+thtWp/mEKgf5mkiiLU2+oo8C5DuavVHhoPQDmyxh8Io1Q==
 
+ember-route-action-helper@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/ember-route-action-helper/-/ember-route-action-helper-2.0.8.tgz#f227fcccb73e839b65e9b814e241b322fe8c02fc"
+  integrity sha512-V+4uKwqaYveriVt2rl4e+9mzHJiQOr1B8dCPQQ2TS3iAcmi5RD2giRDFGtCK9d2XY9Arb/f9hJh0obP20iyt3A==
+  dependencies:
+    ember-cli-babel "^6.8.1"
+    ember-getowner-polyfill "^2.0.0"
+
 ember-router-generator@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ember-router-generator/-/ember-router-generator-2.0.0.tgz#d04abfed4ba8b42d166477bbce47fccc672dbde0"
@@ -6909,13 +6917,15 @@ ember-simple-auth@^2.1.1:
     ember-getowner-polyfill "^1.1.0 || ^2.0.0"
     silent-error "^1.0.0"
 
-ember-sortable@^1.12.4:
-  version "1.12.9"
-  resolved "https://registry.yarnpkg.com/ember-sortable/-/ember-sortable-1.12.9.tgz#7b53cdebd0641946ae4f92b2edd6c4753ef0c924"
-  integrity sha512-3IJ4E2n1NU5IOIkXcNwQQDwYdpcpZNaGOcAdkDvs9AYFgTV+gHwF52eGjipBGipHBicrnl4b2N6BEfHkHUWvdA==
+ember-sortable@^2.0.2:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/ember-sortable/-/ember-sortable-2.1.3.tgz#af7834b68d70021af171f7cb97a9449054d2fd84"
+  integrity sha512-6aczdWbtTbloHW/kZr8Rr3AlywMy1GDs8q5A+1ka3RapqSuPDPBNCvXlzBLcPJGbnyR/OxV7w1yZO9gR+fCAhQ==
   dependencies:
     ember-cli-babel "^7.1.2"
     ember-cli-htmlbars "^3.0.0"
+    ember-test-selectors "^2.1.0"
+    ember-test-waiters "^1.1.1"
 
 ember-source-channel-url@^2.0.1:
   version "2.0.1"
@@ -6984,6 +6994,14 @@ ember-template-lint@^1.1.0:
     minimatch "^3.0.4"
     resolve "^1.1.3"
     strip-bom "^3.0.0"
+
+ember-test-selectors@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/ember-test-selectors/-/ember-test-selectors-2.1.0.tgz#faebdf06702aaa0bc510d55eb721ce54d2e85793"
+  integrity sha512-c5HmvefmeABH8hg380TSNZiE9VAK1CBeXWrgyXy+IXHtsew4lZHHw7GnqCAqsakxwvmaMARbAKY9KfSAE91s1g==
+  dependencies:
+    ember-cli-babel "^6.8.2"
+    ember-cli-version-checker "^3.1.2"
 
 ember-test-waiters@^1.1.1:
   version "1.2.0"

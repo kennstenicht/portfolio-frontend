@@ -10,19 +10,24 @@
 </div>
 
 <SortableGroup
+  @tagName="div"
+  @model={{this.records}}
+  @onChange={{route-action "reorderItems"}}
   class="o-flex-table"
-  onChange="reorderItems" as |group|
+  as |group|
 >
-  {{#each this.projects as |project|}}
-    <SortableItem
-      class="o-flex-table__row"
+  {{#each group.model as |project|}}
+    <group.item
+      @tagName="div"
       @model={{project}}
-      @group={{group}}
-      @handle=".handle"
+      class="o-flex-table__row"
+      as |item|
     >
       <div class="o-flex-table__column u-10/12">
         {{! template-lint-disable no-bare-strings }}
-        <span class="handle">&varr;</span>
+        <item.handle @tagName="span">
+          &varr;
+        </item.handle>
         <LinkTo @route="admin.projects.edit" @model={{project.id}}>
           {{project.title}}
         </LinkTo>
@@ -34,6 +39,6 @@
           (t "admin.label.draft")
         }}
       </div>
-    </SortableItem>
+    </group.item>
   {{/each}}
 </SortableGroup>
