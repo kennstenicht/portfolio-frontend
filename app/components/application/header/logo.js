@@ -35,7 +35,7 @@ export default class AppLicationLogoComponent extends Component {
   ];
 
 
-  // Computed properties
+  // Getter and setter
   get defaultLetters() {
     return this.words.objectAt(0).split('');
   }

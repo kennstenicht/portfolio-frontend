@@ -10,7 +10,7 @@ export default class AdminFormComponent extends Component {
   block = 'c-admin-form';
 
 
-  // Computed properties
+  // Getter and setter
   get modelName() {
     return this.args.record.constructor.modelName;
   }

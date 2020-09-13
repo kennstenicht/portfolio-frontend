@@ -12,13 +12,9 @@ export default class AppLicationFooterComponent extends Component {
   duration = 0;
 
 
-  // Computed properties
+  // Getter and setter
   get currentYear() {
     return new Date().getFullYear();
-  }
-
-  constructor() {
-    super(...arguments);
   }
 
 

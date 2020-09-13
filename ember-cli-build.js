@@ -6,14 +6,6 @@ module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     babel: {
       plugins: [ require('ember-auto-import/babel-plugin') ]
-    },
-    autoprefixer: {
-      browsers: [
-        "last 1 version",
-        "> 1%",
-        "IE 10"
-      ],
-      cascade: false
     }
     // Add options here
   });
