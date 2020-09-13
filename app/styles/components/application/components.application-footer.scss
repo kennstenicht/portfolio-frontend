@@ -19,12 +19,12 @@
     @include inuit-font-size($inuit-global-font-size--small);
   }
 
-  &--toggled &__wrapper{
+  &--toggled &__wrapper {
     bottom: spacing('base');
   }
 
     &__navigation {
-      margin: 0px;
+      margin: 0;
       width: 50%;
       text-transform: lowercase;
     }

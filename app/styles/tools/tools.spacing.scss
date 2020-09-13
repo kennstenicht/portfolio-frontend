@@ -23,7 +23,8 @@ $spacings: (
   tiny:  $inuit-global-spacing-unit-tiny,
   small: $inuit-global-spacing-unit-small,
   large: $inuit-global-spacing-unit-large,
-  huge:  $inuit-global-spacing-unit-huge
+  huge:  $inuit-global-spacing-unit-huge,
+  giant: $inuit-global-spacing-unit-huge + $inuit-global-spacing-unit-huge
 ) !default;
 
 $spacings_combinations: (

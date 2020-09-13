@@ -4,21 +4,21 @@
 
 .c-application-header {
   position: fixed;
-  top: 0px;
-  right: 0px;
-  left: 0px;
+  top: 0;
+  right: 0;
+  left: 0;
   z-index: 900;
   width: 100vw;
-  mix-blend-mode: difference;
 
   @include inuit-font-size($inuit-global-font-size--small, false);
+  mix-blend-mode: difference;
 
   &__logo {
     position: absolute;
     top: spacing('large+small');
     left: spacing('large+small');
-    width: spacing('large+small');
-    height: spacing('large+small');
+    width: spacing('huge');
+    height: spacing('huge');
     color: $color-white;
     text-transform: uppercase;
     word-break: break-all;

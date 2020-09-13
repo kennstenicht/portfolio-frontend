@@ -15,6 +15,10 @@
     @include page-color('.c-project-detail') using ($colors) {
       background-color: map-get($colors, 'background');
       color: map-get($colors, 'typo');
+
+      h2 {
+        color: map-get($colors, 'primary');
+      }
     }
   }
 }

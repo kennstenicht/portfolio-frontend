@@ -3,14 +3,29 @@
    ========================================================================== */
 
 .c-page {
-  padding: spacing('huge+large') 0 spacing('huge');
-  height: 100%;
+  flex-grow: 1;
 
   @include page-color('self') using ($colors) {
     $background: map-get($colors, 'background');
 
     background: radial-gradient($background, darken($background, 3%));
     color: map-get($colors, 'typo');
+  }
+
+  &__wrapper {
+    max-width: $inuit-wrapper-width;
+    margin-right: auto;
+    margin-left: 0px;
+    padding: spacing('giant');
+  }
+
+  &--size-full &__wrapper {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  &--size-small &__wrapper {
+    max-width: $inuit-wrapper-width--small;
   }
 
   &__huge-text {

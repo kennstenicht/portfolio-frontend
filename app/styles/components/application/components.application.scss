@@ -6,7 +6,7 @@
   position: relative;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  height: 100%;
+  height: 100vh;
   border-width: spacing('small');
   border-style: solid;
   transition: all $transition--slow;
@@ -17,14 +17,15 @@
 
   &__flash-messages {
     position: fixed;
-    bottom: spacing();
     right: spacing();
+    bottom: spacing();
     z-index: 998;
   }
 
   &__content {
     position: relative;
+    display: flex;
+    flex-direction: column;
     min-height: 100%;
-    transition: all $transition--base;
   }
 }

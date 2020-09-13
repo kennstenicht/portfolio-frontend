@@ -6,12 +6,12 @@
   position: fixed;
   bottom: spacing();
   z-index: 999;
-  color: $color-black;
   max-height: calc(100vh - #{spacing('large')});
+  border: 2px solid $color-black;
   background-color: $color-white;
+  color: $color-black;
   transition: transform 0.3s ease-in-out;
   transform: translate(0, 150%);
-  border: 2px solid $color-black;
 
   &--is-visible {
     transform: translate(0, 0);
@@ -22,8 +22,8 @@
   }
 
   &__content {
-    overflow: auto;
     display: flex;
+    overflow: auto;
   }
 
     &__message {
@@ -56,6 +56,7 @@
     right: spacing('small');
     left: spacing('small');
     padding: spacing('small');
+
     @include inuit-font-size($inuit-global-font-size--small);
 
     &__content {

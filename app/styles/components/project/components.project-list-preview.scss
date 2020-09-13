@@ -5,7 +5,7 @@
 .c-project-list-preview {
   position: relative;
   flex-shrink: 0;
-  margin: auto spacing('huge');
+  margin: auto spacing('huge+large');
   width: 40vw;
   height: 36vh;
   color: $color-black;
@@ -36,10 +36,13 @@
 
       &__index {
         position: absolute;
-        top: 12px;
-        left: - spacing();
-        border-bottom: 1px solid $color-black;
+        top: - 602px;
+        left: - 300px;
+        // border-bottom: 1px solid $color-black;
         transform: translateY(80%);
+        font-size: 350px;
+        mix-blend-mode: difference;
+
       }
 
       &__title {
@@ -73,7 +76,7 @@
 
 .c-project-list-preview {
   &--style-binuu {
-    width: 40vw;
+    width: 25vw;
   }
 
   &__background--style-binuu  {
@@ -97,6 +100,7 @@
   }
 
   &--style-ad-hoc {
+    width: 35vw;
     margin-top: 40vh;
   }
 
@@ -123,7 +127,7 @@
 
 @include mq($until: tablet) {
   .c-project-list-preview {
-    width: 70vw;
-    height: 30vh;
+    width: 80vw;
+    height: 72vh;
   }
 }

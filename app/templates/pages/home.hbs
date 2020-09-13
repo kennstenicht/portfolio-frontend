@@ -1,6 +1,4 @@
-<div class="c-page c-page--style-home">
-  <div class="o-wrapper o-wrapper--small">
-    <h1>{{this.model.title}}</h1>
-    <Mobiledoc::Renderer @mobiledoc={{this.model.content}} />
-  </div>
-</div>
+<Page @size="small" @style="home">
+  <h1>{{this.model.title}}</h1>
+  <Mobiledoc::Renderer @mobiledoc={{this.model.content}} />
+</Page>

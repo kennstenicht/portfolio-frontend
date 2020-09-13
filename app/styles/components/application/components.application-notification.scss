@@ -18,7 +18,7 @@
   }
 
   &--is-exiting {
-    transform: translateX(200%);
     opacity: 0;
+    transform: translateX(200%);
   }
 }

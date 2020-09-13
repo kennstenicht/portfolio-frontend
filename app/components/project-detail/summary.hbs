@@ -1,11 +1,11 @@
 <div
-  class={{bem this.block}}
+  class={{bem this.blockName}}
   ...attributes
 >
-  <div class={{bem this.block "excerpt"}}>
+  <div class={{bem this.blockName "excerpt"}}>
     <Mobiledoc::Renderer @mobiledoc={{@project.excerpt}} />
   </div>
-  <div class={{bem this.block "meta-info"}}>
+  <div class={{bem this.blockName "meta-info"}}>
     <Mobiledoc::Renderer @mobiledoc={{@project.facts}} />
   </div>
 </div>

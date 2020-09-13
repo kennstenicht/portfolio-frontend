@@ -1,12 +1,12 @@
 <div
-  class={{bem this.block modifiers=(hash
+  class={{bem this.blockName modifiers=(hash
     style=this.urlSegments
   )}}
   ...attributes
 >
   <Application::Header />
 
-  <div class={{bem this.block "flash-messages"}}>
+  <div class={{bem this.blockName "flash-messages"}}>
     {{#each this.flashMessages.queue as |flash|}}
       <Application::Notification @flash={{flash}} />
     {{/each}}

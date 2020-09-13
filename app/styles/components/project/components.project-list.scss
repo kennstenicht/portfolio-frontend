@@ -2,16 +2,11 @@
    # PROJECT LIST
    ========================================================================== */
 
-//  Variables
-$colors: map-get($page-colors, 'default');
-$background: map-get($colors, 'background');
-
 // Component class
 .c-project-list {
+  overflow: hidden;
   width: calc(100vw - #{spacing('base')});
   height: calc(100vh - #{spacing('base')});
-  background: radial-gradient($background, darken($background, 3%));
-  color: map-get($colors, 'typo');
 
   &__wrapper {
     position: relative;
@@ -21,5 +16,14 @@ $background: map-get($colors, 'background');
     width: 100%;
     height: 100%;
     transition-property: transform;
+  }
+
+  &__notification {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1000;
+    opacity: 0;
+    pointer-events: none;
   }
 }
