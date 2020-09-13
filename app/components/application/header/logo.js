@@ -58,7 +58,7 @@ export default class AppLicationLogoComponent extends Component {
     const letters = this.element
       .querySelectorAll('.' + this.block + "__letter");
     const newWord = this.words
-      .objectAt(this.randomBetween(1, this.words.length))
+      .objectAt(this.randomBetween(1, this.words.length-1))
       .split('');
 
     letters.forEach(function (letter, index) {
