@@ -1,16 +1,14 @@
-<div class="c-page c-page--style-{{this.model.slug}}">
-  <div class="o-wrapper">
-    <div class="o-layout">
-      <div class="o-layout__item u-1/2">
-        <div class="c-page__huge-text">
-          getting a<br>
-          picture of me
-        </div>
-      </div>
-      <div class="o-layout__item u-1/2">
-        <h1>{{this.model.title}}</h1>
-        <Mobiledoc::Renderer @mobiledoc={{this.model.content}} />
+<Page @style={{this.model.slug}}>
+  <div class="o-layout">
+    <div class="o-layout__item u-1/2">
+      <div class="c-page__huge-text">
+        getting a<br>
+        picture of me
       </div>
     </div>
+    <div class="o-layout__item u-1/2">
+      <h1>{{this.model.title}}</h1>
+      <Mobiledoc::Renderer @mobiledoc={{this.model.content}} />
+    </div>
   </div>
-</div>
+</Page>
