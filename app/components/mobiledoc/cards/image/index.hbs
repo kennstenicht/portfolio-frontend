@@ -1,9 +1,12 @@
 <img
-  src={{payload.imgSrc}}
-  alt={{payload.alt}}
+  src={{this.payload.imgSrc}}
+  alt={{this.payload.alt}}
 >
-{{#if editCard}}
-  <button class="meme-card__btn" onclick={{action editCard}}>
+{{#if this.editCard}}
+  <button
+    class="meme-card__btn"
+    type="button"
+    {{on "click" this.editCard}}>
     {{t "admin.action.edit"}}
   </button>
 {{/if}}

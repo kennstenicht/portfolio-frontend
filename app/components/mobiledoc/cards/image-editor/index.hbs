@@ -1,17 +1,20 @@
 <div class="meme-card-editor">
-  <img src={{payload.imgSrc}} alt="">
+  {{! template-lint-disable require-valid-alt-text }}
+  <img src={{this.payload.imgSrc}}>
   <Input @value={{this.imgSrc}} />
   <Input @value={{this.alt}} />
   <button
-    onclick={{action this.saveCard (hash
+    type="button"
+    {{on "click" (fn this.saveCard (hash
       imgSrc=this.imgSrc
       alt=this.alt
-    )}}
+    ))}}
   >
     {{t "admin.action.save"}}
   </button>
   <button
-    onclick={{action this.removeCard}}
+    type="button"
+    {{on "click" this.removeCard}}
   >
     {{t "admin.action.delete"}}
   </button>

@@ -12,8 +12,9 @@
             </div>
             <div class="o-layout__item u-1/1">
               <button
+                type="button"
                 class="o-btn o-btn--full"
-                {{action "removeCustomField" customField}}
+                {{on "click" (fn this.removeCustomField customField)}}
               >
                 {{t "admin.action.removeField"}}
               </button>
@@ -22,7 +23,11 @@
         </div>
       </div>
     {{/each}}
-    <button class="o-btn" {{action "addCustomField"}}>
+    <button
+      class="o-btn"
+      type="button"
+      {{on "click" this.addCustomField}}
+    >
       {{t "admin.action.addField"}}
     </button>
   </div>

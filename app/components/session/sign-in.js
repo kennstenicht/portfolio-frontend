@@ -7,10 +7,6 @@ export default class SessionSignIn extends Component {
   @service session;
 
 
-  // Defaults
-  block = 'c-sign-in';
-
-
   // Actions
   @action
   authenticate() {

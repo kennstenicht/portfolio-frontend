@@ -6,6 +6,7 @@ export default class AdminFormCustomFieldComponent extends Component {
   // Services
   @service store;
 
+
   // Actions
   @action
   addCustomField() {

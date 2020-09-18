@@ -1,14 +1,13 @@
 <div
-  class={{bem this.block}}
   ...attributes
 >
   <h1>{{t "session.signIn.headline"}}</h1>
-  <form {{action "authenticate" on="submit"}}>
+  <form {{on "submit" this.authenticate}}>
     <div class="o-layout">
       <div class="o-layout__item u-1/1 u-1/2@tablet">
         <label for="identification">{{t "session.signIn.identification.label"}}</label>
         <Input
-          @value={{identification}}
+          @value={{this.identification}}
           id="identification"
           placeholder={{t "session.signIn.identification.placeholder"}}
         />
@@ -16,7 +15,7 @@
       <div class="o-layout__item u-1/1 u-1/2@tablet">
         <label for="password">{{t "session.signIn.password.label"}}</label>
         <Input
-          @value={{password}}
+          @value={{this.password}}
           id="password"
           placeholder={{t "session.signIn.password.placeholder"}}
           type="password"
@@ -26,8 +25,8 @@
     <div class="o-layout">
       <div class="o-layout__item u-1/1">
         <button type="submit" class="o-btn">{{t "session.signIn.submit"}}</button>
-        {{#if errorMessage}}
-          <p>{{errorMessage}}</p>
+        {{#if this.errorMessage}}
+          <p>{{this.errorMessage}}</p>
         {{/if}}
       </div>
     </div>

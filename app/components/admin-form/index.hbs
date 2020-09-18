@@ -1,5 +1,4 @@
 <div
-  class={{bem this.block}}
   ...attributes
 >
   <div class="o-layout">
@@ -17,13 +16,25 @@
 
   {{component (concat "admin-form/" this.modelName) record=@record}}
 
-  <button class="o-btn" {{on "click" (fn @save @record)}}>
+  <button
+    type="button"
+    class="o-btn"
+    {{on "click" (fn @save @record)}}
+  >
     {{t "admin.action.save"}}
   </button>
-  <button class="o-btn" {{on "click" (fn @cancel this.modelName)}}>
+  <button
+    type="button"
+    class="o-btn"
+    {{on "click" (fn @cancel this.modelName)}}
+  >
     {{t "admin.action.cancel"}}
   </button>
-  <button class="o-btn" {{on "click" (fn @delete @record)}}>
+  <button
+    type="button"
+    class="o-btn"
+    {{on "click" (fn @delete @record)}}
+  >
     {{t "admin.action.delete"}}
   </button>
 </div>
