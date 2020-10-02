@@ -1,16 +1,11 @@
-<article
-  class={{bem this.blockName modifiers=(hash
-    style=@project.slug
-  )}}
-  ...attributes
->
+<article block:scope block:style={{@project.slug}} ...attributes>
   <AnimatedValue @value={{@project}} as |project|>
     <ProjectDetail::Header @project={{@project}} />
   </AnimatedValue>
 
-  <div class={{bem this.blockName "content"}}>
+  <div block:class="content">
     <ProjectDetail::Summary @project={{@project}} />
-    <div class={{bem this.blockName "wrapper"}}>
+    <div block:class="wrapper">
       {{component (concat "project-detail/" @project.slug) project=@project}}
     </div>
   </div>

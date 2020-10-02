@@ -7,10 +7,6 @@ export default class ApplicationCookieNoticeComponent extends Component {
   @service cookies;
 
 
-  // Defaults
-  blockName = "c-application-cookie-notice"
-
-
   // Hooks
   constructor() {
     super(...arguments);

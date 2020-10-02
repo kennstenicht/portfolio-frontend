@@ -7,10 +7,6 @@ export default class AppLicationHeaderComponent extends Component {
   @service session;
 
 
-  // Defaults
-  block = 'c-application-header';
-
-
   // Actions
   @action
   signOut() {

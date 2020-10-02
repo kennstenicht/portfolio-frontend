@@ -1,0 +1,57 @@
+/* ==========================================================================
+   # WRAPPER
+   ========================================================================== */
+
+@import 'setup';
+
+:scope {
+  margin-right: auto;
+  margin-left: 0;
+  padding-right: spacing('large');
+  padding-left: spacing('huge+large');
+}
+
+
+
+
+
+
+/* Position variants.
+   ========================================================================== */
+
+:scope[align=left] {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+:scope[align=center] {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+:scope[align=right] {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+
+
+
+
+
+/* Size variants.
+   ========================================================================== */
+
+:scope[size=left] {
+  max-width: $wrapper-width-small;
+}
+
+:scope[align=full] {
+  margin-right: 0;
+  margin-left: 0;
+  max-width: 100%;
+}
+
+:scope[align=no-padding] {
+  padding: 0;
+}

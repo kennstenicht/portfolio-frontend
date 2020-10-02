@@ -1,0 +1,30 @@
+/* ==========================================================================
+   # PROJECT DETAIL SUMMARY
+   ========================================================================== */
+
+@import "setup";
+
+:scope {
+  block-name: c-project-detail-summary;
+  display: flex;
+  margin: 0 spacing('small');
+  padding: spacing('base+small');
+}
+
+@each $page, $colors in $page-colors {
+  :scope#{page-state($page)} {
+    background-color: map-get($colors, 'secondary');
+    color: map-get($colors, 'typo');
+  }
+}
+
+  .excerpt {
+    width: 66.6666%;
+  }
+
+  .meta-info {
+    padding-left: spacing('huge');
+    width: 33.3333%;
+
+    @include font-size($font-size-small);
+  }

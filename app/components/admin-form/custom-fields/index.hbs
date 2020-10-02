@@ -1,19 +1,20 @@
-<div class="o-layout">
-  <div class="o-layout__item u-1/1">
+<div layout:scope>
+  <div layout:class="item">
     {{#each @record.customFields as |customField|}}
-      <div class="o-layout">
-        <div class="o-layout__item u-3/4">
+      <div layout:scope>
+        <div layout:class="item" layout:desktop="width-3-4">
           <Textarea @value={{customField.value}} rows="6" />
         </div>
-        <div class="o-layout__item u-1/4">
-          <div class="o-layout">
-            <div class="o-layout__item u-1/1">
+        <div layout:class="item" layout:desktop="width-1-4">
+          <div layout:scope>
+            <div layout:class="item">
               <Input @value={{customField.key}} />
             </div>
-            <div class="o-layout__item u-1/1">
+            <div layout:class="item">
               <button
+                button:scope
+                button:size="full"
                 type="button"
-                class="o-btn o-btn--full"
                 {{on "click" (fn this.removeCustomField customField)}}
               >
                 {{t "admin.action.removeField"}}
@@ -23,8 +24,9 @@
         </div>
       </div>
     {{/each}}
+
     <button
-      class="o-btn"
+      button:scope
       type="button"
       {{on "click" this.addCustomField}}
     >

@@ -1,10 +1,8 @@
-<div
-  ...attributes
->
+<div block:scope ...attributes>
   <h1>{{t "session.signIn.headline"}}</h1>
   <form {{on "submit" this.authenticate}}>
-    <div class="o-layout">
-      <div class="o-layout__item u-1/1 u-1/2@tablet">
+    <div layout:scope>
+      <div layout:class="item" layout:desktop="width-1-2">
         <label for="identification">{{t "session.signIn.identification.label"}}</label>
         <Input
           @value={{this.identification}}
@@ -12,7 +10,7 @@
           placeholder={{t "session.signIn.identification.placeholder"}}
         />
       </div>
-      <div class="o-layout__item u-1/1 u-1/2@tablet">
+      <div layout:class="item" layout:desktop="width-1-2">
         <label for="password">{{t "session.signIn.password.label"}}</label>
         <Input
           @value={{this.password}}
@@ -22,9 +20,14 @@
         />
       </div>
     </div>
-    <div class="o-layout">
-      <div class="o-layout__item u-1/1">
-        <button type="submit" class="o-btn">{{t "session.signIn.submit"}}</button>
+    <div layout:scope>
+      <div layout:class="item">
+        <button
+          button:scope
+          type="submit"
+        >
+          {{t "session.signIn.submit"}}
+        </button>
         {{#if this.errorMessage}}
           <p>{{this.errorMessage}}</p>
         {{/if}}

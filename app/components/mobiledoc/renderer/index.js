@@ -3,10 +3,6 @@ import tagNames from 'ember-mobiledoc-dom-renderer/mobiledoc-dom-renderer/utils/
 import { normalizeTagName } from 'ember-mobiledoc-dom-renderer/mobiledoc-dom-renderer/utils/dom';
 
 export default class MobiledocRendererComponent extends Component {
-  // Defaults
-  block = 'c-mobiledoc-renderer';
-
-
   // Hooks
   constructor() {
     super(...arguments);

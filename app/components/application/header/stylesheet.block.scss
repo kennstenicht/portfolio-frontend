@@ -1,0 +1,55 @@
+/* ==========================================================================
+   # APPLICATION HEADER
+   ========================================================================== */
+
+@import "setup";
+@block link from "styles/objects/objects.link.block.scss";
+
+:scope {
+  block-name: c-application-header;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 900;
+  width: 100vw;
+  mix-blend-mode: difference;
+
+  @include font-size($font-size-small, false);
+}
+
+  .logo {
+    position: absolute;
+    top: spacing('large+small');
+    left: spacing('large+small');
+    width: spacing('huge');
+    height: spacing('huge');
+    color: $color-white;
+    text-transform: uppercase;
+    word-break: break-all;
+    letter-spacing: 0.5em;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .navigation {
+    position: absolute;
+    top: spacing('large+small');
+    right: spacing('large+small');
+    color: $color-white;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+  }
+
+    // TODO: style like inuitcss object
+    .list {
+      list-style: none;
+    }
+
+      .item {
+        display: inline-block;
+      }
+
+
+@export (link)

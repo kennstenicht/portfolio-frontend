@@ -1,0 +1,50 @@
+/* ==========================================================================
+   # APPLICATION FOOTER
+   ========================================================================== */
+
+@import "setup";
+
+
+:scope {
+  block-name: c-application-footer;
+  position: relative;
+}
+  .wrapper {
+    position: fixed;
+    right: spacing('large+small');
+    bottom: - spacing('base');
+    left: spacing('large+small');
+    z-index: 900;
+    display: flex;
+    font-weight: bold;
+    transition: bottom $transition-base;
+    transform-origin: 100% 100%;
+
+    @include font-size($font-size-small);
+  }
+
+  :scope[is-toggled] .wrapper {
+    bottom: spacing('base');
+  }
+
+    .navigation {
+      margin: 0;
+      width: 50%;
+      text-transform: lowercase;
+    }
+
+      .item {
+        display: inline-block;
+
+        // TODO: fix removel of
+        // :not(:last-child)
+        &::after {
+          content: '—';
+        }
+      }
+
+    .copy {
+      width: 50%;
+      text-align: right;
+      text-transform: lowercase;
+    }

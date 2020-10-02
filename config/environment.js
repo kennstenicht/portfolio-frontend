@@ -8,16 +8,6 @@ module.exports = function(environment) {
     rootURL: '/',
     locationType: 'auto',
 
-    'ember-cli-bem': {
-      elemDelimiter: '__',
-      modDelimiter: '--',
-      useKeyValuedMods: true,
-    },
-
-    'ember-scrollmagic': {
-      indicators: true
-    },
-
     ifa: {
       enabled: true,
       inline: true

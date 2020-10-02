@@ -10,7 +10,6 @@ export default class ProjectDetailHeaderComponent extends Component {
 
 
   // Defaults
-  block = 'c-project-detail-header';
   duration = 600;
 
 

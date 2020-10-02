@@ -1,18 +1,13 @@
-<div
-  class={{bem this.blockName modifiers=(hash
-    style=this.urlSegments
-  )}}
-  ...attributes
->
+<div block:scope block:style={{this.urlSegments}} ...attributes>
   <Application::Header />
 
-  <div class={{bem this.blockName "flash-messages"}}>
+  <div block:class="flash-messages">
     {{#each this.flashMessages.queue as |flash|}}
       <Application::Notification @flash={{flash}} />
     {{/each}}
   </div>
 
-  <main class="c-application__content">
+  <main block:class="content">
     {{yield}}
   </main>
 

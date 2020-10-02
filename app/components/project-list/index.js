@@ -9,9 +9,7 @@ export default class ProjectListComponent extends Component {
   // Services
   @service swiper;
 
-
   // Defaults
-  block = 'c-project-list';
   preserveScrollPosition = true;
   duration = 600;
 
@@ -20,6 +18,9 @@ export default class ProjectListComponent extends Component {
   @action
   initSwiper(element) {
     // Swiper.use([Pagination, Keyboard, Mousewheel, Parallax]);
+    let swiperClass = element.classList[0];
+    let itemElement = element.querySelector('[data-selector=swiper-item]');
+    let itemClass = itemElement.classList[0];
 
     this.swiper.instance = new Swiper(element, {
       slidesPerView: 'auto',
@@ -39,30 +40,18 @@ export default class ProjectListComponent extends Component {
         releaseOnEdges: true
       },
 
-      pagination: {
-        el: '.c-project-list__pagination',
-        clickable: true,
-        // Classes
-        bulletClass: 'o-project-list__bullet',
-        bulletActiveClass: 'o-project-list__bullet--active',
-        modifierClass: 'o-project-list__bullet--',
-        currentClass: 'o-project-list__bullet--current',
-        totalClass: 'o-project-list__bullet--total',
-        hiddenClass: 'o-project-list__bullet--hidden'
-      },
-
       // Classes
-      wrapperClass: 'c-project-list__wrapper',
-      slideClass: 'c-project-list-preview',
-      slideActiveClass: 'c-project-list-preview--active',
-      slideDuplicatedActiveClass: 'c-project-list-preview--duplicated-active',
-      slideVisibleClass: 'c-project-list-preview--visible',
-      slideDuplicateClass: 'c-project-list-preview--duplicatd',
-      slideNextClass: 'c-project-list-preview--next',
-      slideDuplicatedNextClass: 'c-project-list-preview--duplicated-next',
-      slidePrevClass: 'c-project-list-preview--prev',
-      slideDuplicatedPrevClass: 'c-project-list-preview--duplicated-prev'
-    })
+      wrapperClass: `${swiperClass}__wrapper`,
+      slideClass: itemClass,
+      slideActiveClass: `${itemClass}--active`,
+      slideDuplicatedActiveClass: `${itemClass}--duplicated-active`,
+      slideVisibleClass: `${itemClass}--visible`,
+      slideDuplicateClass: `${itemClass}--duplicatd`,
+      slideNextClass: `${itemClass}--next`,
+      slideDuplicatedNextClass: `${itemClass}--duplicatd-next`,
+      slidePrevClass: `${itemClass}--prev`,
+      slideDuplicatedPrevClass: `${itemClass}--duplicatd-prev`
+    });
   }
 
   @action

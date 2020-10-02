@@ -1,28 +1,21 @@
-<div
-  class={{bem this.block modifiers=(hash
-    style=@project.slug
-  )}}
-  ...attributes
->
+<div block:scope ...attributes>
   <AnimatedValue
     @value={{@project.slug}}
     @use={{this.backgroundTransition}}
     @duration={{this.duration}}
     as |slug|
   >
-    <div class={{bem this.block "background" modifiers=(hash
-      style=slug
-    )}}></div>
+    <div block:class="background" block:style={{slug}}></div>
   </AnimatedValue>
 
-  <header class={{bem this.block "header"}}>
+  <header block:class="header">
     <AnimatedValue
       @value={{@project.title}}
       @use={{this.typoTransition}}
       @duration={{this.duration}}
       as |title|
     >
-      <h1 class={{bem this.block "title"}}>
+      <h1 block:class="title">
         {{title}}
       </h1>
     </AnimatedValue>
@@ -33,7 +26,7 @@
       @duration={{this.duration}}
       as |subtitle|
     >
-      <div class={{bem this.block "subtitle"}}>
+      <div block:class="subtitle">
         {{subtitle}}
       </div>
     </AnimatedValue>

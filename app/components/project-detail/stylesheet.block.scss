@@ -1,0 +1,47 @@
+/* ==========================================================================
+   # PROJECT DETAIL
+   ========================================================================== */
+
+@import "setup";
+
+:scope {
+  block-name: c-project-detail;
+}
+
+  .content {
+    position: relative;
+    z-index: 2;
+    padding-top: 100vh;
+  }
+
+  .wrapper {
+    position: relative;
+    margin-top: spacing('small');
+  }
+
+  @each $page, $colors in $page-colors {
+    :scope#{page-state($page)} .wrapper {
+      background-color: map-get($colors, 'background');
+      color: map-get($colors, 'typo');
+
+      background-image: linear-gradient(
+        to bottom,
+        transparent 100vh,
+        map-get($colors, 'primary') calc(100% - 100vh)
+      );
+
+      // &:after {
+      //   position: absolute;
+      //   bottom: 0;
+      //   left: 0;
+      //   right: 0;
+      //   height: 200vh;
+      //   content: '';
+      //   background-image: linear-gradient(
+      //     to bottom,
+      //     transparent,
+      //     map-get($colors, 'primary') 50%
+      //   );
+      // }
+    }
+  }

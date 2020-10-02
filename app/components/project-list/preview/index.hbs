@@ -1,9 +1,4 @@
-<article class={{bem this.block
-  modifiers=(hash
-    style=@project.slug
-  )}}
-  ...attributes
->
+<article block:scope block:style={{@project.slug}} ...attributes>
   <LinkTo @route="projects.show" @model={{@project}}>
     <AnimatedValue
       @value={{@project.slug}}
@@ -11,15 +6,11 @@
       @duration={{this.duration}}
       as |slug|
     >
-      <div class={{bem this.block "background"
-        modifiers=(hash
-          style=slug
-        )}}
-      ></div>
+      <div block:class="background" block:style={{slug}}></div>
     </AnimatedValue>
 
-    <header class={{bem this.block "header"}}>
-      <div class={{bem this.block "index"}} data-swiper-parallax="50">
+    <header block:class="header">
+      <div block:class="index" data-swiper-parallax="50">
         {{index-number @index}}
       </div>
 
@@ -29,7 +20,7 @@
         @duration={{this.duration}}
         as |title|
       >
-        <h1 class={{bem this.block "title"}}>
+        <h1 block:class="title">
           {{title}}
         </h1>
       </AnimatedValue>
@@ -40,13 +31,13 @@
         @duration={{this.duration}}
         as |subtitle|
       >
-        <div class={{bem this.block "subtitle"}} data-swiper-parallax="90">
+        <div block:class="subtitle" data-swiper-parallax="90">
           {{subtitle}}
         </div>
       </AnimatedValue>
     </header>
 
-    <div class={{bem this.block "meta"}}>
+    <div block:class="meta">
       {{! template-lint-disable no-bare-strings }}
       Concept & Development
     </div>

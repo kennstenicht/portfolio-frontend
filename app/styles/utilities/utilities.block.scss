@@ -1,0 +1,47 @@
+/* ==========================================================================
+   # TEXT UTILITIES
+   ========================================================================== */
+
+@import "setup";
+
+:scope {
+  block-name: u-classes;
+}
+
+
+/* Align
+   ========================================================================== */
+
+$align: (
+  left,
+  center,
+  right
+);
+
+
+@each $align-direction in $align {
+  :scope[global=align-#{$align-direction}] {
+    text-align: $align-direction;
+  }
+}
+
+// Align responsive
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @each $align-direction in $align {
+      :scope[#{$bp-name}=align-#{$align-direction}] {
+        text-align: $align-direction;
+      }
+    }
+  }
+}
+
+
+
+
+/* Links
+  ========================================================================== */
+
+:scope[no-underline] {
+  background-image: none;
+}

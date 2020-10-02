@@ -1,0 +1,29 @@
+/* ==========================================================================
+   # BUTTON
+   ========================================================================== */
+
+@import 'setup';
+
+:scope {
+  block-name: o-button;
+  display: inline-block;
+  padding: spacing('tiny') spacing('base');
+  border: 1px solid $color-black;
+  background-color: $color-black;
+  color: $color-white;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+
+
+
+
+/* Size variants
+   ========================================================================== */
+
+:scope[size=full] {
+  width: 100%;
+}

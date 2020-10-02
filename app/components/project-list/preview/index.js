@@ -10,7 +10,6 @@ export default class ProjectListPreviewComponent extends Component {
 
 
   // Defaults
-  block = 'c-project-list-preview';
   duration = 600;
 
 

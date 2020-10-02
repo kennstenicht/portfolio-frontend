@@ -1,10 +1,11 @@
-<div class={{bem this.blockName modifiers=(hash
-  type=@flash.type
-  is-exiting=@flash.exiting
-)}}
+<div
+  block:scope
+  block:type={{@flash.type}}
+  block:is-exiting={{@flash.exiting}}
   {{on "mouseenter" this.preventExiting}}
   {{on "mouseleave" this.allowExiting}}
-  ...attributes>
+  ...attributes
+>
   {{#if hasBlock}}
     {{yield this @flash}}
   {{else}}

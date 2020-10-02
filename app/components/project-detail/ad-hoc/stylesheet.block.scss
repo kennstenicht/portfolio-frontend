@@ -1,0 +1,11 @@
+/* ==========================================================================
+   # PROJECT DETAIL AD HOC
+   ========================================================================== */
+
+@block wrapper from "styles/objects/objects.wrapper.block.scss";
+
+:scope {
+  block-name: c-project-detail-ad-hoc;
+}
+
+@export (wrapper)

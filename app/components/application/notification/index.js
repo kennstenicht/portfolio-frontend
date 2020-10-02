@@ -3,10 +3,6 @@ import { action } from '@ember/object';
 import { isPresent } from '@ember/utils';
 
 export default class ApplicationNotificationComponent extends Component {
-  // Defaults
-  blockName = "c-application-notification"
-
-
   // Actions
   @action
   preventExiting() {

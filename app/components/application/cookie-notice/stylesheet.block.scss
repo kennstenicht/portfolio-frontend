@@ -1,0 +1,91 @@
+/* ==========================================================================
+   # APPLICATION COOCKIE NOTICE
+   ========================================================================== */
+
+@import "setup";
+
+:scope {
+  block-name: c-application-cookie-notice;
+  position: fixed;
+  bottom: spacing('base');
+  z-index: 999;
+  max-height: calc(100vh - #{spacing('large')});
+  border: 2px solid $color-black;
+  background-color: $color-white;
+  color: $color-black;
+  transition: transform 0.3s ease-in-out;
+  transform: translate(0, 150%);
+}
+
+:scope[is-visible] {
+  transform: translate(0, 0);
+}
+
+  .header {
+    font-weight: bold;
+  }
+
+  .content {
+    display: flex;
+    overflow: auto;
+  }
+
+    .message {
+      flex-grow: 1;
+    }
+
+    .settings {
+      flex-shrink: 0;
+    }
+
+      .option {
+        margin-bottom: spacing('tiny');
+      }
+
+      .button {
+        margin-top: spacing('small');
+
+        &::before {
+          background-color: $color-black;
+          color: $color-white;
+        }
+      }
+
+
+
+
+
+/* Media queries
+  ========================================================================== */
+
+@include mq($until: desktop) {
+  :scope {
+    right: spacing('small');
+    left: spacing('small');
+    padding: spacing('small');
+
+    @include font-size($font-size-small);
+  }
+
+    .content {
+      flex-direction: column;
+    }
+
+      .settings {
+        margin-top: spacing('base');
+        width: 100%;
+      }
+}
+
+@include mq($from: desktop) {
+  :scope {
+    right: spacing('large');
+    left: spacing('large');
+    padding: spacing('base');
+  }
+
+    .settings {
+      margin-left: spacing('base');
+      width: 300px;
+    }
+}

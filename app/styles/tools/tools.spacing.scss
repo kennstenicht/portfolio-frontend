@@ -19,12 +19,12 @@
 
 
 $spacings: (
-  base:  $inuit-global-spacing-unit,
-  tiny:  $inuit-global-spacing-unit-tiny,
-  small: $inuit-global-spacing-unit-small,
-  large: $inuit-global-spacing-unit-large,
-  huge:  $inuit-global-spacing-unit-huge,
-  giant: $inuit-global-spacing-unit-huge + $inuit-global-spacing-unit-huge
+  base:  $spacing-base,
+  tiny:  $spacing-tiny,
+  small: $spacing-small,
+  large: $spacing-large,
+  huge:  $spacing-huge,
+  giant: $spacing-giant
 ) !default;
 
 $spacings_combinations: (
@@ -51,7 +51,7 @@ $spacings_combinations: (
 // Get value of generated spacings
 @function spacing($spacing_name: 'base', $offset: 0, $rem: true) {
   @if ($rem) {
-    @return inuit-rem(map-get($spacings_combinations, $spacing_name) + $offset);
+    @return rem(map-get($spacings_combinations, $spacing_name) + $offset);
   } @else {
     @return map-get($spacings_combinations, $spacing_name) + $offset;
   }

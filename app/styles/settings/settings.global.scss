@@ -1,72 +1,79 @@
-///* ========================================================================
-//   # GLOBAL
-//   ======================================================================== */
+/* ==========================================================================
+   # GLOBALS
+   ========================================================================== */
 
 // The global settings file contains any project-wide variables; things that
 // need to be made available to the entire codebase.
 
 
-/* Typographic
-   ========================================================================== */
+/* Spacing
+  ======================================================================== */
 
 // Baseline
-$inuit-global-baseline:               6px;
+$baseline:               6px;
+
+// Spacing
+$spacing-tiny:           $baseline * 1;
+$spacing-small:          $baseline * 2;
+$spacing-base:           $baseline * 4;
+$spacing-large:          $baseline * 8;
+$spacing-huge:           $baseline * 16;
+$spacing-giant:          $baseline * 32;
+
+
+
+
+
+/* Typographic
+  ======================================================================== */
 
 // Base font size
-$inuit-global-font-size:              16px;
-$inuit-global-font-size--small:       14px;
-$inuit-global-font-size--tiny:        12px;
+$font-size:              16px;
+$font-size-small:        14px;
+$font-size-tiny:         12px;
 
 
 // Heading sizes
-$inuit-font-size-h1:                  76px;
-$inuit-font-size-h2:                  20px;
-$inuit-font-size-h3:                  $inuit-global-font-size;
-$inuit-font-size-h4:                  $inuit-global-font-size--small;
-$inuit-font-size-h5:                  $inuit-global-font-size--small;
-$inuit-font-size-h6:                  $inuit-global-font-size--small;
-
-$inuit-font-size-mobile-h1:           26px;
-$inuit-font-size-mobile-h2:           $inuit-global-font-size;
-$inuit-font-size-mobile-h3:           $inuit-global-font-size;
-$inuit-font-size-mobile-h4:           $inuit-global-font-size--small;
-$inuit-font-size-mobile-h5:           $inuit-global-font-size--small;
-$inuit-font-size-mobile-h6:           $inuit-global-font-size--small;
-
-// Line height
-$inuit-global-line-height:            24px;
+$font-size-h1:           76px;
+$font-size-h2:           20px;
+$font-size-h3:           18px;
+$font-size-h4:           18px;
+$font-size-h5:           18px;
+$font-size-h6:           18px;
 
 // Letter spacing
-$letter-spacing:                      0rem;
-$letter-spacing--large:               0.3rem;
-$inuit-global-letter-spacing:         $letter-spacing;
+$letter-spacing:         0rem;
+$letter-spacing-large:   0.3rem;
 
 // Font family
-$font-default:                        'IBM Plex Mono', Courier, monospace;
-$font-decoration:                     'Playfair Display', Times;
+$font-family:            'IBM Plex Mono', Courier, monospace;
+$font-family-decoration: 'Playfair Display', Times;
 
 
 
 
 
 /* Color
-   ========================================================================== */
+  ======================================================================== */
 
-// Base colors
-$color-primary:                     #46A7C9;
-$color-secondary:                   rgb(92, 109, 159);
-$color-black:                       #000;
-$color-white:                       #fff;
+// Main colors
+$color-primary:         #46A7C9;
+$color-secondary:       #5c6d9f;
+$color-black:           #000;
+$color-white:           #ffffff;
 
 // Shades of grey
-$color-grey--lighter:               #fbfbfb;
-$color-grey--light:                 #f6f6f6;
-$color-grey:                        #e9e9e9;
-$color-grey--dark:                  #bdbdbd;
-$color-grey--darker:                #14120f;
+$color-grey-lighter:    #fbfbfb;
+$color-grey-light:      #f6f6f6;
+$color-grey:            #e9e9e9;
+$color-grey-dark:       #bdbdbd;
+$color-grey-darker:     #14120f;
 
-$color-success: rgb(107, 204, 167);
-$color-error: rgb(245, 144, 62);
+// State colors
+$color-error:           #f5633e;
+$color-warning:         #ff9f51;
+$color-success:         #6bcca7;
+$color-info:            #ffffe8;
 
 $page-colors: (
   'default': (
@@ -117,56 +124,39 @@ $page-colors: (
 
 
 
-/* Stuff
-   ========================================================================== */
-
-// Border
-$border-width--small:               1px;
-$border-width:                      2px;
-$border-width--large:               4px;
-$border-width--huge:                10px;
-
-// Transition
-$transition--base:                  0.3s ease-in-out;
-$transition--slow:                  0.6s ease-in-out;
-
-
-
-
-
-/* Breakpoints
-   ========================================================================== */
+/* Media queries
+   ======================================================================== */
 
 $mq-breakpoints: (
-    mobile:  320px,
-    tablet:  740px,
-    desktop: 1024px,
-    wide:    1200px,
-    huge:    1600px
+  mobile:  320px,
+  tablet:  740px,
+  desktop: 1024px,
+  wide:    1200px,
+  huge:    1600px
 );
 
 
 
 
 
+/* Stuff
+  ======================================================================== */
+
+// Border
+$border-width-small:     1px;
+$border-width:           2px;
+$border-width-large:     4px;
+$border-width-huge:      10px;
+
+// Transition
+$transition-base:        0.3s ease-in-out;
+$transition-slow:        0.6s ease-in-out;
+
+
+
 
 /* Objects
-   ========================================================================== */
-
-// Object Layout
-$inuit-use-markup-fix:              false;
-
+========================================================================== */
 // Object Wrapper
-$inuit-wrapper-width--small:        1100px;
-$inuit-wrapper-width:               1700px;
-
-
-
-
-
-/* Utilities
-   ========================================================================== */
-
-// Utilities Widths
-$inuit-fractions:                   1 2 3 4 5 6 12;
-$inuit-offsets:                     true;
+$wrapper-width-small:    1100px;
+$wrapper-width:          1700px;

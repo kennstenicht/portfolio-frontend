@@ -1,0 +1,29 @@
+/* ==========================================================================
+   # APPLICATION LOGO
+   ========================================================================== */
+
+@import "setup";
+
+:scope {
+  block-name: c-application-logo;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  color: $color-white;
+  text-transform: uppercase;
+  word-break: break-all;
+  letter-spacing: 0.5em;
+  font-weight: 700;
+  line-height: 1.4;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  mix-blend-mode: difference;
+
+  @include font-size($font-size-small, false);
+}
+
+  .letter {
+    position: relative;
+    display: inline-block;
+    text-align: right;
+  }

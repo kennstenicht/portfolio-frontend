@@ -1,0 +1,14 @@
+/* ==========================================================================
+   # ADMIN FORM
+   ========================================================================== */
+
+@import "setup";
+
+@block layout from "styles/objects/objects.layout.block.scss";
+@block button from "styles/objects/objects.button.block.scss";
+
+:scope {
+  block-name: c-admin-form;
+}
+
+@export (layout, button)

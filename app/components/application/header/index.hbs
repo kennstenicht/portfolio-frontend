@@ -1,39 +1,36 @@
-<header
-  class={{bem this.block}}
-  ...attributes
->
+<header block:scope ...attributes>
   <LinkTo
     @route="pages.home"
-    class="{{bem this.block "logo"}} u-no-underline"
+    block:class="logo"
   >
     <Application::Header::Logo />
   </LinkTo>
 
-  <div class={{bem this.block  "navigation"}}>
-    <ul class="o-list-inline">
-      <li class="o-list-inline__item">
-        <LinkTo @route="projects" class="u-no-underline">
+  <div block:class="navigation">
+    <ul block:class="list">
+      <li block:class="item">
+        <LinkTo @route="projects" link:scope>
           {{t "navigation.projects"}}
         </LinkTo>
       </li>
-      <li class="o-list-inline__item">
-        <LinkTo @route="pages.show" @model="about" class="u-no-underline">
+      <li block:class="item">
+        <LinkTo @route="pages.show" @model="about" link:scope>
           {{t "navigation.about"}}
         </LinkTo>
       </li>
       {{#if this.session.isAuthenticated}}
-        <li class="o-list-inline__item">
-          <LinkTo @route="admin.projects" class="u-no-underline">
+        <li block:class="item">
+          <LinkTo @route="admin.projects" link:scope>
             {{t "navigation.projects"}}
           </LinkTo>
         </li>
-        <li class="o-list-inline__item">
-          <LinkTo @route="admin.pages" class="u-no-underline">
+        <li block:class="item">
+          <LinkTo @route="admin.pages" link:scope>
             {{t "navigation.pages"}}
           </LinkTo>
         </li>
-        <li class="o-list-inline__item">
-          <button {{action "signOut"}}>
+        <li block:class="item">
+          <button type="button" {{on "click" this.signOut}}>
             {{t "navigation.signOut"}}
           </button>
         </li>

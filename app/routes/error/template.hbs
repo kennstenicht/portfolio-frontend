@@ -1,12 +1,12 @@
 <div class="c-page c-page--style-error">
   <div class="o-wrapper">
-    <div class="o-layout">
-      <div class="o-layout__item u-1/2">
+    <div layout:scope>
+      <div layout:class="item" layout:desktop="width-1-2">
         <div class="c-page__huge-text">
           {{this.model.code}} - {{this.model.message}}
         </div>
       </div>
-      <div class="o-layout__item u-1/2">
+      <div layout:class="item" layout:desktop="width-1-2">
 
       </div>
     </div>

@@ -1,12 +1,10 @@
 <div
-  class={{bem this.block modifiers=(hash
-    style="projects"
-  )}}
+  block:scope
   {{did-insert this.initSwiper}}
   {{will-destroy this.destroySwiper}}
   ...attributes
 >
-  <div class={{bem this.block "wrapper"}}>
+  <div block:class="wrapper">
     <AnimatedEach
       @items={{@projects}}
       @initialInsertion={{true}}
@@ -18,6 +16,7 @@
       <ProjectList::Preview
         @project={{project}}
         @index={{index}}
+        data-selector="swiper-item"
       />
     </AnimatedEach>
   </div>

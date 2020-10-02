@@ -35,7 +35,6 @@
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-autoprefixer": "^1.0.2",
     "ember-cli-babel": "^7.22.1",
-    "ember-cli-bem": "v1.0.0-beta.2",
     "ember-cli-dependency-checker": "^3.2.0",
     "ember-cli-fastboot": "^2.2.3",
     "ember-cli-flash": "^1.9.0",
@@ -87,6 +86,9 @@
     "edition": "octane"
   },
   "dependencies": {
+    "@css-blocks/ember-cli": "^1.5.0",
+    "@css-blocks/eyeglass": "^1.5.0",
+    "eyeglass": "^3.0.2",
     "node-sass": "^4.14.1"
   }
 }

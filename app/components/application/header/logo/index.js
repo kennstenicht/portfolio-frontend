@@ -4,7 +4,6 @@ import { TweenLite, Power1 } from 'gsap/TweenMax';
 
 export default class AppLicationLogoComponent extends Component {
   // Defaults
-  block = 'c-application-logo';
   words = [
     'Christoph Wiedenmann',
     'Handcrafted with ♥♥♥',
@@ -56,7 +55,7 @@ export default class AppLicationLogoComponent extends Component {
   @action
   explode() {
     const letters = this.element
-      .querySelectorAll('.' + this.block + "__letter");
+      .querySelectorAll('[data-selector=letter]');
     const newWord = this.words
       .objectAt(this.randomBetween(1, this.words.length-1))
       .split('');

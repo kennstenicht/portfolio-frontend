@@ -1,0 +1,37 @@
+/* ==========================================================================
+   # APPLICATION
+   ========================================================================== */
+
+@import "setup";
+
+:scope{
+  block-name: c-application;
+  position: relative;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  height: 100vh;
+  border-width: spacing('small');
+  border-style: solid;
+  transition: border-color $transition-slow;
+  background-color: #fff;
+}
+
+@each $page, $colors in $page-colors {
+  :scope#{page-state($page)} {
+    border-color: darken(map-get($colors, 'primary'), 10%);
+  }
+}
+
+  .flash-messages {
+    position: fixed;
+    right: spacing('base');
+    bottom: spacing('base');
+    z-index: 998;
+  }
+
+  .content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }

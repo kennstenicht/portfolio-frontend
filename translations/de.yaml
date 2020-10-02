@@ -37,6 +37,7 @@ admin:
     addField: Feld hinzufügen
     removeField: Feld entfernen
     save: Speichern
+    cancel: Abbrechen
     delete: Löschen
     edit: Bearbeiten
     new: Neu

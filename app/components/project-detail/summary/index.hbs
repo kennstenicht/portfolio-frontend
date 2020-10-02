@@ -1,11 +1,8 @@
-<div
-  class={{bem this.blockName}}
-  ...attributes
->
-  <div class={{bem this.blockName "excerpt"}}>
+<div block:scope ...attributes>
+  <div block:class="excerpt">
     <Mobiledoc::Renderer @mobiledoc={{@project.excerpt}} />
   </div>
-  <div class={{bem this.blockName "meta-info"}}>
+  <div block:class="meta-info">
     <Mobiledoc::Renderer @mobiledoc={{@project.facts}} />
   </div>
 </div>

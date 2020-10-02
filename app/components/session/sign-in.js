@@ -9,7 +9,9 @@ export default class SessionSignIn extends Component {
 
   // Actions
   @action
-  authenticate() {
+  authenticate(event) {
+    event.preventDefault();
+
     const credentials = {
       "auth": {
         "password": this.password,

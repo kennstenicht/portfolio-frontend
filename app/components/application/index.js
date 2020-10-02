@@ -11,17 +11,19 @@ export default class AppLicationComponent extends Component {
 
 
   // Defaults
-  blockName = 'c-application';
   @tracked showCookieNotice = false;
 
 
   // Getter and setter
   get urlSegments() {
-    return this.router
+    let segments = this.router
       .currentURL
       .substring(1)
       .split('/')
-      .filter(n => n);
+      .filter(n => n)
+
+    console.log(segments);
+    return segments[segments.length-1];
   }
 
 

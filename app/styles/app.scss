@@ -1,80 +1,18 @@
-// SETTINGS
-@import "settings/settings.config";
-@import "settings/settings.fonts";
-@import "settings/settings.global";
-@import "inuitcss/settings/settings.core";
+// SETUP
+@import "setup";
 
-// TOOLS
-@import "inuitcss/tools/tools.font-size";
-@import "inuitcss/tools/tools.clearfix";
-@import "inuitcss/tools/tools.hidden";
-@import "sass-mq/mq";
-@import "tools/tools.attention";
-@import "tools/tools.page-color";
-@import "tools/tools.rem";
-@import "tools/tools.reset-last";
-@import "tools/tools.spacing";
 
 // GENERIC
-@import "inuitcss/generic/generic.box-sizing";
-@import "inuitcss/generic/generic.normalize";
-@import "inuitcss/generic/generic.reset";
-@import "inuitcss/generic/generic.shared";
+@import "generic/generic.box-sizing";
+@import "generic/generic.normalize";
+@import "generic/generic.reset";
+@import "generic/generic.shared";
 @import "generic/generic.pointer";
 
 // ELEMENTS
-@import "inuitcss/elements/elements.page";
-@import "inuitcss/elements/elements.images";
-@import "inuitcss/elements/elements.headings";
 @import "elements/elements.forms";
 @import "elements/elements.headings";
 @import "elements/elements.images";
 @import "elements/elements.links";
 @import "elements/elements.page";
 @import "elements/elements.videos";
-
-// OBJECTS
-@import "inuitcss/objects/objects.layout";
-@import "inuitcss/objects/objects.wrapper";
-@import "inuitcss/objects/objects.list-inline";
-@import "objects/objects.btn";
-@import "objects/objects.flex-table";
-@import "objects/objects.layout";
-@import "objects/objects.wrapper";
-
-// COMPONENTS
-@import "components/application/components.application-cookie-notice";
-@import "components/application/components.application-footer";
-@import "components/application/components.application-header";
-@import "components/application/components.application-logo";
-@import "components/application/components.application-notification";
-@import "components/application/components.application";
-@import "components/mobiledoc/components.mobiledoc-editor";
-@import "components/project/components.project-detail-header";
-@import "components/project/components.project-detail-summary";
-@import "components/project/components.project-detail";
-@import "components/project/components.project-list-preview";
-@import "components/project/components.project-list";
-@import "components/components.page";
-
-// UTILITIES
-@import "inuitcss/utilities/utilities.clearfix";
-@import "inuitcss/utilities/utilities.headings";
-@import "inuitcss/utilities/utilities.hide";
-@import "inuitcss/utilities/utilities.spacings";
-@import "inuitcss/utilities/utilities.widths";
-@import "utilities/utilities.headings";
-@import "utilities/utilities.link-underline";
-@import "utilities/utilities.text-align";
-
-
-
-.c-row {
-  display: flex;
-  border: 1px solid red;
-  width: 100%;
-}
-
-.c-column {
-  border: 1px solid green;
-}

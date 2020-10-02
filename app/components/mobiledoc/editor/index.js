@@ -5,10 +5,6 @@ import createComponentCard from 'ember-mobiledoc-editor/utils/create-component-c
 
 
 export default class MobiledocEditorComponent extends Component {
-  // Defaults
-  block = 'c-mobiledoc-editor';
-
-
   // Getter and setter
   get atoms() {
     return [
@@ -42,3 +38,4 @@ export default class MobiledocEditorComponent extends Component {
     editor.registerKeyCommand(lineBreakCommand);
   }
 }
+

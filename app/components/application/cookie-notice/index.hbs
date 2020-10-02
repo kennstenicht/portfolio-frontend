@@ -1,20 +1,13 @@
-<div
-  class={{bem this.blockName modifiers=(hash
-    is-visible=@showCookieNotice
-  )}}
-  ...attributes
->
-  <div class={{bem this.blockName "header"}}>
-    <div class={{bem this.blockName "title"}}>
-      {{t "cookieNotice.headline"}}
-    </div>
+<div block:scope block:is-visible={{@showCookieNotice}} ...attributes>
+  <div block:class="header">
+    {{t "cookieNotice.headline"}}
   </div>
-  <div class={{bem this.blockName "content"}}>
-    <div class={{bem this.blockName "message"}}>
+  <div block:class="content">
+    <div block:class="message">
       {{t "cookieNotice.message" htmlSafe=true}}
     </div>
-    <div class={{bem this.blockName "settings"}}>
-      <div class={{bem this.blockName "option"}}>
+    <div block:class="settings">
+      <div block:class="option">
         <Input
           @id="allow-required-cookies"
           @disabled={{true}}
@@ -26,7 +19,7 @@
           {{t "cookieNotice.options.required"}}
         </label>
       </div>
-      <div class={{bem this.blockName "option"}}>
+      <div block:class="option">
         <Input
           @id="allow-analyse-cookies"
           @name="allow-analyse-cookies"
@@ -37,7 +30,7 @@
           {{t "cookieNotice.options.analyse"}}
         </label>
       </div>
-      {{!-- <div class={{bem this.blockName "option"}}>
+      {{!-- <div block:class="option">
         <Input
           @id="allow-marketing-cookies"
           @name="allow-marketing-cookies"
@@ -50,13 +43,14 @@
       </div> --}}
       <a
         href="#"
-        class={{bem this.blockName "button"}}
+        block:class="button"
         {{on "click" this.allowSelectedCookies}}
       >
         {{t "cookieNotice.allowSelectedCookies"}}
       </a>
       <button
-        class={{bem this.blockName "button"}}
+        block:class="button"
+        type="button"
         {{on "click" this.allowAllCookies}}
       >
         {{t "cookieNotice.allowAllCookies"}}

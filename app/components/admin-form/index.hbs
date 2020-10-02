@@ -1,13 +1,13 @@
 <div
   ...attributes
 >
-  <div class="o-layout">
-    <div class="o-layout__item u-10/12">
+  <div layout:scope>
+    <div layout:class="item" layout:desktop="width-10-12">
       <h1>
         {{this.headline}}
       </h1>
     </div>
-    <div class="o-layout__item u-2/12 u-align-right">
+    <div layout:class="item" layout:desktop="width-2-12">
       <LinkTo @route="admin.projects.new">
         {{t "admin.action.new"}}
       </LinkTo>
@@ -18,21 +18,21 @@
 
   <button
     type="button"
-    class="o-btn"
+    button:scope
     {{on "click" (fn @save @record)}}
   >
     {{t "admin.action.save"}}
   </button>
   <button
     type="button"
-    class="o-btn"
+    button:scope
     {{on "click" (fn @cancel this.modelName)}}
   >
     {{t "admin.action.cancel"}}
   </button>
   <button
     type="button"
-    class="o-btn"
+    button:scope
     {{on "click" (fn @delete @record)}}
   >
     {{t "admin.action.delete"}}

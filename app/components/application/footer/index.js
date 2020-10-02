@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class AppLicationFooterComponent extends Component {
   // Services
@@ -8,8 +9,8 @@ export default class AppLicationFooterComponent extends Component {
 
 
   // Defaults
-  block = 'c-application-footer';
   duration = 0;
+  @tracked isToggled = false;
 
 
   // Getter and setter
@@ -30,11 +31,14 @@ export default class AppLicationFooterComponent extends Component {
         const controller = new ScrollMagic.Controller();
 
         new ScrollMagic.Scene({
-            triggerElement: '.c-application-footer',
+            triggerElement: element,
             duration: 500,
             triggerHook: 1
           })
-          .setClassToggle(element, 'c-application-footer--toggled')
+          .on('change', () => {
+            console.log('test');
+            this.isToggled = !this.isToggled;
+          })
           .addTo(controller);
       });
   }

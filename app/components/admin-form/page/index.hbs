@@ -1,27 +1,27 @@
-<div class="o-layout">
-  <div class="o-layout__item u-3/4">
-    <div class="o-layout">
-      <div class="o-layout__item u-1/2">
+<div layout:scope>
+  <div layout:class="item" layout:desktop="width-3-4">
+    <div layout:scope>
+      <div layout:class="item" layout:desktop="width-1-2">
         <label>{{t "forms.page.fields.title"}}</label>
         <Input @value={{@record.title}} />
       </div>
-      <div class="o-layout__item u-1/2">
+      <div layout:class="item" layout:desktop="width-1-2">
         <label>{{t "forms.page.fields.slug"}}</label>
         <Input @value={{@record.slug}} />
       </div>
     </div>
 
-    <div class="o-layout">
-      <div class="o-layout__item">
+    <div layout:scope>
+      <div layout:class="item">
         <label>{{t "forms.page.fields.content"}}</label>
         <Mobiledoc::Editor @record={{@record.content}} />
       </div>
     </div>
   </div>
 
-  <div class="o-layout__item u-1/4">
-    <div class="o-layout">
-      <div class="o-layout__item u-1/2">
+  <div layout:class="item" layout:desktop="width-1-4">
+    <div layout:scope>
+      <div layout:class="item" layout:desktop="width-1-2">
         <label>{{t "forms.page.fields.visible"}}</label>
         <Input @checked={{@record.visible}} type="checkbox" />
       </div>
@@ -31,10 +31,10 @@
 
 <AdminForm::CustomFields @record={{@record}} />
 
-<div class="o-layout">
-  <div class="o-layout__item u-3/4">
-    <div class="o-layout">
-      <div class="o-layout__item">
+<div layout:scope>
+  <div layout:class="item" layout:desktop="width-3-4">
+    <div layout:scope>
+      <div layout:class="item">
         <label>{{t "forms.page.fields.metaTitle"}}</label>
         <Input
           @value={{@record.metaTitle}}
@@ -43,8 +43,8 @@
       </div>
     </div>
 
-    <div class="o-layout">
-      <div class="o-layout__item">
+    <div layout:scope>
+      <div layout:class="item">
         <label>{{t "forms.page.fields.metaDescription"}}</label>
         <Textarea
           @value={{@record.metaDescription}}
