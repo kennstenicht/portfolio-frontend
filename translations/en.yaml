@@ -27,8 +27,6 @@ application:
       github: GitHub
       linkedin: LinkedIn
 
-projectList:
-  title: Projects
 
 customField:
   loading: Loading...
@@ -38,6 +36,7 @@ admin:
     addField: Add Field
     removeField: Remove Field
     save: Save
+    cancel: Cancel
     delete: Delete
     edit: Edit
     new: New
@@ -50,10 +49,8 @@ admin:
     headline:
       edit: Edit Page
       new: New Page
-      index: Pages
 
   project:
     headline:
       edit: Edit Project
       new: New Project
-      index: Projects

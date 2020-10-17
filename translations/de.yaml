@@ -26,9 +26,6 @@ application:
       github: GitHub
       linkedin: LinkedIn
 
-projectList:
-  title: Projekte
-
 customField:
   loading: 'Loading...'
 
@@ -50,10 +47,8 @@ admin:
     headline:
       edit: Seite bearbeiten
       new: Neue Seite
-      index: Seiten
 
   project:
     headline:
       edit: Projekt bearbeiten
       new: Neues Projekt
-      index: Projekte

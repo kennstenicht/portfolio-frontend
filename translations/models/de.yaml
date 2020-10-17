@@ -1,0 +1,7 @@
+models:
+  page: Seite
+  project: Projekt
+
+  plural:
+    page: Seiten
+    project: Projekte

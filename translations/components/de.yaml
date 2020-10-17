@@ -7,3 +7,6 @@ cookieNotice:
     analyse: Statistik
     marketing: Marketing
     required: Nur notwendige
+
+list:
+  noRecords: Wir konnten keine Einträge finden
