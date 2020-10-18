@@ -1,0 +1,31 @@
+/* ==========================================================================
+   # LIST
+   ========================================================================== */
+
+@import "setup";
+
+@export layout from 'styles/objects/objects.layout.block.scss';
+
+:scope {
+  block-name: c-list;
+}
+
+  .table {
+    margin-top: spacing();
+  }
+
+    .row {
+      display: flex;
+    }
+
+      .column {
+        padding: spacing('tiny');
+      }
+
+      .column[main] {
+        flex-grow: 1;
+      }
+
+        .handle {
+          cursor: pointer;
+        }

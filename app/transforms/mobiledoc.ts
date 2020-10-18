@@ -9,7 +9,7 @@ const emptyMobiledoc = {
 };
 
 export default class JsonStringTransform extends Transform {
-  deserialize(serialized) {
+  deserialize(serialized: any) {
     if(isBlank(serialized) || !serialized.version) {
       return emptyMobiledoc;
     }
@@ -17,7 +17,7 @@ export default class JsonStringTransform extends Transform {
     return serialized;
   }
 
-  serialize(deserialized) {
+  serialize(deserialized: any) {
     if(isBlank(deserialized) || !deserialized.version) {
       return emptyMobiledoc;
     }

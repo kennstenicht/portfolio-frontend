@@ -7,6 +7,8 @@ export default class ProjectsRoute extends Route {
   @service intl;
   @service fastboot;
 
+
+  // Getter and setter
   get metaTags() {
     return {
       title: this.intl.t('error.metaTitle'),

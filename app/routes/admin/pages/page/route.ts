@@ -6,7 +6,7 @@ interface Params {
   page_id: string
 }
 
-export default class AdminPagesEditRoute extends Route {
+export default class AdminPagesPageRoute extends Route {
   // Services
   @service store!: Store;
 

@@ -48,19 +48,6 @@ export default class AdminRoute extends Route.extend(
     this.transitionToIndex(modelName);
   }
 
-  @action
-  reorderItems(itemModels, draggedModel) {
-    const routeName = pluralize(draggedModel.constructor.modelName);
-    const controller = this.controllerFor(`admin.${routeName}.index`);
-
-    itemModels.forEach((record, index) => {
-      record.set('position', index);
-      record.save();
-    });
-
-    controller.set('records', itemModels);
-  }
-
 
   // Functions
   transitionToIndex(modelName) {

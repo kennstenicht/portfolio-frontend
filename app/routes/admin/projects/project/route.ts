@@ -6,7 +6,7 @@ interface Params {
   project_id: string
 }
 
-export default class AdminProjectsEditRoute extends Route {
+export default class AdminProjectsProjectRoute extends Route {
   // Services
   @service store!: Store;
 
