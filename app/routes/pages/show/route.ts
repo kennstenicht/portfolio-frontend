@@ -2,7 +2,6 @@ import PageModel from 'portfolio/models/page';
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import Store from '@ember-data/store';
-import HeadDataService from 'portfolio/services/head-data';
 
 interface Params {
   page_slug: string
@@ -10,15 +9,22 @@ interface Params {
 
 export default class PagesShowRoute extends Route {
   // Services
-  @service headData!: HeadDataService;
   @service store!: Store;
 
 
-  // Defaults
-  metaTags = {};
-
-
   // Hooks
+  buildRouteInfoMetadata() {
+    return {
+      metaTags(model: PageModel) {
+        return {
+          title: model.metaTitle || model.metaTitleFallback,
+          description: model.metaDescription || model.metaDescriptionFallback,
+          type: 'article',
+        };
+      }
+    }
+  }
+
   async model({ page_slug }: Params) {
     let pages = await this.store.query('page', {
       filter: {
@@ -30,13 +36,7 @@ export default class PagesShowRoute extends Route {
   }
 
   afterModel(model: PageModel) {
-    if(model) {
-      this.metaTags = {
-        title: model.metaTitle || model.metaTitleFallback,
-        description: model.metaDescription || model.metaDescriptionFallback,
-        type: 'article',
-      }
-    } else {
+    if(!model) {
       throw {
         code: 404,
         message: 'not found'

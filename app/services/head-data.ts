@@ -1,21 +1,28 @@
 import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-import { getOwner } from '@ember/application';
 import { inject as service } from '@ember/service';
+import { getOwner } from '@ember/application';
+import IntlService from 'ember-intl/services/intl';
+import RouterService from '@ember/routing/router-service';
+
+interface MetaTags {
+  [key: string]: any
+}
 
 export default class HeadDataService extends Service {
   // Services
-  @service router;
-  @service intl;
+  @service router!: RouterService;
+  @service intl!: IntlService;
 
 
   // Defaults
-  @tracked fallbackMetaTags = {};
-  @tracked blurTitle = '';
+  @tracked fallbackMetaTags: MetaTags = {};
+  @tracked blurTitle: string = '';
+
 
   // Getter and Setter
   get translationMetaTags() {
-    let metaTags = {};
+    let metaTags: MetaTags = {};
 
     ['title', 'description'].forEach((key) => {
       const translation = this._getTranslation(key);
@@ -29,10 +36,21 @@ export default class HeadDataService extends Service {
   }
 
   get routeMetaTags() {
-    const routeName = this.router.currentRouteName;
-    const currentRoute = getOwner(this).lookup(`route:${routeName}`);
+    let ENV = this.ENV;
+    // @ts-ignore
+    let model = this.router.currentRoute.attributes;
+    // @ts-ignore
+    let metadata = this.router.currentRoute.metadata;
 
-    return currentRoute.metaTags || {};
+    if (!model) {
+      return {};
+    }
+
+    if (metadata && metadata.metaTags) {
+      return metadata.metaTags(model, ENV);
+    }
+
+    return {};
   }
 
   get metaTags() {
@@ -44,7 +62,7 @@ export default class HeadDataService extends Service {
   }
 
   get title() {
-    let title = `${this.metaTags.title} | Christoph Wiedenmann`.toLowerCase();
+    let title = `${this.metaTags.title} | ${this.company.name}`.toLowerCase();
     let blurTitle = this.blurTitle.toLowerCase();
 
     return blurTitle || title;
@@ -63,7 +81,11 @@ export default class HeadDataService extends Service {
   }
 
   get structuredData() {
-    return this.metaTags.structuredData;
+    if (!this.metaTags.structuredData) {
+      return null;
+    }
+
+    return JSON.stringify(this.metaTags.structuredData);
   }
 
   get locale() {
@@ -72,6 +94,14 @@ export default class HeadDataService extends Service {
 
   get url() {
     return this.router.currentURL;
+  }
+
+  get company() {
+    return this.ENV.company;
+  }
+
+  get ENV() {
+    return getOwner(this).resolveRegistration('config:environment');
   }
 
 
@@ -86,7 +116,7 @@ export default class HeadDataService extends Service {
 
 
   // Functions
-  _getTranslation(type) {
+  _getTranslation(type: string) {
     let currentRouteName = this.router.currentRouteName.split('.');
 
     // Check if translation exists for route or any parent route
@@ -97,5 +127,7 @@ export default class HeadDataService extends Service {
         return this.intl.t(path);
       }
     }
+
+    return '';
   }
 }

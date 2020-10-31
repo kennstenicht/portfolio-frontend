@@ -6,7 +6,6 @@ import { pluralize } from 'ember-inflector';
 import FlashMessagesService from 'ember-cli-flash/services/flash-messages';
 import IntlService from 'ember-intl/services/intl';
 import SessionService from 'ember-simple-auth/services/session';
-import Model from 'portfolio/models/base';
 
 export default class AdminRoute extends Route {
   // Services
@@ -23,7 +22,7 @@ export default class AdminRoute extends Route {
 
   // Actions
   @action
-  async save(model: Model) {
+  async save(model: any) {
     try {
       const modelName = model.constructor.modelName;
       const message = this.intl.t('admin.saveRecord', {
@@ -40,7 +39,7 @@ export default class AdminRoute extends Route {
   }
 
   @action
-  async delete(model: Model) {
+  async delete(model: any) {
     try {
       const modelName = model.constructor.modelName;
       const message = this.intl.t('admin.deleteRecord', {

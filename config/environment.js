@@ -8,14 +8,16 @@ module.exports = function(environment) {
     rootURL: '/',
     locationType: 'auto',
 
-    ifa: {
-      enabled: true,
-      inline: true
+    company: {
+      name: 'Christoph Wiedenmann'
     },
 
-    flashMessageDefaults: {
-      timeout: 4000,
-      extendedTimeout: 500
+    'ember-simple-auth-token': {
+      refreshAccessTokens: false,
+      serverTokenEndpoint: '/de/v1/user_token',
+      tokenExpirationInvalidateSession: true,
+      tokenExpireName: 'exp',
+      tokenPropertyName: 'jwt'
     },
 
     fastboot: {
@@ -27,12 +29,14 @@ module.exports = function(environment) {
       ],
     },
 
-    'ember-simple-auth-token': {
-      serverTokenEndpoint: '/de/v1/user_token',
-      tokenPropertyName: 'jwt',
-      refreshAccessTokens: false,
-      tokenExpirationInvalidateSession: true,
-      tokenExpireName: 'exp'
+    flashMessageDefaults: {
+      extendedTimeout: 500,
+      timeout: 4000,
+    },
+
+    ifa: {
+      enabled: true,
+      inline: true
     },
 
     EmberENV: {
