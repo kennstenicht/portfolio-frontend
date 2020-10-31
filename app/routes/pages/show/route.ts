@@ -1,24 +1,35 @@
+import PageModel from 'portfolio/models/page';
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
+import Store from '@ember-data/store';
+import HeadDataService from 'portfolio/services/head-data';
+
+interface Params {
+  page_slug: string
+}
 
 export default class PagesShowRoute extends Route {
   // Services
-  @service headData;
+  @service headData!: HeadDataService;
+  @service store!: Store;
+
+
+  // Defaults
+  metaTags = {};
 
 
   // Hooks
-  model(params) {
-    return this.store.query('page', {
+  async model({ page_slug }: Params) {
+    let pages = await this.store.query('page', {
       filter: {
-        slug: params.page_slug
+        slug: page_slug
       }
-    })
-    .then((pages) => {
-      return pages.get('firstObject');
     });
+
+    return pages.get('firstObject');
   }
 
-  afterModel(model) {
+  afterModel(model: PageModel) {
     if(model) {
       this.metaTags = {
         title: model.metaTitle || model.metaTitleFallback,
@@ -33,7 +44,7 @@ export default class PagesShowRoute extends Route {
     }
   }
 
-  serialize(model){
+  serialize(model: PageModel){
     return {
       page_slug: model.slug
     };

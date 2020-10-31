@@ -7,7 +7,7 @@ export default class AdminPagesRoute extends Route {
   @service store!: Store;
 
 
- // Hooks
+  // Hooks
   model() {
     return this.store.query('page', { sort: 'position' });
   }

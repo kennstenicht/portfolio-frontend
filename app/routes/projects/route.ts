@@ -1,10 +1,12 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
+import Transition from '@ember/routing/-private/transition';
+import SwiperService from 'portfolio/services/swiper';
 
 export default class ProjectsRoute extends Route {
   // Services
-  @service swiper;
+  @service swiper!: SwiperService;
 
 
   // Hooks
@@ -15,8 +17,10 @@ export default class ProjectsRoute extends Route {
 
   // Actions
   @action
-  willTransition(transition) {
-    if(transition.targetName.match(/^projects./i) == null) {
+  willTransition(transition: Transition) {
+    console.log(transition);
+
+    if(transition.to.name.match(/^projects./i) == null) {
       this.swiper.position = 0;
     }
   }
