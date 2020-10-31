@@ -10,11 +10,11 @@ Router.map(function() {
   // Admin and Login
   this.route('admin', function() {
     this.route('projects', function() {
-      this.route('edit', { path: ':id' });
+      this.route('project', { path: ':project_id' });
       this.route('new');
     });
     this.route('pages', function() {
-      this.route('edit', { path: ':id' });
+      this.route('page', { path: ':page_id' });
       this.route('new');
     });
   });
