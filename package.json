@@ -75,7 +75,7 @@
     "ember-qunit": "^4.6.0",
     "ember-resolver": "^8.0.2",
     "ember-route-action-helper": "^2.0.8",
-    "ember-simple-auth": "^3.0.0",
+    "ember-simple-auth": "^3.1.0-beta.1",
     "ember-simple-auth-token": "^5.2.0",
     "ember-sortable": "^2.2.0",
     "ember-source": "~3.21.1",
@@ -104,5 +104,8 @@
     "@css-blocks/eyeglass": "^1.5.0",
     "eyeglass": "^3.0.2",
     "node-sass": "^4.14.1"
+  },
+  "resolutions": {
+    "ember-simple-auth": "^3.1.0-beta.1"
   }
 }

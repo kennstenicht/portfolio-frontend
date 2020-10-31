@@ -1,24 +1,14 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
+import HeadDataService from 'portfolio/services/head-data';
+import IntlService from 'ember-intl/services/intl';
+import SessionService from 'ember-simple-auth/services/session';
 
-export default class ApplicationRoute extends Route.extend(
-  ApplicationRouteMixin,
-) {
+export default class ApplicationRoute extends Route {
   // Services
-  @service session
-  @service intl
-  @service headData
-
-
-  // Getter and setter
-  get routeAfterAuthentication() {
-    return 'admin.projects';
-  }
-
-  get routeIfAlreadyAuthenticated() {
-    return 'admin.projects';
-  }
+  @service headData!: HeadDataService;
+  @service intl!: IntlService;
+  @service session!: SessionService;
 
 
   // Hooks
@@ -35,6 +25,4 @@ export default class ApplicationRoute extends Route.extend(
       structuredData: null,
     }
   }
-
-
 }
