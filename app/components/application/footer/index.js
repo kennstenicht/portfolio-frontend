@@ -6,6 +6,7 @@ import { tracked } from '@glimmer/tracking';
 export default class AppLicationFooterComponent extends Component {
   // Services
   @service fastboot;
+  @service inViewport
 
 
   // Defaults
@@ -19,27 +20,22 @@ export default class AppLicationFooterComponent extends Component {
   }
 
 
-  // Functions
+  // Actions
   @action
-  setupAnimation(element) {
-    if (this.fastboot.isFastBoot) {
-      return
-    }
+  setupInViewport(element) {
+    const { onEnter, onExit } = this.inViewport.watchElement(element);
 
-    import('scrollmagic')
-      .then((ScrollMagic) => {
-        const controller = new ScrollMagic.Controller();
+    onEnter(this.showFooter);
+    onExit(this.hideFooter);
+  }
 
-        new ScrollMagic.Scene({
-            triggerElement: element,
-            duration: 500,
-            triggerHook: 1
-          })
-          .on('change', () => {
-            console.log('test');
-            this.isToggled = !this.isToggled;
-          })
-          .addTo(controller);
-      });
+  @action
+  showFooter() {
+    this.isToggled = true;
+  }
+
+  @action
+  hideFooter() {
+    this.isToggled = false;
   }
 }

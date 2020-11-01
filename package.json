@@ -65,6 +65,7 @@
     "ember-decorators": "^6.1.1",
     "ember-export-application-global": "^2.0.1",
     "ember-fetch": "^8.0.2",
+    "ember-in-viewport": "^3.8.0",
     "ember-inflector": "^3.0.1",
     "ember-intl": "^5.5.0",
     "ember-load-initializers": "^2.1.1",
@@ -89,7 +90,6 @@
     "npm-run-all": "^4.1.5",
     "qunit-dom": "^1.4.0",
     "sass": "^1.26.10",
-    "scrollmagic": "^2.0.6",
     "swiper": "^4.4.6",
     "typescript": "^4.0.3"
   },
