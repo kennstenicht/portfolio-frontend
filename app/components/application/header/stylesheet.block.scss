@@ -3,7 +3,6 @@
    ========================================================================== */
 
 @import "setup";
-@block link from "styles/objects/objects.link.block.scss";
 
 :scope {
   block-name: c-application-header;
@@ -50,6 +49,3 @@
       .item {
         display: inline-block;
       }
-
-
-@export (link)

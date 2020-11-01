@@ -9,23 +9,23 @@
   <div block:class="navigation">
     <ul block:class="list">
       <li block:class="item">
-        <LinkTo @route="projects" link:scope>
+        <LinkTo @route="projects">
           {{t "navigation.projects"}}
         </LinkTo>
       </li>
       <li block:class="item">
-        <LinkTo @route="pages.show" @model="about" link:scope>
+        <LinkTo @route="pages.show" @model="about">
           {{t "navigation.about"}}
         </LinkTo>
       </li>
       {{#if this.session.isAuthenticated}}
         <li block:class="item">
-          <LinkTo @route="admin.projects" link:scope>
+          <LinkTo @route="admin.projects">
             {{t "navigation.projects"}}
           </LinkTo>
         </li>
         <li block:class="item">
-          <LinkTo @route="admin.pages" link:scope>
+          <LinkTo @route="admin.pages">
             {{t "navigation.pages"}}
           </LinkTo>
         </li>

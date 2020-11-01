@@ -3,7 +3,7 @@
    ========================================================================== */
 
 @import "setup";
-
+@block link from "styles/objects/objects.link.block.scss";
 
 :scope {
   block-name: c-application-footer;
@@ -41,6 +41,10 @@
         &::after {
           content: '—';
         }
+
+        &:last-child::after {
+          content: '';
+        }
       }
 
     .copy {
@@ -48,3 +52,5 @@
       text-align: right;
       text-transform: lowercase;
     }
+
+@export (link)
