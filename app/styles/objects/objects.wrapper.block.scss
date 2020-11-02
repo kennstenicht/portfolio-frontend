@@ -5,10 +5,12 @@
 @import 'setup';
 
 :scope {
+  block-name: 'o-wrapper';
   margin-right: auto;
   margin-left: 0;
   padding-right: spacing('large');
-  padding-left: spacing('huge+large');
+  padding-left: spacing('large');
+  max-width: $wrapper-width;
 }
 
 
@@ -42,7 +44,7 @@
 /* Size variants.
    ========================================================================== */
 
-:scope[size=left] {
+:scope[size=small] {
   max-width: $wrapper-width-small;
 }
 

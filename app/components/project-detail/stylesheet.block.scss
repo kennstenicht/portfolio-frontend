@@ -17,6 +17,7 @@
   .wrapper {
     position: relative;
     margin-top: spacing('small');
+    padding-top: spacing('large');
   }
 
   @each $page, $colors in $page-colors {
