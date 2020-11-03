@@ -75,6 +75,7 @@
     "ember-mobiledoc-text-renderer": "^0.4.0",
     "ember-qunit": "^4.6.0",
     "ember-resolver": "^8.0.2",
+    "ember-responsive": "^4.0.1",
     "ember-route-action-helper": "^2.0.8",
     "ember-simple-auth": "^3.1.0-beta.1",
     "ember-simple-auth-token": "^5.2.0",

@@ -2,7 +2,9 @@
    # APPLICATION COOCKIE NOTICE
    ========================================================================== */
 
-@import "setup";
+@import 'setup';
+@block link from 'styles/objects/objects.link.block.scss';
+@block button from 'styles/objects/objects.button.block.scss';
 
 :scope {
   block-name: c-application-cookie-notice;
@@ -10,8 +12,8 @@
   bottom: spacing('base');
   z-index: 999;
   max-height: calc(100vh - #{spacing('large')});
-  border: 2px solid $color-black;
   background-color: $color-white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
   color: $color-black;
   transition: transform 0.3s ease-in-out;
   transform: translate(0, 150%);
@@ -26,7 +28,6 @@
   }
 
   .content {
-    display: flex;
     overflow: auto;
   }
 
@@ -35,20 +36,14 @@
     }
 
     .settings {
-      flex-shrink: 0;
+      display: flex;
+      align-items: flex-start;
+      margin-top: spacing('base');
+      width: 100%;
     }
 
       .option {
         margin-bottom: spacing('tiny');
-      }
-
-      .button {
-        margin-top: spacing('small');
-
-        &::before {
-          background-color: $color-black;
-          color: $color-white;
-        }
       }
 
 
@@ -58,9 +53,10 @@
 /* Media queries
   ========================================================================== */
 
-@include mq($until: desktop) {
+@include mq($until: tablet) {
   :scope {
     right: spacing('small');
+    bottom: spacing('small');
     left: spacing('small');
     padding: spacing('small');
 
@@ -72,20 +68,50 @@
     }
 
       .settings {
-        margin-top: spacing('base');
-        width: 100%;
+        flex-direction: column;
       }
+
+        .button {
+          margin-bottom: spacing('tiny');
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        .option {
+          margin-bottom: spacing('tiny');
+        }
 }
 
-@include mq($from: desktop) {
+@include mq($from: tablet) {
   :scope {
-    right: spacing('large');
-    left: spacing('large');
+    right: spacing('large+small');
+    bottom: spacing('large+small');
+    left: spacing('large+small');
     padding: spacing('base');
   }
 
     .settings {
-      margin-left: spacing('base');
-      width: 300px;
+      flex-direction: row;
     }
+
+      .spacer {
+        flex-grow: 1;
+      }
+
+      .button {
+        margin-right: spacing('tiny');
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      .option {
+        margin-right: spacing('base');
+      }
 }
+
+@export (link, button)
+

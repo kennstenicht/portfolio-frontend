@@ -6855,6 +6855,13 @@ ember-resolver@^8.0.2:
     ember-cli-version-checker "^5.1.1"
     resolve "^1.17.0"
 
+ember-responsive@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/ember-responsive/-/ember-responsive-4.0.1.tgz#4833870c23ed309b6a7daa9c61b6254330f0edd6"
+  integrity sha512-/RfaacbIgYQf7fkbsxu72YZVFdsiMhKJ7YFGiDOFLaBmOxPSrz2YylmEXED81qw2TdudzWeVFuilpzUoWB1Jkg==
+  dependencies:
+    ember-cli-babel "^7.19.0"
+
 ember-rfc176-data@^0.3.13, ember-rfc176-data@^0.3.15:
   version "0.3.15"
   resolved "https://registry.yarnpkg.com/ember-rfc176-data/-/ember-rfc176-data-0.3.15.tgz#af3f1da5a0339b6feda380edc2f7190e0f416c2d"
@@ -12665,11 +12672,6 @@ schema-utils@^2.6.5:
     "@types/json-schema" "^7.0.5"
     ajv "^6.12.4"
     ajv-keywords "^3.5.2"
-
-scrollmagic@^2.0.6:
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/scrollmagic/-/scrollmagic-2.0.7.tgz#4139216f3849d226e38b3ef1e5dbbacf25190b35"
-  integrity sha512-Qu23XB3YTBhqbnTIkyVhVAEP/7r2APvW+QFfxCpd6LvJ5byCnlvSMzSeBdpyKbDKXBxVWGE9XFXUTvue3B7VrQ==
 
 scss-tokenizer@^0.2.3:
   version "0.2.3"

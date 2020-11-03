@@ -30,26 +30,20 @@
           {{t "cookieNotice.options.analyse"}}
         </label>
       </div>
-      {{!-- <div block:class="option">
-        <Input
-          @id="allow-marketing-cookies"
-          @name="allow-marketing-cookies"
-          @type="checkbox"
-          @checked={{this.allowMarketingCookies}}
-        />
-        <label for="allow-analyse-cookies">
-          {{t "cookieNotice.options.marketing"}}
-        </label>
-      </div> --}}
-      <a
-        href="#"
+      <div block:class="spacer"></div>
+      <button
         block:class="button"
+        button:scope
+        button:size={{if (media "isDesktop") "default" "full"}}
+        type="button"
         {{on "click" this.allowSelectedCookies}}
       >
         {{t "cookieNotice.allowSelectedCookies"}}
-      </a>
+      </button>
       <button
         block:class="button"
+        button:scope
+        button:size={{if (media "isDesktop") "default" "full"}}
         type="button"
         {{on "click" this.allowAllCookies}}
       >

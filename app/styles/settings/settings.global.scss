@@ -128,11 +128,10 @@ $page-colors: (
    ======================================================================== */
 
 $mq-breakpoints: (
-  mobile:  320px,
-  tablet:  740px,
+  mobile:  576px,
+  tablet:  768px,
   desktop: 1024px,
   wide:    1200px,
-  huge:    1600px
 );
 
 
