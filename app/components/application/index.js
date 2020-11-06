@@ -16,6 +16,10 @@ export default class AppLicationComponent extends Component {
 
   // Getter and setter
   get urlSegments() {
+    if (this.router.currentRouteName === 'error') {
+      return 'error';
+    }
+
     let segments = this.router
       .currentURL
       .substring(1)

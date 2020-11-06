@@ -1,14 +1,11 @@
-<div class="c-page c-page--style-error">
-  <div class="o-wrapper">
-    <div layout:scope>
-      <div layout:class="item" layout:desktop="width-1-2">
-        <div class="c-page__huge-text">
-          {{this.model.code}} - {{this.model.message}}
-        </div>
-      </div>
-      <div layout:class="item" layout:desktop="width-1-2">
-
-      </div>
-    </div>
-  </div>
-</div>
+<Page @size="small">
+  <h1>{{@model.code}} - {{@model.message}}</h1>
+  A fatal exception 404 has occurred at C0DE:ABAD1DEA in 0xC0DEBA5E.
+  The current request will be terminated.<br>
+  <br>
+  * Press the return key to return to the previous page.<br>
+  * Press CTRL+ALT+DEL to restart your computer. You will
+    lose any unsaved information in all applications.<br>
+  <br>
+  Press any key to continue...█
+</Page>
