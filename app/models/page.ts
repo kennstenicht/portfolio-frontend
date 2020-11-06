@@ -23,6 +23,10 @@ export default class PageModel extends Model {
   }
 
   get metaDescriptionFallback(): string {
+    if (!this.content) {
+      return '';
+    }
+
     let textRenderer = new TextRenderer({ cards: [] });
     let rendered = textRenderer.render(this.content);
 

@@ -29,6 +29,10 @@ export default class ProjectModel extends Model {
   }
 
   get metaDescriptionFallback(): string {
+    if (!this.excerpt) {
+      return '';
+    }
+
     let textRenderer = new TextRenderer({cards: []});
     let rendered = textRenderer.render(this.excerpt);
 
