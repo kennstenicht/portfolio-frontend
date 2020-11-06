@@ -82,12 +82,39 @@ $page-colors: (
     'typo'        : #333333,
     'background'  : #f5f5f5
   ),
+  'imprint': (
+    'primary'     : #fff,
+    'secondary'   : #fff,
+    'typo'        : #333333,
+    'background'  : #f5f5f5
+  ),
+  'privacy': (
+    'primary'     : #fff,
+    'secondary'   : #fff,
+    'typo'        : #333333,
+    'background'  : #f5f5f5
+  ),
+  'projects': (
+    'primary'     : #fff,
+    'secondary'   : #fff,
+    'typo'        : #333333,
+    'background'  : #f5f5f5
+  ),
   'about': (
     'primary'     : #121212,
     'secondary'   : #fff,
     'typo'        : #f2f2f2,
     'background'  : #111111
   ),
+  'error': (
+    'primary'     : #041aac,
+    'secondary'   : #fff,
+    'typo'        : #f2f2f2,
+    'background'  : #0015a3
+  )
+);
+
+$project-colors: (
   'ad-hoc': (
     'primary'     : #008d84,
     'secondary'   : #242a30,
@@ -102,9 +129,9 @@ $page-colors: (
   ),
   'binuu': (
     'primary'     : #ebf20d,
-    'secondary'   : #343434,
-    'typo'        : #f2f2f2,
-    'background'  : #202020
+    'secondary'   : #e0dbdb,
+    'typo'        : #333333,
+    'background'  : #f2f2f2
   ),
   'disaster-mgmt': (
     'primary'     : #ffa045,
@@ -113,7 +140,7 @@ $page-colors: (
     'background'  : #383636
   ),
   'flutkoerper': (
-    'primary'     : #f14242,
+    'primary'     : #6d91f5,
     'secondary'   : #f1e7df,
     'typo'        : #333333,
     'background'  : #f2f2f2

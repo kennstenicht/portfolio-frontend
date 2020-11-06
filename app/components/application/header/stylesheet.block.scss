@@ -12,7 +12,6 @@
   left: 0;
   z-index: 900;
   width: 100vw;
-  mix-blend-mode: difference;
 
   @include font-size($font-size-small, false);
 }
@@ -23,7 +22,6 @@
     left: spacing('large+small');
     width: spacing('huge');
     height: spacing('huge');
-    color: $color-white;
     text-transform: uppercase;
     word-break: break-all;
     letter-spacing: 0.5em;
@@ -35,7 +33,6 @@
     position: absolute;
     top: spacing('large+small');
     right: spacing('large+small');
-    color: $color-white;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-weight: 700;

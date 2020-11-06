@@ -20,8 +20,8 @@
     padding-top: spacing('large');
   }
 
-  @each $page, $colors in $page-colors {
-    :scope#{page-state($page)} .wrapper {
+  @each $page, $colors in $project-colors {
+    :scope#{style-state($page)} .wrapper {
       background-color: map-get($colors, 'background');
       color: map-get($colors, 'typo');
 

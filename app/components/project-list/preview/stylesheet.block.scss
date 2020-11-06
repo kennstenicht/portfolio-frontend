@@ -53,8 +53,8 @@
       background-size: cover;
     }
 
-    @each $page, $colors in $page-colors {
-      .background#{page-state($page)} {
+    @each $page, $colors in $project-colors {
+      .background#{style-state($page)} {
         background-image: url('projects/#{$page}/#{$page}_preview.jpg');
       }
     }
@@ -103,6 +103,6 @@
 @include mq($until: tablet) {
   :scope {
     width: 80vw;
-    height: 72vh;
+    height: 40vh;
   }
 }

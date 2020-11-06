@@ -11,8 +11,8 @@
   padding: spacing('base+small');
 }
 
-@each $page, $colors in $page-colors {
-  :scope#{page-state($page)} {
+@each $project, $colors in $project-colors {
+  :scope#{style-state($project)} {
     background-color: map-get($colors, 'secondary');
     color: map-get($colors, 'typo');
   }

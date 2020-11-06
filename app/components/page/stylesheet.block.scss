@@ -9,14 +9,6 @@
   flex-grow: 1;
 }
 
-  @each $page, $colors in $page-colors {
-    :scope#{page-state($page)} {
-      $background: map-get($colors, 'background');
-      background: radial-gradient($background, darken($background, 3%));
-      color: map-get($colors, 'typo');
-    }
-  }
-
   .wrapper {
     max-width: $wrapper-width;
     margin-right: auto;

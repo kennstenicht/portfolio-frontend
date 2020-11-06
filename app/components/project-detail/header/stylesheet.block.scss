@@ -13,8 +13,8 @@
   left: spacing('small');
 }
 
-@each $page, $colors in $page-colors {
-  :scope#{page-state($page)} {
+@each $project, $colors in $project-colors {
+  :scope#{style-state($project)} {
     color: map-get($colors, 'typo');
   }
 }
@@ -27,9 +27,9 @@
     background-size: cover;
   }
 
-  @each $page, $colors in $page-colors {
-    .background#{page-state($page)} {
-      background-image: url('projects/#{$page}/#{$page}_preview.jpg');
+  @each $project, $colors in $project-colors {
+    .background#{style-state($project)} {
+      background-image: url('projects/#{$project}/#{$project}_preview.jpg');
     }
   }
 

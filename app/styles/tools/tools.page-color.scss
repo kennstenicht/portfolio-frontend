@@ -1,12 +1,12 @@
 /* ==========================================================================
-   # PAGE COLOR
+   # STYLE STATE
    ========================================================================== */
 
 /**
- * Apply page-color modifier in one go.
+ * Apply style state with default fallback
  */
 
-@function page-state($page) {
+@function style-state($page) {
   $isDefault: $page == 'default';
 
   @return if($isDefault, '', '[style=#{$page}]');

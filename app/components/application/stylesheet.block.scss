@@ -12,13 +12,24 @@
   height: 100vh;
   border-width: spacing('small');
   border-style: solid;
-  transition: border-color $transition-slow;
+  transition: border-color $transition-slow,
+              background-color $transition-slow,
+              color $transition-slow;
   background-color: #fff;
 }
 
 @each $page, $colors in $page-colors {
-  :scope#{page-state($page)} {
+  :scope#{style-state($page)} {
+    background: map-get($colors, 'background');
     border-color: darken(map-get($colors, 'primary'), 10%);
+    color: map-get($colors, 'typo');
+  }
+}
+
+@each $project, $colors in $project-colors {
+  :scope#{style-state($project)} {
+    border-color: darken(map-get($colors, 'primary'), 10%);
+    color: map-get($colors, 'typo');
   }
 }
 
