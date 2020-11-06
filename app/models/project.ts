@@ -4,12 +4,9 @@ import CustomFieldModel from 'portfolio/models/custom-field';
 
 export default class ProjectModel extends Model {
   // Attributes
-  // @ts-ignore
-  @attr('mobiledoc') content!: any;
-  // @ts-ignore
-  @attr('mobiledoc') excerpt!: any;
-  // @ts-ignore
-  @attr('mobiledoc') facts!: any;
+  @attr() content!: any;
+  @attr() excerpt!: any;
+  @attr() facts!: any;
   @attr('string') metaTitle!: string;
   @attr('string') metaDescription!: string;
   @attr('number') position!: number;

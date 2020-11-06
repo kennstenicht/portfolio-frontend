@@ -4,13 +4,13 @@ import CustomFieldModel from 'portfolio/models/custom-field';
 
 export default class PageModel extends Model {
   // Attributes
-  // @ts-ignore
-  @attr('mobiledoc') content!: any;
+  @attr() content!: any;
   @attr('string') metaTitle!: string;
   @attr('string') metaDescription!: string;
   @attr('string') slug!: string;
   @attr('number') position!: number;
   @attr('string') title!: string;
+  @attr('boolean') visible!: boolean;
 
 
   // Relations
