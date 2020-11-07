@@ -2,9 +2,9 @@
    # APPLICATION
    ========================================================================== */
 
-@import "setup";
+@import 'setup';
 
-:scope{
+:scope {
   block-name: c-application;
   position: relative;
   overflow: auto;
@@ -12,23 +12,19 @@
   height: 100vh;
   border-width: spacing('small');
   border-style: solid;
-  transition: border-color $transition-slow,
-              background-color $transition-slow,
+  transition: background-color $transition-slow,
               color $transition-slow;
-  background-color: #fff;
 }
 
 @each $page, $colors in $page-colors {
   :scope#{style-state($page)} {
     background: map-get($colors, 'background');
-    border-color: darken(map-get($colors, 'primary'), 10%);
     color: map-get($colors, 'typo');
   }
 }
 
 @each $project, $colors in $project-colors {
   :scope#{style-state($project)} {
-    border-color: darken(map-get($colors, 'primary'), 10%);
     color: map-get($colors, 'typo');
   }
 }
@@ -45,4 +41,29 @@
     display: flex;
     flex-direction: column;
     min-height: 100%;
+  }
+
+  .frame {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99999;
+    border-width: spacing('small');
+    border-style: solid;
+    transition: border-color $transition-slow;
+    pointer-events: none;;
+  }
+
+  @each $page, $colors in $page-colors {
+    :scope#{style-state($page)} .frame {
+      border-color: darken(map-get($colors, 'primary'), 10%);
+    }
+  }
+
+  @each $project, $colors in $project-colors {
+    :scope#{style-state($project)} .frame {
+      border-color: darken(map-get($colors, 'primary'), 10%);
+    }
   }

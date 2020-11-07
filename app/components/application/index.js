@@ -26,8 +26,7 @@ export default class AppLicationComponent extends Component {
       .split('/')
       .filter(n => n)
 
-    console.log(segments);
-    return segments[segments.length-1];
+      return segments[segments.length-1];
   }
 
 
