@@ -3,20 +3,26 @@ import { inject as service } from '@ember/service';
 import HeadDataService from 'portfolio/services/head-data';
 import IntlService from 'ember-intl/services/intl';
 import SessionService from 'ember-simple-auth/services/session';
+import RouterService from '@ember/routing/router-service';
+// @ts-ignore
+import MetricsService from 'ember-metrics/services/metrics';
 
 export default class ApplicationRoute extends Route {
   // Services
   @service headData!: HeadDataService;
   @service intl!: IntlService;
+  @service metrics!: MetricsService;
+  @service router!: RouterService;
   @service session!: SessionService;
-
 
   // Hooks
   constructor() {
     super(...arguments);
 
+    // Setup intl
     this.intl.setLocale('de');
 
+    // Setup head data fallback tags
     this.headData.fallbackMetaTags = {
       title: this.intl.t('application.meta.title'),
       description: this.intl.t('application.meta.description'),
@@ -24,5 +30,13 @@ export default class ApplicationRoute extends Route {
       type: 'website',
       structuredData: null,
     }
+
+    // Setup ember metrics
+    this.router.on('routeDidChange', () => {
+      const page = this.router.currentURL;
+      const title = this.router.currentRouteName || 'unknown';
+
+      this.metrics.trackPage({ page, title });
+    });
   }
 }

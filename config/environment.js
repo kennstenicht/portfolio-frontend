@@ -39,6 +39,23 @@ module.exports = function(environment) {
       inline: true
     },
 
+    // Tracking
+    metricsAdapters: [
+      {
+        name: 'GoogleTagManager',
+        environments: ['development', 'production'],
+        config: {
+          id: 'GTM-MXZ7NKL',
+          // Use `analytics_debug.js` in development
+          debug: environment === 'development',
+          // Use verbose tracing of GA events
+          trace: environment === 'development',
+          // Ensure development env hits aren't sent to GA
+          sendHitTask: environment !== 'development',
+        }
+      },
+    ],
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

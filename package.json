@@ -70,6 +70,7 @@
     "ember-intl": "^5.5.0",
     "ember-load-initializers": "^2.1.1",
     "ember-maybe-import-regenerator": "^0.1.6",
+    "ember-metrics": "^0.17.0",
     "ember-mobiledoc-dom-renderer": "^0.7.0",
     "ember-mobiledoc-editor": "^0.6.1",
     "ember-mobiledoc-text-renderer": "^0.4.0",
