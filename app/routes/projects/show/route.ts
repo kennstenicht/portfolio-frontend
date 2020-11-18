@@ -27,7 +27,7 @@ export default class ProjectsShowRoute extends Route {
   }
 
   model({ project_slug }: Params) {
-    let projects = this.modelFor('projects') as ProjectsModel[];
+    const projects = this.modelFor('projects') as ProjectsModel[];
 
     return projects.findBy('slug', project_slug);
   }

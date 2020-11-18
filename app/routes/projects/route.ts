@@ -18,10 +18,8 @@ export default class ProjectsRoute extends Route {
   // Actions
   @action
   willTransition(transition: Transition) {
-    console.log(transition);
-
-    if(transition.to.name.match(/^projects./i) == null) {
-      this.swiper.position = 0;
-    }
+    // if(transition.to.name.match(/^projects./i) == null) {
+    //   this.swiper.position = 0;
+    // }
   }
 }

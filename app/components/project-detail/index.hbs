@@ -1,12 +1,16 @@
-<article block:scope block:style={{@project.slug}} ...attributes>
-  <AnimatedValue @value={{@project}} as |project|>
-    <ProjectDetail::Header @project={{@project}} />
-  </AnimatedValue>
-
-  <div block:class="content">
-    <ProjectDetail::Summary @project={{@project}} />
-    <div block:class="wrapper">
-      {{component (concat "project-detail/" @project.slug) project=@project}}
+<AnimatedValue @value={{@project}} as |project|>
+  <article block:scope block:style={{project.slug}} ...attributes>
+    <ProjectDetail::Header @project={{project}} />
+    <div block:class="content">
+      <ProjectDetail::Summary @project={{project}} />
+      <div block:class="wrapper">
+        {{component (concat "project-detail/" project.slug) project=project}}
+        <div block:class="back">
+          <LinkTo @route="projects" link:scope>
+            {{t "projectDetail.backToOverview"}}
+          </LinkTo>
+        </div>
+      </div>
     </div>
-  </div>
-</article>
+  </article>
+</AnimatedValue>

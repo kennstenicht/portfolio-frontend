@@ -9,32 +9,30 @@
   position: relative;
   flex-shrink: 0;
   margin: auto spacing('huge+large');
-  width: 40vw;
+  width: 35vw;
   height: 36vh;
-  color: $color-black;
   cursor: pointer;
+  color: $color-black;
 }
 
   :scope[style=binuu] {
-    width: 25vw;
+    margin-top: 32vh;
   }
 
   :scope[style=eels] {
-    width: 25vw;
+    margin-top: 30vh;
   }
 
   :scope[style=disaster-mgmt] {
-    width: 20vw;
+    margin-top: 20vh;
   }
 
   :scope[style=ad-hoc] {
-    width: 35vw;
-    margin-top: 50vh;
+    margin-top: 40vh;
   }
 
   :scope[style=flutkoerper] {
-    margin-top: 12vh;
-    width: 50vw;
+    margin-top: 15vh;
   }
 
   :scope[active] {
