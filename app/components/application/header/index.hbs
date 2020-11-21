@@ -1,4 +1,9 @@
-<header block:scope ...attributes>
+<header
+  block:scope
+  block:is-navigation-open={{@isNavigationOpen}}
+  block:is-project-detail={{this.isProjectDetail}}
+  ...attributes
+>
   <LinkTo
     @route="pages.home"
     block:class="logo"
@@ -7,34 +12,49 @@
   </LinkTo>
 
   <div block:class="navigation">
+    <div block:class="back-to-overview">
+      {{#animated-if this.isProjectDetail use=this.fadeTransition}}
+        <LinkTo @route="projects">
+          {{t "application.header.toOverview" htmlSafe=true}}
+        </LinkTo>
+      {{/animated-if}}
+    </div>
+
+    <div
+      block:class="toggle"
+      role="button"
+      {{on "click" this.toggleNavigation}}
+    >
+      <div block:class="label">
+        {{this.menuLabel}}
+      </div>
+      <div block:class="burger">
+        <div block:class="layer" block:is-top={{true}}></div>
+        <div block:class="layer" block:is-middle={{true}}></div>
+        <div block:class="layer" block:is-bottom={{true}}></div>
+      </div>
+    </div>
+  </div>
+
+  <nav block:class="navigation-overlay">
     <ul block:class="list">
       <li block:class="item">
-        <LinkTo @route="projects">
-          {{t "navigation.projects"}}
+        <LinkTo
+          @route="projects"
+          {{on "click" this.toggleNavigation}}
+        >
+          {{t "application.header.projects"}}
         </LinkTo>
       </li>
       <li block:class="item">
-        <LinkTo @route="pages.show" @model="about">
-          {{t "navigation.about"}}
+        <LinkTo
+          @route="pages.show"
+          @model="about"
+          {{on "click" this.toggleNavigation}}
+        >
+          {{t "application.header.about"}}
         </LinkTo>
       </li>
-      {{#if this.session.isAuthenticated}}
-        <li block:class="item">
-          <LinkTo @route="admin.projects">
-            {{t "navigation.projects"}}
-          </LinkTo>
-        </li>
-        <li block:class="item">
-          <LinkTo @route="admin.pages">
-            {{t "navigation.pages"}}
-          </LinkTo>
-        </li>
-        <li block:class="item">
-          <button type="button" {{on "click" this.signOut}}>
-            {{t "navigation.signOut"}}
-          </button>
-        </li>
-      {{/if}}
     </ul>
-  </div>
+  </nav>
 </header>

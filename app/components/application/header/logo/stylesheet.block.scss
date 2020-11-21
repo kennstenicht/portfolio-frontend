@@ -2,8 +2,11 @@
    # APPLICATION LOGO
    ========================================================================== */
 
+// Imports
 @import "setup";
 
+
+// Block
 :scope {
   block-name: c-application-logo;
   display: grid;

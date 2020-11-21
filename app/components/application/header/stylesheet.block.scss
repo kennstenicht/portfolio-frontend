@@ -2,15 +2,25 @@
    # APPLICATION HEADER
    ========================================================================== */
 
-@import "setup";
+// Imports
+@import 'setup';
 
+
+// Variables
+$burger-height: 12px;
+$burger-width: 20px;
+$burger-line-height: 2px;
+$burger-to-translate: ($burger-height - $burger-line-height) / 2;
+
+
+// Block
 :scope {
   block-name: c-application-header;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
-  z-index: 900;
+  z-index: 902;
   width: 100vw;
 
   @include font-size($font-size-small, false);
@@ -18,8 +28,7 @@
 
   .logo {
     position: absolute;
-    top: spacing('large+small');
-    left: spacing('large+small');
+    z-index: 2;
     width: spacing('huge');
     height: spacing('huge');
     text-transform: uppercase;
@@ -31,18 +40,159 @@
 
   .navigation {
     position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+  }
+
+    .back-to-overview {
+      text-transform: uppercase;
+      width: 200px;
+      text-align: right;
+    }
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+      .label {
+        margin-right: spacing('tiny');
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      .burger {
+        position: relative;
+        display: inline-block;
+        width: $burger-width;
+        height: $burger-height;
+      }
+
+        .layer {
+          position: absolute;
+          left: 0;
+          width: 100%;
+          height: $burger-line-height;
+          background-color: currentColor;
+          pointer-events: none;
+
+          &[is-top] {
+            top: 0;
+            width: 70%;
+            transition: transform 0.3s ease-in-out,
+                        top 0.2s ease-in-out 0.3s;
+          }
+
+          &[is-middle] {
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            transition: opacity 0s ease-in-out 0.3s;
+          }
+
+          &[is-bottom] {
+            bottom: 0;
+            width: 80%;
+            transition: transform 0.3s ease-in-out,
+                        bottom 0.2s ease-in-out 0.3s;
+          }
+        }
+
+        :scope[is-navigation-open] .layer[is-top] {
+          top: $burger-to-translate;
+          width: 100%;
+          transition: top 0.3s ease-in-out,
+                      width 0.3s ease-in-out,
+                      transform 0.3s linear 0.3s;
+          transform: rotate(135deg);
+        }
+
+        :scope[is-navigation-open] .layer[is-middle] {
+          opacity: 0;
+          transition: opacity 0s ease-in-out 0.3s;
+        }
+
+        :scope[is-navigation-open] .layer[is-bottom] {
+          bottom: $burger-to-translate;
+          width: 100%;
+          transition: bottom 0.3s ease-in-out,
+                      width 0.3s ease-in-out,
+                      transform 0.3s ease-in-out 0.3s;
+          transform: rotate(-135deg);
+        }
+
+
+
+  .navigation-overlay {
+    position: fixed;
     top: spacing('large+small');
     right: spacing('large+small');
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 700;
+    bottom: spacing('large+small');
+    left: spacing('large+small');
+    z-index: 1;
+    display: flex;
+    visibility: hidden;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity $transition-slow 0.6s;
+  }
+
+  :scope[is-navigation-open] .navigation-overlay {
+    visibility: visible;
+    opacity: 1;
   }
 
     // TODO: style like inuitcss object
     .list {
       list-style: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
     }
 
       .item {
         display: inline-block;
       }
+
+
+
+
+
+/* Media Queries
+   ========================================================================== */
+
+@include mq($until: tablet) {
+  .logo {
+    top: spacing('base+small');
+    left: spacing('base+small');
+  }
+
+  .navigation {
+    top: spacing('base+small');
+    right: spacing('base+small');
+  }
+
+  :scope[is-project-detail] .toggle {
+    display: none;
+  }
+}
+
+
+@include mq($from: tablet) {
+  .logo {
+    top: spacing('large+small');
+    left: spacing('large+small');
+  }
+
+  .navigation {
+    top: spacing('large+small');
+    right: spacing('large+small');
+  }
+
+   .back-to-overview {
+    margin-right: spacing('large');
+  }
+}

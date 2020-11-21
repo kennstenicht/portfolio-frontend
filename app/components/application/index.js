@@ -12,6 +12,7 @@ export default class AppLicationComponent extends Component {
 
   // Defaults
   @tracked showCookieNotice = false;
+  @tracked isNavigationOpen = false;
 
 
   // Getter and setter
@@ -58,5 +59,10 @@ export default class AppLicationComponent extends Component {
   @action
   toggleCookieNotice() {
     this.showCookieNotice = !this.showCookieNotice;
+  }
+
+  @action
+  toggleNavigation() {
+    this.isNavigationOpen = !this.isNavigationOpen;
   }
 }

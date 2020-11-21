@@ -1,5 +1,14 @@
-<div block:scope block:style={{this.urlSegments}} ...attributes>
-  <Application::Header />
+<div
+  block:scope
+  block:style={{this.urlSegments}}
+  block:navigation-is-open={{this.isNavigationOpen}}
+  ...attributes
+>
+  <Application::AdminNavigation />
+  <Application::Header
+    @isNavigationOpen={{this.isNavigationOpen}}
+    @toggleNavigation={{this.toggleNavigation}}
+  />
 
   <div block:class="flash-messages">
     {{#each this.flashMessages.queue as |flash|}}
