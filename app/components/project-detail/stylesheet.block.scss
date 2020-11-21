@@ -2,9 +2,16 @@
    # PROJECT DETAIL
    ========================================================================== */
 
+// Imports
 @import "setup";
 @block link from "styles/objects/objects.link.block.scss";
 
+
+// Exports
+@export (link);
+
+
+// Block
 :scope {
   block-name: c-project-detail;
 }
@@ -40,8 +47,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-    @include font-size($font-size-h1)
+    text-align: center;
+    padding: spacing();
   }
 
-@export (link)
+
+
+
+
+/* Media Queries
+   ========================================================================== */
+
+@include mq($until: tablet) {
+  .back {
+    @include font-size($font-size-h2);
+  }
+}
+
+
+@include mq($from: tablet) {
+  .back {
+    @include font-size($font-size-h1);
+  }
+}

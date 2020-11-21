@@ -60,8 +60,8 @@
 
 @include mq($until: tablet) {
   .header {
-    bottom: spacing('small');
-    left: spacing('small');
+    bottom: spacing('base');
+    left: spacing('base');
     width: 80vw;
   }
 }

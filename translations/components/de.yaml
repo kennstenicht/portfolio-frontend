@@ -16,3 +16,6 @@ cookieNotice:
 
 list:
   noRecords: Wir konnten keine Einträge finden
+
+projectDetail:
+  backToOverview: "&#10176; Zurück zur Übersicht"

@@ -40,7 +40,6 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    min-height: 100%;
   }
 
   .frame {
@@ -73,3 +72,23 @@
       border-color: darken(map-get($colors, 'primary'), 10%);
     }
   }
+
+
+
+
+
+/* Media Queries
+   ========================================================================== */
+
+@include mq($until: tablet) {
+  .content {
+    min-height: 101%;
+  }
+}
+
+
+@include mq($from: tablet) {
+  .content {
+    min-height: 100%;
+  }
+}

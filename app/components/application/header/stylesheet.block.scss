@@ -46,9 +46,9 @@ $burger-to-translate: ($burger-height - $burger-line-height) / 2;
   }
 
     .back-to-overview {
-      text-transform: uppercase;
       width: 200px;
       text-align: right;
+      text-transform: uppercase;
     }
 
     .toggle {
@@ -59,8 +59,8 @@ $burger-to-translate: ($burger-height - $burger-line-height) / 2;
 
       .label {
         margin-right: spacing('tiny');
-        font-weight: bold;
         text-transform: uppercase;
+        font-weight: bold;
       }
 
       .burger {
@@ -145,8 +145,8 @@ $burger-to-translate: ($burger-height - $burger-line-height) / 2;
     opacity: 1;
   }
 
-    // TODO: style like inuitcss object
     .list {
+      margin: 0;
       list-style: none;
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -155,6 +155,9 @@ $burger-to-translate: ($burger-height - $burger-line-height) / 2;
 
       .item {
         display: inline-block;
+        text-align: center;
+
+        @include font-size($font-size-h2);
       }
 
 
@@ -175,9 +178,14 @@ $burger-to-translate: ($burger-height - $burger-line-height) / 2;
     right: spacing('base+small');
   }
 
-  :scope[is-project-detail] .toggle {
-    display: none;
-  }
+    :scope[is-project-detail] .toggle {
+      display: none;
+    }
+
+    .item {
+      margin-bottom: spacing('small');
+      width: 100%;
+    }
 }
 
 
@@ -192,7 +200,11 @@ $burger-to-translate: ($burger-height - $burger-line-height) / 2;
     right: spacing('large+small');
   }
 
-   .back-to-overview {
-    margin-right: spacing('large');
-  }
+    .back-to-overview {
+      margin-right: spacing('large');
+    }
+
+    .item {
+      margin-right: spacing('large');
+    }
 }

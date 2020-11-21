@@ -7,7 +7,7 @@
         {{component (concat "project-detail/" project.slug) project=project}}
         <div block:class="back">
           <LinkTo @route="projects" link:scope>
-            {{t "projectDetail.backToOverview"}}
+            {{t "projectDetail.backToOverview" htmlSafe=true}}
           </LinkTo>
         </div>
       </div>

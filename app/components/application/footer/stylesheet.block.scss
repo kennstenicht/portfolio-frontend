@@ -31,7 +31,6 @@
 
     .social {
       margin: 0;
-      width: 50%;
     }
 
       .item {
@@ -47,8 +46,6 @@
       }
 
     .copy {
-      width: 50%;
-      text-align: right;
       text-transform: lowercase;
     }
 
@@ -64,7 +61,35 @@
   .wrapper {
     right: spacing('base+small');
     left: spacing('base+small');
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
+
+    .social {
+      width: 100%;
+      margin-bottom: spacing();
+    }
+
+    .copy {
+      width: 100%;
+    }
+}
+
+@include mq($from: tablet) {
+  .wrapper {
+    right: spacing('large+small');
+    left: spacing('large+small');
+  }
+
+    .social {
+      width: 50%;
+    }
+
+    .copy {
+      width: 50%;
+      text-align: right;
+    }
 }
 
 @export (link)
