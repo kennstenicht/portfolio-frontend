@@ -25,10 +25,23 @@
         "tests/*"
       ],
       "portfolio/*": [
-        "app/*"
+        "app/*",
+        "lib/content-generator/app/*"
       ],
       "*": [
         "types/*"
+      ],
+      "content-generator": [
+        "lib/content-generator/addon"
+      ],
+      "content-generator/*": [
+        "lib/content-generator/addon/*"
+      ],
+      "content-generator/test-support": [
+        "lib/content-generator/addon-test-support"
+      ],
+      "content-generator/test-support/*": [
+        "lib/content-generator/addon-test-support/*"
       ]
     }
   },
@@ -36,6 +49,7 @@
     "app/**/*",
     "tests/**/*",
     "types/**/*",
-    "node_modules/ember-cli-flash/index.d.ts"
+    "node_modules/ember-cli-flash/index.d.ts",
+    "lib/content-generator"
   ]
 }

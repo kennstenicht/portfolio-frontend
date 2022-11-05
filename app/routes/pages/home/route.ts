@@ -21,19 +21,7 @@ export default class PagesHomeRoute extends Route {
     }
   }
 
-  async model() {
-    let pages = await this.store.query('page', {
-      filter: {
-        slug: 'home'
-      }
-    });
-
-    return pages.get('firstObject');
-  }
-
-  serialize(model: PageModel){
-    return {
-      page_slug: model.slug
-    };
+  model() {
+    return this.store.findRecord('page', 'home');
   }
 }

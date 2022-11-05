@@ -1,8 +1,8 @@
-<div block:scope block:style={{@project.slug}} ...attributes>
+<div block:scope block:style={{@project.id}} ...attributes>
   <div block:class="excerpt">
-    <Mobiledoc::Renderer @mobiledoc={{@project.excerpt}} />
+    {{@project.excerpt}}
   </div>
   <div block:class="meta-info">
-    <Mobiledoc::Renderer @mobiledoc={{@project.facts}} />
+    {{@project.facts}}
   </div>
 </div>

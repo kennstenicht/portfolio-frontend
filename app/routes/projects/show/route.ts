@@ -4,7 +4,7 @@ import ProjectsModel from 'portfolio/models/project'
 import FastbootService from 'ember-cli-fastboot/services/fastboot';
 
 interface Params {
-  project_slug: string
+  id: string
 }
 
 export default class ProjectsShowRoute extends Route {
@@ -20,16 +20,16 @@ export default class ProjectsShowRoute extends Route {
           title: model.metaTitle || model.metaTitleFallback,
           description: model.metaDescription || model.metaDescriptionFallback,
           type: 'article',
-          image: `images/projects/${model.slug}/${model.slug}_preview.jpg`
+          image: `images/projects/${model.id}/${model.id}_preview.jpg`
         };
       }
     }
   }
 
-  model({ project_slug }: Params) {
+  model({ id }: Params) {
     const projects = this.modelFor('projects') as ProjectsModel[];
 
-    return projects.findBy('slug', project_slug);
+    return projects.findBy('id', id);
   }
 
   afterModel(model: ProjectsModel) {
@@ -39,11 +39,5 @@ export default class ProjectsShowRoute extends Route {
         message: 'not found'
       };
     }
-  }
-
-  serialize(model: ProjectsModel){
-    return {
-      project_slug: model.slug
-    };
   }
 }

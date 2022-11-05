@@ -10,11 +10,11 @@ Router.map(function() {
   // Admin and Login
   this.route('admin', function() {
     this.route('projects', function() {
-      this.route('project', { path: ':project_id' });
+      this.route('project', { path: ':id' });
       this.route('new');
     });
     this.route('pages', function() {
-      this.route('page', { path: ':page_id' });
+      this.route('page', { path: ':id' });
       this.route('new');
     });
   });
@@ -22,13 +22,13 @@ Router.map(function() {
 
   // Pages
   this.route('pages', { path: '/' }, function() {
-    this.route('show', { path: ':page_slug' });
+    this.route('show', { path: ':id' });
     this.route('home', { path: '/' });
   });
 
   // Projects
   this.route('projects', function() {
-    this.route('show', { path: ':project_slug' });
+    this.route('show', { path: ':id' });
   });
 
   // Error

@@ -1,10 +1,10 @@
 <AnimatedValue @value={{@project}} as |project|>
-  <article block:scope block:style={{project.slug}} ...attributes>
+  <article block:scope block:style={{project.id}} ...attributes>
     <ProjectDetail::Header @project={{project}} />
     <div block:class="content">
       <ProjectDetail::Summary @project={{project}} />
       <div block:class="wrapper">
-        {{component (concat "project-detail/" project.slug) project=project}}
+        {{component (concat "project-detail/" project.id) project=project}}
         <div block:class="back">
           <LinkTo @route="projects" link:scope>
             {{t "projectDetail.backToOverview" htmlSafe=true}}

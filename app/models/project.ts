@@ -1,16 +1,16 @@
 import Model, { attr, hasMany } from '@ember-data/model';
-import TextRenderer from 'ember-mobiledoc-text-renderer';
 import CustomFieldModel from 'portfolio/models/custom-field';
 
 export default class ProjectModel extends Model {
   // Attributes
-  @attr() content!: any;
+  @attr('string') content!: any;
+  @attr('string') html!: any;
+  @attr('string') description!: any;
   @attr() excerpt!: any;
   @attr() facts!: any;
   @attr('string') metaTitle!: string;
   @attr('string') metaDescription!: string;
   @attr('number') position!: number;
-  @attr('string') slug!: string;
   @attr('string') subtitle!: string;
   @attr('string') title!: string;
   @attr('boolean') visible!: boolean;
@@ -26,14 +26,7 @@ export default class ProjectModel extends Model {
   }
 
   get metaDescriptionFallback(): string {
-    if (!this.excerpt) {
-      return '';
-    }
-
-    let textRenderer = new TextRenderer({cards: []});
-    let rendered = textRenderer.render(this.excerpt);
-
-    return rendered.result.replace(/(\r\n|\n|\r)/gm, "").trim();
+    return this.description;
   }
 
   get displayLabel(): string {

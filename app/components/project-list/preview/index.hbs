@@ -1,12 +1,12 @@
-<article block:scope block:style={{@project.slug}} ...attributes>
+<article block:scope block:style={{@project.id}} ...attributes>
   <LinkTo @route="projects.show" @model={{@project}}>
     <AnimatedValue
-      @value={{@project.slug}}
+      @value={{@project.id}}
       @use={{this.backgroundTransition}}
       @duration={{this.duration}}
-      as |slug|
+      as |id|
     >
-      <div block:class="background" block:style={{slug}}></div>
+      <div block:class="background" block:style={{id}}></div>
     </AnimatedValue>
 
     <header block:class="header">

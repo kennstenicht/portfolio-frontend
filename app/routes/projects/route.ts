@@ -11,7 +11,7 @@ export default class ProjectsRoute extends Route {
 
   // Hooks
   model() {
-    return this.store.query('project', { sort: 'position' });
+    return this.store.findAll('project');
   }
 
 

@@ -4,7 +4,7 @@ import { inject as service } from '@ember/service';
 import Store from '@ember-data/store';
 
 interface Params {
-  page_slug: string
+  id: string
 }
 
 export default class PagesShowRoute extends Route {
@@ -25,14 +25,8 @@ export default class PagesShowRoute extends Route {
     }
   }
 
-  async model({ page_slug }: Params) {
-    let pages = await this.store.query('page', {
-      filter: {
-        slug: page_slug
-      }
-    });
-
-    return pages.get('firstObject');
+  model({ id }: Params) {
+    return this.store.findRecord('page', id);
   }
 
   afterModel(model: PageModel) {
@@ -42,11 +36,5 @@ export default class PagesShowRoute extends Route {
         message: 'not found'
       };
     }
-  }
-
-  serialize(model: PageModel){
-    return {
-      page_slug: model.slug
-    };
   }
 }
