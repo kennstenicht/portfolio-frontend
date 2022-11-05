@@ -1,37 +1,11 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
-const sass = require('node-sass');
-const eyeglass = require('eyeglass');
-const { adaptor, adaptorSync } = require('@css-blocks/eyeglass');
-const path = require('path');
-
-const sassOptions = {
-  outputStyle: "expanded",
-  includePaths: ['app/styles', 'node_modules'],
-};
-
-const scss = adaptor(sass, eyeglass, sassOptions);
-const scssSync = adaptorSync(sass, eyeglass, sassOptions);
 
 module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
     babel: {
       plugins: [ require('ember-auto-import/babel-plugin') ]
-    },
-    'css-blocks': {
-      aliases: {
-        styles: path.resolve(__dirname, 'app/styles')
-      },
-      appClasses: ['u-1/2'],
-      parserOpts: {
-        preprocessors: {
-          scss
-        },
-        preprocessorsSync: {
-          scss: scssSync
-        }
-      }
     }
   });
 
