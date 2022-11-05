@@ -46,7 +46,9 @@ export default class HeadDataService extends Service {
       return {};
     }
 
+    // @ts-ignore
     if (metadata && metadata.metaTags) {
+      // @ts-ignore
       return metadata.metaTags(model, ENV);
     }
 

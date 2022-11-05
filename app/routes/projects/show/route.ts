@@ -2,6 +2,7 @@ import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import ProjectsModel from 'portfolio/models/project'
 import FastbootService from 'ember-cli-fastboot/services/fastboot';
+import ArrayProxy from '@ember/array/proxy';
 
 interface Params {
   id: string
@@ -27,7 +28,7 @@ export default class ProjectsShowRoute extends Route {
   }
 
   model({ id }: Params) {
-    const projects = this.modelFor('projects') as ProjectsModel[];
+    const projects = this.modelFor('projects') as ArrayProxy<ProjectsModel>;
 
     return projects.findBy('id', id);
   }

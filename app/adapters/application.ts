@@ -10,12 +10,12 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
   // Computed properties
 
 
-  urlForFindAll(modelName: string) {
+  urlForFindAll(modelName: string | number) {
     const path = this.pathForType(modelName);
     return `/api/${path}/all.json`;
   }
 
-  urlForFindRecord(id: string, modelName: string) {
+  urlForFindRecord(id: string, modelName: string | number) {
     console.log(id, modelName);
 
     const path = this.pathForType(modelName);

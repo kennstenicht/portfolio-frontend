@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import RouterService from '@ember/routing/router-service';
-import { parallel, wait } from 'ember-animated';
+import { parallel } from 'ember-animated';
 // @ts-ignore
 import move from 'ember-animated/motions/move';
 import resize from 'ember-animated/motions/resize';
@@ -26,9 +26,6 @@ export default class ProjectListPreviewComponent extends Component {
       });
     });
 
-    sentSprites.forEach(sprite => {
-
-    });
     sentSprites.forEach(parallel(move, resize));
   }
 

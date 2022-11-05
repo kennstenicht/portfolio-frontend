@@ -79,7 +79,7 @@ export default class ProjectListComponent extends Component {
     });
 
     insertedSprites.forEach(sprite => {
-      const spriteIndex = sprite.owner?.index || 0;
+      const spriteIndex = sprite.owner?.index || 0;
       const isAfterReceivedSprite = this.swiper.position <= spriteIndex;
       const spriteWidth = sprite.finalBounds?.width || 0;
       const startLeft = - window.innerWidth - spriteWidth;
@@ -93,9 +93,9 @@ export default class ProjectListComponent extends Component {
     });
 
     removedSprites.forEach(sprite => {
-      const spriteIndex = sprite.owner?.index || 0;
+      const spriteIndex = sprite.owner?.index || 0;
       const isAfterSentSprite = this.swiper.position <= spriteIndex;
-      const spriteWidth = sprite.initialBounds?.width || 0;
+      const spriteWidth = sprite.initialBounds?.width || 0;
       const endLeft = - window.innerWidth - spriteWidth;
       const endRight = window.innerWidth * 2;
       const end = isAfterSentSprite ? endRight: endLeft;
