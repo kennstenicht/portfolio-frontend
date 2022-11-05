@@ -1,12 +1,12 @@
 'use strict';
 
 module.exports = function (environment) {
-  let ENV = {
+  const ENV = {
     modulePrefix: 'portfolio',
     podModulePrefix: 'portfolio/routes',
     environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'history',
 
     company: {
       name: 'Christoph Wiedenmann'
@@ -42,10 +42,6 @@ module.exports = function (environment) {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         EMBER_NATIVE_DECORATOR_SUPPORT: true
-      },
-      EXTEND_PROTOTYPES: {
-        // Prevent Ember Data from overriding Date.parse.
-        Date: false,
       },
     },
 
