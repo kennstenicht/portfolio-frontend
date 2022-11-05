@@ -7,7 +7,6 @@ export default class AppLicationComponent extends Component {
   // Services
   @service router;
   @service fastboot;
-  @service flashMessages;
 
 
   // Defaults

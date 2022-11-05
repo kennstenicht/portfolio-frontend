@@ -1,5 +1,4 @@
-import Model, { attr, hasMany } from '@ember-data/model';
-import CustomFieldModel from 'portfolio/models/custom-field';
+import Model, { attr } from '@ember-data/model';
 
 export default class ProjectModel extends Model {
   // Attributes
@@ -14,10 +13,6 @@ export default class ProjectModel extends Model {
   @attr('string') subtitle!: string;
   @attr('string') title!: string;
   @attr('boolean') visible!: boolean;
-
-
-  // Relations
-  @hasMany('custom-field') customFields?: CustomFieldModel;
 
 
   // Getter and setter

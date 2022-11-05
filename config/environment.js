@@ -12,14 +12,6 @@ module.exports = function(environment) {
       name: 'Christoph Wiedenmann'
     },
 
-    'ember-simple-auth-token': {
-      refreshAccessTokens: false,
-      serverTokenEndpoint: '/de/v1/user_token',
-      tokenExpirationInvalidateSession: true,
-      tokenExpireName: 'exp',
-      tokenPropertyName: 'jwt'
-    },
-
     fastboot: {
       hostWhitelist: [
         'wiedenmann.io',
@@ -27,16 +19,6 @@ module.exports = function(environment) {
         /^localhost:\d+$/,
         /^192\.168\.[0-9.]*:\d+$/
       ],
-    },
-
-    flashMessageDefaults: {
-      extendedTimeout: 500,
-      timeout: 4000,
-    },
-
-    ifa: {
-      enabled: true,
-      inline: true
     },
 
     // Tracking

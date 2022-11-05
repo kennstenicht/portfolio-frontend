@@ -26,7 +26,6 @@ export default class AppLicationHeaderComponent extends Component {
   // Actions
   @action
   toggleNavigation() {
-    console.log('toggle');
     this.randomString.perform();
     this.args.toggleNavigation();
   }

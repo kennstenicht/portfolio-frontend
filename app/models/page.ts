@@ -1,5 +1,4 @@
-import Model, { attr, hasMany } from '@ember-data/model';
-import CustomFieldModel from 'portfolio/models/custom-field';
+import Model, { attr } from '@ember-data/model';
 
 export default class PageModel extends Model {
   // Attributes
@@ -9,10 +8,6 @@ export default class PageModel extends Model {
   @attr('string') metaTitle!: string;
   @attr('string') metaDescription!: string;
   @attr('string') title!: string;
-
-
-  // Relations
-  @hasMany('custom-field') customFields?: CustomFieldModel;
 
 
   // Getter and setter

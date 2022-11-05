@@ -7,19 +7,6 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function() {
-  // Admin and Login
-  this.route('admin', function() {
-    this.route('projects', function() {
-      this.route('project', { path: ':id' });
-      this.route('new');
-    });
-    this.route('pages', function() {
-      this.route('page', { path: ':id' });
-      this.route('new');
-    });
-  });
-  this.route('login');
-
   // Pages
   this.route('pages', { path: '/' }, function() {
     this.route('show', { path: ':id' });

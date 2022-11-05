@@ -4,17 +4,10 @@
   block:navigation-is-open={{this.isNavigationOpen}}
   ...attributes
 >
-  <Application::AdminNavigation />
   <Application::Header
     @isNavigationOpen={{this.isNavigationOpen}}
     @toggleNavigation={{this.toggleNavigation}}
   />
-
-  <div block:class="flash-messages">
-    {{#each this.flashMessages.queue as |flash|}}
-      <Application::Notification @flash={{flash}} />
-    {{/each}}
-  </div>
 
   <main block:class="content">
     {{yield}}

@@ -2,7 +2,6 @@ import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import HeadDataService from 'portfolio/services/head-data';
 import IntlService from 'ember-intl/services/intl';
-import SessionService from 'ember-simple-auth/services/session';
 import RouterService from '@ember/routing/router-service';
 // @ts-ignore
 import MetricsService from 'ember-metrics/services/metrics';
@@ -13,7 +12,6 @@ export default class ApplicationRoute extends Route {
   @service intl!: IntlService;
   @service metrics!: MetricsService;
   @service router!: RouterService;
-  @service session!: SessionService;
 
   // Hooks
   constructor() {

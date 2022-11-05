@@ -4,19 +4,6 @@ navigation:
   privacy: Privacy
   projects: Projects
   pages: Pages
-  signOut: Sign Out
-
-
-session:
-  signIn:
-    headline: Sign In
-    identification:
-      label: E-Mail
-      placeholder: Enter E-Mail addresse
-    password:
-      label: Password
-      placeholder: Enter Password
-    submit: Sign In
 
 application:
   header:
@@ -27,31 +14,3 @@ application:
       twitter: Twitter
       github: GitHub
       linkedin: LinkedIn
-
-
-customField:
-  loading: Loading...
-
-admin:
-  action:
-    addField: Add Field
-    removeField: Remove Field
-    save: Save
-    cancel: Cancel
-    delete: Delete
-    edit: Edit
-    new: New
-
-  label:
-    published: Published
-    draft: Draft
-
-  page:
-    headline:
-      edit: Edit Page
-      new: New Page
-
-  project:
-    headline:
-      edit: Edit Project
-      new: New Project
