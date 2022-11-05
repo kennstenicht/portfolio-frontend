@@ -2,12 +2,12 @@ import Model, { attr } from '@ember-data/model';
 
 export default class PageModel extends Model {
   // Attributes
-  @attr('string') content!: any;
-  @attr('string') html!: any;
-  @attr('string') description!: any;
-  @attr('string') metaTitle!: string;
-  @attr('string') metaDescription!: string;
-  @attr('string') title!: string;
+  @attr('string') declare content: any;
+  @attr('string') declare html: any;
+  @attr('string') declare description: any;
+  @attr('string') declare metaTitle: string;
+  @attr('string') declare metaDescription: string;
+  @attr('string') declare title: string;
 
 
   // Getter and setter
