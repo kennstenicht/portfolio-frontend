@@ -1,17 +1,22 @@
-<div block:scope block:is-visible={{@showCookieNotice}} ...attributes>
-  <div block:class="header">
+<div
+  class={{bem this.styles modifiers=(hash
+    is-visible=@showCookieNotice
+  )}}
+  ...attributes
+>
+  <div class={{bem this.styles "header"}}>
     {{t "cookieNotice.headline"}}
   </div>
-  <div block:class="content">
-    <div block:class="message">
+  <div class={{bem this.styles "content"}}>
+    <div class={{bem this.styles "message"}}>
       {{t "cookieNotice.message" htmlSafe=true}}
     </div>
-    <div block:class="settings">
-      <div block:class="option">
+    <div class={{bem this.styles "settings"}}>
+      <div class={{bem this.styles "option"}}>
         <Input
-          @id="allow-required-cookies"
-          @disabled={{true}}
-          @name="allow-required-cookies"
+          id="allow-required-cookies"
+          disabled={{true}}
+          name="allow-required-cookies"
           @type="checkbox"
           @checked={{true}}
         />
@@ -19,10 +24,10 @@
           {{t "cookieNotice.options.required"}}
         </label>
       </div>
-      <div block:class="option">
+      <div class={{bem this.styles "option"}}>
         <Input
-          @id="allow-analyse-cookies"
-          @name="allow-analyse-cookies"
+          id="allow-analyse-cookies"
+          name="allow-analyse-cookies"
           @type="checkbox"
           @checked={{this.allowAnalyseCookies}}
         />
@@ -30,20 +35,20 @@
           {{t "cookieNotice.options.analyse"}}
         </label>
       </div>
-      <div block:class="spacer"></div>
+      <div class={{bem this.styles "spacer"}}></div>
       <button
-        block:class="button"
-        button:scope
-        button:size={{if (media "isDesktop") "default" "full"}}
+        class="{{bem this.styles "button"}} {{bem this.button modifiers=(hash
+          size=(if (media "isDesktop") "default" "full")
+        )}}"
         type="button"
         {{on "click" this.allowSelectedCookies}}
       >
         {{t "cookieNotice.allowSelectedCookies"}}
       </button>
       <button
-        block:class="button"
-        button:scope
-        button:size={{if (media "isDesktop") "default" "full"}}
+        class="{{bem this.styles "button"}} {{bem this.button modifiers=(hash
+          size=(if (media "isDesktop") "default" "full")
+        )}}"
         type="button"
         {{on "click" this.allowAllCookies}}
       >

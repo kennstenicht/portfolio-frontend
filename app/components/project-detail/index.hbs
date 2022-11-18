@@ -1,12 +1,17 @@
 <AnimatedValue @value={{@project}} as |project|>
-  <article block:scope block:style={{project.id}} ...attributes>
+  <article
+    class={{bem this.styles modifiers=(hash
+      style=project.id
+    )}}
+    ...attributes
+  >
     <ProjectDetail::Header @project={{project}} />
-    <div block:class="content">
+    <div class={{bem this.styles "content"}}>
       <ProjectDetail::Summary @project={{project}} />
-      <div block:class="wrapper">
+      <div class={{bem this.styles "wrapper"}}>
         {{component (concat "project-detail/" project.id) project=project}}
-        <div block:class="back">
-          <LinkTo @route="projects" link:scope>
+        <div class={{bem this.styles "back"}}>
+          <LinkTo @route="projects" class={{bem this.link}}>
             {{t "projectDetail.backToOverview" htmlSafe=true}}
           </LinkTo>
         </div>

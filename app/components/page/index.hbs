@@ -1,5 +1,10 @@
-<div block:scope block:size={{@size}} ...attributes>
-  <div block:class="wrapper">
+<div
+  class={{bem this.styles modifiers=(hash
+    size=@size
+  )}}
+  ...attributes
+>
+  <div class={{bem this.styles "wrapper"}}>
     {{yield @model}}
   </div>
 </div>

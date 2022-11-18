@@ -7,6 +7,7 @@ import move from 'ember-animated/motions/move';
 import { easeOut, easeIn } from 'ember-animated/easings/cosine';
 import TransitionContext from 'ember-animated/-private/transition-context';
 import SwiperService from 'portfolio/services/swiper';
+import styles from './styles.module.css';
 
 export default class ProjectListComponent extends Component {
   // Services
@@ -15,7 +16,7 @@ export default class ProjectListComponent extends Component {
 
   // Defaults
   duration: number = 600;
-
+  styles = styles;
 
   // Actions
   @action

@@ -1,0 +1,103 @@
+/* ==========================================================================
+   # SETTINGS
+   ========================================================================== */
+
+:root {
+  /* Spacing
+  =========================================================================== */
+
+  /* Baseline */
+  --baseline:               6px;
+
+  /* Spacing */
+  --spacing-tiny:           calc(var(--baseline) * 1);
+  --spacing-small:          calc(var(--baseline) * 2);
+  --spacing-small-tiny:     calc(var(--baseline) * 3);
+  --spacing-base:           calc(var(--baseline) * 4);
+  --spacing-base-tiny:      calc(var(--baseline) * 5);
+  --spacing-base-small:     calc(var(--baseline) * 6);
+  --spacing-large:          calc(var(--baseline) * 8);
+  --spacing-large-tiny:     calc(var(--baseline) * 9);
+  --spacing-large-small:    calc(var(--baseline) * 10);
+  --spacing-large-base:     calc(var(--baseline) * 11);
+  --spacing-huge:           calc(var(--baseline) * 16);
+  --spacing-giant:          calc(var(--baseline) * 32);
+
+
+
+
+
+  /* Typographic
+  =========================================================================== */
+
+  /* Base font size */
+  --font-size:              16px;
+  --font-size-small:        14px;
+  --font-size-tiny:         12px;
+
+
+  /* Heading sizes */
+  --font-size-h1:           clamp(40px, 6.33vw, 76px);
+  --font-size-h2:           20px;
+  --font-size-h3:           18px;
+  --font-size-h4:           18px;
+  --font-size-h5:           18px;
+  --font-size-h6:           18px;
+
+  /* Letter spacing */
+  --letter-spacing:         0rem;
+  --letter-spacing-large:   0.3rem;
+
+  /* Font family */
+  --font-family:            'IBM Plex Mono', Courier, monospace;
+  --font-family-decoration: 'Playfair Display', Times;
+
+
+
+
+
+  /* Color
+  =========================================================================== */
+
+  /* Main colors */
+  --color-black:           #000;
+  --color-white:           #ffffff;
+
+  /* Shades of grey */
+  --color-grey-lighter:    #fbfbfb;
+  --color-grey-light:      #f6f6f6;
+  --color-grey:            #e9e9e9;
+  --color-grey-dark:       #bdbdbd;
+  --color-grey-darker:     #14120f;
+
+  /* State colors */
+  --color-error:           #f5633e;
+  --color-warning:         #ff9f51;
+  --color-success:         #6bcca7;
+
+
+
+
+  /* Objects
+  ========================================================================== */
+  /* Object Wrapper */
+  --wrapper-width-small:    1100px;
+  --wrapper-width:          1700px;
+
+
+
+
+
+  /* Stuff
+  =========================================================================== */
+
+  /* Border */
+  --border-width-small:     1px;
+  --border-width:           2px;
+  --border-width-large:     4px;
+  --border-width-huge:      10px;
+
+  /* Transition */
+  --transition-base:        0.3s ease-in-out;
+  --transition-slow:        0.6s ease-in-out;
+}

@@ -1,0 +1,56 @@
+/* ==========================================================================
+   # WRAPPER
+   ========================================================================== */
+
+.scope {
+  margin-right: auto;
+  margin-left: 0;
+  padding-right: var(--spacing-large);
+  padding-left: var(--spacing-large);
+  max-width: var(--wrapper-width);
+}
+
+
+
+
+
+
+/* Position variants.
+   ========================================================================== */
+
+.scope--align-left {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.scope--align-center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.scope--align-right {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+
+
+
+
+
+/* Size variants.
+   ========================================================================== */
+
+.scope--size-small {
+  max-width: var(--wrapper-width-small);
+}
+
+.scope--size-full {
+  margin-right: 0;
+  margin-left: 0;
+  max-width: 100%;
+}
+
+.scope--size-no-padding {
+  padding: 0;
+}

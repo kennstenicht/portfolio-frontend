@@ -1,8 +1,13 @@
-<div block:scope block:style={{@project.id}} ...attributes>
-  <div block:class="excerpt">
+<div
+  class={{bem this.styles modifiers=(hash
+    style=@project.id
+  )}}
+  ...attributes
+>
+  <div class={{bem this.styles "excerpt"}}>
     {{@project.excerpt}}
   </div>
-  <div block:class="meta-info">
+  <div class={{bem this.styles "meta-info"}}>
     {{@project.facts}}
   </div>
 </div>

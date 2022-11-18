@@ -1,7 +1,8 @@
 <div
-  block:scope
-  block:style={{this.urlSegments}}
-  block:navigation-is-open={{this.isNavigationOpen}}
+  class={{bem this.styles modifiers=(hash
+    style=this.urlSegments
+    navigation-is-open=this.isNavigationOpen
+  )}}
   ...attributes
 >
   <Application::Header
@@ -9,7 +10,7 @@
     @toggleNavigation={{this.toggleNavigation}}
   />
 
-  <main block:class="content">
+  <main class={{bem this.styles "content"}}>
     {{yield}}
   </main>
 
@@ -19,5 +20,5 @@
   />
   <Application::Footer />
 
-  <div block:class="frame"></div>
+  <div class={{bem this.styles "frame"}}></div>
 </div>

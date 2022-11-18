@@ -1,9 +1,11 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { TweenLite, Power1 } from 'gsap/TweenMax';
+import styles from './styles.module.css';
 
 export default class AppLicationLogoComponent extends Component {
   // Defaults
+  styles = styles;
   words = [
     'Christoph Wiedenmann',
     'Handcrafted with ♥♥♥',

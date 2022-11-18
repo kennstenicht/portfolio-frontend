@@ -1,0 +1,28 @@
+/* ==========================================================================
+   # BUTTON
+   ========================================================================== */
+
+.scope {
+  display: inline-block;
+  padding: var(--spacing-tiny) var(--spacing-base);
+  border: 1px solid var(--color-black);
+  background-color: var(--color-black);
+  color: var(--color-white);
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  font-size: var(--font-size);
+}
+
+
+
+
+
+/* Size variants
+   ========================================================================== */
+
+.scope--size-full {
+  width: 100%;
+}

@@ -4,6 +4,7 @@ import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import { timeout, task } from 'ember-concurrency';
 import fade from 'ember-animated/transitions/fade';
+import styles from './styles.module.css';
 
 export default class AppLicationHeaderComponent extends Component {
   // Services
@@ -12,8 +13,9 @@ export default class AppLicationHeaderComponent extends Component {
 
   // Defaults
   @tracked menuLabel = 'menu';
-  fadeTransition=fade;
+  fadeTransition = fade;
   numberOfGenerations = 0;
+  styles = styles;
 
 
   // Getter and setter

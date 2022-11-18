@@ -1,6 +1,8 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import styles from './styles.module.css';
+import button from 'portfolio/assets/styles/objects/button.module.css';
 
 export default class ApplicationCookieNoticeComponent extends Component {
   // Services
@@ -11,11 +13,15 @@ export default class ApplicationCookieNoticeComponent extends Component {
   constructor() {
     super(...arguments);
 
-    if (!this.cookies.exists('hide_cookie_notice')) {
-      this.args.toggleCookieNotice();
-    }
+    // if (!this.cookies.exists('hide_cookie_notice')) {
+    //   this.args.toggleCookieNotice();
+    // }
   }
 
+
+  // Defaults
+  styles = styles;
+  button = button;
 
   // Getter and setter
   get allowAnalyseCookies() {

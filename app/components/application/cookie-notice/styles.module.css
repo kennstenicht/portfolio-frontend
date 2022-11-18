@@ -1,0 +1,109 @@
+/* ==========================================================================
+   # APPLICATION COOCKIE NOTICE
+   ========================================================================== */
+
+.scope {
+  position: fixed;
+  bottom: var(--spacing-base);
+  z-index: 999;
+  max-height: calc(100vh - #{var(--spacing-large)});
+  background-color: var(--color-white);
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  color: var(--color-black);
+  transition: transform 0.3s ease-in-out;
+  transform: translate(0, 150%);
+}
+
+.scope--is-visible {
+  transform: translate(0, 0);
+}
+
+  .header {
+    font-weight: bold;
+  }
+
+  .content {
+    overflow: auto;
+  }
+
+    .message {
+      flex-grow: 1;
+    }
+
+    .settings {
+      display: flex;
+      align-items: flex-start;
+      margin-top: var(--spacing-base);
+      width: 100%;
+    }
+
+      .option {
+        margin-bottom: var(--spacing-tiny);
+      }
+
+
+
+
+
+/* Media queries
+  ========================================================================== */
+
+@media (max-width: 768px) {
+  .scope {
+    right: var(--spacing-small);
+    bottom: var(--spacing-small);
+    left: var(--spacing-small);
+    padding: var(--spacing-small);
+    font-size: var(--font-size-small);
+  }
+
+    .content {
+      flex-direction: column;
+    }
+
+      .settings {
+        flex-direction: column;
+      }
+
+        .button {
+          margin-bottom: var(--spacing-tiny);
+        }
+
+        .button:last-child {
+          margin-bottom: 0;
+        }
+
+        .option {
+          margin-bottom: var(--spacing-tiny);
+        }
+}
+
+@media (min-width: 768px) {
+  .scope {
+    right: var(--spacing-large-small);
+    bottom: var(--spacing-large-small);
+    left: var(--spacing-large-small);
+    padding: var(--spacing-base);
+  }
+
+    .settings {
+      flex-direction: row;
+    }
+
+      .spacer {
+        flex-grow: 1;
+      }
+
+      .button {
+        margin-right: var(--spacing-tiny);
+      }
+
+      .button:last-child {
+        margin-right: 0;
+      }
+
+      .option {
+        margin-right: var(--spacing-base);
+      }
+}
+

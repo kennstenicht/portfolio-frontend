@@ -1,0 +1,37 @@
+/* ==========================================================================
+  #PAGE
+  ========================================================================== */
+
+.scope {
+  flex-grow: 1;
+}
+
+  .wrapper {
+    max-width: var(--wrapper-width);
+    margin-right: auto;
+    margin-left: 0px;
+    padding: var(--spacing-giant);
+  }
+
+  .scope--size-full .wrapper {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .scope--size-small .wrapper {
+    max-width: var(--wrapper-width-small);
+  }
+
+
+   .huge-text {
+     position: absolute;
+     top: 70px;
+     left: 300px;
+     width: 1650px;
+     font-weight: bold;
+     font-size: 15vw;
+     font-family: var(--font-family-decoration);
+     line-height: 1;
+     transform: rotate(90deg) translate(0, -100%);
+     transform-origin: top left;
+   }

@@ -1,0 +1,24 @@
+/* ==========================================================================
+   # PROJECT DETAIL SUMMARY
+   ========================================================================== */
+
+@import "../../../assets/styles/settings/settings.scope-styles.css";
+
+.scope {
+  display: flex;
+  margin: 0 var(--spacing-small);
+  padding: var(--spacing-base-small);
+  background-color: var(--color-secondary);
+  color: var(--color-typo);
+}
+
+  .excerpt {
+    width: 66.6666%;
+  }
+
+  .meta-info {
+    padding-left: var(--spacing-huge);
+    width: 33.3333%;
+
+    font-size: var(--font-size-small);
+  }

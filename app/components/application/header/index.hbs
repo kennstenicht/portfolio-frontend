@@ -1,18 +1,19 @@
 <header
-  block:scope
-  block:is-navigation-open={{@isNavigationOpen}}
-  block:is-project-detail={{this.isProjectDetail}}
+  class={{bem this.styles modifiers=(hash
+    is-navigation-open=@isNavigationOpen
+    is-project-detail=this.isProjectDetail
+  )}}
   ...attributes
 >
   <LinkTo
     @route="pages.home"
-    block:class="logo"
+    class={{bem this.styles "logo"}}
   >
     <Application::Header::Logo />
   </LinkTo>
 
-  <div block:class="navigation">
-    <div block:class="back-to-overview">
+  <div class={{bem this.styles "navigation"}}>
+    <div class={{bem this.styles "back-to-overview"}}>
       {{#animated-if this.isProjectDetail use=this.fadeTransition}}
         <LinkTo @route="projects">
           {{t "application.header.toOverview" htmlSafe=true}}
@@ -21,24 +22,30 @@
     </div>
 
     <div
-      block:class="toggle"
+      class={{bem this.styles "toggle"}}
       role="button"
       {{on "click" this.toggleNavigation}}
     >
-      <div block:class="label">
+      <div class={{bem this.styles "label"}}>
         {{this.menuLabel}}
       </div>
-      <div block:class="burger">
-        <div block:class="layer" block:is-top={{true}}></div>
-        <div block:class="layer" block:is-middle={{true}}></div>
-        <div block:class="layer" block:is-bottom={{true}}></div>
+      <div class={{bem this.styles "burger"}}>
+        <div class={{bem this.styles "layer" modifiers=(hash
+          is-top=true
+        )}}></div>
+        <div class={{bem this.styles "layer" modifiers=(hash
+          is-middle=true
+        )}} ></div>
+        <div class={{bem this.styles "layer" modifiers=(hash
+          is-bottom=true
+        )}} ></div>
       </div>
     </div>
   </div>
 
-  <nav block:class="navigation-overlay">
-    <ul block:class="list">
-      <li block:class="item">
+  <nav class={{bem this.styles "navigation-overlay"}}>
+    <ul class={{bem this.styles "list"}}>
+      <li class={{bem this.styles "item"}}>
         <LinkTo
           @route="projects"
           {{on "click" this.toggleNavigation}}
@@ -46,7 +53,7 @@
           {{t "application.header.projects"}}
         </LinkTo>
       </li>
-      <li block:class="item">
+      <li class={{bem this.styles "item"}}>
         <LinkTo
           @route="pages.show"
           @model="about"

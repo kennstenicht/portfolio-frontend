@@ -1,0 +1,64 @@
+/* ==========================================================================
+   # PROJECT DETAIL
+   ========================================================================== */
+
+.scope--style-ad-hoc {
+  --color-background: #181d1f;
+  --color-typo: #f2f2f2;
+  --color-primary: #008d84;
+  --color-secondary: #242a30;
+}
+
+.scope {
+  block-name: c-project-detail;
+}
+
+  .content {
+    position: relative;
+    z-index: 2;
+    padding-top: 100vh;
+  }
+
+  .wrapper {
+    position: relative;
+    margin-top: var(--spacing-small);
+    padding-top: var(--spacing-large);
+    background-color: var(--color-background);
+    color: var(--color-typo);
+
+    background-image: linear-gradient(
+      to bottom,
+      transparent 100vh,
+      var(--color-primary); calc(100% - 100vh)
+    );
+  }
+
+  .back {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--spacing-base);
+  }
+
+
+
+
+
+/* Media Queries
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .back {
+    font-size: var(--font-size-h2);
+  }
+}
+
+
+@media (min-width: 768px) {
+  .back {
+    font-size: var(--font-size-h1);
+  }
+}

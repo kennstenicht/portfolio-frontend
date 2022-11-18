@@ -1,4 +1,9 @@
-<article block:scope block:style={{@project.id}} ...attributes>
+<article
+  class={{bem this.styles modifiers=(hash
+    style=@project.id
+  )}}
+  ...attributes
+>
   <LinkTo @route="projects.show" @model={{@project}}>
     <AnimatedValue
       @value={{@project.id}}
@@ -6,11 +11,16 @@
       @duration={{this.duration}}
       as |id|
     >
-      <div block:class="background" block:style={{id}}></div>
+      <div
+        class={{bem this.styles "background" modifiers=(hash
+          style=id
+        )}}
+        style="background-image: url('/assets/projects/{{id}}/{{id}}_preview.jpg')"
+      ></div>
     </AnimatedValue>
 
-    <header block:class="header">
-      <div block:class="index" data-swiper-parallax="50">
+    <header class={{bem this.styles "header"}}>
+      <div class={{bem this.styles "index" data-swiper-parallax="50"}}>
         {{index-number @index}}
       </div>
 
@@ -20,7 +30,7 @@
         @duration={{this.duration}}
         as |title|
       >
-        <h1 block:class="title">
+        <h1 class={{bem this.styles "title"}}>
           {{title}}
         </h1>
       </AnimatedValue>
@@ -31,13 +41,13 @@
         @duration={{this.duration}}
         as |subtitle|
       >
-        <div block:class="subtitle" data-swiper-parallax="90">
+        <div class={{bem this.styles "subtitle" data-swiper-parallax="90"}}>
           {{subtitle}}
         </div>
       </AnimatedValue>
     </header>
 
-    <div block:class="meta">
+    <div class={{bem this.styles "meta"}}>
       {{! template-lint-disable no-bare-strings }}
       Concept & Development
     </div>

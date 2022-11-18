@@ -2,6 +2,8 @@ import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import styles from './styles.module.css';
+import link from 'portfolio/assets/styles/objects/link.module.css';
 
 export default class AppLicationFooterComponent extends Component {
   // Services
@@ -11,6 +13,8 @@ export default class AppLicationFooterComponent extends Component {
   // Defaults
   duration = 0;
   @tracked isToggled = false;
+  link = link;
+  styles = styles;
 
 
   // Getter and setter

@@ -9,6 +9,7 @@ import adjustColor from 'ember-animated/motions/adjust-color';
 import TransitionContext from 'ember-animated/-private/transition-context';
 import SwiperService from 'portfolio/services/swiper';
 import ProjectModel from 'portfolio/models/project';
+import styles from './styles.module.css';
 
 interface Args {
   project: ProjectModel
@@ -21,6 +22,7 @@ export default class ProjectDetailHeaderComponent extends Component<Args> {
 
   // Defaults
   duration: number = 600;
+  styles = styles;
 
 
   // Hooks

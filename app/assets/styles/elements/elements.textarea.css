@@ -1,0 +1,20 @@
+/* ==========================================================================
+   # TEXTAREA
+   ========================================================================== */
+
+/**
+ * Simple default style for all textarea elements. Anything more opinionated
+ * than simple basic style changes should likely be applied via classes
+ */
+
+textarea {
+  padding: var(--spacing-small);
+  width: 100%;
+  border-width: var(--border-width-small);
+  border-style: solid;
+  border-color: var(--color-black);
+
+  &:focus {
+    outline: none;
+  }
+}

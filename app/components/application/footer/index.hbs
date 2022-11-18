@@ -1,58 +1,56 @@
 <footer
-  block:scope
-  block:is-toggled={{this.isToggled}}
+  class={{bem this.styles modifiers=(hash
+    is-toggled=this.isToggled
+  )}}
   {{did-insert this.setupInViewport}}
   ...attributes
 >
-  <div block:class="wrapper">
-    <ul block:class="social">
-      <li block:class="item">
+  <div class={{bem this.styles "wrapper"}}>
+    <ul class={{bem this.styles "social"}}>
+      <li class={{bem this.styles "item"}}>
         <a
           href="https://github.com/kennstenicht"
           rel="noopener noreferrer"
           target="_blank"
-          link:scope
+          class={{bem this.link}}
         >
           {{t "application.footer.social.github"}}{{!--
     --}}</a>
       </li>
-      <li block:class="item">
+      <li class={{bem this.styles "item"}}>
         <a
           href="https://www.linkedin.com/in/christoph-wiedenmann"
           rel="noopener noreferrer"
           target="_blank"
-          link:scope
+          class={{bem this.link}}
         >
           {{t "application.footer.social.linkedin"}}{{!--
     --}}</a>
       </li>
-      <li block:class="item">
+      <li class={{bem this.styles "item"}}>
         <a
           href="https://twitter.com/herrwiedenmann"
           rel="noopener noreferrer"
           target="_blank"
-          link:scope
+          class={{bem this.link}}
         >
           {{t "application.footer.social.twitter"}}
         </a>
       </li>
     </ul>
-
-    <div block:class="copy">
+    <div class={{bem this.styles "copy"}}>
       {{t "application.footer.copy" year=this.currentYear htmlSafe=true}} |
       <LinkTo
         @route="pages.show"
         @model="imprint"
-        block:class="item"
-        link:scope
+        class="{{bem this.styles "item"}} {{bem this.link}}"
       >
         {{t "navigation.imprint"}}
       </LinkTo>
       <LinkTo
         @route="pages.show"
         @model="privacy"
-        block:class="item"
-        link:scope
+        class="{{bem this.styles "item"}} {{bem this.link}}"
       >
         {{t "navigation.privacy"}}
       </LinkTo>

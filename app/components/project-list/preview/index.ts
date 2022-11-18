@@ -8,6 +8,7 @@ import resize from 'ember-animated/motions/resize';
 // @ts-ignore
 import adjustColor from 'ember-animated/motions/adjust-color';
 import TransitionContext from 'ember-animated/-private/transition-context';
+import styles from './styles.module.css';
 
 export default class ProjectListPreviewComponent extends Component {
   // Services
@@ -16,6 +17,7 @@ export default class ProjectListPreviewComponent extends Component {
 
   // Defaults
   duration = 600;
+  styles = styles;
 
 
   // Functions

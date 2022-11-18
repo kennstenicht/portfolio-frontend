@@ -1,12 +1,12 @@
 <div
-  block:scope
+  class={{bem this.styles}}
   role="button"
   {{did-insert this.setElement}}
   {{on "mouseenter" this.explode}}
   ...attributes
 >
   {{#each this.defaultLetters as |letter|}}
-    <span block:class="letter" data-selector="letter">
+    <span class={{bem this.styles "letter"}} data-selector="letter">
       {{letter}}
     </span>
   {{/each}}

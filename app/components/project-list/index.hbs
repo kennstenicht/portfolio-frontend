@@ -1,10 +1,10 @@
 <div
-  block:scope
+  class={{bem this.styles}}
   {{did-insert this.initSwiper}}
   {{will-destroy this.destroySwiper}}
   ...attributes
 >
-  <div block:class="wrapper">
+  <div class={{bem this.styles "wrapper"}}>
     <AnimatedEach
       @items={{@projects}}
       @initialInsertion={{true}}
@@ -21,4 +21,3 @@
     </AnimatedEach>
   </div>
 </div>
-{{!-- {{log (css-blocks ".test")}} --}}

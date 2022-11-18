@@ -1,0 +1,28 @@
+/* ==========================================================================
+  # PAGE
+  ========================================================================== */
+
+/**
+* Simple page-level setup.
+*
+* 1. Set the default `font-size` and `line-height` for the entire project,
+*    sourced from our default variables. The `font-size` is calculated to exist
+*    in ems, the `line-height` is calculated to exist unitlessly.
+* 2. Ensure the page always fills at least the entire height of the viewport.
+*/
+
+html {
+  overflow: hidden;
+  height: 100%; /* [2] */
+
+}
+
+body {
+  overflow: auto;
+  min-height: 100%; /* [2] */
+  letter-spacing: var(--letter-spacing);
+  font-family: var(--font-family);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-transform: lowercase;
+}

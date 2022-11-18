@@ -1,0 +1,205 @@
+/* ==========================================================================
+   # APPLICATION HEADER
+   ========================================================================== */
+
+/* Variables */
+.scope {
+  --burger-height: 12px;
+  --burger-width: 20px;
+  --burger-line-height: 2px;
+  --burger-to-translate: calc(#{var(--burger-height)} - #{var(--burger-line-height)} / 2);
+}
+
+
+/* Block */
+.scope {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 902;
+  width: 100vw;
+  font-size: var(--font-size-small);
+}
+
+  .logo {
+    position: absolute;
+    z-index: 2;
+    width: var(--spacing-huge);
+    height: var(--spacing-huge);
+    text-transform: uppercase;
+    word-break: break-all;
+    letter-spacing: 0.5em;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .navigation {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+  }
+
+    .back-to-overview {
+      width: 200px;
+      text-align: right;
+      text-transform: uppercase;
+    }
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+      .label {
+        margin-right: var(--spacing-tiny);
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      .burger {
+        position: relative;
+        display: inline-block;
+        width: var(--burger-width);
+        height: var(--burger-height);
+      }
+
+        .layer {
+          position: absolute;
+          left: 0;
+          width: 100%;
+          height: var(--burger-line-height);
+          background-color: currentColor;
+          pointer-events: none;
+        }
+
+      .layer--is-top {
+          top: 0;
+          width: 70%;
+          transition: transform 0.3s ease-in-out,
+                      top 0.2s ease-in-out 0.3s;
+        }
+
+      .layer--is-middle {
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          transition: opacity 0s ease-in-out 0.3s;
+        }
+
+      .layer--is-bottom {
+          bottom: 0;
+          width: 80%;
+          transition: transform 0.3s ease-in-out,
+                      bottom 0.2s ease-in-out 0.3s;
+        }
+
+        .scope--is-navigation-open .layer--is-top {
+          top: var(--burger-to-translate);
+          width: 100%;
+          transition: top 0.3s ease-in-out,
+                      width 0.3s ease-in-out,
+                      transform 0.3s linear 0.3s;
+          transform: rotate(135deg);
+        }
+
+        .scope--is-navigation-open .layer--is-middle {
+          opacity: 0;
+          transition: opacity 0s ease-in-out 0.3s;
+        }
+
+        .scope--is-navigation-open .layer--is-bottom {
+          bottom: var(--burger-to-translate);
+          width: 100%;
+          transition: bottom 0.3s ease-in-out,
+                      width 0.3s ease-in-out,
+                      transform 0.3s ease-in-out 0.3s;
+          transform: rotate(-135deg);
+        }
+
+
+
+  .navigation-overlay {
+    position: fixed;
+    top: var(--spacing-large-small);
+    right: var(--spacing-large-small);
+    bottom: var(--spacing-large-small);
+    left: var(--spacing-large-small);
+    z-index: 1;
+    display: flex;
+    visibility: hidden;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-slow) 0.6s;
+  }
+
+  .scope--is-navigation-open .navigation-overlay {
+    visibility: visible;
+    opacity: 1;
+  }
+
+    .list {
+      margin: 0;
+      list-style: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+    }
+
+      .item {
+        display: inline-block;
+        text-align: center;
+        font-size: var(--font-size-h2);
+      }
+
+
+
+
+
+/* Media Queries
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .logo {
+    top: var(--spacing-base-small);
+    left: var(--spacing-base-small);
+  }
+
+  .navigation {
+    top: var(--spacing-base-small);
+    right: var(--spacing-base-small);
+  }
+
+    .scope--is-project-detail .toggle {
+      display: none;
+    }
+
+    .item {
+      margin-bottom: var(--spacing-small);
+      width: 100%;
+    }
+}
+
+
+@media (min-width: 768px) {
+  .logo {
+    top: var(--spacing-large-small);
+    left: var(--spacing-large-small);
+  }
+
+  .navigation {
+    top: var(--spacing-large-small);
+    right: var(--spacing-large-small);
+  }
+
+    .back-to-overview {
+      margin-right: var(--spacing-large);
+    }
+
+    .item {
+      margin-right: var(--spacing-large);
+    }
+}
