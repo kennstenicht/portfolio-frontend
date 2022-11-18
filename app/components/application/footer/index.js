@@ -5,7 +5,6 @@ import { tracked } from '@glimmer/tracking';
 
 export default class AppLicationFooterComponent extends Component {
   // Services
-  @service fastboot;
   @service inViewport
 
 

@@ -71,7 +71,6 @@
     "ember-cli-autoprefixer": "^1.0.2",
     "ember-cli-babel": "^7.26.11",
     "ember-cli-dependency-checker": "^3.3.1",
-    "ember-cli-fastboot": "^3.3.2",
     "ember-cli-head": "^2.0.0",
     "ember-cli-htmlbars": "^6.1.1",
     "ember-cli-inject-live-reload": "^2.1.0",
@@ -123,8 +122,5 @@
     "paths": [
       "lib/content-generator"
     ]
-  },
-  "fastbootDependencies": [
-    "crypto"
-  ]
+  }
 }

@@ -6,7 +6,6 @@ import { inject as service } from '@ember/service';
 export default class AppLicationComponent extends Component {
   // Services
   @service router;
-  @service fastboot;
 
 
   // Defaults
@@ -34,15 +33,11 @@ export default class AppLicationComponent extends Component {
   constructor() {
     super(...arguments);
 
-    if (!this.fastboot.isFastBoot) {
-      window.addEventListener('hashchange', this.checkHash.bind(this), false);
-    }
+    window.addEventListener('hashchange', this.checkHash.bind(this), false);
   }
 
   willDestroy() {
-    if (!this.fastboot.isFastBoot) {
-      window.removeEventListener('hashchange', this.checkHash.bind(this), true);
-    }
+    window.removeEventListener('hashchange', this.checkHash.bind(this), true);
   }
 
 

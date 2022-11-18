@@ -1,7 +1,5 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
 import ProjectsModel from 'portfolio/models/project'
-import FastbootService from 'ember-cli-fastboot/services/fastboot';
 import ArrayProxy from '@ember/array/proxy';
 
 interface Params {
@@ -9,10 +7,6 @@ interface Params {
 }
 
 export default class ProjectsShowRoute extends Route {
-  // Services
-  @service fastboot!: FastbootService;
-
-
   // Hooks
   buildRouteInfoMetadata() {
     return {

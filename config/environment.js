@@ -12,15 +12,6 @@ module.exports = function (environment) {
       name: 'Christoph Wiedenmann'
     },
 
-    fastboot: {
-      hostWhitelist: [
-        'wiedenmann.io',
-        'staging.wiedenmann.io',
-        /^localhost:\d+$/,
-        /^192\.168\.[0-9.]*:\d+$/
-      ],
-    },
-
     // Tracking
     metricsAdapters: [
       {
