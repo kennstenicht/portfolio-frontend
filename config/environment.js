@@ -15,16 +15,15 @@ module.exports = function (environment) {
     // Tracking
     metricsAdapters: [
       {
-        name: 'GoogleTagManager',
+        name: 'GoogleAnalyticsFour',
         environments: ['development', 'production'],
         config: {
-          id: 'GTM-MXZ7NKL',
-          // Use `analytics_debug.js` in development
-          debug: environment === 'development',
-          // Use verbose tracing of GA events
-          trace: environment === 'development',
-          // Ensure development env hits aren't sent to GA
-          sendHitTask: environment !== 'development',
+          id: 'G-35H5Y8W7P8',
+          options: {
+            anonymize_ip: true,
+            send_page_view: true,
+            debug_mode: environment === 'development',
+          }
         }
       },
     ],
