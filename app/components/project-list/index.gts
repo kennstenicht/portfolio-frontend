@@ -2,21 +2,33 @@ import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import Swiper, { Pagination, Keyboard, Mousewheel, Parallax } from 'swiper';
-// @ts-ignore
+import AnimatedEach from 'ember-animated/components/animated-each';
 import move from 'ember-animated/motions/move';
 import { easeOut, easeIn } from 'ember-animated/easings/cosine';
 import TransitionContext from 'ember-animated/-private/transition-context';
+import didInsert from '@ember/render-modifiers/modifiers/did-insert';
+import willDestroy from '@ember/render-modifiers/modifiers/will-destroy';
 import SwiperService from 'portfolio/services/swiper';
+import bem from 'portfolio/helpers/bem';
+import Preview from './preview';
 import styles from './styles.module.css';
+import Project from 'portfolio/models/project';
 
-export default class ProjectListComponent extends Component {
+interface Signature {
+  Element: HTMLElement,
+  Args: {
+    projects: Project[],
+  }
+}
+
+export default class ProjectListComponent extends Component<Signature> {
   // Services
   @service swiper!: SwiperService;
 
 
   // Defaults
   duration: number = 600;
-  styles = styles;
+
 
   // Actions
   @action
@@ -65,7 +77,8 @@ export default class ProjectListComponent extends Component {
 
 
   // Functions
-  listTransition = function * (
+  @action
+  *listTransition(
     this: ProjectListComponent,
     {
       insertedSprites,
@@ -106,6 +119,34 @@ export default class ProjectListComponent extends Component {
 
       move(sprite, { easing: easeIn });
     });
-  }.bind(this);
+  }
   /* eslint-enable require-yield */
+
+
+  // Template
+  <template>
+    <div
+      class={{bem styles}}
+      {{didInsert this.initSwiper}}
+      {{willDestroy this.destroySwiper}}
+      ...attributes
+    >
+      <div class={{bem styles "wrapper"}}>
+        <AnimatedEach
+          @items={{@projects}}
+          @initialInsertion={{true}}
+          @finalRemoval={{true}}
+          @use={{this.listTransition}}
+          @duration={{this.duration}}
+          as |project index|
+        >
+          <Preview
+            @project={{project}}
+            @index={{index}}
+            data-selector="swiper-item"
+          />
+        </AnimatedEach>
+      </div>
+    </div>
+  </template>
 }

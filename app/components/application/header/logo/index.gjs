@@ -1,11 +1,13 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { on } from '@ember/modifier';
+import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 import { TweenLite, Power1 } from 'gsap/TweenMax';
 import styles from './styles.module.css';
+import bem from 'portfolio/helpers/bem';
 
 export default class AppLicationLogoComponent extends Component {
   // Defaults
-  styles = styles;
   words = [
     'Christoph Wiedenmann',
     'Handcrafted with ♥♥♥',
@@ -47,8 +49,6 @@ export default class AppLicationLogoComponent extends Component {
     return Math.floor(Math.random()*(max-min+1)+min)
   }
 
-
-  // Actions
   @action
   setElement(element) {
     this.element = element;
@@ -96,4 +96,22 @@ export default class AppLicationLogoComponent extends Component {
       }
     );
   }
+
+
+  // Template
+  <template>
+    <div
+      class={{bem styles}}
+      role="button"
+      {{didInsert this.setElement}}
+      {{on "mouseenter" this.explode}}
+      ...attributes
+    >
+      {{#each this.defaultLetters as |letter|}}
+        <span class={{bem styles "letter"}} data-selector="letter">
+          {{letter}}
+        </span>
+      {{/each}}
+    </div>
+  </template>
 }

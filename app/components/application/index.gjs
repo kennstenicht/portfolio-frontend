@@ -1,8 +1,13 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { hash } from '@ember/helper';
 import { inject as service } from '@ember/service';
 import styles from './styles.module.css';
+import bem from 'portfolio/helpers/bem';
+import Header from './header';
+import Footer from './footer';
+import CookieNotice from './cookie-notice';
 
 export default class AppLicationComponent extends Component {
   // Services
@@ -12,7 +17,7 @@ export default class AppLicationComponent extends Component {
   // Defaults
   @tracked showCookieNotice = false;
   @tracked isNavigationOpen = false;
-  styles = styles;
+
 
   // Getter and setter
   get urlSegments() {
@@ -50,6 +55,7 @@ export default class AppLicationComponent extends Component {
     }
   }
 
+
   // Actions
   @action
   toggleCookieNotice() {
@@ -60,4 +66,33 @@ export default class AppLicationComponent extends Component {
   toggleNavigation() {
     this.isNavigationOpen = !this.isNavigationOpen;
   }
+
+
+  // Template
+  <template>
+    <div
+      class={{bem styles modifiers=(hash
+        style=this.urlSegments
+        navigation-is-open=this.isNavigationOpen
+      )}}
+      ...attributes
+    >
+      <Header
+        @isNavigationOpen={{this.isNavigationOpen}}
+        @toggleNavigation={{this.toggleNavigation}}
+      />
+
+      <main class={{bem styles "content"}}>
+        {{yield}}
+      </main>
+
+      <CookieNotice
+        @showCookieNotice={{this.showCookieNotice}}
+        @toggleCookieNotice={{this.toggleCookieNotice}}
+      />
+      <Footer />
+
+      <div class={{bem styles "frame"}}></div>
+    </div>
+  </template>
 }
