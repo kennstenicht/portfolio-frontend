@@ -9,7 +9,7 @@ interface Params {
 
 export default class PagesShowRoute extends Route {
   // Services
-  @service store!: Store;
+  @service declare store: Store;
 
 
   // Hooks

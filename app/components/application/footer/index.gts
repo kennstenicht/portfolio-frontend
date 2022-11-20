@@ -6,6 +6,7 @@ import { array, concat, hash } from '@ember/helper';
 import { LinkTo } from '@ember/routing';
 import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 import t from 'ember-intl/helpers/t';
+import InViewportService from 'ember-in-viewport/services/in-viewport';
 import styles from './styles.module.css';
 import link from 'portfolio/assets/styles/objects/link.module.css';
 import bem from 'portfolio/helpers/bem';
@@ -18,12 +19,12 @@ const SOCIAL_MEDIA_LINKS = {
 
 export default class AppLicationFooterComponent extends Component {
   // Services
-  @service inViewport
+  @service declare inViewport: InViewportService;
 
 
   // Defaults
-  duration = 0;
-  @tracked isToggled = false;
+  duration: number = 0;
+  @tracked isToggled: boolean = false;
 
 
   // Getter and setter

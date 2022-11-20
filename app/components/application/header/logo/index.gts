@@ -8,6 +8,7 @@ import bem from 'portfolio/helpers/bem';
 
 export default class AppLicationLogoComponent extends Component {
   // Defaults
+  element: HTMLElement;
   words = [
     'Christoph Wiedenmann',
     'Handcrafted with ♥♥♥',
@@ -40,7 +41,7 @@ export default class AppLicationLogoComponent extends Component {
 
   // Getter and setter
   get defaultLetters() {
-    return this.words.objectAt(0).split('');
+    return this.words[0].split('');
   }
 
 
@@ -58,12 +59,11 @@ export default class AppLicationLogoComponent extends Component {
   explode() {
     const letters = this.element
       .querySelectorAll('[data-selector=letter]');
-    const newWord = this.words
-      .objectAt(this.randomBetween(1, this.words.length-1))
+    const newWord = this.words[this.randomBetween(1, this.words.length-1)]
       .split('');
 
     letters.forEach(function (letter, index) {
-      const newLetter = newWord.objectAt(index);
+      const newLetter = newWord[index];
 
       TweenLite.to(
         letter,

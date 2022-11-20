@@ -23,7 +23,7 @@ interface Signature {
 
 export default class ProjectListComponent extends Component<Signature> {
   // Services
-  @service swiper!: SwiperService;
+  @service declare swiper: SwiperService;
 
 
   // Defaults

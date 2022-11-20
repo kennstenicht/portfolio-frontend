@@ -24,7 +24,7 @@ interface Signature {
 
 export default class ProjectListPreviewComponent extends Component<Signature> {
   // Services
-  @service router!: RouterService;
+  @service declare router: RouterService;
 
 
   // Defaults

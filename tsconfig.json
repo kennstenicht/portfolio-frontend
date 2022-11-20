@@ -20,6 +20,9 @@
     "baseUrl": ".",
     "module": "es6",
     "experimentalDecorators": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noPropertyAccessFromIndexSignature": true,
     "paths": {
       "portfolio/tests/*": [
         "tests/*"
@@ -44,6 +47,9 @@
         "lib/content-generator/addon-test-support/*"
       ]
     }
+  },
+  "glint": {
+    "environment": "ember-loose"
   },
   "include": [
     "app/**/*",

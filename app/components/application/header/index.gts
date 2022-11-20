@@ -5,6 +5,7 @@ import { action } from '@ember/object';
 import { hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { LinkTo } from '@ember/routing';
+import RouterService from '@ember/routing/router-service';
 import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 import t from 'ember-intl/helpers/t';
 import { timeout, task } from 'ember-concurrency';
@@ -14,15 +15,23 @@ import styles from './styles.module.css';
 import bem from 'portfolio/helpers/bem';
 import Logo from './logo/index';
 
-export default class AppLicationHeaderComponent extends Component {
+interface Signature {
+  Element: HTMLElement,
+  Args: {
+    isNavigationOpen: boolean,
+    toggleNavigation: Function
+  }
+}
+
+export default class AppLicationHeaderComponent extends Component<Signature> {
   // Services
-  @service router;
+  @service declare router: RouterService;
 
 
   // Defaults
-  @tracked menuLabel = 'menu';
+  @tracked menuLabel: string = 'menu';
   fadeTransition = fade;
-  numberOfGenerations = 0;
+  numberOfGenerations: number = 0;
 
 
   // Getter and setter
@@ -38,14 +47,13 @@ export default class AppLicationHeaderComponent extends Component {
     this.args.toggleNavigation();
   }
 
-  @task({
-    restartable: true
-  })
-  *randomString() {
+
+  // Tasks
+  randomString = task(async () => {
     let possibleLetters = 'abcdefghijklmnopqrstuvwxyz1234567890§$%&?!/()=#';
     let string = '';
 
-    yield timeout(100);
+    await timeout(100);
 
     if (this.numberOfGenerations < 6) {
       this.numberOfGenerations++;
@@ -63,7 +71,7 @@ export default class AppLicationHeaderComponent extends Component {
     }
 
     this.menuLabel = string;
-  }
+  });
 
 
   // Template

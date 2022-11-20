@@ -6,6 +6,9 @@ const path = require('path');
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
+    babel: {
+      sourceMaps: 'inline',
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated
@@ -80,6 +83,7 @@ module.exports = function (defaults) {
         },
       },
       webpackConfig: {
+        devtool: 'source-map',
         module: {
           rules: [
             {

@@ -6,7 +6,7 @@ import IntlService from 'ember-intl/services/intl';
 
 export default class ProjectsRoute extends Route {
   // Services
-  @service intl!: IntlService;
+  @service declare intl: IntlService;
 
 
   // Hooks

@@ -5,7 +5,7 @@ import Store from '@ember-data/store';
 
 export default class PagesHomeRoute extends Route {
   // Services
-  @service store!: Store;
+  @service declare store: Store;
 
 
   // Hooks

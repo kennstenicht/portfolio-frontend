@@ -3,24 +3,33 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { hash } from '@ember/helper';
 import { inject as service } from '@ember/service';
+import RouterService from '@ember/routing/router-service';
 import styles from './styles.module.css';
 import bem from 'portfolio/helpers/bem';
 import Header from './header';
 import Footer from './footer';
 import CookieNotice from './cookie-notice';
 
-export default class AppLicationComponent extends Component {
+interface Signature {
+  Element: HTMLElement,
+  Blocks: {
+    default: []
+  },
+  Args: {}
+}
+
+export default class AppLicationComponent extends Component<Signature> {
   // Services
-  @service router;
+  @service declare router: RouterService;
 
 
   // Defaults
-  @tracked showCookieNotice = false;
-  @tracked isNavigationOpen = false;
+  @tracked showCookieNotice: boolean = false;
+  @tracked isNavigationOpen: boolean = false;
 
 
   // Getter and setter
-  get urlSegments() {
+  get urlSegments(): string {
     if (this.router.currentRouteName === 'error') {
       return 'error';
     }
@@ -36,8 +45,8 @@ export default class AppLicationComponent extends Component {
 
 
   // Hooks
-  constructor() {
-    super(...arguments);
+  constructor(owner: unknown, args: Signature['Args']) {
+    super(owner, args);
 
     window.addEventListener('hashchange', this.checkHash.bind(this), false);
   }

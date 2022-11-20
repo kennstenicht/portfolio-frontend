@@ -1,9 +1,9 @@
 import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
-import { getOwner } from '@ember/application';
 import IntlService from 'ember-intl/services/intl';
 import RouterService from '@ember/routing/router-service';
+import ENV from 'portfolio/config/environment';
 
 interface MetaTags {
   [key: string]: any
@@ -11,8 +11,8 @@ interface MetaTags {
 
 export default class HeadDataService extends Service {
   // Services
-  @service router!: RouterService;
-  @service intl!: IntlService;
+  @service declare router: RouterService;
+  @service declare intl: IntlService;
 
 
   // Defaults
@@ -36,7 +36,6 @@ export default class HeadDataService extends Service {
   }
 
   get routeMetaTags() {
-    let ENV = this.ENV;
     // @ts-ignore
     let model = this.router.currentRoute.attributes;
     // @ts-ignore
@@ -99,11 +98,7 @@ export default class HeadDataService extends Service {
   }
 
   get company() {
-    return this.ENV.company;
-  }
-
-  get ENV() {
-    return getOwner(this).resolveRegistration('config:environment');
+    return ENV.company;
   }
 
 

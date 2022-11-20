@@ -8,10 +8,10 @@ import MetricsService from 'ember-metrics/services/metrics';
 
 export default class ApplicationRoute extends Route {
   // Services
-  @service headData!: HeadDataService;
-  @service intl!: IntlService;
-  @service metrics!: MetricsService;
-  @service router!: RouterService;
+  @service declare headData: HeadDataService;
+  @service declare intl: IntlService;
+  @service declare metrics: MetricsService;
+  @service declare router: RouterService;
 
   // Hooks
   constructor() {

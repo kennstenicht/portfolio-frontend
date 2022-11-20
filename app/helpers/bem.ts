@@ -27,7 +27,7 @@ export function bem(
 
   if (modifiers) {
     Object.keys(modifiers).forEach((key) => {
-      let modifier = modifiers[key];
+      let modifier = modifiers?.[key];
 
       if (isEmpty(modifier)) {
         return

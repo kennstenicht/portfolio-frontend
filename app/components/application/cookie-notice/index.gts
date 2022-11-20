@@ -5,19 +5,29 @@ import { Input } from '@ember/component';
 import { hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import t from 'ember-intl/helpers/t';
+import CookiesService from 'ember-cookies/services/cookies'
+import MediaService from 'ember-responsive/services/media';
 import bem from 'portfolio/helpers/bem';
 import styles from './styles.module.css';
 import buttonStyle from 'portfolio/assets/styles/objects/button.module.css';
 
-export default class ApplicationCookieNoticeComponent extends Component {
+
+interface Signature {
+  Args: {
+    showCookieNotice: boolean,
+    toggleCookieNotice: Function
+  }
+}
+
+export default class ApplicationCookieNoticeComponent extends Component<Signature> {
   // Services
-  @service cookies;
-  @service media;
+  @service declare cookies: CookiesService;
+  @service declare media: MediaService;
 
 
   // Hooks
-  constructor() {
-    super(...arguments);
+  constructor(owner: unknown, args: Signature['Args']) {
+    super(owner, args);
 
     // if (!this.cookies.exists('hide_cookie_notice')) {
     //   this.args.toggleCookieNotice();
