@@ -10,7 +10,7 @@ import styles from './styles.module.css';
 import link from 'portfolio/assets/styles/objects/link.module.css';
 import AdHoc from './ad-hoc';
 import Binuu from './binuu';
-import DisasterMgmt from './disaster-mgmt'
+import DisasterMgmt from './disaster-mgmt';
 import Eels from './eels';
 import Flutkoerper from './flutkoerper';
 
@@ -29,9 +29,7 @@ const getContentComponent = helper((project) => {
 <template>
   <AnimatedValue @value={{@project}} as |project|>
     <article
-      class={{bem styles modifiers=(hash
-        style=project.id
-      )}}
+      class={{bem styles modifiers=(hash style=project.id)}}
       ...attributes
     >
       <Header @project={{project}} />

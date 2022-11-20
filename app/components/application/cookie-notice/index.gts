@@ -5,25 +5,23 @@ import { Input } from '@ember/component';
 import { hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import t from 'ember-intl/helpers/t';
-import CookiesService from 'ember-cookies/services/cookies'
+import CookiesService from 'ember-cookies/services/cookies';
 import MediaService from 'ember-responsive/services/media';
 import bem from 'portfolio/helpers/bem';
 import styles from './styles.module.css';
 import buttonStyle from 'portfolio/assets/styles/objects/button.module.css';
 
-
 interface Signature {
   Args: {
-    showCookieNotice: boolean,
-    toggleCookieNotice: Function
-  }
+    showCookieNotice: boolean;
+    toggleCookieNotice: Function;
+  };
 }
 
 export default class ApplicationCookieNoticeComponent extends Component<Signature> {
   // Services
   @service declare cookies: CookiesService;
   @service declare media: MediaService;
-
 
   // Hooks
   constructor(owner: unknown, args: Signature['Args']) {
@@ -33,7 +31,6 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
     //   this.args.toggleCookieNotice();
     // }
   }
-
 
   // Getter and setter
   get allowAnalyseCookies() {
@@ -51,7 +48,6 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
   set allowMarketingCookies(value) {
     this.cookies.write('allow_marketing_cookies', value);
   }
-
 
   // Functions
   @action
@@ -79,13 +75,10 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
     this.args.toggleCookieNotice();
   }
 
-
   // Template
   <template>
     <div
-      class={{bem styles modifiers=(hash
-        is-visible=@showCookieNotice
-      )}}
+      class={{bem styles modifiers=(hash is-visible=@showCookieNotice)}}
       ...attributes
     >
       <div class={{bem styles "header"}}>
@@ -121,18 +114,22 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
           </div>
           <div class={{bem styles "spacer"}}></div>
           <button
-            class="{{bem styles "button"}} {{bem buttonStyle modifiers=(hash
-              size=(if this.media.isDesktop "default" "full")
-            )}}"
+            class="{{bem styles 'button'}}
+              {{bem
+                buttonStyle
+                modifiers=(hash size=(if this.media.isDesktop "default" "full"))
+              }}"
             type="button"
             {{on "click" this.allowSelectedCookies}}
           >
             {{t "cookieNotice.allowSelectedCookies"}}
           </button>
           <button
-            class="{{bem styles "button"}} {{bem buttonStyle modifiers=(hash
-              size=(if this.media.isDesktop "default" "full")
-            )}}"
+            class="{{bem styles 'button'}}
+              {{bem
+                buttonStyle
+                modifiers=(hash size=(if this.media.isDesktop "default" "full"))
+              }}"
             type="button"
             {{on "click" this.allowAllCookies}}
           >

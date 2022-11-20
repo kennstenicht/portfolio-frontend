@@ -13,18 +13,16 @@ import bem from 'portfolio/helpers/bem';
 import styles from './styles.module.css';
 
 interface Args {
-  project: ProjectModel
+  project: ProjectModel;
 }
 
 export default class ProjectDetailHeaderComponent extends Component<Args> {
   // Services
   @service swiper!: SwiperService;
 
-
   // Defaults
   duration: number = 600;
   styles = styles;
-
 
   // Hooks
   constructor(owner: unknown, args: Args) {
@@ -33,12 +31,11 @@ export default class ProjectDetailHeaderComponent extends Component<Args> {
     this.swiper.position = this.args.project.position;
   }
 
-
   // Functions
   *backgroundTransition({ sentSprites }: TransitionContext) {
-    sentSprites.forEach(sprite => {
+    sentSprites.forEach((sprite) => {
       sprite.applyStyles({
-        'z-index': '2'
+        'z-index': '2',
       });
     });
 
@@ -46,25 +43,19 @@ export default class ProjectDetailHeaderComponent extends Component<Args> {
   }
 
   *typoTransition({ sentSprites }: TransitionContext) {
-    sentSprites.forEach(sprite => {
+    sentSprites.forEach((sprite) => {
       sprite.applyStyles({
-        'z-index': '4'
+        'z-index': '4',
       });
 
-      parallel(
-        move(sprite),
-        adjustColor('color', sprite)
-      );
+      parallel(move(sprite), adjustColor('color', sprite));
     });
   }
-
 
   // Template
   <template>
     <div
-      class={{bem this.styles modifiers=(hash
-        style=@project.id
-      )}}
+      class={{bem this.styles modifiers=(hash style=@project.id)}}
       ...attributes
     >
       <AnimatedValue
@@ -74,9 +65,7 @@ export default class ProjectDetailHeaderComponent extends Component<Args> {
         as |id|
       >
         <div
-          class={{bem this.styles "background" modifiers=(hash
-            style=id
-          )}}
+          class={{bem this.styles "background" modifiers=(hash style=id)}}
           style="background-image: url('/assets/projects/{{id}}/{{id}}_preview.jpg')"
         ></div>
       </AnimatedValue>

@@ -9,7 +9,6 @@ export default class PageModel extends Model {
   @attr('string') declare metaDescription: string;
   @attr('string') declare title: string;
 
-
   // Getter and setter
   get metaTitleFallback(): string {
     return this.title;

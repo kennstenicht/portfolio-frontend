@@ -1,6 +1,6 @@
 application:
   meta:
-    blurTitle: ">>>>  Schnell hier klicken  <<<<"
+    blurTitle: '>>>>  Schnell hier klicken  <<<<'
     description: Moin, ich bin Christoph und ein Berliner Software Entwickler mit einem starken UX-Hintergrund und eine liebe zu Details. Neben diversen Sprachen und Frameworks bevorzuge ich ember.js und Ruby on Rails.
     title: Christoph Wiedenmann » Software Engenieer & UX Designer
 admin:

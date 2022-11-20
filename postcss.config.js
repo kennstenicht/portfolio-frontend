@@ -3,11 +3,8 @@ const env = process.env.EMBER_ENV || 'development';
 const plugins = [
   require('autoprefixer'),
   require('postcss-advanced-variables')({
-    importPaths: [
-      'app/assets',
-      'node_modules'
-    ]
-  })
+    importPaths: ['app/assets', 'node_modules'],
+  }),
 ];
 
 if (env === 'production') {

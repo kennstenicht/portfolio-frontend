@@ -9,7 +9,7 @@ application:
   header:
     siteTitle: Christoph Wiedenmann
   footer:
-    copy: "&copy; {year} by Christoph Wiedenmann"
+    copy: '&copy; {year} by Christoph Wiedenmann'
     social:
       twitter: Twitter
       github: GitHub

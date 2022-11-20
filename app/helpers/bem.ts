@@ -2,18 +2,17 @@ import { helper } from '@ember/component/helper';
 import { isEmpty } from '@ember/utils';
 
 interface IClassNames {
-  [className: string]: string
+  [className: string]: string;
 }
 
 interface Modifiers {
-  [key: string]: string|boolean|string[]
+  [key: string]: string | boolean | string[];
 }
 
 export function bem(
   positional: [IClassNames, string],
   named: Record<string, Modifiers>
 ) {
-
   let [module, element] = positional;
   let { modifiers } = named;
   let classes = [];
@@ -30,7 +29,7 @@ export function bem(
       let modifier = modifiers?.[key];
 
       if (isEmpty(modifier)) {
-        return
+        return;
       }
 
       if (typeof modifier === 'boolean') {
@@ -47,7 +46,7 @@ export function bem(
     });
   }
 
-  return classes.map(className => module[className]).join(' ');
+  return classes.map((className) => module[className]).join(' ');
 }
 
 export default helper(bem);

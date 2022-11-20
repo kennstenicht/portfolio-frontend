@@ -1,6 +1,6 @@
 application:
   meta:
-    blurTitle: ">>>> Click here now <<<<"
+    blurTitle: '>>>> Click here now <<<<'
     description: 'i’m a berlin base web engenieer with a strong ux background and a love for details. i worked with many frameworks in different languages, but i prefer to work with ember.js or ruby on rails.'
     title: Christoph Wiedenmann » Software Engenieer & UX Designer
 admin:
@@ -22,4 +22,3 @@ projects:
   meta:
     description: Für unsere unsere Kunden entwickeln wir digitale Produkte, Services und Kommunikationsstrategien.
     title: My works
-

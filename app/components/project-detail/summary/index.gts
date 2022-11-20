@@ -3,12 +3,7 @@ import bem from 'portfolio/helpers/bem';
 import styles from './styles.module.css';
 
 <template>
-  <div
-    class={{bem styles modifiers=(hash
-      style=@project.id
-    )}}
-    ...attributes
-  >
+  <div class={{bem styles modifiers=(hash style=@project.id)}} ...attributes>
     <div class={{bem styles "excerpt"}}>
       {{@project.excerpt}}
     </div>

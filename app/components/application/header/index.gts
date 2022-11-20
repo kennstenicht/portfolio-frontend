@@ -9,36 +9,33 @@ import RouterService from '@ember/routing/router-service';
 import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 import t from 'ember-intl/helpers/t';
 import { timeout, task } from 'ember-concurrency';
-import animatedIf from 'ember-animated/components/animated-if'
+import animatedIf from 'ember-animated/components/animated-if';
 import fade from 'ember-animated/transitions/fade';
 import styles from './styles.module.css';
 import bem from 'portfolio/helpers/bem';
 import Logo from './logo/index';
 
 interface Signature {
-  Element: HTMLElement,
+  Element: HTMLElement;
   Args: {
-    isNavigationOpen: boolean,
-    toggleNavigation: Function
-  }
+    isNavigationOpen: boolean;
+    toggleNavigation: Function;
+  };
 }
 
 export default class AppLicationHeaderComponent extends Component<Signature> {
   // Services
   @service declare router: RouterService;
 
-
   // Defaults
   @tracked menuLabel: string = 'menu';
   fadeTransition = fade;
   numberOfGenerations: number = 0;
 
-
   // Getter and setter
   get isProjectDetail() {
-    return this.router.currentRoute.name === "projects.show";
+    return this.router.currentRoute.name === 'projects.show';
   }
-
 
   // Functions
   @action
@@ -46,7 +43,6 @@ export default class AppLicationHeaderComponent extends Component<Signature> {
     this.randomString.perform();
     this.args.toggleNavigation();
   }
-
 
   // Tasks
   randomString = task(async () => {
@@ -73,20 +69,19 @@ export default class AppLicationHeaderComponent extends Component<Signature> {
     this.menuLabel = string;
   });
 
-
   // Template
   <template>
     <header
-      class={{bem styles modifiers=(hash
-        is-navigation-open=@isNavigationOpen
-        is-project-detail=this.isProjectDetail
-      )}}
+      class={{bem
+        styles
+        modifiers=(hash
+          is-navigation-open=@isNavigationOpen
+          is-project-detail=this.isProjectDetail
+        )
+      }}
       ...attributes
     >
-      <LinkTo
-        @route="pages.home"
-        class={{bem styles "logo"}}
-      >
+      <LinkTo @route="pages.home" class={{bem styles "logo"}}>
         <Logo />
       </LinkTo>
 
@@ -108,15 +103,15 @@ export default class AppLicationHeaderComponent extends Component<Signature> {
             {{this.menuLabel}}
           </div>
           <div class={{bem styles "burger"}}>
-            <div class={{bem styles "layer" modifiers=(hash
-              is-top=true
-            )}}></div>
-            <div class={{bem styles "layer" modifiers=(hash
-              is-middle=true
-            )}} ></div>
-            <div class={{bem styles "layer" modifiers=(hash
-              is-bottom=true
-            )}} ></div>
+            <div
+              class={{bem styles "layer" modifiers=(hash is-top=true)}}
+            ></div>
+            <div
+              class={{bem styles "layer" modifiers=(hash is-middle=true)}}
+            ></div>
+            <div
+              class={{bem styles "layer" modifiers=(hash is-bottom=true)}}
+            ></div>
           </div>
         </div>
       </div>
@@ -124,10 +119,7 @@ export default class AppLicationHeaderComponent extends Component<Signature> {
       <nav class={{bem styles "navigation-overlay"}}>
         <ul class={{bem styles "list"}}>
           <li class={{bem styles "item"}}>
-            <LinkTo
-              @route="projects"
-              {{on "click" this.toggleNavigation}}
-            >
+            <LinkTo @route="projects" {{on "click" this.toggleNavigation}}>
               {{t "application.header.projects"}}
             </LinkTo>
           </li>

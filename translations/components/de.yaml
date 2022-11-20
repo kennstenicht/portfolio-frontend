@@ -2,7 +2,7 @@ application:
   header:
     projects: Projekte
     about: Über mich
-    toOverview: "&#10176; Zur Übersicht"
+    toOverview: '&#10176; Zur Übersicht'
 
 cookieNotice:
   allowAllCookies: Cookies zulassen
@@ -18,4 +18,4 @@ list:
   noRecords: Wir konnten keine Einträge finden
 
 projectDetail:
-  backToOverview: "&#10176; Zurück zur Übersicht"
+  backToOverview: '&#10176; Zurück zur Übersicht'

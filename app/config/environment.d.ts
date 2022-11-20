@@ -12,6 +12,6 @@ declare const config: {
   rootURL: string;
   APP: Record<string, unknown>;
   company: {
-    name: string
-  }
+    name: string;
+  };
 };

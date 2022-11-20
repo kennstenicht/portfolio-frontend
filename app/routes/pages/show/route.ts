@@ -4,13 +4,12 @@ import { inject as service } from '@ember/service';
 import Store from '@ember-data/store';
 
 interface Params {
-  id: string
+  id: string;
 }
 
 export default class PagesShowRoute extends Route {
   // Services
   @service declare store: Store;
-
 
   // Hooks
   buildRouteInfoMetadata() {
@@ -21,8 +20,8 @@ export default class PagesShowRoute extends Route {
           description: model.metaDescription || model.metaDescriptionFallback,
           type: 'article',
         };
-      }
-    }
+      },
+    };
   }
 
   model({ id }: Params) {
@@ -30,10 +29,10 @@ export default class PagesShowRoute extends Route {
   }
 
   afterModel(model: PageModel) {
-    if(!model) {
+    if (!model) {
       throw {
         code: 404,
-        message: 'not found'
+        message: 'not found',
       };
     }
   }

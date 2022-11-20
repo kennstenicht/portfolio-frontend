@@ -11,22 +11,20 @@ import Footer from './footer';
 import CookieNotice from './cookie-notice';
 
 interface Signature {
-  Element: HTMLElement,
+  Element: HTMLElement;
   Blocks: {
-    default: []
-  },
-  Args: {}
+    default: [];
+  };
+  Args: {};
 }
 
 export default class AppLicationComponent extends Component<Signature> {
   // Services
   @service declare router: RouterService;
 
-
   // Defaults
   @tracked showCookieNotice: boolean = false;
   @tracked isNavigationOpen: boolean = false;
-
 
   // Getter and setter
   get urlSegments(): string {
@@ -34,15 +32,13 @@ export default class AppLicationComponent extends Component<Signature> {
       return 'error';
     }
 
-    let segments = this.router
-      .currentURL
+    let segments = this.router.currentURL
       .substring(1)
       .split('/')
-      .filter(n => n)
+      .filter((n) => n);
 
-      return segments[segments.length-1];
+    return segments[segments.length - 1];
   }
-
 
   // Hooks
   constructor(owner: unknown, args: Signature['Args']) {
@@ -55,15 +51,13 @@ export default class AppLicationComponent extends Component<Signature> {
     window.removeEventListener('hashchange', this.checkHash.bind(this), true);
   }
 
-
   checkHash() {
     if (location.hash == '#change-cookie-settings') {
       this.toggleCookieNotice();
 
-      location.hash = ''
+      location.hash = '';
     }
   }
-
 
   // Actions
   @action
@@ -76,14 +70,15 @@ export default class AppLicationComponent extends Component<Signature> {
     this.isNavigationOpen = !this.isNavigationOpen;
   }
 
-
   // Template
   <template>
     <div
-      class={{bem styles modifiers=(hash
-        style=this.urlSegments
-        navigation-is-open=this.isNavigationOpen
-      )}}
+      class={{bem
+        styles
+        modifiers=(hash
+          style=this.urlSegments navigation-is-open=this.isNavigationOpen
+        )
+      }}
       ...attributes
     >
       <Header

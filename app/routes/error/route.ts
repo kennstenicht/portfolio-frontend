@@ -8,7 +8,6 @@ export default class ProjectsRoute extends Route {
   // Services
   @service declare intl: IntlService;
 
-
   // Hooks
   setupController(controller: Controller, error: any, transition: Transition) {
     controller.model = error;

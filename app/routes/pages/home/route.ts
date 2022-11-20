@@ -7,7 +7,6 @@ export default class PagesHomeRoute extends Route {
   // Services
   @service declare store: Store;
 
-
   // Hooks
   buildRouteInfoMetadata() {
     return {
@@ -17,8 +16,8 @@ export default class PagesHomeRoute extends Route {
           description: model.metaDescription || model.metaDescriptionFallback,
           type: 'article',
         };
-      }
-    }
+      },
+    };
   }
 
   model() {

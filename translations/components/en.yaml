@@ -2,7 +2,7 @@ application:
   header:
     projects: Projects
     about: About me
-    toOverview: "&#10176; To overview"
+    toOverview: '&#10176; To overview'
 
 cookieNotice:
   allowAllCookies: Allow cookies

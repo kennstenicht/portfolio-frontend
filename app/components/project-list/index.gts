@@ -15,20 +15,18 @@ import styles from './styles.module.css';
 import Project from 'portfolio/models/project';
 
 interface Signature {
-  Element: HTMLElement,
+  Element: HTMLElement;
   Args: {
-    projects: Project[],
-  }
+    projects: Project[];
+  };
 }
 
 export default class ProjectListComponent extends Component<Signature> {
   // Services
   @service declare swiper: SwiperService;
 
-
   // Defaults
   duration: number = 600;
-
 
   // Actions
   @action
@@ -53,7 +51,7 @@ export default class ProjectListComponent extends Component<Signature> {
       },
 
       mousewheel: {
-        releaseOnEdges: true
+        releaseOnEdges: true,
       },
 
       // Classes
@@ -66,7 +64,7 @@ export default class ProjectListComponent extends Component<Signature> {
       slideNextClass: `${itemClass}--next`,
       slideDuplicateNextClass: `${itemClass}--duplicatd-next`,
       slidePrevClass: `${itemClass}--prev`,
-      slideDuplicatePrevClass: `${itemClass}--duplicatd-prev`
+      slideDuplicatePrevClass: `${itemClass}--duplicatd-prev`,
     });
   }
 
@@ -74,7 +72,6 @@ export default class ProjectListComponent extends Component<Signature> {
   destroySwiper() {
     this.swiper.instance?.destroy(true, true);
   }
-
 
   // Functions
   @action
@@ -87,32 +84,32 @@ export default class ProjectListComponent extends Component<Signature> {
       receivedSprites,
     }: TransitionContext
   ) {
-    [...sentSprites, ...receivedSprites].forEach(sprite => {
+    [...sentSprites, ...receivedSprites].forEach((sprite) => {
       // Hide sprite! Animation is handled inside of project-list/preview
       sprite.hide();
     });
 
-    insertedSprites.forEach(sprite => {
+    insertedSprites.forEach((sprite) => {
       const spriteIndex = sprite.owner?.index || 0;
       const isAfterReceivedSprite = this.swiper.position <= spriteIndex;
       const spriteWidth = sprite.finalBounds?.width || 0;
-      const startLeft = - window.innerWidth - spriteWidth;
+      const startLeft = -window.innerWidth - spriteWidth;
       const startRight = window.innerWidth * 2;
       const start = isAfterReceivedSprite ? startRight : startLeft;
 
       sprite.startAtPixel({ x: start });
-      sprite.applyStyles({ 'z-index': '1'});
+      sprite.applyStyles({ 'z-index': '1' });
 
       move(sprite, { easing: easeOut });
     });
 
-    removedSprites.forEach(sprite => {
+    removedSprites.forEach((sprite) => {
       const spriteIndex = sprite.owner?.index || 0;
       const isAfterSentSprite = this.swiper.position <= spriteIndex;
       const spriteWidth = sprite.initialBounds?.width || 0;
-      const endLeft = - window.innerWidth - spriteWidth;
+      const endLeft = -window.innerWidth - spriteWidth;
       const endRight = window.innerWidth * 2;
-      const end = isAfterSentSprite ? endRight: endLeft;
+      const end = isAfterSentSprite ? endRight : endLeft;
 
       sprite.endAtPixel({ x: end });
       sprite.applyStyles({ 'z-index': '1' });
@@ -121,7 +118,6 @@ export default class ProjectListComponent extends Component<Signature> {
     });
   }
   /* eslint-enable require-yield */
-
 
   // Template
   <template>

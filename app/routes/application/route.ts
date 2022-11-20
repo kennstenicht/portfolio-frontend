@@ -27,7 +27,7 @@ export default class ApplicationRoute extends Route {
       image: '/assets/meta/sharing-image--default.jpg',
       type: 'website',
       structuredData: null,
-    }
+    };
 
     // Setup ember metrics
     this.router.on('routeDidChange', () => {

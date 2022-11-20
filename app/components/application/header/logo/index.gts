@@ -38,16 +38,14 @@ export default class AppLicationLogoComponent extends Component {
     'Rescue is not acrime',
   ];
 
-
   // Getter and setter
   get defaultLetters() {
     return this.words[0].split('');
   }
 
-
   // Functions
   randomBetween(min, max) {
-    return Math.floor(Math.random()*(max-min+1)+min)
+    return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
   @action
@@ -57,46 +55,36 @@ export default class AppLicationLogoComponent extends Component {
 
   @action
   explode() {
-    const letters = this.element
-      .querySelectorAll('[data-selector=letter]');
-    const newWord = this.words[this.randomBetween(1, this.words.length-1)]
-      .split('');
+    const letters = this.element.querySelectorAll('[data-selector=letter]');
+    const newWord =
+      this.words[this.randomBetween(1, this.words.length - 1)].split('');
 
     letters.forEach(function (letter, index) {
       const newLetter = newWord[index];
 
-      TweenLite.to(
-        letter,
-        0.3,
-        {
-          css: {
-            left: this.randomBetween(-100,100) + 'px',
-            top: this.randomBetween(-100,100) + 'px'
-          },
-          onComplete: this.implode,
-          onCompleteParams: [letter, newLetter],
-          ease: Power1.easeOut
+      TweenLite.to(letter, 0.3, {
+        css: {
+          left: this.randomBetween(-100, 100) + 'px',
+          top: this.randomBetween(-100, 100) + 'px',
         },
-      );
+        onComplete: this.implode,
+        onCompleteParams: [letter, newLetter],
+        ease: Power1.easeOut,
+      });
     }, this);
   }
 
   implode(letter, newLetter) {
     letter.innerHTML = newLetter;
 
-    TweenLite.to(
-      letter,
-      0.3,
-      {
-        css: {
-          left: '0px',
-          top: '0px'
-        },
-        ease: Power1.easeIn
-      }
-    );
+    TweenLite.to(letter, 0.3, {
+      css: {
+        left: '0px',
+        top: '0px',
+      },
+      ease: Power1.easeIn,
+    });
   }
-
 
   // Template
   <template>

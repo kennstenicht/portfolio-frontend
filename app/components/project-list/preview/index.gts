@@ -15,27 +15,25 @@ import styles from './styles.module.css';
 import Project from 'portfolio/models/project';
 
 interface Signature {
-  Element: HTMLElement,
+  Element: HTMLElement;
   Args: {
-    project: Project,
-    index: number
-  }
+    project: Project;
+    index: number;
+  };
 }
 
 export default class ProjectListPreviewComponent extends Component<Signature> {
   // Services
   @service declare router: RouterService;
 
-
   // Defaults
   duration = 600;
 
-
   // Functions
   *backgroundTransition({ sentSprites }: TransitionContext) {
-    sentSprites.forEach(sprite => {
+    sentSprites.forEach((sprite) => {
       sprite.applyStyles({
-        'z-index': '3'
+        'z-index': '3',
       });
     });
 
@@ -43,25 +41,19 @@ export default class ProjectListPreviewComponent extends Component<Signature> {
   }
 
   *typoTransition({ sentSprites }: TransitionContext) {
-    sentSprites.forEach(sprite => {
+    sentSprites.forEach((sprite) => {
       sprite.applyStyles({
-        'z-index': '4'
+        'z-index': '4',
       });
 
-      parallel(
-        move(sprite),
-        adjustColor('color', sprite)
-      );
+      parallel(move(sprite), adjustColor('color', sprite));
     });
   }
-
 
   // Template
   <template>
     <article
-      class={{bem styles modifiers=(hash
-        style=@project.id
-      )}}
+      class={{bem styles modifiers=(hash style=@project.id)}}
       ...attributes
     >
       <LinkTo @route="projects.show" @model={{@project}}>
@@ -72,9 +64,7 @@ export default class ProjectListPreviewComponent extends Component<Signature> {
           as |id|
         >
           <div
-            class={{bem styles "background" modifiers=(hash
-              style=id
-            )}}
+            class={{bem styles "background" modifiers=(hash style=id)}}
             style="background-image: url('/assets/projects/{{id}}/{{id}}_preview.jpg')"
           ></div>
         </AnimatedValue>

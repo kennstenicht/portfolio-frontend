@@ -8,7 +8,6 @@ export default class ProjectsRoute extends Route {
   @service declare store: Store;
   @service declare swiper: SwiperService;
 
-
   // Hooks
   model() {
     return this.store.findAll('project');

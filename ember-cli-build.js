@@ -42,13 +42,20 @@ module.exports = function (defaults) {
         modules: {
           mode: 'local',
           localIdentName: '[sha512:hash:base64:5]',
-          getLocalIdent: function(context, localIdentName, localName, options) {
+          getLocalIdent: function (
+            context,
+            localIdentName,
+            localName,
+            options
+          ) {
             if (isProduction()) {
-              return
+              return;
             }
 
             if (
-              new RegExp(/^(?!.*[.]module.css$).*$|node_modules/i).test(context.resourcePath)
+              new RegExp(/^(?!.*[.]module.css$).*$|node_modules/i).test(
+                context.resourcePath
+              )
             ) {
               return localName;
             }
@@ -79,7 +86,7 @@ module.exports = function (defaults) {
             }
 
             return `${blockClass}__${localName}`;
-          }
+          },
         },
       },
       webpackConfig: {
@@ -105,7 +112,7 @@ module.exports = function (defaults) {
             },
           ],
         },
-      }
-    }
+      },
+    },
   });
 };

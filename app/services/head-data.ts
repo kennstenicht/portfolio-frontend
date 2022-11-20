@@ -6,7 +6,7 @@ import RouterService from '@ember/routing/router-service';
 import ENV from 'portfolio/config/environment';
 
 interface MetaTags {
-  [key: string]: any
+  [key: string]: any;
 }
 
 export default class HeadDataService extends Service {
@@ -14,11 +14,9 @@ export default class HeadDataService extends Service {
   @service declare router: RouterService;
   @service declare intl: IntlService;
 
-
   // Defaults
   @tracked fallbackMetaTags: MetaTags = {};
   @tracked blurTitle: string = '';
-
 
   // Getter and Setter
   get translationMetaTags() {
@@ -27,7 +25,7 @@ export default class HeadDataService extends Service {
     ['title', 'description'].forEach((key) => {
       const translation = this._getTranslation(key);
 
-      if(translation) {
+      if (translation) {
         metaTags[key] = translation;
       }
     });
@@ -58,7 +56,7 @@ export default class HeadDataService extends Service {
     return {
       ...this.fallbackMetaTags,
       ...this.translationMetaTags,
-      ...this.routeMetaTags
+      ...this.routeMetaTags,
     };
   }
 
@@ -101,26 +99,25 @@ export default class HeadDataService extends Service {
     return ENV.company;
   }
 
-
   // Hooks
   constructor() {
     super(...arguments);
 
     // Change title if window is not in focus
-    window.onblur = () => this.blurTitle = this.intl.t('application.meta.blurTitle');
-    window.onfocus = () => this.blurTitle = '';
+    window.onblur = () =>
+      (this.blurTitle = this.intl.t('application.meta.blurTitle'));
+    window.onfocus = () => (this.blurTitle = '');
   }
-
 
   // Functions
   _getTranslation(type: string) {
     let currentRouteName = this.router.currentRouteName.split('.');
 
     // Check if translation exists for route or any parent route
-    for(let x = currentRouteName.length; x > 0; x--) {
+    for (let x = currentRouteName.length; x > 0; x--) {
       let path = `${currentRouteName.slice(0, x).join('.')}.meta.${type}`;
 
-      if(this.intl.exists(path)) {
+      if (this.intl.exists(path)) {
         return this.intl.t(path);
       }
     }

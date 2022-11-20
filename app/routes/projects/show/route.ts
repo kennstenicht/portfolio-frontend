@@ -1,9 +1,9 @@
 import Route from '@ember/routing/route';
-import ProjectsModel from 'portfolio/models/project'
+import ProjectsModel from 'portfolio/models/project';
 import ArrayProxy from '@ember/array/proxy';
 
 interface Params {
-  id: string
+  id: string;
 }
 
 export default class ProjectsShowRoute extends Route {
@@ -15,10 +15,10 @@ export default class ProjectsShowRoute extends Route {
           title: model.metaTitle || model.metaTitleFallback,
           description: model.metaDescription || model.metaDescriptionFallback,
           type: 'article',
-          image: `images/projects/${model.id}/${model.id}_preview.jpg`
+          image: `images/projects/${model.id}/${model.id}_preview.jpg`,
         };
-      }
-    }
+      },
+    };
   }
 
   model({ id }: Params) {
@@ -28,10 +28,10 @@ export default class ProjectsShowRoute extends Route {
   }
 
   afterModel(model: ProjectsModel) {
-    if(!model) {
+    if (!model) {
       throw {
         code: 404,
-        message: 'not found'
+        message: 'not found',
       };
     }
   }

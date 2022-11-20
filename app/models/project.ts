@@ -14,7 +14,6 @@ export default class ProjectModel extends Model {
   @attr('string') declare title: string;
   @attr('boolean') declare visible: boolean;
 
-
   // Getter and setter
   get metaTitleFallback(): string {
     return `${this.title} » ${this.subtitle}`;

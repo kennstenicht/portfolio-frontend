@@ -9,7 +9,7 @@ module.exports = function (environment) {
     locationType: 'history',
 
     company: {
-      name: 'Christoph Wiedenmann'
+      name: 'Christoph Wiedenmann',
     },
 
     // Tracking
@@ -23,15 +23,15 @@ module.exports = function (environment) {
             anonymize_ip: true,
             send_page_view: true,
             debug_mode: environment === 'development',
-          }
-        }
+          },
+        },
       },
     ],
 
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
-        EMBER_NATIVE_DECORATOR_SUPPORT: true
+        EMBER_NATIVE_DECORATOR_SUPPORT: true,
       },
     },
 

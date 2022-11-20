@@ -8,7 +8,6 @@ export default class ProjectsIndexRoute extends Route {
   @service declare headData: HeadDataService;
   @service declare intl: IntlService;
 
-
   // Hooks
   model() {
     return this.modelFor('projects');
