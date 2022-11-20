@@ -1943,6 +1943,13 @@
   resolved "https://registry.yarnpkg.com/@types/ember__error/-/ember__error-4.0.1.tgz#eb5e88b5f32a5e9f2ac64d10af60c99dee31817c"
   integrity sha512-efLmc0SOSKuhllJiZ2RVaSH7wmWR49csrPcfOJBVo7ylJLwclNiZJ2FSg2YxlJ7Zai89HldbH+OnvlrO4wkW/w==
 
+"@types/ember__helper@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@types/ember__helper/-/ember__helper-4.0.1.tgz#214085374e30580511773a2c253d763bd5c72e5a"
+  integrity sha512-tOktLVKfZHbiZlQ4iGKBbVnHB7fCgkdj2j6E0FUewXFz1X/5WlS14xfMvT2SblBz1i8iMf053Z77by7aEbAJ6Q==
+  dependencies:
+    "@types/ember" "*"
+
 "@types/ember__object@*", "@types/ember__object@^4.0.5":
   version "4.0.5"
   resolved "https://registry.yarnpkg.com/@types/ember__object/-/ember__object-4.0.5.tgz#65def564b7d383e521f0ecd7c101881c99f22179"
@@ -9914,9 +9921,9 @@ loader-runner@^4.1.0, loader-runner@^4.2.0:
   integrity sha512-3R/1M+yS3j5ou80Me59j7F9IMs4PXs3VqRrm0TU3AbKPxlmpoY1TNscJV/oGJXo8qCatFGTfDbY6W6ipGOYXfg==
 
 loader-utils@^1.2.3:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.4.0.tgz#c579b5e34cb34b1a74edc6c1fb36bfa371d5a613"
-  integrity sha512-qH0WSMBtn/oHuwjy/NucEgbx5dbxxnxup9s4PVXJUDHZBQY+s0NWA9rJf53RBnQZxfch7euUui7hpoAPvALZdA==
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.4.2.tgz#29a957f3a63973883eb684f10ffd3d151fec01a3"
+  integrity sha512-I5d00Pd/jwMD2QCduo657+YM/6L3KZu++pmX9VFncxaxvHcru9jx1lBaFft+r4Mt2jK0Yhp41XlRAihzPxHNCg==
   dependencies:
     big.js "^5.2.2"
     emojis-list "^3.0.0"
