@@ -117,7 +117,6 @@ export default class ProjectListComponent extends Component<Signature> {
       move(sprite, { easing: easeIn });
     });
   }
-  /* eslint-enable require-yield */
 
   // Template
   <template>

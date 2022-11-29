@@ -1,14 +1,24 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { on } from '@ember/modifier';
+// @ts-ignore
 import didInsert from '@ember/render-modifiers/modifiers/did-insert';
+// @ts-ignore
 import { TweenLite, Power1 } from 'gsap/TweenMax';
 import styles from './styles.module.css';
 import bem from 'portfolio/helpers/bem';
 
-export default class AppLicationLogoComponent extends Component {
+const randomBetween = function(min: number, max: number) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+interface Signature {
+  Element: HTMLDivElement;
+}
+
+export default class AppLicationLogoComponent extends Component<Signature> {
   // Defaults
-  element: HTMLElement;
+  declare element: HTMLElement;
   words = [
     'Christoph Wiedenmann',
     'Handcrafted with ♥♥♥',
@@ -40,16 +50,14 @@ export default class AppLicationLogoComponent extends Component {
 
   // Getter and setter
   get defaultLetters() {
-    return this.words[0].split('');
+    return this.words[0]?.split('');
   }
 
   // Functions
-  randomBetween(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  }
+
 
   @action
-  setElement(element) {
+  setElement(element: HTMLElement) {
     this.element = element;
   }
 
@@ -57,27 +65,27 @@ export default class AppLicationLogoComponent extends Component {
   explode() {
     const letters = this.element.querySelectorAll('[data-selector=letter]');
     const newWord =
-      this.words[this.randomBetween(1, this.words.length - 1)].split('');
+      this.words[randomBetween(1, this.words.length - 1)]!.split('');
 
-    letters.forEach(function (letter, index) {
+    letters.forEach(function (letterElement, index) {
       const newLetter = newWord[index];
 
-      TweenLite.to(letter, 0.3, {
+      TweenLite.to(letterElement, 0.3, {
         css: {
-          left: this.randomBetween(-100, 100) + 'px',
-          top: this.randomBetween(-100, 100) + 'px',
+          left: randomBetween(-100, 100) + 'px',
+          top: randomBetween(-100, 100) + 'px',
         },
         onComplete: this.implode,
-        onCompleteParams: [letter, newLetter],
+        onCompleteParams: [letterElement, newLetter],
         ease: Power1.easeOut,
       });
     }, this);
   }
 
-  implode(letter, newLetter) {
-    letter.innerHTML = newLetter;
+  implode(letterElement: Element, newLetter: string) {
+    letterElement.innerHTML = newLetter;
 
-    TweenLite.to(letter, 0.3, {
+    TweenLite.to(letterElement, 0.3, {
       css: {
         left: '0px',
         top: '0px',

@@ -4,8 +4,10 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { array, concat, hash } from '@ember/helper';
 import { LinkTo } from '@ember/routing';
+// @ts-ignore
 import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 import t from 'ember-intl/helpers/t';
+// @ts-ignore
 import InViewportService from 'ember-in-viewport/services/in-viewport';
 import styles from './styles.module.css';
 import link from 'portfolio/assets/styles/objects/link.module.css';
@@ -17,7 +19,11 @@ const SOCIAL_MEDIA_LINKS = {
   twitter: 'https://twitter.com/herrwiedenmann',
 };
 
-export default class AppLicationFooterComponent extends Component {
+interface Signature {
+  Element: HTMLElement;
+}
+
+export default class AppLicationFooterComponent extends Component<Signature> {
   // Services
   @service declare inViewport: InViewportService;
 
@@ -32,7 +38,7 @@ export default class AppLicationFooterComponent extends Component {
 
   // Functions
   @action
-  setupInViewport(element) {
+  setupInViewport(element: HTMLElement) {
     const { onEnter, onExit } = this.inViewport.watchElement(element);
 
     onEnter(this.showFooter);

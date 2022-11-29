@@ -50,12 +50,42 @@
     json5 "^2.2.1"
     semver "^6.3.0"
 
+"@babel/core@^7.20.2":
+  version "7.20.5"
+  resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.20.5.tgz#45e2114dc6cd4ab167f81daf7820e8fa1250d113"
+  integrity sha512-UdOWmk4pNWTm/4DlPUl/Pt4Gz4rcEMb7CY0Y3eJl5Yz1vI8ZJGmHWaVE55LoxRjdpx0z259GE9U5STA9atUinQ==
+  dependencies:
+    "@ampproject/remapping" "^2.1.0"
+    "@babel/code-frame" "^7.18.6"
+    "@babel/generator" "^7.20.5"
+    "@babel/helper-compilation-targets" "^7.20.0"
+    "@babel/helper-module-transforms" "^7.20.2"
+    "@babel/helpers" "^7.20.5"
+    "@babel/parser" "^7.20.5"
+    "@babel/template" "^7.18.10"
+    "@babel/traverse" "^7.20.5"
+    "@babel/types" "^7.20.5"
+    convert-source-map "^1.7.0"
+    debug "^4.1.0"
+    gensync "^1.0.0-beta.2"
+    json5 "^2.2.1"
+    semver "^6.3.0"
+
 "@babel/generator@^7.20.1", "@babel/generator@^7.20.2":
   version "7.20.4"
   resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.20.4.tgz#4d9f8f0c30be75fd90a0562099a26e5839602ab8"
   integrity sha512-luCf7yk/cm7yab6CAW1aiFnmEfBJplb/JojV56MYEK7ziWfGmFlTfmL9Ehwfy4gFhbjBfWO1wj7/TuSbVNEEtA==
   dependencies:
     "@babel/types" "^7.20.2"
+    "@jridgewell/gen-mapping" "^0.3.2"
+    jsesc "^2.5.1"
+
+"@babel/generator@^7.20.5":
+  version "7.20.5"
+  resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.20.5.tgz#cb25abee3178adf58d6814b68517c62bdbfdda95"
+  integrity sha512-jl7JY2Ykn9S0yj4DQP82sYvPU+T3g0HFcWTqDLqiuA9tGRNIj9VfbtXGAYTTkyNEnQk1jkMGOdYka8aG/lulCA==
+  dependencies:
+    "@babel/types" "^7.20.5"
     "@jridgewell/gen-mapping" "^0.3.2"
     jsesc "^2.5.1"
 
@@ -260,6 +290,15 @@
     "@babel/traverse" "^7.20.1"
     "@babel/types" "^7.20.0"
 
+"@babel/helpers@^7.20.5":
+  version "7.20.6"
+  resolved "https://registry.yarnpkg.com/@babel/helpers/-/helpers-7.20.6.tgz#e64778046b70e04779dfbdf924e7ebb45992c763"
+  integrity sha512-Pf/OjgfgFRW5bApskEz5pvidpim7tEDPlFtKcNRXWmfHGn9IEI2W2flqRQXTFb7gIPTyK++N6rVHuwKut4XK6w==
+  dependencies:
+    "@babel/template" "^7.18.10"
+    "@babel/traverse" "^7.20.5"
+    "@babel/types" "^7.20.5"
+
 "@babel/highlight@^7.10.4", "@babel/highlight@^7.18.6":
   version "7.18.6"
   resolved "https://registry.yarnpkg.com/@babel/highlight/-/highlight-7.18.6.tgz#81158601e93e2563795adcbfbdf5d64be3f2ecdf"
@@ -273,6 +312,11 @@
   version "7.20.3"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.20.3.tgz#5358cf62e380cf69efcb87a7bb922ff88bfac6e2"
   integrity sha512-OP/s5a94frIPXwjzEcv5S/tpQfc6XhxYUnmWpgdqMWGgYCuErA3SzozaRAMQgSZWKeTJxht9aWAkUY+0UzvOFg==
+
+"@babel/parser@^7.20.5":
+  version "7.20.5"
+  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.20.5.tgz#7f3c7335fe417665d929f34ae5dceae4c04015e8"
+  integrity sha512-r27t/cy/m9uKLXQNWWebeCUHgnAZq0CpG1OwKRxzJMP1vpSU4bSIK2hq+/cp0bQxetkXx38n09rNu8jVkcK/zA==
 
 "@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression@^7.18.6":
   version "7.18.6"
@@ -976,10 +1020,35 @@
     debug "^4.1.0"
     globals "^11.1.0"
 
+"@babel/traverse@^7.20.5":
+  version "7.20.5"
+  resolved "https://registry.yarnpkg.com/@babel/traverse/-/traverse-7.20.5.tgz#78eb244bea8270fdda1ef9af22a5d5e5b7e57133"
+  integrity sha512-WM5ZNN3JITQIq9tFZaw1ojLU3WgWdtkxnhM1AegMS+PvHjkM5IXjmYEGY7yukz5XS4sJyEf2VzWjI8uAavhxBQ==
+  dependencies:
+    "@babel/code-frame" "^7.18.6"
+    "@babel/generator" "^7.20.5"
+    "@babel/helper-environment-visitor" "^7.18.9"
+    "@babel/helper-function-name" "^7.19.0"
+    "@babel/helper-hoist-variables" "^7.18.6"
+    "@babel/helper-split-export-declaration" "^7.18.6"
+    "@babel/parser" "^7.20.5"
+    "@babel/types" "^7.20.5"
+    debug "^4.1.0"
+    globals "^11.1.0"
+
 "@babel/types@^7.1.6", "@babel/types@^7.12.13", "@babel/types@^7.18.10", "@babel/types@^7.18.6", "@babel/types@^7.18.9", "@babel/types@^7.19.0", "@babel/types@^7.20.0", "@babel/types@^7.20.2", "@babel/types@^7.4.4", "@babel/types@^7.7.0", "@babel/types@^7.7.2":
   version "7.20.2"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.20.2.tgz#67ac09266606190f496322dbaff360fdaa5e7842"
   integrity sha512-FnnvsNWgZCr232sqtXggapvlkk/tuwR/qhGzcmxI0GXLCjmPYQPzio2FbdlWuY6y1sHFfQKk+rRbUZ9VStQMog==
+  dependencies:
+    "@babel/helper-string-parser" "^7.19.4"
+    "@babel/helper-validator-identifier" "^7.19.1"
+    to-fast-properties "^2.0.0"
+
+"@babel/types@^7.20.5":
+  version "7.20.5"
+  resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.20.5.tgz#e206ae370b5393d94dfd1d04cd687cace53efa84"
+  integrity sha512-c9fst/h2/dcF7H+MJKZ2T0KjEQ8hY/BNnDk/H3XY8C4Aw/eWQXWn/lWntHF9ooUBnGmEvbfGrTgLWc+um0YDUg==
   dependencies:
     "@babel/helper-string-parser" "^7.19.4"
     "@babel/helper-validator-identifier" "^7.19.1"
@@ -1628,50 +1697,34 @@
     "@glimmer/interfaces" "^0.42.2"
     "@glimmer/util" "^0.42.2"
 
-"@glint/config@^0.9.7":
-  version "0.9.7"
-  resolved "https://registry.yarnpkg.com/@glint/config/-/config-0.9.7.tgz#43077e9cd2743d3bb66f6c4670681c49644ac139"
-  integrity sha512-XkWIZ3fuOlcofUJUaJmRS57mVVNi+Af2HtrZkBXEOCh4+BNz2wclxv2WKvkhmtvLhEUOhHb5eU3gwI58SuwgXQ==
+"@glint/core@^1.0.0-beta.1":
+  version "1.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@glint/core/-/core-1.0.0-beta.1.tgz#1618113d8162912a99dd8e8836e6c50aa68c522a"
+  integrity sha512-J3c5xvAw5IShwqD6h3LFLHKT70D39tS3R6w0RaSIyrWUEx2VDVOMAM9RnggT3RvuGAO5ntYxFZso9CaNE5iMYA==
   dependencies:
+    "@glimmer/syntax" "^0.84.2"
     escape-string-regexp "^4.0.0"
-    minimatch "^3.0.4"
-    resolve "^1.17.0"
     silent-error "^1.1.1"
-
-"@glint/core@^0.9.7":
-  version "0.9.7"
-  resolved "https://registry.yarnpkg.com/@glint/core/-/core-0.9.7.tgz#887dbdfa10d89702549de36197cc2eb0783a5c86"
-  integrity sha512-1YLHNRnuYI1dDUKWq/ue4JqiBt6TVR8e7VQJWy37CKB0tiBhWw/FPvr7/S7XbUxCt6KHO0Kl0x/eqLunu3WiQw==
-  dependencies:
-    "@glint/config" "^0.9.7"
-    "@glint/transform" "^0.9.7"
-    resolve "^1.17.0"
     uuid "^8.3.2"
     vscode-languageserver "^8.0.1"
     vscode-languageserver-textdocument "^1.0.5"
     vscode-uri "^3.0.2"
     yargs "^17.5.1"
 
-"@glint/environment-ember-loose@^0.9.7":
-  version "0.9.7"
-  resolved "https://registry.yarnpkg.com/@glint/environment-ember-loose/-/environment-ember-loose-0.9.7.tgz#8d27e93d6bd3afd59c46acad27a2c3130045dee0"
-  integrity sha512-MlCGZtB1Clp4vQWIm2APSnCm7nL8wVhFMOhVy2qzpV0nfLyg3pcN9CQHNpfdJvCydBB72cA4/ahPj7VEFL6xsg==
-  dependencies:
-    "@glint/config" "^0.9.7"
-    "@glint/template" "^0.9.7"
+"@glint/environment-ember-loose@^1.0.0-beta.1":
+  version "1.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@glint/environment-ember-loose/-/environment-ember-loose-1.0.0-beta.1.tgz#9587f23049f347eeda25f101f90d632fb8ee2b41"
+  integrity sha512-S7Rs03GJp/nDh1t0tI78HIIJGOt2yUYS6Gd+EHroYO3pi69aNENcZmCjFbqQPTAoEOdE7jTaAF4iM91cUQHlEw==
 
-"@glint/template@^0.9.7":
-  version "0.9.7"
-  resolved "https://registry.yarnpkg.com/@glint/template/-/template-0.9.7.tgz#8736f357482841962bc66e75831f189f33677165"
-  integrity sha512-MCp8GxQDIbH8ZzfNxHhVqCSKlydBgQfBEwJLDpN81lgFRCldSDPueIbk8sz3EhpGiZJVdNQbpGeYIDsUXe1ocg==
+"@glint/environment-ember-template-imports@^1.0.0-beta.1":
+  version "1.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@glint/environment-ember-template-imports/-/environment-ember-template-imports-1.0.0-beta.1.tgz#66e8c632a108de2212f9cf8afee6075836902dd4"
+  integrity sha512-NsNLd6g91pBMVz+nVQWkH34hBrMgD/hGWmGJJuTFL9LRnXJuqKYK8kagxYOfSVvQPv4TB/sG/z6E+QRhJxeKtQ==
 
-"@glint/transform@^0.9.7":
-  version "0.9.7"
-  resolved "https://registry.yarnpkg.com/@glint/transform/-/transform-0.9.7.tgz#01c60249c1fe6663955d2acd2cf7625a551fb3f3"
-  integrity sha512-vd0th+Zo4cirYepASpC0fE0ZCqAcI9Y6qHYE0xi4+MY05bFRxBr7Q9ggDoWk+slynTyUrVgzCCeazAYOlZsYcg==
-  dependencies:
-    "@glimmer/syntax" "^0.84.2"
-    "@glint/config" "^0.9.7"
+"@glint/template@^1.0.0-beta.1":
+  version "1.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@glint/template/-/template-1.0.0-beta.1.tgz#2474d5cde637c8742f3da39c53ccffae03bcb997"
+  integrity sha512-JQboeRc9BCuYu2Avle592L+gWxKvJggwxkNKxpHlOeg9Xng5f/sMvG6yWssC8J4fURJmH5tvF7e/BgdUAMegeg==
 
 "@handlebars/parser@~2.0.0":
   version "2.0.0"
@@ -6868,7 +6921,7 @@ ember-modifier-manager-polyfill@^1.2.0:
     ember-cli-version-checker "^2.1.2"
     ember-compatibility-helpers "^1.2.0"
 
-"ember-modifier@^2.1.2 || ^3.0.0 || ^4.0.0":
+"ember-modifier@^2.1.2 || ^3.0.0 || ^4.0.0", ember-modifier@^3.2.7:
   version "3.2.7"
   resolved "https://registry.yarnpkg.com/ember-modifier/-/ember-modifier-3.2.7.tgz#f2d35b7c867cbfc549e1acd8d8903c5ecd02ea4b"
   integrity sha512-ezcPQhH8jUfcJQbbHji4/ZG/h0yyj1jRDknfYue/ypQS8fM8LrGcCMo0rjDZLzL1Vd11InjNs3BD7BdxFlzGoA==
@@ -11949,6 +12002,17 @@ prettier-linter-helpers@^1.0.0:
   integrity sha512-GbK2cP9nraSSUF9N2XwUwqfzlAFlMNYYl+ShE/V+H8a9uNl/oUqB1w2EL54Jh0OlyRSd8RfWYJ3coVS4TROP2w==
   dependencies:
     fast-diff "^1.1.2"
+
+prettier-plugin-ember-template-tag@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-ember-template-tag/-/prettier-plugin-ember-template-tag-0.2.1.tgz#05fc27849ca5c26cef0acc849bc8f8d98f1eb16a"
+  integrity sha512-I3S1VbEuHt4AwYzcP+Er53Txmrpm/a+gLZY394KzbdOCxGXWjVYNfdJz5qU11KLiHp3cGz1m/5ywOastEFbUrA==
+  dependencies:
+    "@babel/core" "^7.20.2"
+    "@glimmer/syntax" "^0.84.2"
+    ember-cli-htmlbars "^6.1.1"
+    ember-template-imports "^3.4.0"
+    prettier "^2.7.1"
 
 prettier@^2.5.1, prettier@^2.7.1:
   version "2.7.1"

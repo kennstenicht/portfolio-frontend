@@ -1,5 +1,4 @@
 import { helper } from '@ember/component/helper';
-import { isEmpty } from '@ember/utils';
 
 interface IClassNames {
   [className: string]: string;
@@ -10,13 +9,13 @@ interface Modifiers {
 }
 
 export function bem(
-  positional: [IClassNames, string],
+  positional: [IClassNames] | [IClassNames, string],
   named: Record<string, Modifiers>
 ) {
   let [module, element] = positional;
   let { modifiers } = named;
-  let classes = [];
-  let baseClass = isEmpty(element) ? 'scope' : element;
+  let classes: string[] = [];
+  let baseClass = !element ? 'scope' : element;
 
   if (!module) {
     return '';
@@ -28,7 +27,7 @@ export function bem(
     Object.keys(modifiers).forEach((key) => {
       let modifier = modifiers?.[key];
 
-      if (isEmpty(modifier)) {
+      if (!modifier) {
         return;
       }
 

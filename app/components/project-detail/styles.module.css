@@ -2,12 +2,7 @@
    # PROJECT DETAIL
    ========================================================================== */
 
-.scope--style-ad-hoc {
-  --color-background: #181d1f;
-  --color-typo: #f2f2f2;
-  --color-primary: #008d84;
-  --color-secondary: #242a30;
-}
+@import "../../assets/styles/settings/settings.scope-styles.css";
 
 .scope {
   block-name: c-project-detail;

@@ -6,7 +6,6 @@ import { hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { LinkTo } from '@ember/routing';
 import RouterService from '@ember/routing/router-service';
-import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 import t from 'ember-intl/helpers/t';
 import { timeout, task } from 'ember-concurrency';
 import animatedIf from 'ember-animated/components/animated-if';
@@ -16,7 +15,7 @@ import bem from 'portfolio/helpers/bem';
 import Logo from './logo/index';
 
 interface Signature {
-  Element: HTMLElement;
+  Element: HTMLHeadElement;
   Args: {
     isNavigationOpen: boolean;
     toggleNavigation: Function;

@@ -11,7 +11,7 @@ import Footer from './footer';
 import CookieNotice from './cookie-notice';
 
 interface Signature {
-  Element: HTMLElement;
+  Element: HTMLDivElement;
   Blocks: {
     default: [];
   };

@@ -12,11 +12,14 @@ import ProjectModel from 'portfolio/models/project';
 import bem from 'portfolio/helpers/bem';
 import styles from './styles.module.css';
 
-interface Args {
-  project: ProjectModel;
+interface Signature {
+  Element: HTMLDivElement;
+  Args: {
+    project: ProjectModel;
+  }
 }
 
-export default class ProjectDetailHeaderComponent extends Component<Args> {
+export default class ProjectDetailHeaderComponent extends Component<Signature> {
   // Services
   @service swiper!: SwiperService;
 
@@ -25,7 +28,7 @@ export default class ProjectDetailHeaderComponent extends Component<Args> {
   styles = styles;
 
   // Hooks
-  constructor(owner: unknown, args: Args) {
+  constructor(owner: unknown, args: Signature['Args']) {
     super(owner, args);
 
     this.swiper.position = this.args.project.position;

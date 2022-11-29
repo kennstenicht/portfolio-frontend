@@ -12,6 +12,7 @@ import styles from './styles.module.css';
 import buttonStyle from 'portfolio/assets/styles/objects/button.module.css';
 
 interface Signature {
+  Element: HTMLDivElement;
   Args: {
     showCookieNotice: boolean;
     toggleCookieNotice: Function;
