@@ -58,7 +58,6 @@
     "app/**/*",
     "tests/**/*",
     "types/**/*",
-    "node_modules/ember-cli-flash/index.d.ts",
     "lib/content-generator"
   ]
 }
