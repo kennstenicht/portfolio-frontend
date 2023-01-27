@@ -34,7 +34,7 @@
     margin-top: 15vh;
   }
 
-  .scope--active {
+  .scope--is-active {
     z-index: 999;
   }
 

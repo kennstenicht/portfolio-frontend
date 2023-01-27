@@ -24,7 +24,6 @@
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
-    "@ember/render-modifiers": "^2.0.5",
     "@ember/string": "^3.0.1",
     "@ember/test-helpers": "^2.9.3",
     "@embroider/compat": "^2.1.1",
@@ -97,7 +96,7 @@
     "ember-intl": "^5.7.2",
     "ember-load-initializers": "^2.1.2",
     "ember-metrics": "^2.0.0-beta.2",
-    "ember-modifier": "^3.2.7",
+    "ember-modifier": "^4.0.0",
     "ember-qunit": "^6.1.1",
     "ember-resolver": "^10.0.0",
     "ember-responsive": "^5.0.0",

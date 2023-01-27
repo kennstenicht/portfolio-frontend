@@ -1,18 +1,18 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
-import Swiper, { Pagination, Keyboard, Mousewheel, Parallax } from 'swiper';
+import { FreeMode, Pagination, Keyboard, Mousewheel, Parallax } from 'swiper';
 import AnimatedEach from 'ember-animated/components/animated-each';
 import move from 'ember-animated/motions/move';
 import { easeOut, easeIn } from 'ember-animated/easings/cosine';
 import TransitionContext from 'ember-animated/-private/transition-context';
-import didInsert from '@ember/render-modifiers/modifiers/did-insert';
-import willDestroy from '@ember/render-modifiers/modifiers/will-destroy';
 import SwiperService from 'portfolio/services/swiper';
+import swiper from 'portfolio/modifiers/swiper';
 import bem from 'portfolio/helpers/bem';
-import Preview from './preview';
-import styles from './styles.module.css';
 import Project from 'portfolio/models/project';
+import Preview from './preview';
+import previewStyles from './preview/styles.module.css';
+import styles from './styles.module.css';
 
 interface Signature {
   Element: HTMLElement;
@@ -28,22 +28,22 @@ export default class ProjectListComponent extends Component<Signature> {
   // Defaults
   duration: number = 600;
 
-  // Actions
-  @action
-  initSwiper(element: HTMLElement) {
-    Swiper.use([Pagination, Keyboard, Mousewheel, Parallax]);
-    let swiperClass = element.classList[0];
-    let itemElement = element.querySelector('[data-selector=swiper-item]');
-    let itemClass = itemElement?.classList[0];
-
-    this.swiper.instance = new Swiper(element, {
+  // Getter and setter
+  get swiperOptions() {
+    return {
+      modules: [FreeMode, Pagination, Keyboard, Mousewheel, Parallax],
       slidesPerView: 'auto',
       centeredSlides: true,
       grabCursor: true,
       simulateTouch: true,
       parallax: true,
-      freeMode: true,
       initialSlide: this.swiper.position,
+
+      freeMode: {
+        enabled: true,
+        minimumVelocity: 0.2,
+        momentum: false,
+      },
 
       keyboard: {
         enabled: true,
@@ -55,22 +55,10 @@ export default class ProjectListComponent extends Component<Signature> {
       },
 
       // Classes
-      wrapperClass: `${swiperClass}__wrapper`,
-      slideClass: itemClass,
-      slideActiveClass: `${itemClass}--active`,
-      slideDuplicateActiveClass: `${itemClass}--duplicated-active`,
-      slideVisibleClass: `${itemClass}--visible`,
-      slideDuplicateClass: `${itemClass}--duplicatd`,
-      slideNextClass: `${itemClass}--next`,
-      slideDuplicateNextClass: `${itemClass}--duplicatd-next`,
-      slidePrevClass: `${itemClass}--prev`,
-      slideDuplicatePrevClass: `${itemClass}--duplicatd-prev`,
-    });
-  }
-
-  @action
-  destroySwiper() {
-    this.swiper.instance?.destroy(true, true);
+      wrapperClass: styles.wrapper,
+      slideClass: previewStyles.scope,
+      slideActiveClass: previewStyles['scope--is-active']
+    }
   }
 
   // Functions
@@ -122,8 +110,7 @@ export default class ProjectListComponent extends Component<Signature> {
   <template>
     <div
       class={{bem styles}}
-      {{didInsert this.initSwiper}}
-      {{willDestroy this.destroySwiper}}
+      {{swiper options=this.swiperOptions}}
       ...attributes
     >
       <div class={{bem styles "wrapper"}}>

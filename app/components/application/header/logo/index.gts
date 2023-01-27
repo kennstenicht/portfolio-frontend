@@ -2,14 +2,9 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 // @ts-ignore
 import { on } from '@ember/modifier';
-import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 import { gsap } from 'gsap';
 import styles from './styles.module.css';
 import bem from 'portfolio/helpers/bem';
-
-const randomBetween = function(min: number, max: number) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
 
 interface Signature {
   Element: HTMLDivElement;
@@ -54,13 +49,9 @@ export default class AppLicationLogoComponent extends Component<Signature> {
 
   // Functions
   @action
-  setElement(element: HTMLElement) {
-    this.element = element;
-  }
-
-  @action
-  explode() {
-    const letters = this.element.querySelectorAll('[data-selector=letter]');
+  explode(event: MouseEvent) {
+    const element = event.target as HTMLElement
+    const letters = element.querySelectorAll('[data-selector=letter]');
     const newWord =
       this.words[randomBetween(1, this.words.length - 1)]!.split('');
 
@@ -98,7 +89,6 @@ export default class AppLicationLogoComponent extends Component<Signature> {
     <div
       class={{bem styles}}
       role="button"
-      {{didInsert this.setElement}}
       {{on "mouseenter" this.explode}}
       ...attributes
     >
@@ -109,4 +99,8 @@ export default class AppLicationLogoComponent extends Component<Signature> {
       {{/each}}
     </div>
   </template>
+}
+
+const randomBetween = function(min: number, max: number) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }

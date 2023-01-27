@@ -1,13 +1,10 @@
 import Component from '@glimmer/component';
-import { inject as service } from '@ember/service';
-import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import { array, concat, hash } from '@ember/helper';
+import { array, concat, hash, fn } from '@ember/helper';
 import { LinkTo } from '@ember/routing';
-import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 import t from 'ember-intl/helpers/t';
 // @ts-ignore
-import InViewportService from 'ember-in-viewport/services/in-viewport';
+import inViewport from 'ember-in-viewport/modifiers/in-viewport';
 import styles from './styles.module.css';
 import link from 'portfolio/assets/styles/objects/link.module.css';
 import bem from 'portfolio/helpers/bem';
@@ -23,9 +20,6 @@ interface Signature {
 }
 
 export default class AppLicationFooterComponent extends Component<Signature> {
-  // Services
-  @service declare inViewport: InViewportService;
-
   // Defaults
   duration: number = 0;
   @tracked isToggled: boolean = false;
@@ -35,30 +29,15 @@ export default class AppLicationFooterComponent extends Component<Signature> {
     return new Date().getFullYear();
   }
 
-  // Functions
-  @action
-  setupInViewport(element: HTMLElement) {
-    const { onEnter, onExit } = this.inViewport.watchElement(element);
-
-    onEnter(this.showFooter);
-    onExit(this.hideFooter);
-  }
-
-  @action
-  showFooter() {
-    this.isToggled = true;
-  }
-
-  @action
-  hideFooter() {
-    this.isToggled = false;
-  }
-
   // Template
   <template>
     <footer
       class={{bem styles modifiers=(hash is-toggled=this.isToggled)}}
-      {{didInsert this.setupInViewport}}
+      {{inViewport
+        onEnter=(fn (mut this.isToggled) true)
+        onExit=(fn (mut this.isToggled) false)
+        viewportSpy=true
+      }}
       ...attributes
     >
       <div class={{bem styles "wrapper"}}>
