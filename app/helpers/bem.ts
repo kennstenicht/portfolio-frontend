@@ -12,10 +12,10 @@ export function bem(
   positional: [IClassNames] | [IClassNames, string],
   named: Record<string, Modifiers>
 ) {
-  let [module, element] = positional;
-  let { modifiers } = named;
-  let classes: string[] = [];
-  let baseClass = !element ? 'scope' : element;
+  const [module, element] = positional;
+  const { modifiers } = named;
+  const classes: string[] = [];
+  const baseClass = !element ? 'scope' : element;
 
   if (!module) {
     return '';
@@ -25,7 +25,7 @@ export function bem(
 
   if (modifiers) {
     Object.keys(modifiers).forEach((key) => {
-      let modifier = modifiers?.[key];
+      const modifier = modifiers?.[key];
 
       if (!modifier) {
         return;
