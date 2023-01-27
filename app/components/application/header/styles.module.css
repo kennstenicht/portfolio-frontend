@@ -7,7 +7,7 @@
   --burger-height: 12px;
   --burger-width: 20px;
   --burger-line-height: 2px;
-  --burger-to-translate: calc(#{var(--burger-height)} - #{var(--burger-line-height)} / 2);
+  --burger-to-translate: calc((var(--burger-height) - var(--burger-line-height)) / 2);
 }
 
 
