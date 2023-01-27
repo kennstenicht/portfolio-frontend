@@ -3,9 +3,12 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { Input } from '@ember/component';
 import { hash } from '@ember/helper';
+// @ts-ignore
 import { on } from '@ember/modifier';
 import t from 'ember-intl/helpers/t';
+// @ts-ignore
 import CookiesService from 'ember-cookies/services/cookies';
+// @ts-ignore
 import MediaService from 'ember-responsive/services/media';
 import bem from 'portfolio/helpers/bem';
 import styles from './styles.module.css';
@@ -35,7 +38,7 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
 
   // Getter and setter
   get allowAnalyseCookies() {
-    return this.getCookieWithFallback('allow_analyse_cookies', false);
+    return this.getCookieWithFallback('allow_analyse_cookies', 'false');
   }
 
   set allowAnalyseCookies(value) {
@@ -43,7 +46,7 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
   }
 
   get allowMarketingCookies() {
-    return this.getCookieWithFallback('allow_marketing_cookies', false);
+    return this.getCookieWithFallback('allow_marketing_cookies', 'false');
   }
 
   set allowMarketingCookies(value) {
@@ -63,7 +66,7 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
     this.saveSettings();
   }
 
-  getCookieWithFallback(cookie, fallback) {
+  getCookieWithFallback(cookie: string, fallback: string) {
     if (!this.cookies.exists(cookie)) {
       this.cookies.write(cookie, fallback);
     }

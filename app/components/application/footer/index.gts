@@ -4,7 +4,6 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { array, concat, hash } from '@ember/helper';
 import { LinkTo } from '@ember/routing';
-// @ts-ignore
 import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 import t from 'ember-intl/helpers/t';
 // @ts-ignore

@@ -51,6 +51,7 @@ export default class ProjectDetailHeaderComponent extends Component<Signature> {
         'z-index': '4',
       });
 
+      // @ts-ignore
       parallel(move(sprite), adjustColor('color', sprite));
     });
   }

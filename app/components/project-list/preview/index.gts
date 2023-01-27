@@ -46,6 +46,7 @@ export default class ProjectListPreviewComponent extends Component<Signature> {
         'z-index': '4',
       });
 
+      // @ts-ignore
       parallel(move(sprite), adjustColor('color', sprite));
     });
   }
@@ -70,7 +71,7 @@ export default class ProjectListPreviewComponent extends Component<Signature> {
         </AnimatedValue>
 
         <header class={{bem styles "header"}}>
-          <div class={{bem styles "index" data-swiper-parallax="50"}}>
+          <div class={{bem styles "index"}} data-swiper-parallax="50">
             {{indexNumber @index}}
           </div>
 
@@ -91,7 +92,7 @@ export default class ProjectListPreviewComponent extends Component<Signature> {
             @duration={{this.duration}}
             as |subtitle|
           >
-            <div class={{bem styles "subtitle" data-swiper-parallax="90"}}>
+            <div class={{bem styles "subtitle"}} data-swiper-parallax="90">
               {{subtitle}}
             </div>
           </AnimatedValue>

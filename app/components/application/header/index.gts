@@ -3,6 +3,7 @@ import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import { hash } from '@ember/helper';
+// @ts-ignore
 import { on } from '@ember/modifier';
 import { LinkTo } from '@ember/routing';
 import RouterService from '@ember/routing/router-service';

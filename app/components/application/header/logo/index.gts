@@ -1,10 +1,9 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+// @ts-ignore
 import { on } from '@ember/modifier';
-// @ts-ignore
 import didInsert from '@ember/render-modifiers/modifiers/did-insert';
-// @ts-ignore
-import { TweenLite, Power1 } from 'gsap/TweenMax';
+import { gsap } from 'gsap';
 import styles from './styles.module.css';
 import bem from 'portfolio/helpers/bem';
 
@@ -54,8 +53,6 @@ export default class AppLicationLogoComponent extends Component<Signature> {
   }
 
   // Functions
-
-
   @action
   setElement(element: HTMLElement) {
     this.element = element;
@@ -70,14 +67,15 @@ export default class AppLicationLogoComponent extends Component<Signature> {
     letters.forEach(function (letterElement, index) {
       const newLetter = newWord[index];
 
-      TweenLite.to(letterElement, 0.3, {
+      gsap.to(letterElement, {
         css: {
           left: randomBetween(-100, 100) + 'px',
           top: randomBetween(-100, 100) + 'px',
         },
+        duration: 0.3,
         onComplete: this.implode,
         onCompleteParams: [letterElement, newLetter],
-        ease: Power1.easeOut,
+        ease: "power1.out",
       });
     }, this);
   }
@@ -85,12 +83,13 @@ export default class AppLicationLogoComponent extends Component<Signature> {
   implode(letterElement: Element, newLetter: string) {
     letterElement.innerHTML = newLetter;
 
-    TweenLite.to(letterElement, 0.3, {
+    gsap.to(letterElement, {
       css: {
         left: '0px',
         top: '0px',
       },
-      ease: Power1.easeIn,
+      duration: 0.3,
+      ease: "power1.in",
     });
   }
 

@@ -10,7 +10,7 @@ interface Signature {
   }
 }
 
-export default class PageComponent extends Component<Signature> {
+export default class ProjectDetailDisasterMgmt extends Component<Signature> {
   <template>
     <div class={{bem styles}} ...attributes>
       {{{@project.html}}}
