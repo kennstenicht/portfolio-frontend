@@ -75,7 +75,7 @@ export default class AppLicationComponent extends Component<Signature> {
     <div
       class={{bem
         styles
-        modifiers=(hash
+        (hash
           style=this.urlSegments navigation-is-open=this.isNavigationOpen
         )
       }}

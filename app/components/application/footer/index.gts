@@ -21,7 +21,6 @@ interface Signature {
 
 export default class AppLicationFooterComponent extends Component<Signature> {
   // Defaults
-  duration: number = 0;
   @tracked isToggled: boolean = false;
 
   // Getter and setter
@@ -32,7 +31,7 @@ export default class AppLicationFooterComponent extends Component<Signature> {
   // Template
   <template>
     <footer
-      class={{bem styles modifiers=(hash is-toggled=this.isToggled)}}
+      class={{bem styles (hash is-toggled=this.isToggled)}}
       {{inViewport
         onEnter=(fn (mut this.isToggled) true)
         onExit=(fn (mut this.isToggled) false)

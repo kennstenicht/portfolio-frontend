@@ -82,7 +82,7 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
   // Template
   <template>
     <div
-      class={{bem styles modifiers=(hash is-visible=@showCookieNotice)}}
+      class={{bem styles (hash is-visible=@showCookieNotice)}}
       ...attributes
     >
       <div class={{bem styles "header"}}>
@@ -121,7 +121,7 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
             class="{{bem styles 'button'}}
               {{bem
                 buttonStyle
-                modifiers=(hash size=(if this.media.isDesktop "default" "full"))
+                (hash size=(if this.media.isDesktop "default" "full"))
               }}"
             type="button"
             {{on "click" this.allowSelectedCookies}}
@@ -132,7 +132,7 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
             class="{{bem styles 'button'}}
               {{bem
                 buttonStyle
-                modifiers=(hash size=(if this.media.isDesktop "default" "full"))
+                (hash size=(if this.media.isDesktop "default" "full"))
               }}"
             type="button"
             {{on "click" this.allowAllCookies}}

@@ -59,7 +59,7 @@ export default class ProjectDetailHeaderComponent extends Component<Signature> {
   // Template
   <template>
     <div
-      class={{bem this.styles modifiers=(hash style=@project.id)}}
+      class={{bem this.styles (hash style=@project.id)}}
       ...attributes
     >
       <AnimatedValue
@@ -69,7 +69,7 @@ export default class ProjectDetailHeaderComponent extends Component<Signature> {
         as |id|
       >
         <div
-          class={{bem this.styles "background" modifiers=(hash style=id)}}
+          class={{bem this.styles "background" (hash style=id)}}
           style="background-image: url('/assets/projects/{{id}}/{{id}}_preview.jpg')"
         ></div>
       </AnimatedValue>

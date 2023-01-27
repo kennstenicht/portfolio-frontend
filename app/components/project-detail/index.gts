@@ -38,7 +38,7 @@ export default class ProjectDetail extends Component<Signature> {
   <template>
     <AnimatedValue @value={{@project}} as |project|>
       <article
-        class={{bem styles modifiers=(hash style=project.id)}}
+        class={{bem styles (hash style=project.id)}}
         ...attributes
       >
         <Header @project={{project}} />

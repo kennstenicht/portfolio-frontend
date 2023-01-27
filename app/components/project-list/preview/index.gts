@@ -54,7 +54,7 @@ export default class ProjectListPreviewComponent extends Component<Signature> {
   // Template
   <template>
     <article
-      class={{bem styles modifiers=(hash style=@project.id)}}
+      class={{bem styles (hash style=@project.id)}}
       ...attributes
     >
       <LinkTo @route="projects.show" @model={{@project}}>
@@ -65,7 +65,7 @@ export default class ProjectListPreviewComponent extends Component<Signature> {
           as |id|
         >
           <div
-            class={{bem styles "background" modifiers=(hash style=id)}}
+            class={{bem styles "background" (hash style=id)}}
             style="background-image: url('/assets/projects/{{id}}/{{id}}_preview.jpg')"
           ></div>
         </AnimatedValue>
