@@ -9,11 +9,11 @@ interface Modifiers {
 }
 
 export function bem(
-  positional: [
-    IClassNames,
-    undefined | string | Modifiers,
-    undefined | Modifiers
-  ]
+  positional:
+    | [IClassNames]
+    | [IClassNames, string]
+    | [IClassNames, Modifiers]
+    | [IClassNames, string, Modifiers]
 ) {
   const module = positional[0];
   let element = positional[1];
