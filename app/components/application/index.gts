@@ -37,7 +37,7 @@ export default class AppLicationComponent extends Component<Signature> {
       .split('/')
       .filter((n) => n);
 
-    return segments[segments.length - 1] ?? '';
+    return segments[segments.length - 1] ?? 'default';
   }
 
   // Hooks
