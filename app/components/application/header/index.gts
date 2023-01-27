@@ -74,7 +74,7 @@ export default class AppLicationHeaderComponent extends Component<Signature> {
     <header
       class={{bem
         styles
-        modifiers=(hash
+        (hash
           is-navigation-open=@isNavigationOpen
           is-project-detail=this.isProjectDetail
         )
@@ -104,13 +104,13 @@ export default class AppLicationHeaderComponent extends Component<Signature> {
           </div>
           <div class={{bem styles "burger"}}>
             <div
-              class={{bem styles "layer" modifiers=(hash is-top=true)}}
+              class={{bem styles "layer" (hash is-top=true)}}
             ></div>
             <div
-              class={{bem styles "layer" modifiers=(hash is-middle=true)}}
+              class={{bem styles "layer" (hash is-middle=true)}}
             ></div>
             <div
-              class={{bem styles "layer" modifiers=(hash is-bottom=true)}}
+              class={{bem styles "layer" (hash is-bottom=true)}}
             ></div>
           </div>
         </div>
