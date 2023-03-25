@@ -1,5 +1,4 @@
 import Component from '@glimmer/component';
-import { inject as service } from '@ember/service';
 import { hash } from '@ember/helper';
 import AnimatedValue from 'ember-animated/components/animated-value';
 import move from 'ember-animated/motions/move';
@@ -7,7 +6,6 @@ import resize from 'ember-animated/motions/resize';
 import { parallel } from 'ember-animated';
 import adjustColor from 'ember-animated/motions/adjust-color';
 import TransitionContext from 'ember-animated/-private/transition-context';
-import SwiperService from 'portfolio/services/swiper';
 import ProjectModel from 'portfolio/models/project';
 import bem from 'portfolio/helpers/bem';
 import styles from './styles.module.css';
@@ -19,20 +17,10 @@ interface Signature {
   }
 }
 
-export default class ProjectDetailHeaderComponent extends Component<Signature> {
-  // Services
-  @service swiper!: SwiperService;
-
+export default class ProjectDetailHeader extends Component<Signature> {
   // Defaults
   duration: number = 600;
   styles = styles;
-
-  // Hooks
-  constructor(owner: unknown, args: Signature['Args']) {
-    super(owner, args);
-
-    this.swiper.position = this.args.project.position;
-  }
 
   // Functions
   *backgroundTransition({ sentSprites }: TransitionContext) {

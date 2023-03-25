@@ -1,10 +1,12 @@
 import Component from '@glimmer/component';
+import { inject as service } from '@ember/service';
 import { LinkTo } from '@ember/routing';
 import { hash } from '@ember/helper';
 import AnimatedValue from 'ember-animated/components/animated-value';
 import t from 'ember-intl/helpers/t';
 import ProjectModel from 'portfolio/models/project';
 import bem from 'portfolio/helpers/bem';
+import SwiperService from 'portfolio/services/swiper';
 import link from 'portfolio/assets/styles/objects/link.module.css';
 import styles from './styles.module.css';
 import Header from './header';
@@ -35,6 +37,17 @@ interface Signature {
 }
 
 export default class ProjectDetail extends Component<Signature> {
+  // Services
+  @service swiper!: SwiperService;
+
+  // Hooks
+  constructor(owner: unknown, args: Signature['Args']) {
+    super(owner, args);
+
+    this.swiper.position = this.args.project.position;
+  }
+
+  // Template
   <template>
     <AnimatedValue @value={{@project}} as |project|>
       <article
