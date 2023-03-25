@@ -11,14 +11,14 @@ interface Signature {
   }
 }
 
-export default class ProjectDetailSimmaryComponent extends Component<Signature> {
+export default class ProjectDetailSummary extends Component<Signature> {
   <template>
     <div class={{bem styles (hash style=@project.id)}} ...attributes>
       <div class={{bem styles "excerpt"}}>
-        {{@project.excerpt}}
+        {{{@project.excerpt}}}
       </div>
       <div class={{bem styles "meta-info"}}>
-        {{@project.facts}}
+        {{{@project.facts}}}
       </div>
     </div>
   </template>

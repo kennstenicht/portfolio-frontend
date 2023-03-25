@@ -25,7 +25,7 @@
     position: absolute;
     bottom: var(--spacing-large);
     left: var(--spacing-large);
-    width: calc(40vw - #{var(--spacing-base)});
+    width: calc(40vw - var(--spacing-base));
   }
 
     .title {

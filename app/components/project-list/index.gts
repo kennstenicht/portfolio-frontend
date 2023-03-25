@@ -13,6 +13,7 @@ import Project from 'portfolio/models/project';
 import Preview from './preview';
 import previewStyles from './preview/styles.module.css';
 import styles from './styles.module.css';
+import { SwiperOptions } from 'swiper/types/swiper-options';
 
 interface Signature {
   Element: HTMLElement;
@@ -33,7 +34,7 @@ export default class ProjectListComponent extends Component<Signature> {
     return this.args.projects.slice().sort((a, b) => a.position - b.position);
   }
 
-  get swiperOptions() {
+  get swiperOptions(): SwiperOptions {
     return {
       modules: [FreeMode, Pagination, Keyboard, Mousewheel, Parallax],
       slidesPerView: 'auto',
@@ -42,6 +43,7 @@ export default class ProjectListComponent extends Component<Signature> {
       simulateTouch: true,
       parallax: true,
       initialSlide: this.swiper.position,
+      spaceBetween: 80,
 
       freeMode: {
         enabled: true,
@@ -59,8 +61,8 @@ export default class ProjectListComponent extends Component<Signature> {
       },
 
       // Classes
-      wrapperClass: styles.wrapper,
-      slideClass: previewStyles.scope,
+      wrapperClass: styles['wrapper'],
+      slideClass: previewStyles['scope'],
       slideActiveClass: previewStyles['scope--is-active']
     }
   }
