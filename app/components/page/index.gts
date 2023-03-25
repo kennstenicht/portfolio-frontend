@@ -7,6 +7,7 @@ interface Signature {
   Element: HTMLDivElement;
   Args: {
     size: string;
+    style: string;
   }
   Blocks: {
     default: [];
@@ -15,7 +16,7 @@ interface Signature {
 
 export default class PageComponent extends Component<Signature> {
   <template>
-    <div class={{bem styles (hash size=@size)}} ...attributes>
+    <div class={{bem styles (hash size=@size style=@style)}} ...attributes>
       <div class={{bem styles "wrapper"}}>
         {{yield}}
       </div>

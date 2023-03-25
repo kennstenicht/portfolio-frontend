@@ -2,8 +2,11 @@
   #PAGE
   ========================================================================== */
 
+@import "../../assets/styles/settings/settings.scope-styles.css";
+
 .scope {
   flex-grow: 1;
+  background-color: var(--color-background);
 }
 
   .wrapper {
@@ -22,16 +25,35 @@
     max-width: var(--wrapper-width-small);
   }
 
+  .huge-text {
+    position: absolute;
+    top: 70px;
+    left: 300px;
+    width: 1650px;
+    font-weight: bold;
+    font-size: 15vw;
+    font-family: var(--font-family-decoration);
+    line-height: 1;
+    transform: rotate(90deg) translate(0, -100%);
+    transform-origin: top left;
+  }
 
-   .huge-text {
-     position: absolute;
-     top: 70px;
-     left: 300px;
-     width: 1650px;
-     font-weight: bold;
-     font-size: 15vw;
-     font-family: var(--font-family-decoration);
-     line-height: 1;
-     transform: rotate(90deg) translate(0, -100%);
-     transform-origin: top left;
-   }
+
+
+
+
+/* Media Queries
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: var(--spacing-giant) var(--spacing-base);
+  }
+}
+
+
+@media (min-width: 768px) {
+  .wrapper {
+    padding: var(--spacing-giant);
+  }
+}
