@@ -29,6 +29,10 @@ export default class ProjectListComponent extends Component<Signature> {
   duration: number = 600;
 
   // Getter and setter
+  get sortedProjects() {
+    return this.args.projects.slice().sort((a, b) => a.position - b.position);
+  }
+
   get swiperOptions() {
     return {
       modules: [FreeMode, Pagination, Keyboard, Mousewheel, Parallax],
@@ -115,7 +119,7 @@ export default class ProjectListComponent extends Component<Signature> {
     >
       <div class={{bem styles "wrapper"}}>
         <AnimatedEach
-          @items={{@projects}}
+          @items={{this.sortedProjects}}
           @initialInsertion={{true}}
           @finalRemoval={{true}}
           @use={{this.listTransition}}
