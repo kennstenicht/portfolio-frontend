@@ -10,7 +10,7 @@ interface Signature {
   Element: HTMLDivElement;
 }
 
-export default class AppLicationLogoComponent extends Component<Signature> {
+export default class ApplicationLogoComponent extends Component<Signature> {
   // Defaults
   declare element: HTMLElement;
   words = [

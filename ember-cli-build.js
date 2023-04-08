@@ -30,6 +30,20 @@ module.exports = function (defaults) {
 
   // return app.toTree();
   return require('@embroider/compat').compatBuild(app, Webpack, {
+    staticAddonTestSupportTrees: true,
+    staticAddonTrees: true,
+    staticHelpers: true,
+    staticModifiers: true,
+    staticComponents: true,
+    splitAtRoutes: [
+      'pages',
+      'pages.show',
+      'pages.home',
+      'projects',
+      'projects.index',
+      'projects.show',
+      'error'
+    ],
     skipBabel: [
       {
         package: 'qunit',

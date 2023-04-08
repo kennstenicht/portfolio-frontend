@@ -1,8 +1,8 @@
 import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
-import IntlService from 'ember-intl/services/intl';
 import RouterService from '@ember/routing/router-service';
+import IntlService from 'ember-intl/services/intl';
 import ENV from 'portfolio/config/environment';
 
 interface MetaTags {
@@ -11,8 +11,8 @@ interface MetaTags {
 
 export default class HeadDataService extends Service {
   // Services
-  @service declare router: RouterService;
   @service declare intl: IntlService;
+  @service declare router: RouterService;
 
   // Defaults
   @tracked fallbackMetaTags: MetaTags = {};
@@ -104,9 +104,12 @@ export default class HeadDataService extends Service {
     super(...arguments);
 
     // Change title if window is not in focus
-    window.onblur = () =>
-      (this.blurTitle = this.intl.t('application.meta.blurTitle'));
-    window.onfocus = () => (this.blurTitle = '');
+    window.onblur = () => {
+      this.blurTitle = this.intl.t('application.meta.blurTitle');
+    }
+    window.onfocus = () => {
+      this.blurTitle = '';
+    }
   }
 
   // Functions

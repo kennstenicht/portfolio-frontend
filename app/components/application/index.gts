@@ -4,8 +4,9 @@ import { action } from '@ember/object';
 import { hash } from '@ember/helper';
 import { inject as service } from '@ember/service';
 import RouterService from '@ember/routing/router-service';
-import styles from './styles.module.css';
+import { registerDestructor } from '@ember/destroyable';
 import bem from 'portfolio/helpers/bem';
+import styles from './styles.module.css';
 import Header from './header';
 import Footer from './footer';
 import CookieNotice from './cookie-notice';
@@ -18,7 +19,7 @@ interface Signature {
   Args: {};
 }
 
-export default class AppLicationComponent extends Component<Signature> {
+export default class ApplicationComponent extends Component<Signature> {
   // Services
   @service declare router: RouterService;
 
@@ -45,12 +46,18 @@ export default class AppLicationComponent extends Component<Signature> {
     super(owner, args);
 
     window.addEventListener('hashchange', this.checkHash.bind(this), false);
+
+    registerDestructor(this, () => {
+      window.removeEventListener(
+        'hashchange',
+        this.checkHash.bind(this),
+        true
+      );
+    });
   }
 
-  willDestroy() {
-    window.removeEventListener('hashchange', this.checkHash.bind(this), true);
-  }
 
+  // Functions
   checkHash() {
     if (location.hash == '#change-cookie-settings') {
       this.toggleCookieNotice();

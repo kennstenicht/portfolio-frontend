@@ -23,7 +23,7 @@ interface Signature {
   };
 }
 
-export default class AppLicationHeaderComponent extends Component<Signature> {
+export default class ApplicationHeaderComponent extends Component<Signature> {
   // Services
   @service declare router: RouterService;
 

@@ -18,7 +18,7 @@ interface Signature {
   Element: HTMLElement;
 }
 
-export default class AppLicationFooterComponent extends Component<Signature> {
+export default class ApplicationFooterComponent extends Component<Signature> {
   // Defaults
   @tracked isToggled: boolean = false;
 
