@@ -155,6 +155,10 @@
         font-size: var(--font-size-h2);
       }
 
+      .item--is-small {
+        font-size: var(--font-size-small);
+      }
+
 
 
 
@@ -200,6 +204,6 @@
     }
 
     .item {
-      margin-right: var(--spacing-large);
+      margin: 0 var(--spacing-base);
     }
 }

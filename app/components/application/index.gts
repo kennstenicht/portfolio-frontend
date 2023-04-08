@@ -73,8 +73,8 @@ export default class ApplicationComponent extends Component<Signature> {
   }
 
   @action
-  toggleNavigation() {
-    this.isNavigationOpen = !this.isNavigationOpen;
+  setIsNavigationOpen(isOpen: boolean) {
+    this.isNavigationOpen = isOpen;
   }
 
   // Template
@@ -90,7 +90,7 @@ export default class ApplicationComponent extends Component<Signature> {
     >
       <Header
         @isNavigationOpen={{this.isNavigationOpen}}
-        @toggleNavigation={{this.toggleNavigation}}
+        @setIsNavigationOpen={{this.setIsNavigationOpen}}
       />
 
       <main class={{bem styles "content"}}>

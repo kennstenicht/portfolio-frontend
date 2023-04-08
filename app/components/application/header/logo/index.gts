@@ -50,8 +50,9 @@ export default class ApplicationLogoComponent extends Component<Signature> {
   // Functions
   @action
   explode(event: MouseEvent) {
-    const element = event.target as HTMLElement
+    const element = event.target as HTMLElement;
     const letters = element.querySelectorAll('[data-selector=letter]');
+    const implodeFn = this.implode;
     const newWord =
       this.words[randomBetween(1, this.words.length - 1)]!.split('');
 
@@ -64,11 +65,11 @@ export default class ApplicationLogoComponent extends Component<Signature> {
           top: randomBetween(-100, 100) + 'px',
         },
         duration: 0.3,
-        onComplete: this.implode,
+        onComplete: implodeFn,
         onCompleteParams: [letterElement, newLetter],
-        ease: "power1.out",
+        ease: 'power1.out',
       });
-    }, this);
+    });
   }
 
   implode(letterElement: Element, newLetter: string) {
@@ -80,7 +81,7 @@ export default class ApplicationLogoComponent extends Component<Signature> {
         top: '0px',
       },
       duration: 0.3,
-      ease: "power1.in",
+      ease: 'power1.in',
     });
   }
 
@@ -101,6 +102,6 @@ export default class ApplicationLogoComponent extends Component<Signature> {
   </template>
 }
 
-const randomBetween = function(min: number, max: number) {
+const randomBetween = function (min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1) + min);
-}
+};

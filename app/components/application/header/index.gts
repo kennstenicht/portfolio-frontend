@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
-import { hash } from '@ember/helper';
+import { hash, array, concat } from '@ember/helper';
 // @ts-ignore
 import { on } from '@ember/modifier';
 import { LinkTo } from '@ember/routing';
@@ -11,15 +11,15 @@ import t from 'ember-intl/helpers/t';
 import { timeout, task } from 'ember-concurrency';
 import animatedIf from 'ember-animated/components/animated-if';
 import fade from 'ember-animated/transitions/fade';
-import styles from './styles.module.css';
 import bem from 'portfolio/helpers/bem';
+import styles from './styles.module.css';
 import Logo from './logo/index';
 
 interface Signature {
   Element: HTMLHeadElement;
   Args: {
     isNavigationOpen: boolean;
-    toggleNavigation: Function;
+    setIsNavigationOpen: Function;
   };
 }
 
@@ -39,9 +39,15 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
 
   // Functions
   @action
+  closeNavigation() {
+    this.randomString.perform();
+    this.args.setIsNavigationOpen(false);
+  }
+
+  @action
   toggleNavigation() {
     this.randomString.perform();
-    this.args.toggleNavigation();
+    this.args.setIsNavigationOpen(!this.args.isNavigationOpen);
   }
 
   // Tasks
@@ -81,14 +87,18 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
       }}
       ...attributes
     >
-      <LinkTo @route="pages.home" class={{bem styles "logo"}}>
+      <LinkTo
+        @route="pages.home"
+        class={{bem styles "logo"}}
+        {{on "click" this.closeNavigation}}
+      >
         <Logo />
       </LinkTo>
 
       <div class={{bem styles "navigation"}}>
         <div class={{bem styles "back-to-overview"}}>
           {{#animatedIf this.isProjectDetail use=this.fadeTransition}}
-            <LinkTo @route="projects">
+            <LinkTo @route="projects" {{on "click" this.closeNavigation}}>
               {{t "application.header.toOverview" htmlSafe=true}}
             </LinkTo>
           {{/animatedIf}}
@@ -103,36 +113,45 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
             {{this.menuLabel}}
           </div>
           <div class={{bem styles "burger"}}>
-            <div
-              class={{bem styles "layer" (hash is-top=true)}}
-            ></div>
-            <div
-              class={{bem styles "layer" (hash is-middle=true)}}
-            ></div>
-            <div
-              class={{bem styles "layer" (hash is-bottom=true)}}
-            ></div>
+            <div class={{bem styles "layer" (hash is-top=true)}}></div>
+            <div class={{bem styles "layer" (hash is-middle=true)}}></div>
+            <div class={{bem styles "layer" (hash is-bottom=true)}}></div>
           </div>
         </div>
       </div>
 
       <nav class={{bem styles "navigation-overlay"}}>
-        <ul class={{bem styles "list"}}>
-          <li class={{bem styles "item"}}>
-            <LinkTo @route="projects" {{on "click" this.toggleNavigation}}>
-              {{t "application.header.projects"}}
-            </LinkTo>
-          </li>
-          <li class={{bem styles "item"}}>
-            <LinkTo
-              @route="pages.show"
-              @model="about"
-              {{on "click" this.toggleNavigation}}
-            >
-              {{t "application.header.about"}}
-            </LinkTo>
-          </li>
-        </ul>
+        <div>
+          <ul class={{bem styles "list"}}>
+            <li class={{bem styles "item"}}>
+              <LinkTo @route="projects" {{on "click" this.closeNavigation}}>
+                {{t "application.header.projects"}}
+              </LinkTo>
+            </li>
+            <li class={{bem styles "item"}}>
+              <LinkTo
+                @route="pages.show"
+                @model="about"
+                {{on "click" this.closeNavigation}}
+              >
+                {{t "application.header.about"}}
+              </LinkTo>
+            </li>
+          </ul>
+          <ul class={{bem styles "list"}}>
+            {{#each (array "imprint" "privacy") as |page|}}
+              <li class={{bem styles "item" (hash is-small=true)}}>
+                <LinkTo
+                  @route="pages.show"
+                  @model={{page}}
+                  {{on "click" this.closeNavigation}}
+                >
+                  {{t (concat "navigation." page)}}
+                </LinkTo>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
       </nav>
     </header>
   </template>
