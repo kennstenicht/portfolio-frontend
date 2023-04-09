@@ -18,7 +18,7 @@
 
   .scope--size-full .wrapper {
     max-width: 100%;
-    padding: 0;
+    padding: var(--spacing-small);
   }
 
   .scope--size-small .wrapper {
