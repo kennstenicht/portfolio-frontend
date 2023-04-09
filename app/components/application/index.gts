@@ -33,7 +33,7 @@ export default class ApplicationComponent extends Component<Signature> {
       return 'error';
     }
 
-    let segments = this.router.currentURL
+    let segments = window.location.pathname
       .substring(1)
       .split('/')
       .filter((n) => n);
