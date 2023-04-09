@@ -1,6 +1,4 @@
-import { helper } from '@ember/component/helper';
-
-interface IClassNames {
+interface ClassNames {
   [className: string]: string;
 }
 
@@ -9,16 +7,10 @@ interface Modifiers {
 }
 
 export function bem(
-  positional:
-    | [IClassNames]
-    | [IClassNames, string]
-    | [IClassNames, Modifiers]
-    | [IClassNames, string, Modifiers]
+  module: ClassNames,
+  element?: string | Modifiers,
+  modifiers?: Modifiers
 ) {
-  const module = positional[0];
-  let element = positional[1];
-  let modifiers = positional[2];
-
   if (typeof element === 'object') {
     modifiers = element;
     element = undefined;
@@ -56,5 +48,3 @@ export function bem(
 
   return classes.map((className) => module[className]).join(' ');
 }
-
-export default helper(bem);

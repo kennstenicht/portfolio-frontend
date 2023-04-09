@@ -6,7 +6,7 @@ import t from 'ember-intl/helpers/t';
 import inViewport from 'ember-in-viewport/modifiers/in-viewport';
 import styles from './styles.module.css';
 import linkStyles from 'portfolio/assets/styles/objects/link.module.css';
-import bem from 'portfolio/helpers/bem';
+import { bem } from 'portfolio/helpers/bem';
 
 const SOCIAL_MEDIA_LINKS = {
   github: 'https://github.com/kennstenicht',

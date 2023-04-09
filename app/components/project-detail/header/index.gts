@@ -7,7 +7,7 @@ import { parallel } from 'ember-animated';
 import adjustColor from 'ember-animated/motions/adjust-color';
 import TransitionContext from 'ember-animated/-private/transition-context';
 import ProjectModel from 'portfolio/models/project';
-import bem from 'portfolio/helpers/bem';
+import { bem } from 'portfolio/helpers/bem';
 import styles from './styles.module.css';
 
 interface Signature {

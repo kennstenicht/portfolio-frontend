@@ -4,7 +4,7 @@ import { action } from '@ember/object';
 import { on } from '@ember/modifier';
 import { gsap } from 'gsap';
 import styles from './styles.module.css';
-import bem from 'portfolio/helpers/bem';
+import { bem } from 'portfolio/helpers/bem';
 
 interface Signature {
   Element: HTMLDivElement;
@@ -51,7 +51,7 @@ export default class ApplicationLogoComponent extends Component<Signature> {
   @action
   explode(event: MouseEvent) {
     const element = event.target as HTMLElement;
-    const letters = element.querySelectorAll('[data-selector=letter]');
+    const letters = element.querySelectorAll(`.${bem(styles, 'letter')}`);
     const implodeFn = this.implode;
     const newWord =
       this.words[randomBetween(1, this.words.length - 1)]!.split('');
@@ -94,7 +94,7 @@ export default class ApplicationLogoComponent extends Component<Signature> {
       ...attributes
     >
       {{#each this.defaultLetters as |letter|}}
-        <span class={{bem styles "letter"}} data-selector="letter">
+        <span class={{bem styles "letter"}}>
           {{letter}}
         </span>
       {{/each}}

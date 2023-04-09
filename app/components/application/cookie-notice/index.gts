@@ -10,7 +10,7 @@ import t from 'ember-intl/helpers/t';
 import CookiesService from 'ember-cookies/services/cookies';
 // @ts-ignore
 import MediaService from 'ember-responsive/services/media';
-import bem from 'portfolio/helpers/bem';
+import { bem } from 'portfolio/helpers/bem';
 import styles from './styles.module.css';
 import buttonStyle from 'portfolio/assets/styles/objects/button.module.css';
 

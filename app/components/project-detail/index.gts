@@ -5,7 +5,7 @@ import { hash } from '@ember/helper';
 import AnimatedValue from 'ember-animated/components/animated-value';
 import t from 'ember-intl/helpers/t';
 import ProjectModel from 'portfolio/models/project';
-import bem from 'portfolio/helpers/bem';
+import { bem } from 'portfolio/helpers/bem';
 import SwiperService from 'portfolio/services/swiper';
 import link from 'portfolio/assets/styles/objects/link.module.css';
 import styles from './styles.module.css';

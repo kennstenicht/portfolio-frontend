@@ -5,7 +5,7 @@ import { hash } from '@ember/helper';
 import { inject as service } from '@ember/service';
 import RouterService from '@ember/routing/router-service';
 import { registerDestructor } from '@ember/destroyable';
-import bem from 'portfolio/helpers/bem';
+import { bem } from 'portfolio/helpers/bem';
 import styles from './styles.module.css';
 import Header from './header';
 import Footer from './footer';
@@ -56,7 +56,6 @@ export default class ApplicationComponent extends Component<Signature> {
     });
   }
 
-
   // Functions
   checkHash() {
     if (location.hash == '#change-cookie-settings') {
@@ -82,9 +81,7 @@ export default class ApplicationComponent extends Component<Signature> {
     <div
       class={{bem
         styles
-        (hash
-          style=this.urlSegments navigation-is-open=this.isNavigationOpen
-        )
+        (hash style=this.urlSegments navigation-is-open=this.isNavigationOpen)
       }}
       ...attributes
     >

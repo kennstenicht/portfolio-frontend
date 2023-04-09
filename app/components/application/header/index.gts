@@ -11,7 +11,7 @@ import t from 'ember-intl/helpers/t';
 import { timeout, task } from 'ember-concurrency';
 import animatedIf from 'ember-animated/components/animated-if';
 import fade from 'ember-animated/transitions/fade';
-import bem from 'portfolio/helpers/bem';
+import { bem } from 'portfolio/helpers/bem';
 import styles from './styles.module.css';
 import Logo from './logo/index';
 

@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
-import bem from 'portfolio/helpers/bem';
+import { bem } from 'portfolio/helpers/bem';
 import styles from './styles.module.css';
 
 interface Signature {

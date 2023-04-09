@@ -8,7 +8,7 @@ import { easeOut, easeIn } from 'ember-animated/easings/cosine';
 import TransitionContext from 'ember-animated/-private/transition-context';
 import SwiperService from 'portfolio/services/swiper';
 import swiper from 'portfolio/modifiers/swiper';
-import bem from 'portfolio/helpers/bem';
+import { bem } from 'portfolio/helpers/bem';
 import Project from 'portfolio/models/project';
 import Preview from './preview';
 import previewStyles from './preview/styles.module.css';
@@ -131,7 +131,6 @@ export default class ProjectListComponent extends Component<Signature> {
           <Preview
             @project={{project}}
             @index={{index}}
-            data-selector="swiper-item"
           />
         </AnimatedEach>
       </div>

@@ -10,7 +10,7 @@ import resize from 'ember-animated/motions/resize';
 import adjustColor from 'ember-animated/motions/adjust-color';
 import TransitionContext from 'ember-animated/-private/transition-context';
 import indexNumber from 'portfolio/helpers/index-number';
-import bem from 'portfolio/helpers/bem';
+import { bem } from 'portfolio/helpers/bem';
 import styles from './styles.module.css';
 import Project from 'portfolio/models/project';
 

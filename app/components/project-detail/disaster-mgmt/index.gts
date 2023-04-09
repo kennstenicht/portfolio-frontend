@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import bem from 'portfolio/helpers/bem';
+import { bem } from 'portfolio/helpers/bem';
 import styles from './styles.module.css';
 import ProjectModel from 'portfolio/models/project';
 
