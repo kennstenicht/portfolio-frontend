@@ -1,7 +1,8 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
-import { FreeMode, Pagination, Keyboard, Mousewheel, Parallax } from 'swiper';
+import { Swiper, FreeMode, Pagination, Keyboard, Mousewheel, Parallax } from 'swiper';
+import { SwiperOptions } from 'swiper/types/swiper-options';
 import AnimatedEach from 'ember-animated/components/animated-each';
 import move from 'ember-animated/motions/move';
 import { easeOut, easeIn } from 'ember-animated/easings/cosine';
@@ -13,7 +14,6 @@ import Project from 'portfolio/models/project';
 import Preview from './preview';
 import previewStyles from './preview/styles.module.css';
 import styles from './styles.module.css';
-import { SwiperOptions } from 'swiper/types/swiper-options';
 
 interface Signature {
   Element: HTMLElement;
@@ -28,14 +28,12 @@ export default class ProjectListComponent extends Component<Signature> {
 
   // Defaults
   duration: number = 600;
+  swiperOptions: SwiperOptions;
 
-  // Getter and setter
-  get sortedProjects() {
-    return this.args.projects.slice().sort((a, b) => a.position - b.position);
-  }
+  constructor(owner: unknown, args: Signature['Args']) {
+    super(owner, args);
 
-  get swiperOptions(): SwiperOptions {
-    return {
+    this.swiperOptions = {
       modules: [FreeMode, Pagination, Keyboard, Mousewheel, Parallax],
       slidesPerView: 'auto',
       centeredSlides: true,
@@ -43,7 +41,6 @@ export default class ProjectListComponent extends Component<Signature> {
       simulateTouch: true,
       parallax: true,
       initialSlide: this.swiper.position,
-      spaceBetween: 80,
 
       freeMode: {
         enabled: true,
@@ -60,11 +57,20 @@ export default class ProjectListComponent extends Component<Signature> {
         releaseOnEdges: true,
       },
 
+      on: {
+        slideChange: this.setActive
+      },
+
       // Classes
       wrapperClass: styles['wrapper'],
       slideClass: previewStyles['scope'],
       slideActiveClass: previewStyles['scope--is-active']
     }
+  }
+
+  // Getter and setter
+  get sortedProjects() {
+    return this.args.projects.slice().sort((a, b) => a.position - b.position);
   }
 
   // Functions
@@ -112,6 +118,11 @@ export default class ProjectListComponent extends Component<Signature> {
     });
   }
 
+  @action
+  setActive(swiper: Swiper) {
+    this.swiper.position = swiper.activeIndex;
+  }
+
   // Template
   <template>
     <div
@@ -122,7 +133,7 @@ export default class ProjectListComponent extends Component<Signature> {
       <div class={{bem styles "wrapper"}}>
         <AnimatedEach
           @items={{this.sortedProjects}}
-          @initialInsertion={{true}}
+          @initialInsertion={{false}}
           @finalRemoval={{true}}
           @use={{this.listTransition}}
           @duration={{this.duration}}
