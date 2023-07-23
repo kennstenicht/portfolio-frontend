@@ -3,7 +3,7 @@ import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import Store from '@ember-data/store';
 
-export default class PagesHomeRoute extends Route {
+export default class PagesHome extends Route {
   // Services
   @service declare store: Store;
 
