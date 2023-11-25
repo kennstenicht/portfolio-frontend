@@ -48,3 +48,5 @@ export function bem(
 
   return classes.map((className) => module[className]).join(' ');
 }
+
+export default bem;
