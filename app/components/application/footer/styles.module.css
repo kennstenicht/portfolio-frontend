@@ -52,7 +52,7 @@
 /* Media Queries
    ========================================================================== */
 
-@media (max-width: 768px) {
+@media (width < 768px) {
   .wrapper {
     right: var(--spacing-base-small);
     left: var(--spacing-base-small);
@@ -71,7 +71,7 @@
     }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .wrapper {
     right: var(--spacing-large-small);
     left: var(--spacing-large-small);

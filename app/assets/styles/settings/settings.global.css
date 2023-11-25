@@ -49,8 +49,8 @@
   --letter-spacing-large:   0.3rem;
 
   /* Font family */
-  --font-family:            'IBM Plex Mono', Courier, monospace;
-  --font-family-decoration: 'Playfair Display', Times;
+  --font-family:            'IBM Plex Mono', courier, monospace;
+  --font-family-decoration: 'Playfair Display', times;
 
 
 
@@ -61,7 +61,7 @@
 
   /* Main colors */
   --color-black:           #000;
-  --color-white:           #ffffff;
+  --color-white:           #fff;
 
   /* Shades of grey */
   --color-grey-lighter:    #fbfbfb;
@@ -80,6 +80,7 @@
 
   /* Objects
   ========================================================================== */
+
   /* Object Wrapper */
   --wrapper-width-small:    1100px;
   --wrapper-width:          1700px;

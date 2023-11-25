@@ -2,7 +2,7 @@
    # APPLICATION
    ========================================================================== */
 
-@import "../../assets/styles/settings/settings.scope-styles.css";
+@import url("../../assets/styles/settings/settings.scope-styles.css");
 
 .scope {
   position: relative;
@@ -24,10 +24,7 @@
   .frame {
     box-sizing: content-box;
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
     z-index: 901;
     border-color: var(--color-primary);
     border-width: var(--spacing-small);
@@ -48,14 +45,14 @@
 /* Media Queries
    ========================================================================== */
 
-@media (max-width: 768px) {
+@media (width < 768px) {
   .content {
     min-height: 101%;
   }
 }
 
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .content {
     min-height: 100%;
   }

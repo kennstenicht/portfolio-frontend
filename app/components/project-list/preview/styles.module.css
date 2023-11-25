@@ -1,8 +1,8 @@
 /* ==========================================================================
-   # PROJECT LIST PREVIEW
+   # PROJECT LIST / PREVIEW
    ========================================================================== */
 
-@import "../../../assets/styles/settings/settings.scope-styles.css";
+@import url("../../../assets/styles/settings/settings.scope-styles.css");
 
 .scope {
   position: relative;
@@ -12,31 +12,31 @@
   height: 36vh;
   cursor: pointer;
   color: var(--color-primary);
-}
 
-  .scope--style-binuu {
+  &--style-binuu {
     margin-top: 32vh;
   }
 
-  .scope--style-eels {
+  &--style-eels {
     margin-top: 30vh;
   }
 
-  .scope--style-disaster-mgmt {
+  &--style-disaster-mgmt {
     margin-top: 20vh;
   }
 
-  .scope--style-ad-hoc {
+  &--style-ad-hoc {
     margin-top: 40vh;
   }
 
-  .scope--style-flutkoerper {
+  &--style-flutkoerper {
     margin-top: 15vh;
   }
 
-  .scope--is-active {
+  &--is-active {
     z-index: 999;
   }
+}
 
   .container {
     width: 100%;

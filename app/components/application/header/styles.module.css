@@ -71,30 +71,31 @@
           left: 0;
           width: 100%;
           height: var(--burger-line-height);
-          background-color: currentColor;
+          background-color: currentcolor;
           pointer-events: none;
+
+          &--is-top {
+            top: 0;
+            width: 70%;
+            transition: transform 0.3s ease-in-out,
+                        top 0.2s ease-in-out 0.3s;
+          }
+
+          &--is-middle {
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            transition: opacity 0s ease-in-out 0.3s;
+          }
+
+          &--is-bottom {
+            bottom: 0;
+            width: 80%;
+            transition: transform 0.3s ease-in-out,
+                        bottom 0.2s ease-in-out 0.3s;
+          }
         }
 
-      .layer--is-top {
-          top: 0;
-          width: 70%;
-          transition: transform 0.3s ease-in-out,
-                      top 0.2s ease-in-out 0.3s;
-        }
-
-      .layer--is-middle {
-          top: 0;
-          bottom: 0;
-          margin: auto;
-          transition: opacity 0s ease-in-out 0.3s;
-        }
-
-      .layer--is-bottom {
-          bottom: 0;
-          width: 80%;
-          transition: transform 0.3s ease-in-out,
-                      bottom 0.2s ease-in-out 0.3s;
-        }
 
         .scope--is-navigation-open .layer--is-top {
           top: var(--burger-to-translate);
@@ -123,10 +124,7 @@
 
   .navigation-overlay {
     position: fixed;
-    top: var(--spacing-large-small);
-    right: var(--spacing-large-small);
-    bottom: var(--spacing-large-small);
-    left: var(--spacing-large-small);
+    inset: var(--spacing-large-small);
     z-index: 1;
     display: flex;
     visibility: hidden;
@@ -153,11 +151,12 @@
         display: inline-block;
         text-align: center;
         font-size: var(--font-size-h2);
+
+        &--is-small {
+          font-size: var(--font-size-small);
+        }
       }
 
-      .item--is-small {
-        font-size: var(--font-size-small);
-      }
 
 
 
@@ -166,7 +165,7 @@
 /* Media Queries
    ========================================================================== */
 
-@media (max-width: 768px) {
+@media (width < 768px) {
   .logo {
     top: var(--spacing-base-small);
     left: var(--spacing-base-small);
@@ -188,7 +187,7 @@
 }
 
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .logo {
     top: var(--spacing-large-small);
     left: var(--spacing-large-small);

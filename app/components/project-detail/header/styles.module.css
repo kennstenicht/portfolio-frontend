@@ -1,15 +1,12 @@
 /* ==========================================================================
-   # PROJECT DETAIL HEADER
+   # PROJECT DETAIL / HEADER
    ========================================================================== */
 
-@import "../../../assets/styles/settings/settings.scope-styles.css";
+@import url("../../../assets/styles/settings/settings.scope-styles.css");
 
 .scope {
   position: fixed;
-  top: var(--spacing-small);
-  right: var(--spacing-small);
-  bottom: var(--spacing-small);
-  left: var(--spacing-small);
+  inset: var(--spacing-small);
   color: var(--color-typo);
 }
 
@@ -46,7 +43,7 @@
 /* Media queries
    ========================================================================== */
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .header {
     bottom: var(--spacing-base);
     left: var(--spacing-base);

@@ -290,6 +290,9 @@ devDependencies:
   postcss-loader:
     specifier: ^7.0.2
     version: 7.0.2(postcss@8.4.21)(webpack@5.78.0)
+  postcss-nested:
+    specifier: ^6.0.1
+    version: 6.0.1(postcss@8.4.21)
   postcss-scss:
     specifier: ^4.0.6
     version: 4.0.6(postcss@8.4.21)
@@ -12777,6 +12780,16 @@ packages:
     dependencies:
       icss-utils: 5.1.0(postcss@8.4.21)
       postcss: 8.4.21
+    dev: true
+
+  /postcss-nested@6.0.1(postcss@8.4.21):
+    resolution: {integrity: sha512-mEp4xPMi5bSWiMbsgoPfcP74lsWLHkQbZc3sY+jWYd65CUwXrUaTp0fmNpa01ZcETKlIgUdFN/MpS2xZtqL9dQ==}
+    engines: {node: '>=12.0'}
+    peerDependencies:
+      postcss: ^8.2.14
+    dependencies:
+      postcss: 8.4.21
+      postcss-selector-parser: 6.0.13
     dev: true
 
   /postcss-normalize-charset@5.1.0(postcss@8.4.21):

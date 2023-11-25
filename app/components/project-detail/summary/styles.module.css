@@ -1,8 +1,8 @@
 /* ==========================================================================
-   # PROJECT DETAIL SUMMARY
+   # PROJECT DETAIL / SUMMARY
    ========================================================================== */
 
-@import "../../../assets/styles/settings/settings.scope-styles.css";
+@import url("../../../assets/styles/settings/settings.scope-styles.css");
 
 .scope {
   display: flex;
@@ -23,9 +23,9 @@
 /* Media Queries
    ========================================================================== */
 
-@media (max-width: 768px) {
+@media (width < 768px) {
   .scope {
-    padding: var(--spacing-base);
+    padding: var(--spacing-small);
   }
 
     .excerpt {
@@ -39,10 +39,11 @@
 }
 
 
-@media (min-width: 768px) {
+@media (width => 768px) {
   .scope {
     padding: var(--spacing-base-small);
   }
+
     .excerpt {
       width: 66.6666%;
     }

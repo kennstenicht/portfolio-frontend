@@ -17,7 +17,7 @@ import DisasterMgmt from './disaster-mgmt';
 import Eels from './eels';
 import Flutkoerper from './flutkoerper';
 
-const CONTENT_COMPONENTS: {[key: string]: any} = {
+const CONTENT_COMPONENTS: { [key: string]: any } = {
   'ad-hoc': AdHoc,
   binuu: Binuu,
   'disaster-mgmt': DisasterMgmt,
@@ -33,7 +33,7 @@ interface Signature {
   Element: HTMLElement;
   Args: {
     project: ProjectModel;
-  }
+  };
 }
 
 export default class ProjectDetail extends Component<Signature> {
@@ -50,10 +50,7 @@ export default class ProjectDetail extends Component<Signature> {
   // Template
   <template>
     <AnimatedValue @value={{@project}} as |project|>
-      <article
-        class={{bem styles (hash style=project.id)}}
-        ...attributes
-      >
+      <article class={{bem styles (hash style=project.id)}} ...attributes>
         <Header @project={{project}} />
         <div class={{bem styles "content"}}>
           <Summary @project={{project}} />

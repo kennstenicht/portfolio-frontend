@@ -8,7 +8,7 @@
   z-index: 999;
   max-height: calc(100vh - var(--spacing-large));
   background-color: var(--color-white);
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  box-shadow: 0 0 20px rgba(0 0 0 / 20%);
   color: var(--color-black);
   transition: transform 0.3s ease-in-out;
   transform: translate(0, 150%);
@@ -48,7 +48,7 @@
 /* Media queries
   ========================================================================== */
 
-@media (max-width: 768px) {
+@media (width < 768px) {
   .scope {
     right: var(--spacing-small);
     bottom: var(--spacing-small);
@@ -78,7 +78,7 @@
         }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .scope {
     right: var(--spacing-large-small);
     bottom: var(--spacing-large-small);
