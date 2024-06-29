@@ -9,7 +9,7 @@ interface Modifiers {
 export function bem(
   module: ClassNames,
   element?: string | Modifiers,
-  modifiers?: Modifiers
+  modifiers?: Modifiers,
 ) {
   if (typeof element === 'object') {
     modifiers = element;
@@ -48,3 +48,5 @@ export function bem(
 
   return classes.map((className) => module[className]).join(' ');
 }
+
+export default bem;
