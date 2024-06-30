@@ -6,7 +6,7 @@ import IntlService from 'ember-intl/services/intl';
 import ENV from 'portfolio/config/environment';
 
 interface MetaTags {
-  [key: string]: any;
+  [key: string]: string;
 }
 
 export default class HeadDataService extends Service {
@@ -16,11 +16,11 @@ export default class HeadDataService extends Service {
 
   // Defaults
   @tracked fallbackMetaTags: MetaTags = {};
-  @tracked blurTitle: string = '';
+  @tracked blurTitle = '';
 
   // Getter and Setter
   get translationMetaTags() {
-    let metaTags: MetaTags = {};
+    const metaTags: MetaTags = {};
 
     ['title', 'description'].forEach((key) => {
       const translation = this._getTranslation(key);
@@ -61,8 +61,8 @@ export default class HeadDataService extends Service {
   }
 
   get title() {
-    let title = `${this.metaTags.title} | ${this.company.name}`.toLowerCase();
-    let blurTitle = this.blurTitle.toLowerCase();
+    const title = `${this.metaTags.title} | ${this.company.name}`.toLowerCase();
+    const blurTitle = this.blurTitle.toLowerCase();
 
     return blurTitle || title;
   }
@@ -99,26 +99,13 @@ export default class HeadDataService extends Service {
     return ENV.company;
   }
 
-  // Hooks
-  constructor() {
-    super(...arguments);
-
-    // Change title if window is not in focus
-    window.onblur = () => {
-      this.blurTitle = this.intl.t('application.meta.blurTitle');
-    }
-    window.onfocus = () => {
-      this.blurTitle = '';
-    }
-  }
-
   // Functions
   _getTranslation(type: string) {
-    let currentRouteName = this.router.currentRouteName.split('.');
+    const currentRouteName = this.router.currentRouteName.split('.');
 
     // Check if translation exists for route or any parent route
     for (let x = currentRouteName.length; x > 0; x--) {
-      let path = `${currentRouteName.slice(0, x).join('.')}.meta.${type}`;
+      const path = `${currentRouteName.slice(0, x).join('.')}.meta.${type}`;
 
       if (this.intl.exists(path)) {
         return this.intl.t(path);
