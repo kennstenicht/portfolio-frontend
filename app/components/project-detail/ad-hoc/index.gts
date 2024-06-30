@@ -8,7 +8,7 @@ interface Signature {
   Element: HTMLDivElement;
   Args: {
     project: ProjectModel;
-  }
+  };
 }
 
 export default class ProjectDetailAdHoc extends Component<Signature> {
@@ -20,6 +20,3 @@ export default class ProjectDetailAdHoc extends Component<Signature> {
     </div>
   </template>
 }
-
-
-

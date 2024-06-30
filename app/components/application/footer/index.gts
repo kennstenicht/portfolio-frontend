@@ -20,7 +20,7 @@ interface Signature {
 
 export default class ApplicationFooterComponent extends Component<Signature> {
   // Defaults
-  @tracked isToggled: boolean = false;
+  @tracked isToggled = false;
 
   // Getter and setter
   get currentYear() {

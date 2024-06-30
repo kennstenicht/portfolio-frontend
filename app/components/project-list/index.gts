@@ -1,7 +1,14 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
-import { Swiper, FreeMode, Pagination, Keyboard, Mousewheel, Parallax } from 'swiper';
+import {
+  Swiper,
+  FreeMode,
+  Pagination,
+  Keyboard,
+  Mousewheel,
+  Parallax,
+} from 'swiper';
 import { SwiperOptions } from 'swiper/types/swiper-options';
 import AnimatedEach from 'ember-animated/components/animated-each';
 import move from 'ember-animated/motions/move';
@@ -27,7 +34,7 @@ export default class ProjectListComponent extends Component<Signature> {
   @service declare swiper: SwiperService;
 
   // Defaults
-  duration: number = 600;
+  duration = 600;
   swiperOptions: SwiperOptions;
 
   constructor(owner: unknown, args: Signature['Args']) {
@@ -58,14 +65,14 @@ export default class ProjectListComponent extends Component<Signature> {
       },
 
       on: {
-        slideChange: this.setActive
+        slideChange: this.setActive,
       },
 
       // Classes
       wrapperClass: styles['wrapper'],
       slideClass: previewStyles['scope'],
-      slideActiveClass: previewStyles['scope--is-active']
-    }
+      slideActiveClass: previewStyles['scope--is-active'],
+    };
   }
 
   // Getter and setter
@@ -139,10 +146,7 @@ export default class ProjectListComponent extends Component<Signature> {
           @duration={{this.duration}}
           as |project index|
         >
-          <Preview
-            @project={{project}}
-            @index={{index}}
-          />
+          <Preview @project={{project}} @index={{index}} />
         </AnimatedEach>
       </div>
     </div>

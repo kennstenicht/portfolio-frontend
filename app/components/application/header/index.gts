@@ -19,7 +19,7 @@ interface Signature {
   Element: HTMLHeadElement;
   Args: {
     isNavigationOpen: boolean;
-    setIsNavigationOpen: Function;
+    setIsNavigationOpen: (isOpen: boolean) => void;
   };
 }
 
@@ -28,9 +28,9 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
   @service declare router: RouterService;
 
   // Defaults
-  @tracked menuLabel: string = 'menu';
+  @tracked menuLabel = 'menu';
   fadeTransition = fade;
-  numberOfGenerations: number = 0;
+  numberOfGenerations = 0;
 
   // Getter and setter
   get isProjectDetail() {
