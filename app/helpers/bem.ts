@@ -9,7 +9,7 @@ interface Modifiers {
 export function bem(
   module: ClassNames,
   element?: string | Modifiers,
-  modifiers?: Modifiers
+  modifiers?: Modifiers,
 ) {
   if (typeof element === 'object') {
     modifiers = element;

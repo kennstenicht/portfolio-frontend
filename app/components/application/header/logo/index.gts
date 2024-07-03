@@ -6,6 +6,10 @@ import { gsap } from 'gsap';
 import styles from './styles.module.css';
 import { bem } from 'portfolio/helpers/bem';
 
+const randomBetween = function (min: number, max: number) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
 interface Signature {
   Element: HTMLDivElement;
 }
@@ -54,7 +58,7 @@ export default class ApplicationLogoComponent extends Component<Signature> {
     const letters = element.querySelectorAll(`.${bem(styles, 'letter')}`);
     const implodeFn = this.implode;
     const newWord =
-      this.words[randomBetween(1, this.words.length - 1)]!.split('');
+      this.words[randomBetween(1, this.words.length - 1)].split('');
 
     letters.forEach(function (letterElement, index) {
       const newLetter = newWord[index];
@@ -101,7 +105,3 @@ export default class ApplicationLogoComponent extends Component<Signature> {
     </div>
   </template>
 }
-
-const randomBetween = function (min: number, max: number) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-};

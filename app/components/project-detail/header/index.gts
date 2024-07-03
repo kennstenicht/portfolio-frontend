@@ -14,12 +14,12 @@ interface Signature {
   Element: HTMLDivElement;
   Args: {
     project: ProjectModel;
-  }
+  };
 }
 
 export default class ProjectDetailHeader extends Component<Signature> {
   // Defaults
-  duration: number = 600;
+  duration = 600;
   styles = styles;
 
   // Functions
@@ -46,10 +46,7 @@ export default class ProjectDetailHeader extends Component<Signature> {
 
   // Template
   <template>
-    <div
-      class={{bem this.styles (hash style=@project.id)}}
-      ...attributes
-    >
+    <div class={{bem this.styles (hash style=@project.id)}} ...attributes>
       <AnimatedValue
         @value={{@project.id}}
         @use={{this.backgroundTransition}}

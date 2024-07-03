@@ -18,7 +18,7 @@ interface Signature {
   Element: HTMLDivElement;
   Args: {
     showCookieNotice: boolean;
-    toggleCookieNotice: Function;
+    toggleCookieNotice: () => void;
   };
 }
 
@@ -81,10 +81,7 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
 
   // Template
   <template>
-    <div
-      class={{bem styles (hash is-visible=@showCookieNotice)}}
-      ...attributes
-    >
+    <div class={{bem styles (hash is-visible=@showCookieNotice)}} ...attributes>
       <div class={{bem styles "header"}}>
         {{t "cookieNotice.headline"}}
       </div>

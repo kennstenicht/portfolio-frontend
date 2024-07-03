@@ -1,11 +1,17 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { hash } from '@ember/helper';
+import { hash, fn } from '@ember/helper';
 import { inject as service } from '@ember/service';
 import RouterService from '@ember/routing/router-service';
-import { registerDestructor } from '@ember/destroyable';
+
+import t from 'ember-intl/helpers/t';
+import IntlService from 'ember-intl/services/intl';
+
+import windowOn from 'portfolio/modifiers/window-on';
 import { bem } from 'portfolio/helpers/bem';
+import HeadDataService from 'portfolio/services/head-data';
+
 import styles from './styles.module.css';
 import Header from './header';
 import Footer from './footer';
@@ -16,16 +22,17 @@ interface Signature {
   Blocks: {
     default: [];
   };
-  Args: {};
 }
 
 export default class ApplicationComponent extends Component<Signature> {
   // Services
+  @service declare headData: HeadDataService;
+  @service declare intl: IntlService;
   @service declare router: RouterService;
 
   // Defaults
-  @tracked showCookieNotice: boolean = false;
-  @tracked isNavigationOpen: boolean = false;
+  @tracked showCookieNotice = false;
+  @tracked isNavigationOpen = false;
 
   // Getter and setter
   get urlSegments(): string {
@@ -33,7 +40,7 @@ export default class ApplicationComponent extends Component<Signature> {
       return 'error';
     }
 
-    let segments = window.location.pathname
+    let segments = this.router.currentURL
       .substring(1)
       .split('/')
       .filter((n) => n);
@@ -41,40 +48,26 @@ export default class ApplicationComponent extends Component<Signature> {
     return segments[segments.length - 1] ?? 'default';
   }
 
-  // Hooks
-  constructor(owner: unknown, args: Signature['Args']) {
-    super(owner, args);
-
-    window.addEventListener('hashchange', this.checkHash.bind(this), false);
-
-    registerDestructor(this, () => {
-      window.removeEventListener(
-        'hashchange',
-        this.checkHash.bind(this),
-        true
-      );
-    });
-  }
-
   // Functions
-  checkHash() {
+  changeMetaTitle = (title: string) => {
+    this.headData.blurTitle = title;
+  };
+
+  checkHash = () => {
     if (location.hash == '#change-cookie-settings') {
       this.toggleCookieNotice();
 
       location.hash = '';
     }
-  }
+  };
 
-  // Actions
-  @action
-  toggleCookieNotice() {
-    this.showCookieNotice = !this.showCookieNotice;
-  }
-
-  @action
-  setIsNavigationOpen(isOpen: boolean) {
+  setIsNavigationOpen = (isOpen: boolean) => {
     this.isNavigationOpen = isOpen;
-  }
+  };
+
+  toggleCookieNotice = () => {
+    this.showCookieNotice = !this.showCookieNotice;
+  };
 
   // Template
   <template>
@@ -83,6 +76,12 @@ export default class ApplicationComponent extends Component<Signature> {
         styles
         (hash style=this.urlSegments navigation-is-open=this.isNavigationOpen)
       }}
+      {{windowOn "haschange" this.checkHash}}
+      {{windowOn
+        "blur"
+        (fn this.changeMetaTitle (t "application.meta.blurTitle"))
+      }}
+      {{windowOn "focus" (fn this.changeMetaTitle "")}}
       ...attributes
     >
       <Header

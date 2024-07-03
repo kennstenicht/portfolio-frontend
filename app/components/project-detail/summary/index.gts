@@ -8,7 +8,7 @@ interface Signature {
   Element: HTMLDivElement;
   Args: {
     project: ProjectModel;
-  }
+  };
 }
 
 export default class ProjectDetailSummary extends Component<Signature> {
