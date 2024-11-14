@@ -29,23 +29,10 @@
       ],
       "portfolio/*": [
         "app/*",
-        "lib/content-generator/app/*"
       ],
       "*": [
         "types/*"
       ],
-      "content-generator": [
-        "lib/content-generator/addon"
-      ],
-      "content-generator/*": [
-        "lib/content-generator/addon/*"
-      ],
-      "content-generator/test-support": [
-        "lib/content-generator/addon-test-support"
-      ],
-      "content-generator/test-support/*": [
-        "lib/content-generator/addon-test-support/*"
-      ]
     }
   },
   "glint": {
