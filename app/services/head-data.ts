@@ -1,6 +1,6 @@
 import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import RouterService from '@ember/routing/router-service';
 import IntlService from 'ember-intl/services/intl';
 import ENV from 'portfolio/config/environment';

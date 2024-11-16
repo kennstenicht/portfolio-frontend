@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import { LinkTo } from '@ember/routing';
 import { hash } from '@ember/helper';
 import AnimatedValue from 'ember-animated/components/animated-value';

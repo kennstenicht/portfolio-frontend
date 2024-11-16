@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { hash, fn } from '@ember/helper';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import RouterService from '@ember/routing/router-service';
 
 import t from 'ember-intl/helpers/t';

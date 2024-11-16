@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import { hash } from '@ember/helper';
 import { LinkTo } from '@ember/routing';
 import RouterService from '@ember/routing/router-service';

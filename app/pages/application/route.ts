@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import HeadDataService from 'portfolio/services/head-data';
 import IntlService from 'ember-intl/services/intl';
 import RouterService from '@ember/routing/router-service';
