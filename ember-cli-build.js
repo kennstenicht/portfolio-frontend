@@ -52,10 +52,8 @@ module.exports = function (defaults) {
     packagerOptions: {
       publicAssetURL: '/',
       cssLoaderOptions: {
-        sourceMap: isProduction() === false,
+        sourceMap: !isProduction(),
         modules: {
-          mode: 'local',
-          localIdentName: '[sha512:hash:base64:5]',
           getLocalIdent: function (
             context,
             localIdentName,
@@ -64,14 +62,6 @@ module.exports = function (defaults) {
           ) {
             if (isProduction()) {
               return;
-            }
-
-            if (
-              new RegExp(/^(?!.*[.]module.css$).*$|node_modules/i).test(
-                context.resourcePath,
-              )
-            ) {
-              return localName;
             }
 
             if (!options.context) {
@@ -84,6 +74,7 @@ module.exports = function (defaults) {
               .replace('assets/styles/', '')
               .replace('components', 'c')
               .replace('objects', 'o')
+              .replace('utils', 'u')
               .split('/');
 
             const filename = componentPath.pop();
@@ -101,6 +92,12 @@ module.exports = function (defaults) {
 
             return `${blockClass}__${localName}`;
           },
+          localIdentName: '[sha512:hash:base64:5]',
+          mode: (resourcePath) => {
+            const hostAppLocation = 'node_modules/.embroider/rewritten-app';
+
+            return resourcePath.includes(hostAppLocation) ? 'local' : 'global';
+          },
         },
       },
       webpackConfig: {
@@ -108,15 +105,12 @@ module.exports = function (defaults) {
         module: {
           rules: [
             {
-              // When webpack sees an import for a CSS files
-              test: /\.css$/i,
-              exclude: /node_modules/,
+              test: /(node_modules\/\.embroider\/rewritten-app\/)(.*\.module.css)$/i,
               use: [
                 {
-                  // use the PostCSS loader addon
                   loader: 'postcss-loader',
                   options: {
-                    sourceMap: isProduction() === false,
+                    sourceMap: !isProduction(),
                     postcssOptions: {
                       config: './postcss.config.js',
                     },
