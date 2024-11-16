@@ -35,15 +35,15 @@ module.exports = function (defaults) {
     staticHelpers: true,
     staticModifiers: true,
     staticComponents: true,
-    splitAtRoutes: [
-      'pages',
-      'pages.show',
-      'pages.home',
-      'projects',
-      'projects.index',
-      'projects.show',
-      'error'
-    ],
+    // splitAtRoutes: [
+    //   'pages',
+    //   'pages.show',
+    //   'pages.home',
+    //   'projects',
+    //   'projects.index',
+    //   'projects.show',
+    //   'error'
+    // ],
     skipBabel: [
       {
         package: 'qunit',
@@ -60,7 +60,7 @@ module.exports = function (defaults) {
             context,
             localIdentName,
             localName,
-            options
+            options,
           ) {
             if (isProduction()) {
               return;
@@ -68,7 +68,7 @@ module.exports = function (defaults) {
 
             if (
               new RegExp(/^(?!.*[.]module.css$).*$|node_modules/i).test(
-                context.resourcePath
+                context.resourcePath,
               )
             ) {
               return localName;

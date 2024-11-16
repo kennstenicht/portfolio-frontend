@@ -2,16 +2,16 @@
    # PROJECT DETAIL
    ========================================================================== */
 
-@import url("../../assets/styles/settings/settings.scope-styles.css");
+@import "../../assets/styles/settings/settings.scope-styles.css";
 
 .scope {
-  display: block
 }
 
   .content {
     position: relative;
     z-index: 2;
     padding-top: 100vh;
+    margin: 0 var(--spacing-small);
   }
 
   .wrapper {
@@ -44,14 +44,14 @@
 /* Media Queries
    ========================================================================== */
 
-@media (width < 768px) {
+@media (max-width: 768px) {
   .back {
     font-size: var(--font-size-h2);
   }
 }
 
 
-@media (width <= 768px) {
+@media (min-width: 768px) {
   .back {
     font-size: var(--font-size-h1);
   }
