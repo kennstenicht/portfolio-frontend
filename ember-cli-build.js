@@ -9,6 +9,11 @@ module.exports = function (defaults) {
     babel: {
       sourceMaps: 'inline',
     },
+    emberData: {
+      deprecations: {
+        DEPRECATE_STORE_EXTENDS_EMBER_OBJECT: false,
+      },
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated
