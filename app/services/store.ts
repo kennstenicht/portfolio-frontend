@@ -1,6 +1,7 @@
-import Store from 'ember-date/store';
+import BaseStore from 'ember-date/store';
 import { service } from '@ember/service';
+import RequestManager from './request-manager';
 
-export default class MyStore extends Store {
-  @service declare requestManager;
+export default class Store extends BaseStore {
+  @service declare requestManager: RequestManager;
 }
