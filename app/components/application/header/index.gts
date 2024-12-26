@@ -52,7 +52,7 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
 
   // Tasks
   randomString = task(async () => {
-    let possibleLetters = 'abcdefghijklmnopqrstuvwxyz1234567890§$%&?!/()=#';
+    let possibleLetters = 'menuback';
     let string = '';
 
     await timeout(100);
@@ -60,7 +60,7 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
     if (this.numberOfGenerations < 6) {
       this.numberOfGenerations++;
 
-      for (var i = 0; i < 5; i++) {
+      for (var i = 0; i < 4; i++) {
         let randomIndex = Math.floor(Math.random() * possibleLetters.length);
         string += possibleLetters.charAt(randomIndex);
       }
@@ -69,7 +69,7 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
     } else {
       this.numberOfGenerations = 0;
 
-      string = this.args.isNavigationOpen ? 'close' : 'menu';
+      string = this.args.isNavigationOpen ? 'back' : 'menu';
     }
 
     this.menuLabel = string;
