@@ -6,7 +6,7 @@ import IntlService from 'ember-intl/services/intl';
 import ENV from 'portfolio/config/environment';
 
 interface MetaTags {
-  [key: string]: string;
+  [key: string]: string | null;
 }
 
 export default class HeadDataService extends Service {
