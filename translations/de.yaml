@@ -11,6 +11,6 @@ application:
   footer:
     copy: '&copy; {year} by Christoph Wiedenmann'
     social:
-      twitter: Twitter
+      bluesky: Bluesky
       github: GitHub
       linkedin: LinkedIn

@@ -10,8 +10,8 @@ import { bem } from 'portfolio/helpers/bem';
 
 const SOCIAL_MEDIA_LINKS = {
   github: 'https://github.com/kennstenicht',
+  bluesky: 'https://bsky.app/profile/kennstenicht.bsky.social',
   linkedin: 'https://www.linkedin.com/in/christoph-wiedenmann',
-  twitter: 'https://twitter.com/herrwiedenmann',
 };
 
 interface Signature {
