@@ -101,7 +101,7 @@ export default class HeadDataService extends Service {
 
   // Functions
   _getTranslation(type: string) {
-    const currentRouteName = this.router.currentRouteName.split('.');
+    const currentRouteName = this.router.currentRouteName?.split('.') ?? [];
 
     // Check if translation exists for route or any parent route
     for (let x = currentRouteName.length; x > 0; x--) {
