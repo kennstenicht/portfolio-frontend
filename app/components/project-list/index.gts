@@ -1,15 +1,15 @@
 import Component from '@glimmer/component';
 import { service } from '@ember/service';
 import { action } from '@ember/object';
+import { Swiper } from 'swiper';
 import {
-  Swiper,
   FreeMode,
   Pagination,
   Keyboard,
   Mousewheel,
   Parallax,
-} from 'swiper';
-import { SwiperOptions } from 'swiper/types/swiper-options';
+} from 'swiper/modules';
+import type { SwiperOptions } from 'swiper/types';
 import AnimatedEach from 'ember-animated/components/animated-each';
 import move from 'ember-animated/motions/move';
 import { easeOut, easeIn } from 'ember-animated/easings/cosine';
@@ -89,7 +89,7 @@ export default class ProjectListComponent extends Component<Signature> {
       removedSprites,
       sentSprites,
       receivedSprites,
-    }: TransitionContext
+    }: TransitionContext,
   ) {
     [...sentSprites, ...receivedSprites].forEach((sprite) => {
       // Hide sprite! Animation is handled inside of project-list/preview

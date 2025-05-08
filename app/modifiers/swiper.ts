@@ -1,6 +1,6 @@
 import { modifier } from 'ember-modifier';
 import Swiper from 'swiper';
-import { SwiperOptions } from 'swiper/types/swiper-options';
+import type { SwiperOptions } from 'swiper/types';
 
 interface Signature {
   Element: HTMLElement;
