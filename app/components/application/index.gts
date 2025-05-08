@@ -1,11 +1,10 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { hash, fn } from '@ember/helper';
 import { service } from '@ember/service';
 import RouterService from '@ember/routing/router-service';
 
-import t from 'ember-intl/helpers/t';
+import { t } from 'ember-intl';
 import IntlService from 'ember-intl/services/intl';
 
 import windowOn from 'portfolio/modifiers/window-on';
@@ -39,8 +38,9 @@ export default class ApplicationComponent extends Component<Signature> {
     if (this.router.currentRouteName === 'error') {
       return 'error';
     }
+    const currentUrl = this.router.currentURL ?? '';
 
-    let segments = this.router.currentURL
+    let segments = currentUrl
       .substring(1)
       .split('/')
       .filter((n) => n);

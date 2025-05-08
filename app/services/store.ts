@@ -1,4 +1,4 @@
-import BaseStore from 'ember-date/store';
+import BaseStore from '@ember-date/store';
 import { service } from '@ember/service';
 import RequestManager from './request-manager';
 

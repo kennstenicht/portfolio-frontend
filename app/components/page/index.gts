@@ -8,10 +8,10 @@ interface Signature {
   Args: {
     size: string;
     style: string;
-  }
+  };
   Blocks: {
     default: [];
-  }
+  };
 }
 
 export default class PageComponent extends Component<Signature> {
@@ -21,5 +21,6 @@ export default class PageComponent extends Component<Signature> {
         {{yield}}
       </div>
     </div>
+
   </template>
 }

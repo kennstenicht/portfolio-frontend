@@ -19,10 +19,10 @@ import Flutkoerper from './flutkoerper';
 
 const CONTENT_COMPONENTS: { [key: string]: any } = {
   'ad-hoc': AdHoc,
-  binuu: Binuu,
+  'binuu': Binuu,
   'disaster-mgmt': DisasterMgmt,
-  eels: Eels,
-  flutkoerper: Flutkoerper,
+  'eels': Eels,
+  'flutkoerper': Flutkoerper,
 };
 
 const getContentComponent = (project: string) => {

@@ -29,7 +29,6 @@ export default class ApplicationFooterComponent extends Component<Signature> {
 
   // Template
   <template>
-    {{log styles}}
     <footer
       class={{bem styles (hash is-toggled=this.isToggled)}}
       {{inViewport
