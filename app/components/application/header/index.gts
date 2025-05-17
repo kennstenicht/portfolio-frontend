@@ -3,7 +3,6 @@ import { tracked } from '@glimmer/tracking';
 import { service } from '@ember/service';
 import { action } from '@ember/object';
 import { hash, array, concat } from '@ember/helper';
-// @ts-ignore
 import { on } from '@ember/modifier';
 import { LinkTo } from '@ember/routing';
 import RouterService from '@ember/routing/router-service';
@@ -34,46 +33,46 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
 
   // Getter and setter
   get isProjectDetail() {
-    return this.router.currentRoute.name === 'projects.show';
+    return this.router.currentRoute?.name === 'projects.show';
   }
 
   // Functions
   @action
   closeNavigation() {
-    this.randomString.perform();
+    // this.randomString.perform();
     this.args.setIsNavigationOpen(false);
   }
 
   @action
   toggleNavigation() {
-    this.randomString.perform();
+    // this.randomString.perform();
     this.args.setIsNavigationOpen(!this.args.isNavigationOpen);
   }
 
   // Tasks
-  randomString = task(async () => {
-    let possibleLetters = 'menuback';
-    let string = '';
+  // randomString = task(async () => {
+  //   let possibleLetters = 'menuback';
+  //   let string = '';
 
-    await timeout(100);
+  //   await timeout(100);
 
-    if (this.numberOfGenerations < 6) {
-      this.numberOfGenerations++;
+  //   if (this.numberOfGenerations < 6) {
+  //     this.numberOfGenerations++;
 
-      for (var i = 0; i < 4; i++) {
-        let randomIndex = Math.floor(Math.random() * possibleLetters.length);
-        string += possibleLetters.charAt(randomIndex);
-      }
+  //     for (var i = 0; i < 4; i++) {
+  //       let randomIndex = Math.floor(Math.random() * possibleLetters.length);
+  //       string += possibleLetters.charAt(randomIndex);
+  //     }
 
-      this.randomString.perform();
-    } else {
-      this.numberOfGenerations = 0;
+  //     this.randomString.perform();
+  //   } else {
+  //     this.numberOfGenerations = 0;
 
-      string = this.args.isNavigationOpen ? 'back' : 'menu';
-    }
+  //     string = this.args.isNavigationOpen ? 'back' : 'menu';
+  //   }
 
-    this.menuLabel = string;
-  });
+  //   this.menuLabel = string;
+  // });
 
   // Template
   <template>

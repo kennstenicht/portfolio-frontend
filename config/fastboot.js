@@ -1,4 +1,5 @@
-module.exports = function (/* environment */) {
+/* global ReadableStream, WritableStream, TransformStream */
+module.exports = function (environment) {
   return {
     buildSandboxGlobals(defaultGlobals) {
       return Object.assign({}, defaultGlobals, {

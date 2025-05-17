@@ -3,7 +3,7 @@ interface ClassNames {
 }
 
 interface Modifiers {
-  [key: string]: string | boolean | string[];
+  [key: string]: string | boolean | string[] | null;
 }
 
 export function bem(

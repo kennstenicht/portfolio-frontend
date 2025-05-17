@@ -1,6 +1,5 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-// @ts-ignore
 import { on } from '@ember/modifier';
 import { gsap } from 'gsap';
 import styles from './styles.module.css';
@@ -57,11 +56,11 @@ export default class ApplicationLogoComponent extends Component<Signature> {
     const element = event.target as HTMLElement;
     const letters = element.querySelectorAll(`.${bem(styles, 'letter')}`);
     const implodeFn = this.implode;
-    const newWord =
-      this.words[randomBetween(1, this.words.length - 1)].split('');
+    const randomWord = this.words[randomBetween(1, this.words.length - 1)];
+    const newWord = randomWord?.split('');
 
     letters.forEach(function (letterElement, index) {
-      const newLetter = newWord[index];
+      const newLetter = newWord?.[index];
 
       gsap.to(letterElement, {
         css: {

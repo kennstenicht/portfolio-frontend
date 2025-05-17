@@ -3,16 +3,15 @@ import { action } from '@ember/object';
 import { service } from '@ember/service';
 import { Input } from '@ember/component';
 import { hash } from '@ember/helper';
-// @ts-ignore
 import { on } from '@ember/modifier';
 import t from 'ember-intl/helpers/t';
-// @ts-ignore
 import CookiesService from 'ember-cookies/services/cookies';
 // @ts-ignore
 import MediaService from 'ember-responsive/services/media';
 import { bem } from 'portfolio/helpers/bem';
 import styles from './styles.module.css';
 import buttonStyle from 'portfolio/assets/styles/objects/button.module.css';
+import type Owner from '@ember/owner';
 
 interface Signature {
   Element: HTMLDivElement;
@@ -28,7 +27,7 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
   @service declare media: MediaService;
 
   // Hooks
-  constructor(owner: unknown, args: Signature['Args']) {
+  constructor(owner: Owner, args: Signature['Args']) {
     super(owner, args);
 
     // if (!this.cookies.exists('hide_cookie_notice')) {
