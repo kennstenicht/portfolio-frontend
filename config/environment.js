@@ -12,10 +12,6 @@ module.exports = function (environment) {
       name: 'Christoph Wiedenmann',
     },
 
-    fastboot: {
-      hostWhitelist: [/^localhost:\d+$/]
-    },
-
     // Tracking
     metricsAdapters: [
       {
