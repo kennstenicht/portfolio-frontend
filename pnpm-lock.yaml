@@ -73,16 +73,16 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2
       '@glint/core':
-        specifier: ^1.5.2
+        specifier: ^1.4.1-unstable.d17c1f1
         version: 1.5.2(typescript@5.8.3)
       '@glint/environment-ember-loose':
-        specifier: ^1.5.2
+        specifier: ^1.4.1-unstable.d17c1f1
         version: 1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(@types/ember__array@4.0.10(@babel/core@7.27.1))(@types/ember__component@4.0.22(@babel/core@7.27.1))(@types/ember__controller@4.0.12(@babel/core@7.27.1))(@types/ember__object@4.0.12(@babel/core@7.27.1))(@types/ember__routing@4.0.22(@babel/core@7.27.1))(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.27.1))
       '@glint/environment-ember-template-imports':
-        specifier: ^1.5.2
+        specifier: ^1.4.1-unstable.d17c1f1
         version: 1.5.2(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(@types/ember__array@4.0.10(@babel/core@7.27.1))(@types/ember__component@4.0.22(@babel/core@7.27.1))(@types/ember__controller@4.0.12(@babel/core@7.27.1))(@types/ember__object@4.0.12(@babel/core@7.27.1))(@types/ember__routing@4.0.22(@babel/core@7.27.1))(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.27.1)))(@glint/template@1.5.2)(@types/ember__component@4.0.22(@babel/core@7.27.1))(@types/ember__routing@4.0.22(@babel/core@7.27.1))
       '@glint/template':
-        specifier: ^1.5.2
+        specifier: ^1.4.1-unstable.d17c1f1
         version: 1.5.2
       '@tsconfig/ember':
         specifier: ^3.0.10
@@ -124,8 +124,8 @@ importers:
         specifier: ^5.1.14
         version: 5.1.15(postcss@8.5.3)
       ember-animated:
-        specifier: ^2.1.0
-        version: 2.1.0(@babel/core@7.27.1)(@ember/test-helpers@5.2.2(@babel/core@7.27.1)(@glint/template@1.5.2))(@glint/template@1.5.2)
+        specifier: ^2.2.0
+        version: 2.2.0(@babel/core@7.27.1)(@ember/test-helpers@5.2.2(@babel/core@7.27.1)(@glint/template@1.5.2))(@glint/template@1.5.2)
       ember-animated-tools:
         specifier: ^2.0.0
         version: 2.0.0(@babel/core@7.27.1)(@ember/test-helpers@5.2.2(@babel/core@7.27.1)(@glint/template@1.5.2))(@glint/template@1.5.2)
@@ -3155,8 +3155,8 @@ packages:
   ember-animated-tools@2.0.0:
     resolution: {integrity: sha512-BEMUHw36pce+aKAaTKRn3/6p83+s/5IrIykKQWBH2vcY65jixvBbud9mjIU6zBmn2BU58no1vaqcGopLmKXkQQ==}
 
-  ember-animated@2.1.0:
-    resolution: {integrity: sha512-VupLeda0SMvD+z0cb3/Zo1F4jL0LUspqDLCOm/P7AwBWtq5pR3cuf9Lhr33b9HJPICGYyU9zQfYPY76CpqKGhA==}
+  ember-animated@2.2.0:
+    resolution: {integrity: sha512-5B1cuGiVwkzpPEFSFtH8WyFpHwJtH+lXWZTob6jmel7xYRdrvjpRx8QV/FRnE/IJ/wQvqjk7Q7O2Xtm8LRI5OA==}
     peerDependencies:
       '@ember/test-helpers': ^2.6.0 || ^3.0.0 || >= 4.0.0
     peerDependenciesMeta:
@@ -10822,14 +10822,14 @@ snapshots:
     dependencies:
       '@embroider/addon-shim': 1.10.0
       decorator-transforms: 1.2.1(@babel/core@7.27.1)
-      ember-animated: 2.1.0(@babel/core@7.27.1)(@ember/test-helpers@5.2.2(@babel/core@7.27.1)(@glint/template@1.5.2))(@glint/template@1.5.2)
+      ember-animated: 2.2.0(@babel/core@7.27.1)(@ember/test-helpers@5.2.2(@babel/core@7.27.1)(@glint/template@1.5.2))(@glint/template@1.5.2)
     transitivePeerDependencies:
       - '@babel/core'
       - '@ember/test-helpers'
       - '@glint/template'
       - supports-color
 
-  ember-animated@2.1.0(@babel/core@7.27.1)(@ember/test-helpers@5.2.2(@babel/core@7.27.1)(@glint/template@1.5.2))(@glint/template@1.5.2):
+  ember-animated@2.2.0(@babel/core@7.27.1)(@ember/test-helpers@5.2.2(@babel/core@7.27.1)(@glint/template@1.5.2))(@glint/template@1.5.2):
     dependencies:
       '@embroider/addon-shim': 1.10.0
       '@embroider/macros': 1.17.3(@glint/template@1.5.2)

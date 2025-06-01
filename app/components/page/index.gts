@@ -6,7 +6,7 @@ import styles from './styles.module.css';
 interface Signature {
   Element: HTMLDivElement;
   Args: {
-    size: string;
+    size?: string;
     style: string;
   };
   Blocks: {
@@ -21,6 +21,5 @@ export default class PageComponent extends Component<Signature> {
         {{yield}}
       </div>
     </div>
-
   </template>
 }
