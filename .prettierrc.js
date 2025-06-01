@@ -20,7 +20,7 @@ module.exports = {
       },
     },
     {
-      files: '*.{js,ts,gjs,gts}',
+      files: '*.{js,gjs,ts,gts,mjs,mts,cjs,cts}',
       options: {
         singleQuote: true,
         templateSingleQuote: false,
