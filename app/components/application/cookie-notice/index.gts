@@ -6,8 +6,6 @@ import { hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import t from 'ember-intl/helpers/t';
 import CookiesService from 'ember-cookies/services/cookies';
-// @ts-ignore
-import MediaService from 'ember-responsive/services/media';
 import { bem } from 'portfolio/helpers/bem';
 import styles from './styles.module.css';
 import buttonStyle from 'portfolio/assets/styles/objects/button.module.css';
@@ -24,7 +22,6 @@ interface Signature {
 export default class ApplicationCookieNoticeComponent extends Component<Signature> {
   // Services
   @service declare cookies: CookiesService;
-  @service declare media: MediaService;
 
   // Hooks
   constructor(owner: Owner, args: Signature['Args']) {
@@ -114,22 +111,14 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
           </div>
           <div class={{bem styles "spacer"}}></div>
           <button
-            class="{{bem styles 'button'}}
-              {{bem
-                buttonStyle
-                (hash size=(if this.media.isDesktop "default" "full"))
-              }}"
+            class="{{bem styles 'button'}} {{bem buttonStyle 'default'}}"
             type="button"
             {{on "click" this.allowSelectedCookies}}
           >
             {{t "cookieNotice.allowSelectedCookies"}}
           </button>
           <button
-            class="{{bem styles 'button'}}
-              {{bem
-                buttonStyle
-                (hash size=(if this.media.isDesktop "default" "full"))
-              }}"
+            class="{{bem styles 'button'}} {{bem buttonStyle 'default'}}"
             type="button"
             {{on "click" this.allowAllCookies}}
           >
