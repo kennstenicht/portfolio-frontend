@@ -1,0 +1,19 @@
+{
+  "data": {
+    "type": "projects",
+    "id": "binuu",
+    "attributes": {
+      "title": "Binuu",
+      "subtitle": "Laut, grell, GROSS - kickt Einheitsbrei!",
+      "meta-title": null,
+      "meta-description": null,
+      "date": "Tue Jun 12 2022 17:50:55 GMT+0100 (IST)",
+      "position": 2,
+      "visible": true,
+      "excerpt": "Lorem ipsum",
+      "facts": "Facts",
+      "id": "binuu",
+      "content": "<p>Lorem ipsum</p>\n"
+    }
+  }
+}

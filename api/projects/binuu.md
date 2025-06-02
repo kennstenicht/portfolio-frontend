@@ -1,8 +1,8 @@
 ---
 title: Binuu
 subtitle: 'Laut, grell, GROSS - kickt Einheitsbrei!'
-metaTitle:
-metaDescription:
+meta-title:
+meta-description:
 date: Tue Jun 12 2022 17:50:55 GMT+0100 (IST)
 position: 2
 visible: true

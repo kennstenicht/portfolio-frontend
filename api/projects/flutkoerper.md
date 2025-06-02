@@ -1,8 +1,8 @@
 ---
 title: FLUT:koerper
 subtitle: Digital cheers
-metaTitle:
-metaDescription:
+meta-title:
+meta-description:
 date: Tue Jun 12 2022 17:50:55 GMT+0100 (IST)
 position: 4
 visible: true

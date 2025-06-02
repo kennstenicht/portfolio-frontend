@@ -4,7 +4,6 @@ export default class PageModel extends Model {
   // Attributes
   @attr('string') declare content: any;
   @attr('string') declare html: any;
-  @attr('string') declare description: any;
   @attr('string') declare metaTitle: string;
   @attr('string') declare metaDescription: string;
   @attr('string') declare title: string;
@@ -15,7 +14,7 @@ export default class PageModel extends Model {
   }
 
   get metaDescriptionFallback(): string {
-    return this.description;
+    return this.content;
   }
 
   get displayLabel(): string {

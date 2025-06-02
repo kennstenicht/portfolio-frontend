@@ -1,19 +1,25 @@
 import Route from '@ember/routing/route';
-import ProjectsModel from 'portfolio/models/project';
+import ProjectModel from 'portfolio/models/project';
 import ArrayProxy from '@ember/array/proxy';
+import Store from '@ember-data/store';
+import { service } from '@ember/service';
 
 interface Params {
   id: string;
 }
 
 export default class ProjectsShowRoute extends Route {
+  // Services
+  @service declare store: Store;
+
   // Hooks
   buildRouteInfoMetadata() {
     return {
-      metaTags(model: ProjectsModel) {
+      metaTags(model: ProjectModel) {
         return {
-          title: model.metaTitle || model.metaTitleFallback,
-          description: model.metaDescription || model.metaDescriptionFallback,
+          title: model.metaTitle ?? model.metaTitleFallback,
+          description:
+            model.metaDescription ?? model.metaDescriptionFallback ?? '',
           type: 'article',
           image: `images/projects/${model.id}/${model.id}_preview.jpg`,
         };
@@ -22,12 +28,10 @@ export default class ProjectsShowRoute extends Route {
   }
 
   model({ id }: Params) {
-    const projects = this.modelFor('projects') as ArrayProxy<ProjectsModel>;
-
-    return projects.findBy('id', id);
+    return this.store.findRecord('project', id);
   }
 
-  afterModel(model: ProjectsModel) {
+  afterModel(model: ProjectModel) {
     if (!model) {
       throw {
         code: 404,

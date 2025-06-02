@@ -1,0 +1,19 @@
+{
+  "data": {
+    "type": "projects",
+    "id": "flutkoerper",
+    "attributes": {
+      "title": "FLUT:koerper",
+      "subtitle": "Digital cheers",
+      "meta-title": null,
+      "meta-description": null,
+      "date": "Tue Jun 12 2022 17:50:55 GMT+0100 (IST)",
+      "position": 4,
+      "visible": true,
+      "excerpt": "Lorem ipsum",
+      "facts": "Facts",
+      "id": "flutkoerper",
+      "content": "<p>Lorem ipsum</p>\n"
+    }
+  }
+}

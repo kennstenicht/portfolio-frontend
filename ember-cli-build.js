@@ -1,10 +1,12 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
-const { Webpack } = require('@embroider/webpack');
 const path = require('path');
+const { compatBuild } = require('@embroider/compat');
 
 module.exports = async function (defaults) {
+  const { buildOnce } = await import('@embroider/vite');
+
   const { setConfig } = await import('@warp-drive/build-config');
 
   const app = new EmberApp(defaults, {
@@ -34,29 +36,11 @@ module.exports = async function (defaults) {
   // along with the exports of each module as its value.
 
   function isProduction() {
-    return EmberApp.env() === 'production';
+    return compatBuild(app, buildOnce);
   }
 
   // return app.toTree();
-  return require('@embroider/compat').compatBuild(app, Webpack, {
-    staticAddonTestSupportTrees: true,
-    staticAddonTrees: true,
-    staticInvokables: true,
-    staticEmberSource: true,
-    // splitAtRoutes: [
-    //   'pages',
-    //   'pages.show',
-    //   'pages.home',
-    //   'projects',
-    //   'projects.index',
-    //   'projects.show',
-    //   'error'
-    // ],
-    skipBabel: [
-      {
-        package: 'qunit',
-      },
-    ],
+  return compatBuild(app, buildOnce, {
     packagerOptions: {
       publicAssetURL: '/',
       cssLoaderOptions: {

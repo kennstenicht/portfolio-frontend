@@ -4,7 +4,6 @@ export default class ProjectModel extends Model {
   // Attributes
   @attr('string') declare content: any;
   @attr('string') declare html: any;
-  @attr('string') declare description: any;
   @attr('string') declare excerpt: string;
   @attr('string') declare facts: any;
   @attr('string') declare metaTitle: string;
@@ -20,7 +19,7 @@ export default class ProjectModel extends Model {
   }
 
   get metaDescriptionFallback(): string {
-    return this.description;
+    return this.excerpt;
   }
 
   get displayLabel(): string {

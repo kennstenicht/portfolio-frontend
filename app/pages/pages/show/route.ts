@@ -17,7 +17,8 @@ export default class PagesShowRoute extends Route {
       metaTags(model: PageModel) {
         return {
           title: model.metaTitle || model.metaTitleFallback,
-          description: model.metaDescription || model.metaDescriptionFallback,
+          description:
+            model.metaDescription || model.metaDescriptionFallback || '',
           type: 'article',
         };
       },

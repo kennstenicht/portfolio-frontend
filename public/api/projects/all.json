@@ -1,0 +1,89 @@
+{
+  "data": [
+    {
+      "type": "projects",
+      "id": "ad-hoc",
+      "attributes": {
+        "title": "Ad Hoc",
+        "subtitle": "Verbindungssuche mit Turn-By-Turn Navigation im Öffentlichen Nahverkehr",
+        "meta-title": null,
+        "meta-description": null,
+        "date": "Tue Jun 12 2022 17:50:55 GMT+0100 (IST)",
+        "position": 1,
+        "visible": true,
+        "excerpt": "Lorem <strong>ipsum</strong> dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+        "facts": "<strong>Year:</strong> 2016<br><strong>Client:</strong> Universal",
+        "id": "ad-hoc",
+        "content": "<h2>Lorem ipsum</h2>\n<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>\n<p><em>test</em></p>\n"
+      }
+    },
+    {
+      "type": "projects",
+      "id": "binuu",
+      "attributes": {
+        "title": "Binuu",
+        "subtitle": "Laut, grell, GROSS - kickt Einheitsbrei!",
+        "meta-title": null,
+        "meta-description": null,
+        "date": "Tue Jun 12 2022 17:50:55 GMT+0100 (IST)",
+        "position": 2,
+        "visible": true,
+        "excerpt": "Lorem ipsum",
+        "facts": "Facts",
+        "id": "binuu",
+        "content": "<p>Lorem ipsum</p>\n"
+      }
+    },
+    {
+      "type": "projects",
+      "id": "disaster-mgmt",
+      "attributes": {
+        "title": "Chin Chin",
+        "subtitle": "Digital cheers",
+        "meta-title": "Chin Chin",
+        "meta-description": "Das ist die Chin Chin Projekt Seite",
+        "date": "Tue Jun 12 2022 17:50:55 GMT+0100 (IST)",
+        "position": 3,
+        "visible": true,
+        "excerpt": "Lorem ipsum",
+        "facts": "Facts",
+        "id": "disaster-mgmt",
+        "content": "<p>Lorem ipsum</p>\n"
+      }
+    },
+    {
+      "type": "projects",
+      "id": "eels",
+      "attributes": {
+        "title": "EELS",
+        "subtitle": "analog-digital-analog-digital-analog",
+        "meta-title": null,
+        "meta-description": null,
+        "date": "Tue Jun 12 2022 17:50:55 GMT+0100 (IST)",
+        "position": 0,
+        "visible": true,
+        "excerpt": "Lorem ipsum",
+        "facts": "Facts",
+        "id": "eels",
+        "content": "<p>Lorem ipsum</p>\n"
+      }
+    },
+    {
+      "type": "projects",
+      "id": "flutkoerper",
+      "attributes": {
+        "title": "FLUT:koerper",
+        "subtitle": "Digital cheers",
+        "meta-title": null,
+        "meta-description": null,
+        "date": "Tue Jun 12 2022 17:50:55 GMT+0100 (IST)",
+        "position": 4,
+        "visible": true,
+        "excerpt": "Lorem ipsum",
+        "facts": "Facts",
+        "id": "flutkoerper",
+        "content": "<p>Lorem ipsum</p>\n"
+      }
+    }
+  ]
+}
