@@ -68,7 +68,7 @@ export default class HeadDataService extends Service {
   }
 
   get description() {
-    return this.metaTags.description.toLowerCase();
+    return this.metaTags.description?.toLowerCase();
   }
 
   get image() {

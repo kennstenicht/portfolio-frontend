@@ -12,17 +12,4 @@ export default class ProjectModel extends Model {
   @attr('string') declare subtitle: string;
   @attr('string') declare title: string;
   @attr('boolean') declare visible: boolean;
-
-  // Getter and setter
-  get metaTitleFallback(): string {
-    return `${this.title} » ${this.subtitle}`;
-  }
-
-  get metaDescriptionFallback(): string {
-    return this.excerpt;
-  }
-
-  get displayLabel(): string {
-    return this.title;
-  }
 }

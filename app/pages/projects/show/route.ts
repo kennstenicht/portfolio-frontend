@@ -17,9 +17,8 @@ export default class ProjectsShowRoute extends Route {
     return {
       metaTags(model: ProjectModel) {
         return {
-          title: model.metaTitle ?? model.metaTitleFallback,
-          description:
-            model.metaDescription ?? model.metaDescriptionFallback ?? '',
+          title: model.metaTitle,
+          description: model.metaDescription,
           type: 'article',
           image: `images/projects/${model.id}/${model.id}_preview.jpg`,
         };
