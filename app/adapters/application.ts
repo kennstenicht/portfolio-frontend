@@ -6,7 +6,7 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
 
   urlForFindAll(modelName: string) {
     const path = this.pathForType(modelName);
-    return `/api/${path}/all.json`;
+    return `/api/${path}/index.json`;
   }
 
   urlForFindRecord(id: string, modelName: string) {

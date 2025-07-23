@@ -15,7 +15,7 @@ export default class ProjectDetailAdHoc extends Component<Signature> {
   <template>
     <div class={{bem styles}} ...attributes>
       <div class={{bem wrapperStyles}}>
-        {{{@project.html}}}
+        {{{@project.content}}}
       </div>
     </div>
   </template>

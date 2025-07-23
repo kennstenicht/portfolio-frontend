@@ -1,13 +1,12 @@
 ---
-title: Chin Chin
-subtitle: Digital cheers
-meta-title: Chin Chin
-meta-description: Das ist die Chin Chin Projekt Seite
-date: Tue Jun 12 2022 17:50:55 GMT+0100 (IST)
-position: 3
-visible: true
 excerpt: Lorem ipsum
 facts: Facts
+meta-description: Das ist die Chin Chin Projekt Seite
+meta-title: Chin Chin
+position: 3
+subtitle: Digital cheers
+title: Chin Chin
+visible: true
 ---
 
 Lorem ipsum

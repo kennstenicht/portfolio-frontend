@@ -1,6 +1,5 @@
 import Route from '@ember/routing/route';
 import ProjectModel from 'portfolio/models/project';
-import ArrayProxy from '@ember/array/proxy';
 import Store from '@ember-data/store';
 import { service } from '@ember/service';
 

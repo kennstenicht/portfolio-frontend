@@ -5,6 +5,6 @@ import Page from 'portfolio/components/page';
     <h1>{{@model.title}}</h1>
 
     {{! template-lint-disable no-triple-curlies }}
-    {{{@model.html}}}
+    {{{@model.content}}}
   </Page>
 </template>

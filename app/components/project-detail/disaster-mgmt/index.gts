@@ -13,7 +13,7 @@ interface Signature {
 export default class ProjectDetailDisasterMgmt extends Component<Signature> {
   <template>
     <div class={{bem styles}} ...attributes>
-      {{{@project.html}}}
+      {{{@project.content}}}
       <h2>Projekt Beschreibung</h2>
       <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
       /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
