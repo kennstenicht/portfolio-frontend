@@ -14,9 +14,7 @@ export default class ApplicationRoute extends Route {
   @service declare router: RouterService;
 
   // Hooks
-  constructor() {
-    super(...arguments);
-
+  beforeModel() {
     // Setup intl
     this.intl.setLocale('de');
 
