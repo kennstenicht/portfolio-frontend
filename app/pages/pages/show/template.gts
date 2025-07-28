@@ -1,4 +1,12 @@
+import type { TOC } from '@ember/component/template-only';
 import Page from 'portfolio/components/page';
+import type PageModel from 'portfolio/models/page';
+
+interface PagesShowRouteSignature {
+  Args: {
+    model: PageModel;
+  };
+}
 
 <template>
   <Page>
@@ -7,4 +15,4 @@ import Page from 'portfolio/components/page';
     {{! template-lint-disable no-triple-curlies }}
     {{{@model.content}}}
   </Page>
-</template>
+</template> satisfies TOC<PagesShowRouteSignature>;

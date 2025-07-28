@@ -20,7 +20,7 @@ export default class PagesHome extends Route {
     };
   }
 
-  model(): Promise<PageModel> {
-    return this.store.findRecord('page', 'home');
+  model() {
+    return this.store.findRecord<PageModel>('page', 'home');
   }
 }

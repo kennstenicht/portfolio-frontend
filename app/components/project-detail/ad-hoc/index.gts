@@ -1,8 +1,10 @@
-import Component from '@glimmer/component';
+import type { TOC } from '@ember/component/template-only';
+
+import wrapperStyles from 'portfolio/assets/styles/objects/wrapper.module.css';
 import { bem } from 'portfolio/helpers/bem';
 import ProjectModel from 'portfolio/models/project';
+
 import styles from './styles.module.css';
-import wrapperStyles from 'portfolio/assets/styles/objects/wrapper.module.css';
 
 interface Signature {
   Element: HTMLDivElement;
@@ -11,12 +13,11 @@ interface Signature {
   };
 }
 
-export default class ProjectDetailAdHoc extends Component<Signature> {
-  <template>
-    <div class={{bem styles}} ...attributes>
-      <div class={{bem wrapperStyles}}>
-        {{{@project.content}}}
-      </div>
+export default <template>
+  <div class={{bem styles}} ...attributes>
+    <div class={{bem wrapperStyles}}>
+      {{! template-lint-disable no-triple-curlies }}
+      {{{@project.content}}}
     </div>
-  </template>
-}
+  </div>
+</template> satisfies TOC<Signature>;

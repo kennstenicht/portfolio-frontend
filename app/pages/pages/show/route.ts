@@ -24,16 +24,7 @@ export default class PagesShowRoute extends Route {
     };
   }
 
-  model({ id }: Params) {
-    return this.store.findRecord('page', id);
-  }
-
-  afterModel(model: PageModel) {
-    if (!model) {
-      throw {
-        code: 404,
-        message: 'not found',
-      };
-    }
+  model(params: Params) {
+    return this.store.findRecord<PageModel>('page', params.id);
   }
 }

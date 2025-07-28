@@ -26,15 +26,6 @@ export default class ProjectsShowRoute extends Route {
   }
 
   model({ id }: Params) {
-    return this.store.findRecord('project', id);
-  }
-
-  afterModel(model: ProjectModel) {
-    if (!model) {
-      throw {
-        code: 404,
-        message: 'not found',
-      };
-    }
+    return this.store.findRecord<ProjectModel>('project', id);
   }
 }
