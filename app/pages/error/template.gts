@@ -1,7 +1,7 @@
 import Page from 'portfolio/components/page';
 
 <template>
-  <Page @size="small" @style="error">
+  <Page @size="small">
     <h1>404 - Not Found</h1>
     A fatal exception 404 has occurred at C0DE:ABAD1DEA in 0xC0DEBA5E. The
     current request will be terminated.<br />

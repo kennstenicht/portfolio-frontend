@@ -2,8 +2,6 @@
   # PAGE
   ========================================================================== */
 
-@import url("../../assets/styles/settings/settings.scope-styles.css");
-
 .scope {
   flex-grow: 1;
   background-color: var(--color-background);
