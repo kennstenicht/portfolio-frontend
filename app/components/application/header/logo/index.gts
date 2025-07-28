@@ -1,13 +1,28 @@
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { on } from '@ember/modifier';
+
 import { gsap } from 'gsap';
-import styles from './styles.module.css';
+
 import { bem } from 'portfolio/helpers/bem';
 
-const randomBetween = function (min: number, max: number) {
+import styles from './styles.module.css';
+
+function randomBetween(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1) + min);
-};
+}
+
+function implode(letterElement: Element, newLetter: string) {
+  letterElement.innerHTML = newLetter;
+
+  gsap.to(letterElement, {
+    css: {
+      left: '0px',
+      top: '0px',
+    },
+    duration: 0.3,
+    ease: 'power1.in',
+  });
+}
 
 interface Signature {
   Element: HTMLDivElement;
@@ -51,11 +66,9 @@ export default class ApplicationLogoComponent extends Component<Signature> {
   }
 
   // Functions
-  @action
-  explode(event: MouseEvent) {
+  explode = (event: MouseEvent) => {
     const element = event.target as HTMLElement;
     const letters = element.querySelectorAll(`.${bem(styles, 'letter')}`);
-    const implodeFn = this.implode;
     const randomWord = this.words[randomBetween(1, this.words.length - 1)];
     const newWord = randomWord?.split('');
 
@@ -68,25 +81,12 @@ export default class ApplicationLogoComponent extends Component<Signature> {
           top: randomBetween(-100, 100) + 'px',
         },
         duration: 0.3,
-        onComplete: implodeFn,
+        onComplete: implode,
         onCompleteParams: [letterElement, newLetter],
         ease: 'power1.out',
       });
     });
-  }
-
-  implode(letterElement: Element, newLetter: string) {
-    letterElement.innerHTML = newLetter;
-
-    gsap.to(letterElement, {
-      css: {
-        left: '0px',
-        top: '0px',
-      },
-      duration: 0.3,
-      ease: 'power1.in',
-    });
-  }
+  };
 
   // Template
   <template>
