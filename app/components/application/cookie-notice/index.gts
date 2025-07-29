@@ -1,83 +1,85 @@
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 import { service } from '@ember/service';
-import { Input } from '@ember/component';
 import { hash } from '@ember/helper';
 import { on } from '@ember/modifier';
+
+import { modifier } from 'ember-modifier';
 import t from 'ember-intl/helpers/t';
 import CookiesService from 'ember-cookies/services/cookies';
+
+import { windowOn } from 'portfolio/modifiers/window-on';
 import { bem } from 'portfolio/helpers/bem';
-import styles from './styles.module.css';
 import buttonStyle from 'portfolio/assets/styles/objects/button.module.css';
-import type Owner from '@ember/owner';
+
+import styles from './styles.module.css';
 
 interface Signature {
   Element: HTMLDivElement;
-  Args: {
-    showCookieNotice: boolean;
-    toggleCookieNotice: () => void;
-  };
 }
 
 export default class ApplicationCookieNoticeComponent extends Component<Signature> {
   // Services
   @service declare cookies: CookiesService;
 
-  // Hooks
-  constructor(owner: Owner, args: Signature['Args']) {
-    super(owner, args);
-
-    // if (!this.cookies.exists('hide_cookie_notice')) {
-    //   this.args.toggleCookieNotice();
-    // }
-  }
-
-  // Getter and setter
-  get allowAnalyseCookies() {
-    return this.getCookieWithFallback('allow_analyse_cookies', 'false');
-  }
-
-  set allowAnalyseCookies(value) {
-    this.cookies.write('allow_analyse_cookies', value);
-  }
-
-  get allowMarketingCookies() {
-    return this.getCookieWithFallback('allow_marketing_cookies', 'false');
-  }
-
-  set allowMarketingCookies(value) {
-    this.cookies.write('allow_marketing_cookies', value);
-  }
+  // Defaults
+  @tracked allowAnalyseCookies = false;
+  @tracked allowMarketingCookies = false;
+  @tracked isVisible = false;
 
   // Functions
-  @action
-  allowSelectedCookies() {
-    this.saveSettings();
-  }
-
-  @action
-  allowAllCookies() {
+  allowAllCookies = () => {
     this.allowAnalyseCookies = true;
 
     this.saveSettings();
-  }
+  };
 
-  getCookieWithFallback(cookie: string, fallback: string) {
+  checkHash = () => {
+    if (location.hash == '#change-cookie-settings') {
+      this.isVisible = true;
+
+      location.hash = '';
+    }
+  };
+
+  getCookieWithFallback = (cookie: string, fallback: string) => {
     if (!this.cookies.exists(cookie)) {
       this.cookies.write(cookie, fallback);
     }
 
     return this.cookies.read(cookie) == 'true';
-  }
+  };
 
-  saveSettings() {
+  saveSettings = () => {
+    this.cookies.write('allow_analyse_cookies', this.allowAnalyseCookies);
     this.cookies.write('hide_cookie_notice', true);
-    this.args.toggleCookieNotice();
-  }
+
+    this.isVisible = false;
+  };
+
+  setupConsent = modifier(() => {
+    if (!this.cookies.exists('hide_cookie_notice')) {
+      this.isVisible = true;
+    }
+
+    this.allowAnalyseCookies =
+      this.cookies.read('allow_analyse_cookies') == 'true';
+  });
+
+  toggleAnalyseCookies = (event: Event) => {
+    const target = event.target as HTMLInputElement;
+
+    this.allowAnalyseCookies = target.checked;
+  };
 
   // Template
   <template>
-    <div class={{bem styles (hash is-visible=@showCookieNotice)}} ...attributes>
+    <div
+      class={{bem styles (hash is-visible=this.isVisible)}}
+      {{this.setupConsent}}
+      {{windowOn "hashchange" this.checkHash}}
+      ...attributes
+    >
       <div class={{bem styles "header"}}>
         {{t "cookieNotice.headline"}}
       </div>
@@ -87,23 +89,24 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
         </div>
         <div class={{bem styles "settings"}}>
           <div class={{bem styles "option"}}>
-            <Input
+            <input
               id="allow-required-cookies"
               disabled={{true}}
               name="allow-required-cookies"
-              @type="checkbox"
-              @checked={{true}}
+              type="checkbox"
+              checked={{true}}
             />
             <label for="allow-required-cookies">
               {{t "cookieNotice.options.required"}}
             </label>
           </div>
           <div class={{bem styles "option"}}>
-            <Input
+            <input
               id="allow-analyse-cookies"
               name="allow-analyse-cookies"
-              @type="checkbox"
-              @checked={{this.allowAnalyseCookies}}
+              type="checkbox"
+              checked={{this.allowAnalyseCookies}}
+              {{on "change" this.toggleAnalyseCookies}}
             />
             <label for="allow-analyse-cookies">
               {{t "cookieNotice.options.analyse"}}
@@ -113,7 +116,7 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
           <button
             class="{{bem styles 'button'}} {{bem buttonStyle 'default'}}"
             type="button"
-            {{on "click" this.allowSelectedCookies}}
+            {{on "click" this.saveSettings}}
           >
             {{t "cookieNotice.allowSelectedCookies"}}
           </button>

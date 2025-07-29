@@ -5,14 +5,14 @@ application:
     toOverview: '&#10176; Zur Übersicht'
 
 cookieNotice:
-  allowAllCookies: Cookies zulassen
+  allowAllCookies: Alle Cookies zulassen
   allowSelectedCookies: Auswahl erlauben
   headline: Diese Webseite verwendet Cookies
-  message: Wir verwenden Cookies um die Zugriffe auf unsere Webseite zu analysieren und Ihnen das bestmögliche Nutzererlebnis bieten zu können. Die Resultate helfen uns bei der stetigen Verbesserung unserer Webseite. Weitere Informationen finden Sie auch in der '<a href="/privacy">'Datenschutzerklärung'</a>' und im '<a href="/imprint">'Impressum'</a>'.
+  message: Ich verwenden Cookies um die Zugriffe auf meine Webseite zu analysieren um dir das bestmögliche Nutzererlebnis bieten zu können. Die Resultate helfen mir bei der stetigen Verbesserung der Webseite. Weitere Informationen findest du auch in der '<a href="/privacy">'Datenschutzerklärung'</a>' und im '<a href="/imprint">'Impressum'</a>'.
   options:
     analyse: Statistik
     marketing: Marketing
-    required: Nur notwendige
+    required: Funktionale
 
 list:
   noRecords: Wir konnten keine Einträge finden

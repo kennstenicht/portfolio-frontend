@@ -3,12 +3,11 @@ import { tracked } from '@glimmer/tracking';
 import { hash, fn } from '@ember/helper';
 import { service } from '@ember/service';
 import RouterService from '@ember/routing/router-service';
-import type Owner from '@ember/owner';
 
 import { t } from 'ember-intl';
 import IntlService from 'ember-intl/services/intl';
 
-import windowOn from 'portfolio/modifiers/window-on';
+import { windowOn } from 'portfolio/modifiers/window-on';
 import { bem } from 'portfolio/helpers/bem';
 import HeadDataService from 'portfolio/services/head-data';
 
@@ -32,15 +31,7 @@ export default class ApplicationComponent extends Component<Signature> {
   @service declare router: RouterService;
 
   // Defaults
-  @tracked showCookieNotice = false;
   @tracked isNavigationOpen = false;
-
-  // Hooks
-  constructor(owner: Owner, args: Signature['Args']) {
-    super(owner, args);
-
-    this.checkHash();
-  }
 
   // Getter and setter
   get urlSegments(): string {
@@ -63,20 +54,8 @@ export default class ApplicationComponent extends Component<Signature> {
     this.headData.blurTitle = title;
   };
 
-  checkHash = () => {
-    if (location.hash == '#change-cookie-settings') {
-      this.toggleCookieNotice();
-
-      location.hash = '';
-    }
-  };
-
   setIsNavigationOpen = (isOpen: boolean) => {
     this.isNavigationOpen = isOpen;
-  };
-
-  toggleCookieNotice = () => {
-    this.showCookieNotice = !this.showCookieNotice;
   };
 
   // Template
@@ -86,7 +65,6 @@ export default class ApplicationComponent extends Component<Signature> {
         styles
         (hash style=this.urlSegments navigation-is-open=this.isNavigationOpen)
       }}
-      {{windowOn "hashchange" this.checkHash}}
       {{windowOn
         "blur"
         (fn this.changeMetaTitle (t "application.meta.blurTitle"))
@@ -103,10 +81,7 @@ export default class ApplicationComponent extends Component<Signature> {
         {{yield}}
       </main>
 
-      <CookieNotice
-        @showCookieNotice={{this.showCookieNotice}}
-        @toggleCookieNotice={{this.toggleCookieNotice}}
-      />
+      <CookieNotice />
       <Footer />
 
       <div class={{bem styles "frame"}}></div>
