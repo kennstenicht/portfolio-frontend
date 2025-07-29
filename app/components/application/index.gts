@@ -3,6 +3,7 @@ import { tracked } from '@glimmer/tracking';
 import { hash, fn } from '@ember/helper';
 import { service } from '@ember/service';
 import RouterService from '@ember/routing/router-service';
+import type Owner from '@ember/owner';
 
 import { t } from 'ember-intl';
 import IntlService from 'ember-intl/services/intl';
@@ -21,6 +22,7 @@ interface Signature {
   Blocks: {
     default: [];
   };
+  Args: null;
 }
 
 export default class ApplicationComponent extends Component<Signature> {
@@ -33,14 +35,22 @@ export default class ApplicationComponent extends Component<Signature> {
   @tracked showCookieNotice = false;
   @tracked isNavigationOpen = false;
 
+  // Hooks
+  constructor(owner: Owner, args: Signature['Args']) {
+    super(owner, args);
+
+    this.checkHash();
+  }
+
   // Getter and setter
   get urlSegments(): string {
     if (this.router.currentRouteName === 'error') {
       return 'error';
     }
+
     const currentUrl = this.router.currentURL ?? '';
 
-    let segments = currentUrl
+    const segments = currentUrl
       .substring(1)
       .split('/')
       .filter((n) => n);
@@ -76,7 +86,7 @@ export default class ApplicationComponent extends Component<Signature> {
         styles
         (hash style=this.urlSegments navigation-is-open=this.isNavigationOpen)
       }}
-      {{windowOn "haschange" this.checkHash}}
+      {{windowOn "hashchange" this.checkHash}}
       {{windowOn
         "blur"
         (fn this.changeMetaTitle (t "application.meta.blurTitle"))
