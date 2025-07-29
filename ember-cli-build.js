@@ -10,7 +10,6 @@ module.exports = async function (defaults) {
   const { setConfig } = await import('@warp-drive/build-config');
 
   const app = new EmberApp(defaults, {
-    plugins: [require.resolve('ember-concurrency/async-arrow-task-transform')],
     babel: {
       sourceMaps: 'inline',
     },

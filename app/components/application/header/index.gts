@@ -1,16 +1,18 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { service } from '@ember/service';
-import { action } from '@ember/object';
 import { hash, array, concat } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { LinkTo } from '@ember/routing';
 import RouterService from '@ember/routing/router-service';
+
 import t from 'ember-intl/helpers/t';
 import { timeout, task } from 'ember-concurrency';
 import animatedIf from 'ember-animated/components/animated-if';
 import fade from 'ember-animated/transitions/fade';
+
 import { bem } from 'portfolio/helpers/bem';
+
 import styles from './styles.module.css';
 import Logo from './logo/index';
 
@@ -37,42 +39,37 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
   }
 
   // Functions
-  @action
-  closeNavigation() {
-    // this.randomString.perform();
+  closeNavigation = async () => {
     this.args.setIsNavigationOpen(false);
-  }
+    await this.randomString.perform();
+  };
 
-  @action
-  toggleNavigation() {
-    // this.randomString.perform();
+  toggleNavigation = async () => {
     this.args.setIsNavigationOpen(!this.args.isNavigationOpen);
-  }
+    await this.randomString.perform();
+  };
 
-  // Tasks
-  // randomString = task(async () => {
-  //   let possibleLetters = 'menuback';
-  //   let string = '';
+  randomString = task(async () => {
+    await timeout(100);
 
-  //   await timeout(100);
+    if (this.numberOfGenerations < 6) {
+      const possibleLetters = 'menuback';
+      let string = '';
 
-  //   if (this.numberOfGenerations < 6) {
-  //     this.numberOfGenerations++;
+      this.numberOfGenerations++;
 
-  //     for (var i = 0; i < 4; i++) {
-  //       let randomIndex = Math.floor(Math.random() * possibleLetters.length);
-  //       string += possibleLetters.charAt(randomIndex);
-  //     }
+      for (let i = 0; i < 4; i++) {
+        const randomIndex = Math.floor(Math.random() * possibleLetters.length);
+        string += possibleLetters.charAt(randomIndex);
+      }
 
-  //     this.randomString.perform();
-  //   } else {
-  //     this.numberOfGenerations = 0;
-
-  //     string = this.args.isNavigationOpen ? 'back' : 'menu';
-  //   }
-
-  //   this.menuLabel = string;
-  // });
+      this.menuLabel = string;
+      await this.randomString.perform();
+    } else {
+      this.numberOfGenerations = 0;
+      this.menuLabel = this.args.isNavigationOpen ? 'back' : 'menu';
+    }
+  });
 
   // Template
   <template>
