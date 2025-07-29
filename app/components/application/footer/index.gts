@@ -1,12 +1,14 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { concat, hash, fn } from '@ember/helper';
+
 import t from 'ember-intl/helpers/t';
-// @ts-ignore
-import inViewport from 'ember-in-viewport/modifiers/in-viewport';
-import styles from './styles.module.css';
+
 import linkStyles from 'portfolio/assets/styles/objects/link.module.css';
 import { bem } from 'portfolio/helpers/bem';
+import { inViewport } from 'portfolio/modifiers/in-viewport';
+
+import styles from './styles.module.css';
 
 const SOCIAL_MEDIA_LINKS = {
   github: 'https://github.com/kennstenicht',
@@ -34,7 +36,6 @@ export default class ApplicationFooterComponent extends Component<Signature> {
       {{inViewport
         onEnter=(fn (mut this.isToggled) true)
         onExit=(fn (mut this.isToggled) false)
-        viewportSpy=true
       }}
       ...attributes
     >
