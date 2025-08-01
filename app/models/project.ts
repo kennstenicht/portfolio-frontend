@@ -8,6 +8,7 @@ export default class ProjectModel extends Model {
   @attr('string') declare metaTitle: string;
   @attr('string') declare metaDescription: string;
   @attr('number') declare position: number;
+  @attr('string') declare previewImage: string;
   @attr('string') declare subtitle: string;
   @attr('string') declare title: string;
   @attr('boolean') declare visible: boolean;

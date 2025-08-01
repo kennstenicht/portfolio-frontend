@@ -2,8 +2,6 @@
    # PROJECT LIST / PREVIEW
    ========================================================================== */
 
-@import url("../../../assets/styles/settings/settings.scope-styles.css");
-
 .scope {
   position: relative;
   flex-shrink: 0;
@@ -11,7 +9,6 @@
   width: 35vw;
   height: 36vh;
   cursor: pointer;
-  color: var(--color-primary);
 
   &--style-binuu {
     margin-top: 32vh;
@@ -43,11 +40,11 @@
     height: 100%;
   }
 
-    .background {
+    .preview-image {
       width: 100%;
       height: 100%;
-      background-position: center center;
-      background-size: cover;
+      object-fit: cover;
+      object-position: center;
     }
 
     .header {
@@ -91,7 +88,7 @@
 /* Media Queries
    ========================================================================== */
 
-@media (max-width: 768px) {
+@media (width < 768px) {
   .scope {
     width: 80vw;
     height: 40vh;

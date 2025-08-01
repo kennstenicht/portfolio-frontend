@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
-import AnimatedValue from 'ember-animated/components/animated-value';
+import { animatedValue } from 'ember-animated';
 import move from 'ember-animated/motions/move';
 import resize from 'ember-animated/motions/resize';
 import { parallel } from 'ember-animated';
@@ -23,7 +23,7 @@ export default class ProjectDetailHeader extends Component<Signature> {
   styles = styles;
 
   // Functions
-  *backgroundTransition({ sentSprites }: TransitionContext) {
+  *previewImageTransition({ sentSprites }: TransitionContext) {
     sentSprites.forEach((sprite) => {
       sprite.applyStyles({
         'z-index': '2',
@@ -47,40 +47,37 @@ export default class ProjectDetailHeader extends Component<Signature> {
   // Template
   <template>
     <div class={{bem this.styles (hash style=@project.id)}} ...attributes>
-      <AnimatedValue
-        @value={{@project.id}}
-        @use={{this.backgroundTransition}}
-        @duration={{this.duration}}
-        as |id|
-      >
-        <div
-          class={{bem this.styles "background" (hash style=id)}}
-          style="background-image: url('/assets/projects/{{id}}/{{id}}_preview.jpg')"
-        ></div>
-      </AnimatedValue>
+      {{#animatedValue
+        @project.previewImage
+        use=this.previewImageTransition
+        duration=this.duration
+        as |previewImage|
+      }}
+        <img
+          class={{bem this.styles "preview-image" (hash style=@project.id)}}
+          src={{previewImage}}
+          alt={{@project.title}}
+        />
+      {{/animatedValue}}
 
       <header class={{bem this.styles "header"}}>
-        <AnimatedValue
-          @value={{@project.title}}
-          @use={{this.typoTransition}}
-          @duration={{this.duration}}
+        {{#animatedValue
+          @project.title use=this.typoTransition duration=this.duration
           as |title|
-        >
+        }}
           <h1 class={{bem this.styles "title"}}>
             {{title}}
           </h1>
-        </AnimatedValue>
+        {{/animatedValue}}
 
-        <AnimatedValue
-          @value={{@project.subtitle}}
-          @use={{this.typoTransition}}
-          @duration={{this.duration}}
+        {{#animatedValue
+          @project.subtitle use=this.typoTransition duration=this.duration
           as |subtitle|
-        >
+        }}
           <div class={{bem this.styles "subtitle"}}>
             {{subtitle}}
           </div>
-        </AnimatedValue>
+        {{/animatedValue}}
       </header>
     </div>
   </template>

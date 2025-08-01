@@ -3,12 +3,14 @@ import { service } from '@ember/service';
 import { hash } from '@ember/helper';
 import { LinkTo } from '@ember/routing';
 import RouterService from '@ember/routing/router-service';
-import AnimatedValue from 'ember-animated/components/animated-value';
-import { parallel } from 'ember-animated';
+import {
+  animatedValue,
+  parallel,
+  type TransitionContext,
+} from 'ember-animated';
 import move from 'ember-animated/motions/move';
 import resize from 'ember-animated/motions/resize';
 import adjustColor from 'ember-animated/motions/adjust-color';
-import TransitionContext from 'ember-animated/-private/transition-context';
 import indexNumber from 'portfolio/helpers/index-number';
 import { bem } from 'portfolio/helpers/bem';
 import styles from './styles.module.css';
@@ -30,23 +32,24 @@ export default class ProjectListPreviewComponent extends Component<Signature> {
   duration = 600;
 
   // Functions
+  // eslint-disable-next-line require-yield
   *backgroundTransition({ sentSprites }: TransitionContext) {
     sentSprites.forEach((sprite) => {
       sprite.applyStyles({
         'z-index': '3',
       });
-    });
 
-    sentSprites.forEach(parallel(move, resize));
+      parallel(move(sprite), resize(sprite));
+    });
   }
 
+  // eslint-disable-next-line require-yield
   *typoTransition({ sentSprites }: TransitionContext) {
     sentSprites.forEach((sprite) => {
       sprite.applyStyles({
         'z-index': '4',
       });
 
-      // @ts-ignore
       parallel(move(sprite), adjustColor('color', sprite));
     });
   }
@@ -55,44 +58,40 @@ export default class ProjectListPreviewComponent extends Component<Signature> {
   <template>
     <article class={{bem styles (hash style=@project.id)}} ...attributes>
       <LinkTo @route="projects.show" @model={{@project}}>
-        <AnimatedValue
-          @value={{@project.id}}
-          @use={{this.backgroundTransition}}
-          @duration={{this.duration}}
-          as |id|
-        >
-          <div
-            class={{bem styles "background" (hash style=id)}}
-            style="background-image: url('/assets/projects/{{id}}/{{id}}_preview.jpg')"
-          ></div>
-        </AnimatedValue>
-
+        {{#animatedValue
+          @project.previewImage
+          use=this.backgroundTransition
+          duration=this.duration
+          as |previewImage|
+        }}
+          <img
+            class={{bem styles "preview-image" (hash style=@project.id)}}
+            src={{previewImage}}
+            alt={{@project.title}}
+          />
+        {{/animatedValue}}
         <header class={{bem styles "header"}}>
           <div class={{bem styles "index"}} data-swiper-parallax="50">
             {{indexNumber @index}}
           </div>
 
-          <AnimatedValue
-            @value={{@project.title}}
-            @use={{this.typoTransition}}
-            @duration={{this.duration}}
+          {{#animatedValue
+            @project.title use=this.typoTransition duration=this.duration
             as |title|
-          >
+          }}
             <h1 class={{bem styles "title"}}>
               {{title}}
             </h1>
-          </AnimatedValue>
+          {{/animatedValue}}
 
-          <AnimatedValue
-            @value={{@project.subtitle}}
-            @use={{this.typoTransition}}
-            @duration={{this.duration}}
+          {{#animatedValue
+            @project.subtitle use=this.typoTransition duration=this.duration
             as |subtitle|
-          >
+          }}
             <div class={{bem styles "subtitle"}} data-swiper-parallax="90">
               {{subtitle}}
             </div>
-          </AnimatedValue>
+          {{/animatedValue}}
         </header>
 
         <div class={{bem styles "meta"}}>

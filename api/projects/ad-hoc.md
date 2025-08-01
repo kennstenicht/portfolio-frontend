@@ -4,6 +4,7 @@ facts: '<strong>Year:</strong> 2016<br><strong>Client:</strong> Universal'
 meta-description:
 meta-title: Ad Hoc
 position: 1
+preview-image: '/assets/projects/ad-hoc/ad-hoc_preview.jpg'
 subtitle: Verbindungssuche mit Turn-By-Turn Navigation im Öffentlichen Nahverkehr
 title: Ad Hoc
 visible: true
