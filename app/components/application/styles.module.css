@@ -2,8 +2,6 @@
    # APPLICATION
    ========================================================================== */
 
-@import url("../../assets/styles/settings/settings.scope-styles.css");
-
 .scope {
   position: relative;
   overflow: auto;
@@ -13,6 +11,85 @@
   color: var(--color-typo);
   transition: background-color var(--transition-slow),
               color var(--transition-slow);
+
+  /* Pages */
+  &--style-default {
+    --color-primary     : #fff;
+    --color-secondary   : #fff;
+    --color-typo        : #333;
+    --color-background  : #f5f5f5;
+  }
+
+  &--style-imprint {
+    --color-primary     : #fff;
+    --color-secondary   : #fff;
+    --color-typo        : #333;
+    --color-background  : #f5f5f5;
+  }
+
+  &--style-privacy {
+    --color-primary     : #fff;
+    --color-secondary   : #fff;
+    --color-typo        : #333;
+    --color-background  : #f5f5f5;
+  }
+
+  &--style-projects {
+    --color-primary     : #fff;
+    --color-secondary   : #fff;
+    --color-typo        : #333;
+    --color-background  : #f5f5f5;
+  }
+
+  &--style-about {
+    --color-primary     : #121212;
+    --color-secondary   : #fff;
+    --color-typo        : #f2f2f2;
+    --color-background  : #111;
+  }
+
+  &--style-error {
+    --color-primary     : #041aac;
+    --color-secondary   : #fff;
+    --color-typo        : #f2f2f2;
+    --color-background  : #0015a3;
+  }
+
+  /* Projects */
+  &--style-ad-hoc {
+    --color-primary     : #008d84;
+    --color-secondary   : #242a30;
+    --color-typo        : #f2f2f2;
+    --color-background  : #181d1f;
+  }
+
+  &--style-eels {
+    --color-primary     : #e63f94;
+    --color-secondary   : #e0dbdb;
+    --color-typo        : #333;
+    --color-background  : #f2f2f2;
+  }
+
+  &--style-binuu {
+    --color-primary     : #ebf20d;
+    --color-secondary   : #e0dbdb;
+    --color-typo        : #333;
+    --color-background  : #f2f2f2;
+  }
+
+  &--style-disaster-mgmt {
+    --color-primary     : #ffa045;
+    --color-secondary   : #4e4e4e;
+    --color-typo        : #f2f2f2;
+    --color-background  : #383636;
+  }
+
+  &--style-flutkoerper {
+    --color-primary     : #6d91f5;
+    --color-secondary   : #f1e7df;
+    --color-typo        : #333;
+    --color-background  : #f2f2f2;
+  }
 }
 
   .content {
