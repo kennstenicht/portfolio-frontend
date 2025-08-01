@@ -1,6 +1,6 @@
 // @ts-ignore
 import HeadLayout from 'ember-cli-head/components/head-layout';
-import AnimatedOrphans from 'ember-animated/components/animated-orphans';
+import { AnimatedOrphans } from 'ember-animated';
 // @ts-ignore
 import AnimatedTools from 'ember-animated-tools/components/animated-tools';
 

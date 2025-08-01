@@ -10,10 +10,9 @@ import {
   Parallax,
 } from 'swiper/modules';
 import type { SwiperOptions } from 'swiper/types';
-import AnimatedEach from 'ember-animated/components/animated-each';
+import { animatedEach, type TransitionContext } from 'ember-animated';
 import move from 'ember-animated/motions/move';
 import { easeOut, easeIn } from 'ember-animated/easings/cosine';
-import TransitionContext from 'ember-animated/-private/transition-context';
 import SwiperService from 'portfolio/services/swiper';
 import swiper from 'portfolio/modifiers/swiper';
 import { bem } from 'portfolio/helpers/bem';
@@ -138,16 +137,16 @@ export default class ProjectListComponent extends Component<Signature> {
       ...attributes
     >
       <div class={{bem styles "wrapper"}}>
-        <AnimatedEach
-          @items={{this.sortedProjects}}
-          @initialInsertion={{false}}
-          @finalRemoval={{true}}
-          @use={{this.listTransition}}
-          @duration={{this.duration}}
+        {{#animatedEach
+          this.sortedProjects
+          initialInsertion=false
+          finalRemoval=true
+          use=this.listTransition
+          duration=this.duration
           as |project index|
-        >
+        }}
           <Preview @project={{project}} @index={{index}} />
-        </AnimatedEach>
+        {{/animatedEach}}
       </div>
     </div>
   </template>

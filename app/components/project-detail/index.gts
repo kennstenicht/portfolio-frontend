@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { service } from '@ember/service';
 import { LinkTo } from '@ember/routing';
 import { hash } from '@ember/helper';
-import AnimatedValue from 'ember-animated/components/animated-value';
+import { animatedValue } from 'ember-animated';
 import t from 'ember-intl/helpers/t';
 import ProjectModel from 'portfolio/models/project';
 import { bem } from 'portfolio/helpers/bem';
@@ -17,7 +17,7 @@ import DisasterMgmt from './disaster-mgmt';
 import Eels from './eels';
 import Flutkoerper from './flutkoerper';
 
-const CONTENT_COMPONENTS: { [key: string]: any } = {
+const CONTENT_COMPONENTS = {
   'ad-hoc': AdHoc,
   'binuu': Binuu,
   'disaster-mgmt': DisasterMgmt,
@@ -25,7 +25,7 @@ const CONTENT_COMPONENTS: { [key: string]: any } = {
   'flutkoerper': Flutkoerper,
 };
 
-const getContentComponent = (project: string) => {
+const getContentComponent = (project: keyof typeof CONTENT_COMPONENTS) => {
   return CONTENT_COMPONENTS[project];
 };
 
@@ -49,7 +49,7 @@ export default class ProjectDetail extends Component<Signature> {
 
   // Template
   <template>
-    <AnimatedValue @value={{@project}} as |project|>
+    {{#animatedValue @project as |project|}}
       <article class={{bem styles (hash style=project.id)}} ...attributes>
         <Header @project={{project}} />
         <div class={{bem styles "content"}}>
@@ -66,6 +66,6 @@ export default class ProjectDetail extends Component<Signature> {
           </div>
         </div>
       </article>
-    </AnimatedValue>
+    {{/animatedValue}}
   </template>
 }

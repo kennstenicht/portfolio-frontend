@@ -8,7 +8,7 @@ import RouterService from '@ember/routing/router-service';
 
 import t from 'ember-intl/helpers/t';
 import { timeout, task } from 'ember-concurrency';
-import animatedIf from 'ember-animated/components/animated-if';
+import { animatedIf } from 'ember-animated';
 import fade from 'ember-animated/transitions/fade';
 
 import { bem } from 'portfolio/helpers/bem';
