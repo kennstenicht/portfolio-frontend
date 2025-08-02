@@ -4,6 +4,7 @@
 
 .scope {
   position: relative;
+  color: var(--color-typo);
 
   /* Pages */
   &--style-default {
@@ -87,7 +88,6 @@
 
   .content {
     background: var(--color-background);
-    color: var(--color-typo);
     transition: background-color var(--transition-slow),
                 color var(--transition-slow);
     position: relative;

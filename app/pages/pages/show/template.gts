@@ -10,9 +10,12 @@ interface PagesShowRouteSignature {
 
 <template>
   <Page>
-    <h1>{{@model.title}}</h1>
-
-    {{! template-lint-disable no-triple-curlies }}
-    {{{@model.content}}}
+    <:title>
+      {{@model.title}}
+    </:title>
+    <:content>
+      {{! template-lint-disable no-triple-curlies }}
+      {{{@model.content}}}
+    </:content>
   </Page>
 </template> satisfies TOC<PagesShowRouteSignature>;
