@@ -4,13 +4,6 @@
 
 .scope {
   position: relative;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  height: 100vh;
-  background: var(--color-background);
-  color: var(--color-typo);
-  transition: background-color var(--transition-slow),
-              color var(--transition-slow);
 
   /* Pages */
   &--style-default {
@@ -93,9 +86,18 @@
 }
 
   .content {
+    background: var(--color-background);
+    color: var(--color-typo);
+    transition: background-color var(--transition-slow),
+                color var(--transition-slow);
     position: relative;
     display: flex;
     flex-direction: column;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: var(--spacing-small);
+    height: var(--vh);
+
   }
 
   .frame {

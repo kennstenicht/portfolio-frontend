@@ -72,17 +72,19 @@ export default class ApplicationComponent extends Component<Signature> {
       {{windowOn "focus" (fn this.changeMetaTitle "")}}
       ...attributes
     >
-      <Header
-        @isNavigationOpen={{this.isNavigationOpen}}
-        @setIsNavigationOpen={{this.setIsNavigationOpen}}
-      />
 
-      <main class={{bem styles "content"}}>
-        {{yield}}
-      </main>
+      <div class={{bem styles "content"}}>
+        <Header
+          @isNavigationOpen={{this.isNavigationOpen}}
+          @setIsNavigationOpen={{this.setIsNavigationOpen}}
+        />
+        <main>
+          {{yield}}
+        </main>
+        <Footer />
+      </div>
 
       <CookieNotice />
-      <Footer />
 
       <div class={{bem styles "frame"}}></div>
     </div>

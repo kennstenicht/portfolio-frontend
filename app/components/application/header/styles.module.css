@@ -2,23 +2,20 @@
    # APPLICATION HEADER
    ========================================================================== */
 
-/* Variables */
 .scope {
+  /* Variables */
   --burger-height: 12px;
   --burger-width: 20px;
   --burger-line-height: 2px;
   --burger-to-translate: calc((var(--burger-height) - var(--burger-line-height)) / 2);
-}
 
-
-/* Block */
-.scope {
+  /* Styles */
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: 902;
-  width: 100vw;
+  width: var(--vw);
   font-size: var(--font-size-small);
 }
 
