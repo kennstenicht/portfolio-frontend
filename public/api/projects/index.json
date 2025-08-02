@@ -6,7 +6,7 @@
       "attributes": {
         "excerpt": "Lorem <strong>ipsum</strong> dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         "facts": "<strong>Year:</strong> 2016<br><strong>Client:</strong> Universal",
-        "meta-description": null,
+        "meta-description": "Verbindungssuche mit Turn-By-Turn Navigation im Öffentlichen Nahverkehr",
         "meta-title": "Ad Hoc",
         "position": 1,
         "preview-image": "/assets/projects/ad-hoc/ad-hoc_preview.jpg",
@@ -22,8 +22,8 @@
       "attributes": {
         "excerpt": "Lorem ipsum",
         "facts": "Facts",
-        "meta-description": null,
-        "meta-title": null,
+        "meta-description": "Laut, grell, GROSS - kickt Einheitsbrei!",
+        "meta-title": "Binuu",
         "position": 2,
         "preview-image": "/assets/projects/binuu/binuu_preview.jpg",
         "subtitle": "Laut, grell, GROSS - kickt Einheitsbrei!",
@@ -54,8 +54,8 @@
       "attributes": {
         "excerpt": "Lorem ipsum",
         "facts": "Facts",
-        "meta-description": null,
-        "meta-title": null,
+        "meta-description": "EELS Project",
+        "meta-title": "EELS",
         "position": 0,
         "preview-image": "/assets/projects/eels/eels_preview.jpg",
         "subtitle": "analog-digital-analog-digital-analog",
@@ -70,8 +70,8 @@
       "attributes": {
         "excerpt": "Lorem ipsum",
         "facts": "Facts",
-        "meta-description": null,
-        "meta-title": null,
+        "meta-description": "FLUT:koerper project",
+        "meta-title": "FLUT:koerper",
         "position": 4,
         "preview-image": "/assets/projects/flutkoerper/flutkoerper_preview.jpg",
         "subtitle": "Digital cheers",

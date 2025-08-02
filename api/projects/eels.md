@@ -1,8 +1,8 @@
 ---
 excerpt: Lorem ipsum
 facts: Facts
-meta-description:
-meta-title:
+meta-description: EELS Project
+meta-title: EELS
 position: 0
 preview-image: '/assets/projects/eels/eels_preview.jpg'
 subtitle: analog-digital-analog-digital-analog

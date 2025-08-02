@@ -1,8 +1,8 @@
 ---
 excerpt: Lorem ipsum
 facts: Facts
-meta-description:
-meta-title:
+meta-description: Laut, grell, GROSS - kickt Einheitsbrei!
+meta-title: Binuu
 position: 2
 preview-image: '/assets/projects/binuu/binuu_preview.jpg'
 subtitle: 'Laut, grell, GROSS - kickt Einheitsbrei!'
