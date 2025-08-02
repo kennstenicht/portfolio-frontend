@@ -40,6 +40,10 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
 
   // Functions
   closeNavigation = async () => {
+    if (!this.args.isNavigationOpen) {
+      return;
+    }
+
     this.args.setIsNavigationOpen(false);
     await this.randomString.perform();
   };
