@@ -16,7 +16,7 @@ export default class ApplicationRoute extends Route {
   // Hooks
   beforeModel() {
     // Setup intl
-    this.intl.setLocale('de');
+    this.intl.setLocale('en');
 
     // Setup head data fallback tags
     this.headData.fallbackMetaTags = {
