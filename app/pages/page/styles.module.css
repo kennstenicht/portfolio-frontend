@@ -1,0 +1,50 @@
+/* ==========================================================================
+  # PAGE
+  ========================================================================== */
+
+.scope {
+  position: relative;
+  display: flex;
+  gap: var(--spacing-base);
+  min-height: var(--vh);
+  margin-right: auto;
+  max-width: var(--wrapper-width);
+  padding: var(--spacing-giant) var(--spacing-base) var(--spacing-large);
+}
+
+  .title-wrapper {
+    width: clamp(120px, 30vw, 570px);
+    flex-shrink: 0;
+  }
+
+  .title {
+    position: absolute;
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: clamp(60px, 15vw, 280px);;
+    font-family: var(--font-family-decoration);
+    line-height: 1;
+    transform: rotate(90deg) translate(0, -100%);
+    transform-origin: top left;
+    margin: 0;
+  }
+
+
+
+
+
+/* Media Queries
+   ========================================================================== */
+
+@media (width < 768px) {
+  .scope {
+    margin-left: 0;
+  }
+}
+
+
+@media (width >= 768px) {
+  .scope {
+    margin-left: calc(var(--spacing-giant) - var(--spacing-base));
+  }
+}

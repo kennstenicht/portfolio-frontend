@@ -3,10 +3,10 @@
     "type": "pages",
     "id": "imprint",
     "attributes": {
-      "title": "Impressum",
-      "meta-title": "Impressum",
+      "title": "Im-<br>print",
+      "meta-title": "Imprint",
       "meta-description": "Das ist die Impressums Seite",
-      "content": "<p>Lorem ipsum</p>\n"
+      "content": "<h2>Responsible for content:</h2>\n<p>Christoph Wiedenmann<br>\nKnesbeckstr. 86<br>\nD-10623 Berlin</p>\n<p>+49 151 241 396 42<br>\n<a href=\"mailto:moin@wiedenmann.cc\">moin@wiedenmann.cc</a></p>\n"
     }
   }
 }

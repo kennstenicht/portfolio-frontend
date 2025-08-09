@@ -130,7 +130,7 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
             </li>
             <li class={{bem styles "item"}}>
               <LinkTo
-                @route="pages.show"
+                @route="page"
                 @model="about"
                 {{on "click" this.closeNavigation}}
               >
@@ -142,7 +142,7 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
             {{#each (array "imprint" "privacy") as |page|}}
               <li class={{bem styles "item" (hash is-small=true)}}>
                 <LinkTo
-                  @route="pages.show"
+                  @route="page"
                   @model={{page}}
                   {{on "click" this.closeNavigation}}
                 >

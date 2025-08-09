@@ -4,7 +4,7 @@ import { service } from '@ember/service';
 import Store from '@ember-data/store';
 
 interface Params {
-  id: string;
+  page_id: string;
 }
 
 export default class PagesShowRoute extends Route {
@@ -25,6 +25,6 @@ export default class PagesShowRoute extends Route {
   }
 
   model(params: Params) {
-    return this.store.findRecord<PageModel>('page', params.id);
+    return this.store.findRecord<PageModel>('page', params.page_id);
   }
 }
