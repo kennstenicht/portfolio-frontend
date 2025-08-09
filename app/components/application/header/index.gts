@@ -88,7 +88,7 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
       ...attributes
     >
       <LinkTo
-        @route="pages.home"
+        @route="home"
         class={{bem styles "logo"}}
         {{on "click" this.closeNavigation}}
       >

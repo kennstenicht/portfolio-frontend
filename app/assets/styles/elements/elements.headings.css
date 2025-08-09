@@ -6,7 +6,6 @@ h1 {
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing-large);
   line-height: 0.9;
-
   font-size: var(--font-size-h1);
 }
 

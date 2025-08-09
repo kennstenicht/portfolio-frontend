@@ -1,0 +1,37 @@
+.scope {
+  height: calc(var(--vh) - (var(--spacing-giant) * 2));
+  text-align: justify;
+  hyphens: auto;
+  text-transform: uppercase;
+}
+
+.title {
+  display: inline;
+  font-size: inherit;
+}
+
+.scope p {
+  display: inline;
+}
+
+
+
+
+
+/* Media Queries
+   ========================================================================== */
+
+@media (width < 768px) {
+  .scope {
+    margin: var(--spacing-giant) var(--spacing-base);
+    width: calc(var(--vw) - (var(--spacing-base) * 2));
+  }
+}
+
+
+@media (width >= 768px) {
+  .scope {
+    margin: var(--spacing-giant);
+    width: calc(var(--vw) - (var(--spacing-giant) * 2));
+  }
+}

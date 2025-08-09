@@ -10,8 +10,8 @@ Router.map(function () {
   // Pages
   this.route('pages', { path: '/' }, function () {
     this.route('show', { path: ':id' });
-    this.route('home', { path: '/' });
   });
+  this.route('home', { path: '/' });
 
   // Projects
   this.route('projects', function () {
