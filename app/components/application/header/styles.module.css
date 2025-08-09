@@ -170,7 +170,7 @@
 
   .navigation {
     top: var(--spacing-base-small);
-    right: var(--spacing-base-small);
+    right: var(--spacing-small);
   }
 
     .scope--is-project-detail .toggle {
@@ -192,7 +192,7 @@
 
   .navigation {
     top: var(--spacing-large-small);
-    right: var(--spacing-large-small);
+    right: var(--spacing-base-small);
   }
 
     .back-to-overview {
