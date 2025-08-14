@@ -70,8 +70,8 @@ importers:
         specifier: ^1.17.2
         version: 1.17.3(@glint/template@1.5.2)
       '@embroider/router':
-        specifier: ^3.0.1
-        version: 3.0.1(@embroider/core@4.1.0(@glint/template@1.5.2))
+        specifier: ^3.0.2
+        version: 3.0.2(@embroider/core@4.1.0(@glint/template@1.5.2))
       '@embroider/vite':
         specifier: ^1.1.1
         version: 1.1.5(@embroider/core@4.1.0(@glint/template@1.5.2))(@glint/template@1.5.2)(rollup@4.41.1)(vite@6.3.5(@types/node@22.15.18)(jiti@1.21.7)(terser@5.39.2))
@@ -1091,8 +1091,8 @@ packages:
   '@embroider/reverse-exports@0.1.2':
     resolution: {integrity: sha512-TgjQalfB42RnwdRVApjcvHSVjBe+7MJfCZV0Cs1jv2QgnFGr/6f5X19PKvmF4FU4xbBf7yOsIWrVvYvidWnXlw==}
 
-  '@embroider/router@3.0.1':
-    resolution: {integrity: sha512-0+kzSvXNj8mLbbXbD9F+Y5MqtggPN/fEl71VtTa+j6bOP3lW/xvKQ1kje/H5EHF9MYsnlH8KitWDCsphbQz5Qw==}
+  '@embroider/router@3.0.2':
+    resolution: {integrity: sha512-zNGJ61mCwab+rCQh2YBcuGeZwebf+OHiKpJVNCqX5ZOm0RK9nL3S7aXTf22GtvP+SBtRNCQhRKrJE5a7lvNiRQ==}
     peerDependencies:
       '@embroider/core': ^2.0.0||^3.0.0||^4.0.0-alpha.0
     peerDependenciesMeta:
@@ -8300,7 +8300,7 @@ snapshots:
       mem: 8.1.1
       resolve.exports: 2.0.3
 
-  '@embroider/router@3.0.1(@embroider/core@4.1.0(@glint/template@1.5.2))':
+  '@embroider/router@3.0.2(@embroider/core@4.1.0(@glint/template@1.5.2))':
     dependencies:
       '@ember/test-waiters': 3.1.0
       '@embroider/addon-shim': 1.10.0

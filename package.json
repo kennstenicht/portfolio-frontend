@@ -45,7 +45,7 @@
     "@embroider/config-meta-loader": "^1.0.0",
     "@embroider/core": "^4.0.3",
     "@embroider/macros": "^1.17.2",
-    "@embroider/router": "^3.0.1",
+    "@embroider/router": "^3.0.2",
     "@embroider/vite": "^1.1.1",
     "@eslint/js": "^9.25.1",
     "@glimmer/component": "^2.0.0",
