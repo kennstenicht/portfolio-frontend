@@ -5,6 +5,16 @@ route:
       description: 'i’m a berlin base web engenieer with a strong ux background and a love for details. i worked with many frameworks in different languages, but i prefer to work with ember.js or ruby on rails.'
       title: Christoph Wiedenmann » Software Engenieer & UX Designer
   error:
+    title: 404 - Not Found
+    message:
+      A fatal exception 404 has occurred at C0DE:ABAD1DEA in 0xC0DEBA5E. The
+      current request will be terminated.<br />
+      <br />
+      * Press Enter to terminate the current application.<br />
+      * Press CTRL+ALT+ENTER to restart your computer. You will lose any unsaved
+      information in all applications.<br />
+      <br />
+      Press Elter key to continue...█
     meta:
       description: We can't find the page you are looking for. either the page is not available anymore or you have entered a wrong url.
       title: 404 » not found

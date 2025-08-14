@@ -5,6 +5,16 @@ route:
       description: Moin, ich bin Christoph und ein Berliner Software Entwickler mit einem starken UX-Hintergrund und eine liebe zu Details. Neben diversen Sprachen und Frameworks bevorzuge ich ember.js und Ruby on Rails.
       title: Christoph Wiedenmann » Software Engenieer & UX Designer
   error:
+    title: 404 - Not Found
+    message:
+      A fatal exception 404 has occurred at C0DE:ABAD1DEA in 0xC0DEBA5E. The
+      current request will be terminated.<br />
+      <br />
+      * Press Enter to terminate the current application.<br />
+      * Press CTRL+ALT+ENTER to restart your computer. You will lose any unsaved
+      information in all applications.<br />
+      <br />
+      Press Elter key to continue...█
     meta:
       description: Wir konnten die Seite leider nicht finden. Entweder ist die Seite nicht mehr vorhanden oder du hast in der url etwas falsches eingeben.
       title: 404 » nicht gefunden

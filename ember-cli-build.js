@@ -37,6 +37,6 @@ module.exports = async function (defaults) {
     packagerOptions: {
       publicAssetURL: '/',
     },
-    splitAtRoutes: ['home', 'page', 'projects', 'error'],
+    splitAtRoutes: ['home', 'page', 'projects'],
   });
 };
