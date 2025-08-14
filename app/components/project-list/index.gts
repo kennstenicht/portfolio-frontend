@@ -132,7 +132,7 @@ export default class ProjectListComponent extends Component<Signature> {
       <div class={{bem styles "wrapper"}}>
         {{#animatedEach
           this.sortedProjects
-          initialInsertion=false
+          initialInsertion=true
           finalRemoval=true
           use=this.listTransition
           duration=this.duration

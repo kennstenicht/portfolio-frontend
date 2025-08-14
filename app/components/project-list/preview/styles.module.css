@@ -10,26 +10,6 @@
   height: 36vh;
   cursor: pointer;
 
-  &--style-binuu {
-    margin-top: 32vh;
-  }
-
-  &--style-eels {
-    margin-top: 30vh;
-  }
-
-  &--style-disaster-mgmt {
-    margin-top: 20vh;
-  }
-
-  &--style-ad-hoc {
-    margin-top: 40vh;
-  }
-
-  &--style-flutkoerper {
-    margin-top: 15vh;
-  }
-
   &--is-active {
     z-index: 999;
   }
