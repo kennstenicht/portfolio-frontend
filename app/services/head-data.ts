@@ -105,7 +105,7 @@ export default class HeadDataService extends Service {
 
     // Check if translation exists for route or any parent route
     for (let x = currentRouteName.length; x > 0; x--) {
-      const path = `${currentRouteName.slice(0, x).join('.')}.meta.${type}`;
+      const path = `route.${currentRouteName.slice(0, x).join('.')}.meta.${type}`;
 
       if (this.intl.exists(path)) {
         return this.intl.t(path);

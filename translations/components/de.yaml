@@ -1,8 +1,16 @@
 application:
   header:
-    projects: Projekte
     about: Über mich
+    imprint: Impressum
+    privacy: Datenschutz
+    projects: Projekte
     toOverview: '&#10176; Zur Übersicht'
+  footer:
+    copy: '&copy; {year} by Christoph Wiedenmann'
+    social:
+      bluesky: Bluesky
+      github: GitHub
+      linkedin: LinkedIn
 
 cookieNotice:
   allowAllCookies: Alle Cookies zulassen
@@ -13,9 +21,6 @@ cookieNotice:
     analyse: Statistik
     marketing: Marketing
     required: Funktionale
-
-list:
-  noRecords: Wir konnten keine Einträge finden
 
 projectDetail:
   backToOverview: '&#10176; Zurück zur Übersicht'

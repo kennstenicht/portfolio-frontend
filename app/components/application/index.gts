@@ -67,7 +67,7 @@ export default class ApplicationComponent extends Component<Signature> {
       }}
       {{windowOn
         "blur"
-        (fn this.changeMetaTitle (t "application.meta.blurTitle"))
+        (fn this.changeMetaTitle (t "route.application.meta.blurTitle"))
       }}
       {{windowOn "focus" (fn this.changeMetaTitle "")}}
       ...attributes

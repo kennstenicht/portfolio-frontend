@@ -6,6 +6,8 @@ import RouterService from '@ember/routing/router-service';
 // @ts-ignore
 import MetricsService from 'ember-metrics/services/metrics';
 
+import { formats } from 'portfolio/ember-intl';
+
 export default class ApplicationRoute extends Route {
   // Services
   @service declare headData: HeadDataService;
@@ -16,12 +18,13 @@ export default class ApplicationRoute extends Route {
   // Hooks
   beforeModel() {
     // Setup intl
+    this.intl.setFormats(formats);
     this.intl.setLocale('en');
 
     // Setup head data fallback tags
     this.headData.fallbackMetaTags = {
-      title: this.intl.t('application.meta.title'),
-      description: this.intl.t('application.meta.description'),
+      title: this.intl.t('route.application.meta.title'),
+      description: this.intl.t('route.application.meta.description'),
       image: '/assets/meta/sharing-image--default.jpg',
       type: 'website',
       structuredData: null,

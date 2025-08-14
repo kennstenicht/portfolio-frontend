@@ -139,14 +139,14 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
             </li>
           </ul>
           <ul class={{bem styles "list"}}>
-            {{#each (array "imprint" "privacy") as |page|}}
+            {{#each (array "imprint" "privacy") as |pageSlug|}}
               <li class={{bem styles "item" (hash is-small=true)}}>
                 <LinkTo
                   @route="page"
-                  @model={{page}}
+                  @model={{pageSlug}}
                   {{on "click" this.closeNavigation}}
                 >
-                  {{t (concat "navigation." page)}}
+                  {{t (concat "application.header." pageSlug)}}
                 </LinkTo>
               </li>
             {{/each}}
