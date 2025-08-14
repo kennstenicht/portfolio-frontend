@@ -4,8 +4,8 @@
 
 .scope {
   overflow: hidden;
-  width: calc(100vw - var(--spacing-base));
-  height: calc(100vh - var(--spacing-base));
+  width: var(--vw);
+  height: var(--vh);
 }
 
   .wrapper {

@@ -6,7 +6,7 @@ import { animatedValue } from 'ember-animated';
 import t from 'ember-intl/helpers/t';
 import ProjectModel from 'portfolio/models/project';
 import { bem } from 'portfolio/helpers/bem';
-import SwiperService from 'portfolio/services/swiper';
+import ProjectSliderService from 'portfolio/services/project-slider';
 import link from 'portfolio/assets/styles/objects/link.module.css';
 import styles from './styles.module.css';
 import Header from './header';
@@ -16,6 +16,7 @@ import Binuu from './binuu';
 import DisasterMgmt from './disaster-mgmt';
 import Eels from './eels';
 import Flutkoerper from './flutkoerper';
+import type Owner from '@ember/owner';
 
 const CONTENT_COMPONENTS = {
   'ad-hoc': AdHoc,
@@ -25,8 +26,12 @@ const CONTENT_COMPONENTS = {
   'flutkoerper': Flutkoerper,
 };
 
-const getContentComponent = (project: keyof typeof CONTENT_COMPONENTS) => {
-  return CONTENT_COMPONENTS[project];
+const getContentComponent = (projectId: string | null) => {
+  if (!projectId) {
+    return null;
+  }
+
+  return CONTENT_COMPONENTS[projectId as keyof typeof CONTENT_COMPONENTS];
 };
 
 interface Signature {
@@ -38,13 +43,13 @@ interface Signature {
 
 export default class ProjectDetail extends Component<Signature> {
   // Services
-  @service swiper!: SwiperService;
+  @service projectSlider!: ProjectSliderService;
 
   // Hooks
-  constructor(owner: unknown, args: Signature['Args']) {
+  constructor(owner: Owner, args: Signature['Args']) {
     super(owner, args);
 
-    this.swiper.position = this.args.project.position;
+    this.projectSlider.position = this.args.project.position;
   }
 
   // Template

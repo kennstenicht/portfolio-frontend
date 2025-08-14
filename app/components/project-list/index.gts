@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { service } from '@ember/service';
 import { action } from '@ember/object';
-import { Swiper } from 'swiper';
+
 import {
   FreeMode,
   Pagination,
@@ -13,13 +13,16 @@ import type { SwiperOptions } from 'swiper/types';
 import { animatedEach, type TransitionContext } from 'ember-animated';
 import move from 'ember-animated/motions/move';
 import { easeOut, easeIn } from 'ember-animated/easings/cosine';
-import SwiperService from 'portfolio/services/swiper';
+
+import ProjectSliderService from 'portfolio/services/project-slider';
 import swiper from 'portfolio/modifiers/swiper';
 import { bem } from 'portfolio/helpers/bem';
 import Project from 'portfolio/models/project';
+
 import Preview from './preview';
 import previewStyles from './preview/styles.module.css';
 import styles from './styles.module.css';
+import { cached } from '@glimmer/tracking';
 
 interface Signature {
   Element: HTMLElement;
@@ -30,23 +33,26 @@ interface Signature {
 
 export default class ProjectListComponent extends Component<Signature> {
   // Services
-  @service declare swiper: SwiperService;
+  @service declare projectSlider: ProjectSliderService;
 
   // Defaults
   duration = 600;
-  swiperOptions: SwiperOptions;
 
-  constructor(owner: unknown, args: Signature['Args']) {
-    super(owner, args);
+  // Getter and setter
+  get sortedProjects() {
+    return this.args.projects.slice().sort((a, b) => a.position - b.position);
+  }
 
-    this.swiperOptions = {
+  @cached
+  get swiperOptions(): SwiperOptions {
+    return {
       modules: [FreeMode, Pagination, Keyboard, Mousewheel, Parallax],
       slidesPerView: 'auto',
       centeredSlides: true,
       grabCursor: true,
       simulateTouch: true,
       parallax: true,
-      initialSlide: this.swiper.position,
+      initialSlide: this.projectSlider.position ?? 0,
 
       freeMode: {
         enabled: true,
@@ -63,10 +69,6 @@ export default class ProjectListComponent extends Component<Signature> {
         releaseOnEdges: true,
       },
 
-      on: {
-        slideChange: this.setActive,
-      },
-
       // Classes
       wrapperClass: styles['wrapper'],
       slideClass: previewStyles['scope'],
@@ -74,13 +76,9 @@ export default class ProjectListComponent extends Component<Signature> {
     };
   }
 
-  // Getter and setter
-  get sortedProjects() {
-    return this.args.projects.slice().sort((a, b) => a.position - b.position);
-  }
-
   // Functions
   @action
+  // eslint-disable-next-line require-yield
   *listTransition(
     this: ProjectListComponent,
     {
@@ -97,7 +95,7 @@ export default class ProjectListComponent extends Component<Signature> {
 
     insertedSprites.forEach((sprite) => {
       const spriteIndex = sprite.owner?.index || 0;
-      const isAfterReceivedSprite = this.swiper.position <= spriteIndex;
+      const isAfterReceivedSprite = this.projectSlider.position <= spriteIndex;
       const spriteWidth = sprite.finalBounds?.width || 0;
       const startLeft = -window.innerWidth - spriteWidth;
       const startRight = window.innerWidth * 2;
@@ -111,7 +109,7 @@ export default class ProjectListComponent extends Component<Signature> {
 
     removedSprites.forEach((sprite) => {
       const spriteIndex = sprite.owner?.index || 0;
-      const isAfterSentSprite = this.swiper.position <= spriteIndex;
+      const isAfterSentSprite = this.projectSlider.position <= spriteIndex;
       const spriteWidth = sprite.initialBounds?.width || 0;
       const endLeft = -window.innerWidth - spriteWidth;
       const endRight = window.innerWidth * 2;
@@ -122,11 +120,6 @@ export default class ProjectListComponent extends Component<Signature> {
 
       move(sprite, { easing: easeIn });
     });
-  }
-
-  @action
-  setActive(swiper: Swiper) {
-    this.swiper.position = swiper.activeIndex;
   }
 
   // Template
