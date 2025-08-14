@@ -63,7 +63,7 @@
 
     .social {
       width: 100%;
-      margin-bottom: var(--spacing-base)
+      margin-bottom: var(--spacing-small)
     }
 
     .copy {
