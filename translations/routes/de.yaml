@@ -18,6 +18,28 @@ route:
     meta:
       description: Wir konnten die Seite leider nicht finden. Entweder ist die Seite nicht mehr vorhanden oder du hast in der url etwas falsches eingeben.
       title: 404 » nicht gefunden
+  home:
+    title: 'Moin'
+    message:
+      'i-am': 'ich'
+      'berlin-based': 'bin ein Berliner'
+      'senior-developer': 'Senior Frontend Entwickler'
+      'ux-background': 'mit starkem UX-Hintergrund'
+      'love-for-details': 'und einer Liebe zu Details.'
+      'many-frameworks': 'Ich habe mit vielen Frameworks'
+      'diffenrent-languages': 'in verschiedenen Sprachen gearbeitet,'
+      'prefer-ember': 'aber ich bevorzuge Ember.js'
+      'love-to-learn-svelt': 'und würde Svelte gerne ausprobieren.'
+    altText:
+      'i-am': 'Portrait von Christoph Wiedenmann in 16-Bit Pixel-Art'
+      'berlin-based': 'Berliner Skyline in 16-Bit Pixel-Art'
+      'senior-developer': 'Visualisierung von Senior Frontend Entwickler in 16-Bit Pixel-Art'
+      'ux-background': 'Visualisierung von UX-Hintergrund in 16-Bit Pixel-Art'
+      'love-for-details': 'Visualisierung von Liebe zu Details in 16-Bit Pixel-Art'
+      'many-frameworks': 'Logos von ember.js, react, next.js, vue, Ruby on Rails in 16-Bit Pixel-Art'
+      'diffenrent-languages': 'Logos von JavaScript, TypeScript, Ruby, PHP in 16-Bit Pixel-Art'
+      'prefer-ember': 'ember.js Logo in 16-Bit Pixel-Art'
+      'love-to-learn-svelt': 'Svelte Logo in 16-Bit Pixel-Art'
   projects:
     meta:
       description: Für unsere unsere Kunden entwickeln wir digitale Produkte, Services und Kommunikationsstrategien.
