@@ -2,37 +2,22 @@ import Component from '@glimmer/component';
 import { service } from '@ember/service';
 import { LinkTo } from '@ember/routing';
 import { hash } from '@ember/helper';
+import type Owner from '@ember/owner';
+
 import { animatedValue } from 'ember-animated';
 import t from 'ember-intl/helpers/t';
+
 import ProjectModel from 'portfolio/models/project';
 import { bem } from 'portfolio/helpers/bem';
 import ProjectSliderService from 'portfolio/services/project-slider';
 import link from 'portfolio/assets/styles/objects/link.module.css';
+
 import styles from './styles.module.css';
 import Header from './header';
+
+import Default from './default';
 import Summary from './summary';
-import AdHoc from './ad-hoc';
-import Binuu from './binuu';
-import DisasterMgmt from './disaster-mgmt';
-import Eels from './eels';
-import Flutkoerper from './flutkoerper';
-import type Owner from '@ember/owner';
-
-const CONTENT_COMPONENTS = {
-  'ad-hoc': AdHoc,
-  'binuu': Binuu,
-  'disaster-mgmt': DisasterMgmt,
-  'eels': Eels,
-  'flutkoerper': Flutkoerper,
-};
-
-const getContentComponent = (projectId: string | null) => {
-  if (!projectId) {
-    return null;
-  }
-
-  return CONTENT_COMPONENTS[projectId as keyof typeof CONTENT_COMPONENTS];
-};
+import MintEc from './mint-ec';
 
 interface Signature {
   Element: HTMLElement;
@@ -74,3 +59,18 @@ export default class ProjectDetail extends Component<Signature> {
     {{/animatedValue}}
   </template>
 }
+
+// Component utilities
+const CONTENT_COMPONENTS = new Map([['mint-ec', MintEc]]);
+
+const getContentComponent = (projectId: string | null) => {
+  if (!projectId) {
+    return null;
+  }
+
+  if (CONTENT_COMPONENTS.has(projectId)) {
+    return CONTENT_COMPONENTS.get(projectId);
+  }
+
+  return Default;
+};
