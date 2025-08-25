@@ -1,12 +1,10 @@
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
-import { concat, hash, fn } from '@ember/helper';
+import { concat, hash } from '@ember/helper';
 
 import t from 'ember-intl/helpers/t';
 
 import linkStyles from 'portfolio/assets/styles/objects/link.module.css';
 import { bem } from 'portfolio/helpers/bem';
-import { inViewport } from 'portfolio/modifiers/in-viewport';
 
 import styles from './styles.module.css';
 
@@ -18,12 +16,12 @@ const SOCIAL_MEDIA_LINKS = {
 
 interface Signature {
   Element: HTMLElement;
+  Args: {
+    isNavigationOpen?: boolean;
+  };
 }
 
 export default class ApplicationFooterComponent extends Component<Signature> {
-  // Defaults
-  @tracked isToggled = false;
-
   // Getter and setter
   get currentYear() {
     return new Date().getFullYear();
@@ -32,11 +30,7 @@ export default class ApplicationFooterComponent extends Component<Signature> {
   // Template
   <template>
     <footer
-      class={{bem styles (hash is-toggled=this.isToggled)}}
-      {{inViewport
-        onEnter=(fn (mut this.isToggled) true)
-        onExit=(fn (mut this.isToggled) false)
-      }}
+      class={{bem styles (hash is-toggled=@isNavigationOpen)}}
       ...attributes
     >
       <div class={{bem styles "wrapper"}}>

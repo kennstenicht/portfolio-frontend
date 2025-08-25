@@ -3,7 +3,7 @@
    ========================================================================== */
 
 .scope {
-  background-image: linear-gradient(70deg, currentColor 0%, currentColor 100%);
+  background-image: linear-gradient(70deg, currentcolor 0%, currentcolor 100%);
   background-position: 0 88%;
   background-size: 100% 0;
   background-repeat: no-repeat;

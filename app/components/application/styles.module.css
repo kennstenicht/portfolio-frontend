@@ -88,8 +88,7 @@
 
   .content {
     background: var(--color-background);
-    transition: background-color var(--transition-slow),
-                color var(--transition-slow);
+    transition: color var(--transition-slow);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -109,7 +108,7 @@
     border-width: var(--spacing-small);
     border-style: solid;
     pointer-events: none;
-    transition: border-width 0.6s cubic-bezier(1,-0.01,.67,.92),
+    transition: border-width 0.6s cubic-bezier(1,0,.67,.92),
                 border-color var(--transition-slow) 0.2s;
   }
 

@@ -81,7 +81,7 @@ export default class ApplicationComponent extends Component<Signature> {
         <main>
           {{yield}}
         </main>
-        <Footer />
+        <Footer @isNavigationOpen={{this.isNavigationOpen}} />
       </div>
 
       <CookieNotice />

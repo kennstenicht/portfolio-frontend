@@ -19,7 +19,7 @@
   --spacing-large:          calc(var(--baseline) * 8);
   --spacing-large-tiny:     calc(var(--baseline) * 9);
   --spacing-large-small:    calc(var(--baseline) * 10);
-  --spacing-large-base:     calc(var(--baseline) * 11);
+  --spacing-large-base:     calc(var(--baseline) * 12);
   --spacing-huge:           calc(var(--baseline) * 16);
   --spacing-huge-large:     calc(var(--baseline) * 24);
   --spacing-giant:          calc(var(--baseline) * 32);

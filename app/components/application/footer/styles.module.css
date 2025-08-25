@@ -11,17 +11,18 @@
     right: var(--spacing-large-small);
     bottom: var(--spacing-base);
     left: var(--spacing-large-small);
-    z-index: 900;
+    z-index: 902;
     display: flex;
     font-weight: bold;
     font-size: var(--font-size-small);
-    transition: transform var(--transition-base);
+    transition: transform var(--transition-base) 0s;
     transform-origin: 100% 100%;
-    transform: translate(0, 200%);
+    transform: translate(0, 300%);
   }
 
   .scope--is-toggled .wrapper {
     transform: translate(0, 0);
+    transition: transform var(--transition-base) 0.6s;
   }
 
     .social {
