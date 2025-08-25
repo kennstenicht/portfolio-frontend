@@ -7,7 +7,6 @@
 .message {
   position: relative;
   z-index: 2;
-  height: calc(var(--vh) - (var(--spacing-giant) * 2));
   text-align: justify;
   hyphens: auto;
   text-transform: uppercase;
@@ -46,8 +45,9 @@
 
 @media (width < 768px) {
   .message {
-    margin: var(--spacing-giant) var(--spacing-base);
-    width: calc(var(--vw) - (var(--spacing-base) * 2));
+    margin: var(--spacing-giant) var(--spacing-base) var(--spacing-base) var(--spacing-base);
+    width: calc(var(--vw) - var(--spacing-large));
+    height: calc(var(--vh) - var(--spacing-giant) - var(--spacing-base));
   }
 }
 
