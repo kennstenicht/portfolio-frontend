@@ -3,11 +3,12 @@ excerpt: Lorem ipsum
 facts: Facts
 meta-description: Das ist die Chin Chin Projekt Seite
 meta-title: Chin Chin
-position: 3
+position: 5
 preview-image: '/assets/projects/disaster-mgmt/disaster-mgmt_preview.jpg'
-subtitle: Digital cheers
+subtitle: interactive installation
 title: Chin Chin
 visible: true
+tags: ember.js & AR Detector
 ---
 
 Lorem ipsum

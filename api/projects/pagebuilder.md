@@ -1,0 +1,14 @@
+---
+excerpt: Lorem ipsum
+facts: Facts
+meta-description: Das ist die Chin Chin Projekt Seite
+meta-title: Universal PageBuilder
+position: 1
+preview-image: '/assets/projects/pagebuilder/pagebuilder_preview.png'
+subtitle: Get a marketing page up and running with some clicks
+title: PageBuilder
+visible: true
+tags: next.js
+---
+
+Lorem ipsum

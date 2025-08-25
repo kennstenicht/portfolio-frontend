@@ -2,81 +2,120 @@
   "data": [
     {
       "type": "projects",
-      "id": "ad-hoc",
-      "attributes": {
-        "excerpt": "Lorem <strong>ipsum</strong> dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-        "facts": "<strong>Year:</strong> 2016<br><strong>Client:</strong> Universal",
-        "meta-description": "Verbindungssuche mit Turn-By-Turn Navigation im Öffentlichen Nahverkehr",
-        "meta-title": "Ad Hoc",
-        "position": 1,
-        "preview-image": "/assets/projects/ad-hoc/ad-hoc_preview.jpg",
-        "subtitle": "Verbindungssuche mit Turn-By-Turn Navigation im Öffentlichen Nahverkehr",
-        "title": "Ad Hoc",
-        "visible": true,
-        "content": "<h2>Lorem ipsum</h2>\n<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>\n<p><em>test</em></p>\n"
-      }
-    },
-    {
-      "type": "projects",
-      "id": "binuu",
-      "attributes": {
-        "excerpt": "Lorem ipsum",
-        "facts": "Facts",
-        "meta-description": "Laut, grell, GROSS - kickt Einheitsbrei!",
-        "meta-title": "Binuu",
-        "position": 2,
-        "preview-image": "/assets/projects/binuu/binuu_preview.jpg",
-        "subtitle": "Laut, grell, GROSS - kickt Einheitsbrei!",
-        "title": "Binuu",
-        "visible": true,
-        "content": "<p>Lorem ipsum</p>\n"
-      }
-    },
-    {
-      "type": "projects",
-      "id": "disaster-mgmt",
+      "id": "chin-chin",
       "attributes": {
         "excerpt": "Lorem ipsum",
         "facts": "Facts",
         "meta-description": "Das ist die Chin Chin Projekt Seite",
         "meta-title": "Chin Chin",
-        "position": 3,
+        "position": 5,
         "preview-image": "/assets/projects/disaster-mgmt/disaster-mgmt_preview.jpg",
-        "subtitle": "Digital cheers",
+        "subtitle": "interactive installation",
         "title": "Chin Chin",
         "visible": true,
+        "tags": "ember.js & AR Detector",
         "content": "<p>Lorem ipsum</p>\n"
       }
     },
     {
       "type": "projects",
-      "id": "eels",
+      "id": "flimmerkasten",
       "attributes": {
         "excerpt": "Lorem ipsum",
         "facts": "Facts",
-        "meta-description": "EELS Project",
-        "meta-title": "EELS",
-        "position": 0,
-        "preview-image": "/assets/projects/eels/eels_preview.jpg",
-        "subtitle": "analog-digital-analog-digital-analog",
-        "title": "EELS",
-        "visible": true,
-        "content": "<p>Lorem ipsum</p>\n"
-      }
-    },
-    {
-      "type": "projects",
-      "id": "flutkoerper",
-      "attributes": {
-        "excerpt": "Lorem ipsum",
-        "facts": "Facts",
-        "meta-description": "FLUT:koerper project",
-        "meta-title": "FLUT:koerper",
+        "meta-description": "Retro games controlled by you phone",
+        "meta-title": "Flimmerkasten",
         "position": 4,
-        "preview-image": "/assets/projects/flutkoerper/flutkoerper_preview.jpg",
-        "subtitle": "Digital cheers",
-        "title": "FLUT:koerper",
+        "preview-image": "/assets/projects/disaster-mgmt/disaster-mgmt_preview.jpg",
+        "subtitle": "Retro games controlled by you phone",
+        "title": "Flimmerkasten",
         "visible": true,
+        "tags": "ember.js & WebRTC",
+        "content": "<p>Lorem ipsum</p>\n"
+      }
+    },
+    {
+      "type": "projects",
+      "id": "meinezeit",
+      "attributes": {
+        "excerpt": "Lorem <strong>ipsum</strong> dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+        "facts": "<strong>Year:</strong> 2016<br><strong>Client:</strong> Universal",
+        "meta-description": "Vultiple websites, powered by one CMS",
+        "meta-title": "MeineZeit",
+        "position": 2,
+        "preview-image": "/assets/projects/meinezeit/meinezeit_preview.jpg",
+        "subtitle": "Multiple websites, powered by one CMS",
+        "title": "MeineZeit",
+        "visible": true,
+        "tags": "ember.js & Ruby on Rails",
+        "content": "<h2>Lorem ipsum</h2>\n<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>\n<p><em>test</em></p>\n"
+      }
+    },
+    {
+      "type": "projects",
+      "id": "mint-ec",
+      "attributes": {
+        "excerpt": "Lorem ipsum",
+        "facts": "Facts",
+        "meta-description": "let's create a network of mint schools",
+        "meta-title": "MINT EC",
+        "position": 3,
+        "preview-image": "/assets/projects/mint-ec/mint-ec_preview.png",
+        "subtitle": "let's create a network of mint schools",
+        "title": "MINT EC",
+        "visible": true,
+        "tags": "ember.js & WordPress",
+        "content": "<p>Lorem ipsum</p>\n"
+      }
+    },
+    {
+      "type": "projects",
+      "id": "pagebuilder",
+      "attributes": {
+        "excerpt": "Lorem ipsum",
+        "facts": "Facts",
+        "meta-description": "Das ist die Chin Chin Projekt Seite",
+        "meta-title": "Universal PageBuilder",
+        "position": 1,
+        "preview-image": "/assets/projects/pagebuilder/pagebuilder_preview.png",
+        "subtitle": "Get a marketing page up and running with some clicks",
+        "title": "PageBuilder",
+        "visible": true,
+        "tags": "next.js",
+        "content": "<p>Lorem ipsum</p>\n"
+      }
+    },
+    {
+      "type": "projects",
+      "id": "signed",
+      "attributes": {
+        "excerpt": "Lorem ipsum",
+        "facts": "Facts",
+        "meta-description": "get insides of you artist",
+        "meta-title": "Signed",
+        "position": 6,
+        "preview-image": "/assets/projects/signed/signed_preview.png",
+        "subtitle": "get insides of you artist",
+        "title": "Signed",
+        "visible": false,
+        "tags": "next.js & Supabase",
+        "content": "<p>Lorem ipsum</p>\n"
+      }
+    },
+    {
+      "type": "projects",
+      "id": "umg-cms",
+      "attributes": {
+        "excerpt": "Lorem ipsum",
+        "facts": "Facts",
+        "meta-description": "Universal Music CMS",
+        "meta-title": "Universal Music CMS",
+        "position": 0,
+        "preview-image": "/assets/projects/umg-cms/umg-cms_preview.png",
+        "subtitle": "The backbone of Universal Music Germany and beyond",
+        "title": "UMG CMS",
+        "visible": true,
+        "tags": "ember.js",
         "content": "<p>Lorem ipsum</p>\n"
       }
     }

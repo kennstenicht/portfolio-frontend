@@ -50,32 +50,32 @@
   }
 
   /* Projects */
-  &--style-ad-hoc {
-    --color-primary     : #008d84;
-    --color-secondary   : #242a30;
+  &--style-meinezeit {
+    --color-primary     : #df3517;
+    --color-secondary   : #df3517;
     --color-typo        : #f2f2f2;
     --color-background  : #181d1f;
   }
 
-  &--style-eels {
-    --color-primary     : #e63f94;
-    --color-secondary   : #e0dbdb;
-    --color-typo        : #333;
-    --color-background  : #f2f2f2;
-  }
-
-  &--style-binuu {
-    --color-primary     : #ebf20d;
-    --color-secondary   : #e0dbdb;
-    --color-typo        : #333;
-    --color-background  : #f2f2f2;
-  }
-
-  &--style-disaster-mgmt {
-    --color-primary     : #ffa045;
-    --color-secondary   : #4e4e4e;
+  &--style-mint-ec {
+    --color-primary     : #ffd400;
+    --color-secondary   : #ffd400;
     --color-typo        : #f2f2f2;
-    --color-background  : #383636;
+    --color-background  : #181d1f;
+  }
+
+  &--style-signed {
+    --color-primary     : #008d84;
+    --color-secondary   : #008d84;
+    --color-typo        : #f2f2f2;
+    --color-background  : #181d1f;
+  }
+
+  &--style-umg-cms {
+    --color-primary     : #4074a8;
+    --color-secondary   : #4074a8;
+    --color-typo        : #f2f2f2;
+    --color-background  : #181d1f;
   }
 
   &--style-flutkoerper {
