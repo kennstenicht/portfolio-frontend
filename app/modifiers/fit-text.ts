@@ -18,16 +18,18 @@ export default class FitText extends Modifier {
   fontSize: number = 10;
   lastElementSize: number = 1;
 
-  modify(element: HTMLElement) {
-    element.style.fontSize = `${this.fontSize}px`;
+  constructor(owner: unknown, args: unknown) {
+    super(owner, args);
+    registerDestructor(this, cleanup);
+  }
 
+  modify(element: HTMLElement) {
     this.fitTextTask.perform(element);
 
     this.handler = () => this.fitTextTask.perform(element);
     this.element = element;
 
     window.addEventListener('resize', this.handler);
-    registerDestructor(this, cleanup);
   }
 
   fitTextTask = task({ restartable: true }, async (element: HTMLElement) => {
