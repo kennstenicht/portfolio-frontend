@@ -42,6 +42,13 @@ export default class FitText extends Modifier {
       ) {
         this.fontSize++;
         element.style.fontSize = `${this.fontSize}px`;
+
+        // Overshoot fix
+        if (element.scrollHeight > element.clientHeight) {
+          this.fontSize--;
+          element.style.fontSize = `${this.fontSize}px`;
+          break;
+        }
       }
     } else {
       while (element.scrollHeight > element.clientHeight && this.fontSize > 1) {
