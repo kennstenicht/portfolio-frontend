@@ -10,6 +10,7 @@ export default class ProjectModel extends Model {
   @attr('number') declare position: number;
   @attr('string') declare previewImage: string;
   @attr('string') declare subtitle: string;
+  @attr() declare tags: string[];
   @attr('string') declare title: string;
   @attr('boolean') declare visible: boolean;
 }

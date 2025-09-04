@@ -8,7 +8,7 @@ preview-image: '/assets/projects/disaster-mgmt/disaster-mgmt_preview.jpg'
 subtitle: interactive installation
 title: Chin Chin
 visible: true
-tags: ember.js & AR Detector
+tags: ['ember.js', 'AR Detector']
 ---
 
 Lorem ipsum

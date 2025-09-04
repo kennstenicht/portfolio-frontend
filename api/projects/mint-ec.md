@@ -2,13 +2,13 @@
 excerpt: Lorem ipsum
 facts: Facts
 meta-description: let's create a network of mint schools
-meta-title: MINT EC
+meta-title: Network map - MINT EC
 position: 3
 preview-image: '/assets/projects/mint-ec/mint-ec_preview.png'
-subtitle: let's create a network of mint schools
+subtitle: Let's visualize the network to support the MINT schools
 title: MINT EC
 visible: true
-tags: ember.js & WordPress
+tags: ['ember.js', 'WordPress']
 ---
 
 Lorem ipsum

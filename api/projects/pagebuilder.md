@@ -1,14 +1,14 @@
 ---
-excerpt: Lorem ipsum
+excerpt: Quickly create and launch a professional marketing page with just a few clicks—no coding or hassle required.
 facts: Facts
-meta-description: Das ist die Chin Chin Projekt Seite
-meta-title: Universal PageBuilder
+meta-description: Quickly create and launch a professional marketing page with just a few clicks—no coding or hassle required.
+meta-title: PageBuilder - Universal Music
 position: 1
 preview-image: '/assets/projects/pagebuilder/pagebuilder_preview.png'
-subtitle: Get a marketing page up and running with some clicks
+subtitle: Spin up a marketing page in just a few clicks
 title: PageBuilder
 visible: true
-tags: next.js
+tags: ['next.js']
 ---
 
 Lorem ipsum

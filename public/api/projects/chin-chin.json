@@ -12,7 +12,10 @@
       "subtitle": "interactive installation",
       "title": "Chin Chin",
       "visible": true,
-      "tags": "ember.js & AR Detector",
+      "tags": [
+        "ember.js",
+        "AR Detector"
+      ],
       "content": "<p>Lorem ipsum</p>\n"
     }
   }

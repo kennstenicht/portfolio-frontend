@@ -5,10 +5,11 @@
 .scope {
   position: relative;
   flex-shrink: 0;
-  margin: auto var(--spacing-huge-large);
-  width: 35vw;
+  width: 32vw;
   height: 36vh;
   cursor: pointer;
+  margin-top: auto;
+  margin-bottom: auto;
 
   &--is-active {
     z-index: 999;
@@ -55,14 +56,11 @@
         text-shadow: 0 0 250px var(--color-white);
       }
 
-    .meta {
+    .tags {
       position: absolute;
-      top: calc(var(--spacing-base-small) * -1);
-      right: var(--spacing-small);
-      width: 100px;
+      top: calc(var(--spacing-base) * -1);
+      right: 0;
       text-align: right;
-      text-transform: uppercase;
-      line-height: 1;
     }
 
 

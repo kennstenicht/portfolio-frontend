@@ -94,11 +94,14 @@ export default class ProjectListPreviewComponent extends Component<Signature> {
           {{/animatedValue}}
         </header>
 
-        <div class={{bem styles "meta"}}>
-          {{! template-lint-disable no-bare-strings }}
-          Concept & Development
+        <div class={{bem styles "tags"}}>
+          {{join @project.tags " & "}}
         </div>
       </LinkTo>
     </article>
   </template>
+}
+
+function join(array: unknown[], separator = ' ') {
+  return array.filter(Boolean).join(separator);
 }

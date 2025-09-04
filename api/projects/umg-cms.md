@@ -2,13 +2,13 @@
 excerpt: Lorem ipsum
 facts: Facts
 meta-description: Universal Music CMS
-meta-title: Universal Music CMS
+meta-title: CMS - Universal Music
 position: 0
 preview-image: '/assets/projects/umg-cms/umg-cms_preview.png'
 subtitle: The backbone of Universal Music Germany and beyond
 title: UMG CMS
 visible: true
-tags: ember.js
+tags: ['ember.js']
 ---
 
 Lorem ipsum
