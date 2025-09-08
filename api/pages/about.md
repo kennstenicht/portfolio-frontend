@@ -4,6 +4,8 @@ meta-title: This is me
 meta-description: I’m a berlin based senior frontend developer with a strong ux background and a love for details.
 ---
 
+![alt text](/assets/home/i-am.jpg)
+
 ## christoph wiedenmann
 
 Knesebeckstr. 86<br>

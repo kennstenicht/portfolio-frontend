@@ -197,7 +197,7 @@
 
   .navigation {
     top: var(--spacing-large-small);
-    right: var(--spacing-base-small);
+    right: var(--spacing-large);
   }
 
     .back-to-overview {
