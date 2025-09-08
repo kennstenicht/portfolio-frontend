@@ -23,7 +23,7 @@ route:
     message:
       'i-am': "I'm"
       'berlin-based': 'a berlin based'
-      'senior-developer': 'senior frontend developer'
+      'senior-developer': 'senior software developer'
       'ux-background': 'with a strong ux background'
       'love-for-details': 'and a love for details.'
       'many-frameworks': 'I have worked with many frameworks'
