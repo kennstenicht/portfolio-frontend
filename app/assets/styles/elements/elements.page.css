@@ -22,6 +22,8 @@ body {
   min-height: 100%; /* [2] */
   letter-spacing: var(--letter-spacing);
   font-family: var(--font-family);
+  font-size: var(--font-size); /* [1] */
+  line-height: var(--spacing-base); /* [1] */
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-transform: lowercase;

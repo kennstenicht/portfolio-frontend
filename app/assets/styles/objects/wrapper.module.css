@@ -5,8 +5,8 @@
 .scope {
   margin-right: auto;
   margin-left: 0;
-  padding-right: var(--spacing-base);
-  padding-left: var(--spacing-base);
+  padding-right: var(--spacing-large);
+  padding-left: var(--spacing-large);
   max-width: var(--wrapper-width);
 }
 
