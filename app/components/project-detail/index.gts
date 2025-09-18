@@ -10,7 +10,6 @@ import t from 'ember-intl/helpers/t';
 import ProjectModel from 'portfolio/models/project';
 import { bem } from 'portfolio/helpers/bem';
 import ProjectSliderService from 'portfolio/services/project-slider';
-import link from 'portfolio/assets/styles/objects/link.module.css';
 
 import styles from './styles.module.css';
 import Header from './header';
@@ -49,7 +48,7 @@ export default class ProjectDetail extends Component<Signature> {
               <ContentComponent @project={{project}} />
             {{/let}}
             <div class={{bem styles "back"}}>
-              <LinkTo @route="projects" class={{bem link}}>
+              <LinkTo @route="projects" class={{bem styles "link"}}>
                 {{t "projectDetail.backToOverview" htmlSafe=true}}
               </LinkTo>
             </div>

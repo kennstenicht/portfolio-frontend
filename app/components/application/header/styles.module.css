@@ -155,6 +155,10 @@
         }
       }
 
+        .link {
+          composes: scope from '/app/assets/styles/objects/link.module.css';
+        }
+
 
 
 

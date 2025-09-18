@@ -84,6 +84,9 @@
     --color-typo        : #333;
     --color-background  : #f2f2f2;
   }
+
+  --link-hover-background:    var(--color-typo);
+  --link-hover-color:         var(--color-primary);
 }
 
   .content {

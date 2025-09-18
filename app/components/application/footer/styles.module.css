@@ -41,6 +41,10 @@
         content: '';
       }
 
+        .link {
+          composes: scope from '/app/assets/styles/objects/link.module.css';
+        }
+
     .copy {
       text-transform: lowercase;
     }

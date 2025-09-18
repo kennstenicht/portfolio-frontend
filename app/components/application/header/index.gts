@@ -124,7 +124,11 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
         <div>
           <ul class={{bem styles "list"}}>
             <li class={{bem styles "item"}}>
-              <LinkTo @route="projects" {{on "click" this.closeNavigation}}>
+              <LinkTo
+                @route="projects"
+                class={{bem styles "link"}}
+                {{on "click" this.closeNavigation}}
+              >
                 {{t "application.header.projects"}}
               </LinkTo>
             </li>
@@ -132,6 +136,7 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
               <LinkTo
                 @route="page"
                 @model="about"
+                class={{bem styles "link"}}
                 {{on "click" this.closeNavigation}}
               >
                 {{t "application.header.about"}}
@@ -144,6 +149,7 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
                 <LinkTo
                   @route="page"
                   @model={{pageSlug}}
+                  class={{bem styles "link"}}
                   {{on "click" this.closeNavigation}}
                 >
                   {{t (concat "application.header." pageSlug)}}

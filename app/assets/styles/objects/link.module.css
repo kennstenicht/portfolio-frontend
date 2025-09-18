@@ -3,18 +3,19 @@
    ========================================================================== */
 
 .scope {
-  background-image: linear-gradient(70deg, currentcolor 0%, currentcolor 100%);
-  background-position: 0 88%;
+  background-image: linear-gradient(70deg, var(--link-hover-background) 0%, var(--link-hover-background) 100%);
+  background-position: 0 80%;
   background-size: 100% 0;
   background-repeat: no-repeat;
   color: inherit;
   text-decoration: none;
   cursor: pointer;
-  transition: background-size 0.25s ease-in-out;
+  transition: background-size 0.25s ease-in-out, color 0.25s ease-in-out;
 }
 
 .scope:hover,
 .scope:focus,
 .scope:active {
   background-size: 100% 100%;
+  color: var(--link-hover-color);
 }

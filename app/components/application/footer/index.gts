@@ -3,7 +3,6 @@ import { concat, hash } from '@ember/helper';
 
 import t from 'ember-intl/helpers/t';
 
-import linkStyles from 'portfolio/assets/styles/objects/link.module.css';
 import { bem } from 'portfolio/helpers/bem';
 
 import styles from './styles.module.css';
@@ -41,9 +40,9 @@ export default class ApplicationFooterComponent extends Component<Signature> {
                 href={{url}}
                 rel="noopener noreferrer"
                 target="_blank"
-                class={{bem linkStyles}}
+                class={{bem styles "link"}}
               >
-                {{t (concat "application.footer.social." type)}}
+                {{~t (concat "application.footer.social." type)~}}
               </a>
             </li>
           {{/each-in}}
