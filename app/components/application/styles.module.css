@@ -51,14 +51,14 @@
 
   /* Projects */
   &--style-meinezeit {
-    --color-primary     : #df3517;
+    --color-primary     : #134836;
     --color-secondary   : #df3517;
     --color-typo        : #f2f2f2;
-    --color-background  : #181d1f;
+    --color-background  : #27262d;
   }
 
   &--style-mint-ec {
-    --color-primary     : #ffd400;
+    --color-primary     : #053440;
     --color-secondary   : #ffd400;
     --color-typo        : #f2f2f2;
     --color-background  : #181d1f;
@@ -72,17 +72,31 @@
   }
 
   &--style-umg-cms {
-    --color-primary     : #4074a8;
+    --color-primary     : #213f6e;
     --color-secondary   : #4074a8;
     --color-typo        : #f2f2f2;
-    --color-background  : #181d1f;
+    --color-background  : #092247;
   }
 
-  &--style-flutkoerper {
-    --color-primary     : #6d91f5;
+  &--style-pagebuilder {
+    --color-primary     : #2d2b52;
     --color-secondary   : #f1e7df;
-    --color-typo        : #333;
-    --color-background  : #f2f2f2;
+    --color-typo        : #f2f2f2;
+    --color-background  : #173c61;
+  }
+
+  &--style-chin-chin {
+    --color-primary     : #333450;
+    --color-secondary   : #232732;
+    --color-typo        : #f2f2f2;
+    --color-background  : #232732;
+  }
+
+  &--style-flimmerkasten {
+    --color-primary     : #f64206;
+    --color-secondary   : #182037;
+    --color-typo        : #f2f2f2;
+    --color-background  : #232732;
   }
 
   --link-hover-background:    var(--color-typo);
