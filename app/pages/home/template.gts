@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { concat, fn } from '@ember/helper';
+import { concat, fn, hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 
 import { t } from 'ember-intl';
@@ -19,10 +19,8 @@ export default class ErrorTemplate extends Component {
     'senior-developer',
     'ux-background',
     'love-for-details',
-    'many-frameworks',
-    'diffenrent-languages',
-    'prefer-ember',
-    'love-to-learn-svelt',
+    'currently-shipping',
+    'learn-svelte',
   ];
 
   // Template
@@ -41,11 +39,11 @@ export default class ErrorTemplate extends Component {
           {{on "mouseenter" (fn (mut this.selectedFragment) "moin")}}
           {{on "mouseleave" (fn (mut this.selectedFragment) undefined)}}
         >
-          {{t "route.home.title"}}
-        </h1>,
+          {{~t "route.home.title"~}},
+        </h1>
         {{#each this.fragments as |fragment|}}
           <span
-            class={{bem styles fragment}}
+            class={{bem styles "fragment" (hash style=fragment)}}
             {{on "mouseenter" (fn (mut this.selectedFragment) fragment)}}
             {{on "mouseleave" (fn (mut this.selectedFragment) undefined)}}
           >

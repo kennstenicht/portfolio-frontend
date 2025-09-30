@@ -21,9 +21,14 @@
   display: inline;
 }
 
-.message span:hover {
-  background-color: var(--color-white);
-  color: var(--color-black);
+.message:hover .fragment, .message:hover .title {
+  opacity: 0.2;
+}
+
+.message .fragment:hover,
+.message .title:hover {
+  color: #fff;
+  opacity: 1 !important;
 }
 
 .huge-image {

@@ -26,20 +26,16 @@ route:
       'senior-developer': 'senior software developer'
       'ux-background': 'with a strong ux background'
       'love-for-details': 'and a love for details.'
-      'many-frameworks': 'I have worked with many frameworks'
-      'diffenrent-languages': 'in different languages,'
-      'prefer-ember': 'but I prefer to work with Ember.js'
-      'love-to-learn-svelt': 'and would love to try Svelte.'
+      'currently-shipping': 'Currently shipping products with Ember.js and Next.js,'
+      'learn-svelte': 'while eager to explore Svelte.'
     altText:
       'i-am': 'Portrait of Christoph Wiedenmann in 16-Bit pixel art'
       'berlin-based': 'Berlin skyline in 16-Bit pixel art'
-      'senior-developer': 'visualisation of senior frontend developer in 16-Bit pixel art'
-      'ux-background': 'visualisation of ux background in 16-Bit pixel art'
+      'senior-developer': 'A developer in front of a monitor in 16-Bit pixel art'
+      'ux-background': 'A designer in front of a monitor in 16-Bit pixel art'
       'love-for-details': 'visualisation of love for details in 16-Bit pixel art'
-      'many-frameworks': 'Logos of ember.js, react, next.js, vue, Ruby on Rails in 16-Bit pixel art'
-      'diffenrent-languages': 'Logos of JavaScript, TypeScript, Ruby, PHP in 16-Bit pixel art'
-      'prefer-ember': 'ember.js logo in 16-Bit pixel art'
-      'love-to-learn-svelt': 'Svelte logo in 16-Bit pixel art'
+      'currently-shipping': 'Ember.js and Next.js logo in 16-Bit pixel art'
+      'learn-svelte': 'Svelte logo in 16-Bit pixel art'
   projects:
     meta:
       description: Für unsere unsere Kunden entwickeln wir digitale Produkte, Services und Kommunikationsstrategien.
