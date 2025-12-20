@@ -255,6 +255,9 @@ importers:
       qunit-dom:
         specifier: ^3.4.0
         version: 3.4.0
+      simple-dom:
+        specifier: ^1.4.0
+        version: 1.4.0
       style-loader:
         specifier: ^3.3.3
         version: 3.3.4(webpack@5.99.8)
@@ -1789,6 +1792,15 @@ packages:
 
   '@simple-dom/interface@1.4.0':
     resolution: {integrity: sha512-l5qumKFWU0S+4ZzMaLXFU8tQZsicHEMEyAxI5kDFGhJsRqDwe0a7/iPA/GdxlGyDKseQQAgIz5kzU7eXTrlSpA==}
+
+  '@simple-dom/parser@1.4.0':
+    resolution: {integrity: sha512-TNjDkOehueRIKr1df416qk9ELj+qWuVVJNIT25y1aZg3pQvxv4UPGrgaDFte7dsWBTbF3V8NYPNQ5FDUZQ8Wlg==}
+
+  '@simple-dom/serializer@1.4.0':
+    resolution: {integrity: sha512-mI1yRahsVs8atXLiQksineDsFEFqeG7RHwnnBTDOK6inbzl4tZQgjR+Z7edjgIJq5j5RhZvwPI6EuCji9B3eQw==}
+
+  '@simple-dom/void-map@1.4.0':
+    resolution: {integrity: sha512-VDhLEyVCbuhOBBgHol9ShzIv9O8UCzdXeH4FoXu2DOcu/nnvTjLTck+BgXsCLv5ynDiUdoqsREEVFnoyPpFKVw==}
 
   '@sindresorhus/merge-streams@2.3.0':
     resolution: {integrity: sha512-LtoMMhxAlorcGhmFYI+LhPgbPZCkgP6ra1YL604EeF6U98pLlQ3iWIGMdWSC+vWmPBWBNgmDBAhnAobLROJmwg==}
@@ -6370,6 +6382,9 @@ packages:
   silent-error@1.1.1:
     resolution: {integrity: sha512-n4iEKyNcg4v6/jpb3c0/iyH2G1nzUNl7Gpqtn/mHIJK9S/q/7MCfoO4rwVOoO59qPFIc0hVHvMbiOJ0NdtxKKw==}
 
+  simple-dom@1.4.0:
+    resolution: {integrity: sha512-TnBPkmOyjdaOqyBMb4ick+n8c0Xv9Iwg1PykFV7hz9Se3UCiacTbRb+25cPmvozFNJLBUNvUzX/KsPfXF14ivA==}
+
   simple-html-tokenizer@0.5.11:
     resolution: {integrity: sha512-C2WEK/Z3HoSFbYq8tI7ni3eOo/NneSPRoPpcM7WdLjFOArFuyXEjAoCdOC3DgMfRyziZQ1hCNR4mrNdWEvD0og==}
 
@@ -9778,6 +9793,16 @@ snapshots:
       '@simple-dom/interface': 1.4.0
 
   '@simple-dom/interface@1.4.0': {}
+
+  '@simple-dom/parser@1.4.0':
+    dependencies:
+      '@simple-dom/interface': 1.4.0
+
+  '@simple-dom/serializer@1.4.0':
+    dependencies:
+      '@simple-dom/interface': 1.4.0
+
+  '@simple-dom/void-map@1.4.0': {}
 
   '@sindresorhus/merge-streams@2.3.0': {}
 
@@ -15659,6 +15684,14 @@ snapshots:
       debug: 2.6.9
     transitivePeerDependencies:
       - supports-color
+
+  simple-dom@1.4.0:
+    dependencies:
+      '@simple-dom/document': 1.4.0
+      '@simple-dom/interface': 1.4.0
+      '@simple-dom/parser': 1.4.0
+      '@simple-dom/serializer': 1.4.0
+      '@simple-dom/void-map': 1.4.0
 
   simple-html-tokenizer@0.5.11: {}
 

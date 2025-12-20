@@ -8,7 +8,7 @@ import { modifier } from 'ember-modifier';
 import t from 'ember-intl/helpers/t';
 import CookiesService from 'ember-cookies/services/cookies';
 
-import { windowOn } from 'portfolio/modifiers/window-on';
+// import { windowOn } from 'portfolio/modifiers/window-on';
 import { bem } from 'portfolio/helpers/bem';
 import buttonStyle from 'portfolio/assets/styles/objects/button.module.css';
 
@@ -77,7 +77,7 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
     <div
       class={{bem styles (hash is-visible=this.isVisible)}}
       {{this.setupConsent}}
-      {{windowOn "hashchange" this.checkHash}}
+      {{!-- {{windowOn "hashchange" this.checkHash}} --}}
       ...attributes
     >
       <div class={{bem styles "header"}}>

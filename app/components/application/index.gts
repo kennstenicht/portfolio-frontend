@@ -7,7 +7,7 @@ import RouterService from '@ember/routing/router-service';
 import { t } from 'ember-intl';
 import IntlService from 'ember-intl/services/intl';
 
-import { windowOn } from 'portfolio/modifiers/window-on';
+// import { windowOn } from 'portfolio/modifiers/window-on';
 import { bem } from 'portfolio/helpers/bem';
 import HeadDataService from 'portfolio/services/head-data';
 
@@ -65,11 +65,11 @@ export default class ApplicationComponent extends Component<Signature> {
         styles
         (hash style=this.urlSegments navigation-is-open=this.isNavigationOpen)
       }}
-      {{windowOn
+      {{!-- {{windowOn
         "blur"
         (fn this.changeMetaTitle (t "route.application.meta.blurTitle"))
-      }}
-      {{windowOn "focus" (fn this.changeMetaTitle "")}}
+      }} --}}
+      {{!-- {{windowOn "focus" (fn this.changeMetaTitle "")}} --}}
       ...attributes
     >
 

@@ -6,7 +6,7 @@ import { on } from '@ember/modifier';
 import { t } from 'ember-intl';
 
 import { bem } from 'portfolio/helpers/bem';
-import fitText from 'portfolio/modifiers/fit-text';
+// import fitText from 'portfolio/modifiers/fit-text';
 
 import styles from './styles.module.css';
 
@@ -33,7 +33,7 @@ export default class ErrorTemplate extends Component {
           class={{bem styles "huge-image"}}
         />
       {{/if}}
-      <div class={{bem styles "message"}} {{fitText}}>
+      <div class={{bem styles "message"}}>
         <h1
           class={{bem styles "title"}}
           {{on "mouseenter" (fn (mut this.selectedFragment) "moin")}}
