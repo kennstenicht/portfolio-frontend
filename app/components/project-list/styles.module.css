@@ -18,3 +18,92 @@
     transition-property: transform;
   }
 
+  .pagination {
+    position: absolute;
+    bottom: var(--spacing-base);
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-small);
+    transform: translateX(-50%);
+    height: calc(0.04 * var(--vh));
+  }
+
+    .viewport {
+      position: absolute;
+      top: 0;
+      left: 0;
+      outline: 2px solid var(--color-typo);
+      height: 100%;
+      z-index: 1;
+      background-color: var(--color-white);
+      width: calc(0.05 * var(--vw));
+    }
+
+    .items {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 calc(0.01 * var(--vw));
+    }
+
+      .bullet {
+        height: 46%;
+        background-color: var(--color-typo);
+        cursor: pointer;
+        transition: background-color var(--transition-base);
+        width: calc(0.02 * var(--vw));
+        flex-shrink: 0;
+        flex-grow: 0;
+        margin: 0 calc(0.005 * var(--vw));
+
+        &:hover {
+          background-color: var(--color-grey);
+        }
+
+        &--is-active {
+          opacity: 1;
+        }
+      }
+
+
+/* Media Queries
+  ========================================================================== */
+
+/* @media (width < 768px) {
+  .viewpoer {
+    --pagination-viewport: calc(0.08 * var(--vw));
+
+    width: var(--pagination-viewport);
+  }
+
+    .items {
+      margin: 0 calc(var(--pagination-viewport) / 5);
+    }
+
+      .bullet {
+        width: calc(var(--pagination-viewport) / 5 * 2);
+        margin: 0 calc(var(--pagination-viewport)  / 10);
+      }
+}
+
+@media (width > 768px) {
+  .viewpoer {
+    --pagination-viewport: calc(0.05 * var(--vw));
+
+    width: var(--pagination-viewport);
+  }
+
+    .items {
+      margin: 0 calc(var(--pagination-viewport) / 5);
+    }
+
+      .bullet {
+        width: calc(var(--pagination-viewport) / 5 * 2);
+        margin: 0 calc(var(--pagination-viewport)  / 10);
+      }
+} */

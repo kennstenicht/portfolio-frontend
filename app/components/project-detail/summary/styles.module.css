@@ -5,7 +5,7 @@
 .scope {
   display: flex;
   margin: 0 var(--spacing-small);
-  background-color: var(--color-secondary);
+  background-color: color-mix(in srgb, transparent, var(--color-background) 90%);
   color: var(--color-typo);
   flex-wrap: wrap;
 }

@@ -57,47 +57,52 @@ export default class ProjectListPreviewComponent extends Component<Signature> {
   // Template
   <template>
     <article class={{bem styles (hash style=@project.id)}} ...attributes>
-      <LinkTo @route="projects.show" @model={{@project}}>
-        {{#animatedValue
-          @project.previewImage
-          use=this.backgroundTransition
-          duration=this.duration
-          as |previewImage|
-        }}
-          <img
-            class={{bem styles "preview-image" (hash style=@project.id)}}
-            src={{previewImage}}
-            alt={{@project.title}}
-          />
-        {{/animatedValue}}
-        <header class={{bem styles "header"}}>
-          <div class={{bem styles "index"}} data-swiper-parallax="50">
-            {{indexNumber @index}}
-          </div>
-
+      <div class={{bem styles "container"}}>
+        <LinkTo @route="projects.show" @model={{@project}}>
           {{#animatedValue
-            @project.title use=this.typoTransition duration=this.duration
-            as |title|
+            @project.previewImage
+            use=this.backgroundTransition
+            duration=this.duration
+            as |previewImage|
           }}
-            <h1 class={{bem styles "title"}}>
-              {{title}}
-            </h1>
+            <img
+              class={{bem styles "preview-image" (hash style=@project.id)}}
+              src={{previewImage}}
+              alt={{@project.title}}
+            />
           {{/animatedValue}}
-
-          {{#animatedValue
-            @project.subtitle use=this.typoTransition duration=this.duration
-            as |subtitle|
-          }}
-            <div class={{bem styles "subtitle"}} data-swiper-parallax="90">
-              {{subtitle}}
+          <header class={{bem styles "header"}}>
+            <div class={{bem styles "index"}} data-swiper-parallax="50">
+              {{indexNumber @index}}
             </div>
-          {{/animatedValue}}
-        </header>
 
-        <div class={{bem styles "tags"}}>
-          {{join @project.tags " & "}}
-        </div>
-      </LinkTo>
+            {{#animatedValue
+              @project.title use=this.typoTransition duration=this.duration
+              as |title|
+            }}
+              <h1 class={{bem styles "title"}}>
+                {{title}}
+              </h1>
+              <div class={{bem styles "title-inverted"}} aria-hidden="true">
+                {{title}}
+              </div>
+            {{/animatedValue}}
+
+            {{#animatedValue
+              @project.subtitle use=this.typoTransition duration=this.duration
+              as |subtitle|
+            }}
+              <div class={{bem styles "subtitle"}} data-swiper-parallax="90">
+                {{subtitle}}
+              </div>
+            {{/animatedValue}}
+          </header>
+
+          <div class={{bem styles "tags"}}>
+            {{join @project.tags " & "}}
+          </div>
+        </LinkTo>
+      </div>
     </article>
   </template>
 }

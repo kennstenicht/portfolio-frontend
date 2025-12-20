@@ -3,6 +3,22 @@ import path from 'path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 
+const renderer = new marked.Renderer();
+
+renderer.image = ({ href, title, text }) => {
+  console.log(href, title, text);
+
+  const caption = title ? `<figcaption>${title}</figcaption>` : '';
+  return `
+    <figure>
+      <img src="${href}" alt="${text || ''}">
+      ${caption}
+    </figure>
+  `;
+};
+
+marked.use({ renderer });
+
 function parseMarkdownFiles(options) {
   console.log('Generate static JSON:API');
   fs.mkdirSync(options.outputDir, { recursive: true });

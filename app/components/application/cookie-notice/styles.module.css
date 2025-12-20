@@ -41,6 +41,10 @@
         margin-bottom: var(--spacing-tiny);
       }
 
+      .button {
+        background-color: var(--color-black);
+      }
+
 
 
 

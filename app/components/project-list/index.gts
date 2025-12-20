@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { service } from '@ember/service';
 import { action } from '@ember/object';
+import { hash } from '@ember/helper';
 
 import {
   FreeMode,
@@ -53,6 +54,7 @@ export default class ProjectListComponent extends Component<Signature> {
       simulateTouch: true,
       parallax: true,
       initialSlide: this.projectSlider.position ?? 0,
+      spaceBetween: 0,
 
       freeMode: {
         enabled: true,
@@ -66,7 +68,31 @@ export default class ProjectListComponent extends Component<Signature> {
       },
 
       mousewheel: {
-        releaseOnEdges: true,
+        forceToAxis: true,
+        releaseOnEdges: false,
+      },
+
+      pagination: {
+        el: `.${styles['items']}`,
+        type: 'bullets',
+        clickable: true,
+        bulletClass: styles['bullet'],
+        bulletActiveClass: styles['bullet--is-active'],
+      },
+
+      on: {
+        progress: (swiper) => {
+          const el = swiper.el;
+          const paginationEl = el?.querySelector(`.${styles['pagination']}`);
+          const viewportEl = el?.querySelector(`.${styles['viewport']}`);
+          const viewportWidth =
+            (100 / paginationEl.offsetWidth) * viewportEl.offsetWidth;
+
+          viewportEl.setAttribute(
+            'style',
+            `left: calc(${swiper.progress * (100 - viewportWidth)}%);`,
+          );
+        },
       },
 
       // Classes
@@ -140,6 +166,10 @@ export default class ProjectListComponent extends Component<Signature> {
         }}
           <Preview @project={{project}} @index={{index}} />
         {{/animatedEach}}
+      </div>
+      <div class={{bem styles "pagination"}}>
+        <div class={{bem styles "viewport"}}></div>
+        <div class={{bem styles "items"}}></div>
       </div>
     </div>
   </template>
