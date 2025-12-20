@@ -82,6 +82,9 @@ export default class ProjectListPreviewComponent extends Component<Signature> {
             <h1 class={{bem styles "title"}}>
               {{title}}
             </h1>
+            <div class={{bem styles "masked-title"}} aria-hidden="true">
+              {{title}}
+            </div>
           {{/animatedValue}}
 
           {{#animatedValue

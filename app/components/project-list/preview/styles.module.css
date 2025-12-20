@@ -52,6 +52,21 @@
         text-shadow: 0 0 250px var(--color-white);
       }
 
+      .masked-title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 33.5vw;
+        height: 36px;
+        overflow: hidden;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: var(--letter-spacing-large);
+        line-height: 0.9;
+        font-size: var(--font-size-h1);
+        font-weight: bold;
+      }
+
       .subtitle {
         text-shadow: 0 0 250px var(--color-white);
       }
