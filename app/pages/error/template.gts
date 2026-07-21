@@ -1,17 +1,17 @@
-import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
-import { service } from '@ember/service';
 import RouterService from '@ember/routing/router-service';
-
-// @ts-ignore
-import onKey from 'ember-keyboard/helpers/on-key';
+import { service } from '@ember/service';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { t } from 'ember-intl';
+import onKey from 'ember-keyboard/helpers/on-key';
 
 import wrapperStyles from 'portfolio/assets/styles/objects/wrapper.module.css';
 import { bem } from 'portfolio/helpers/bem';
 
 import styles from './styles.module.css';
-import { tracked } from '@glimmer/tracking';
+
+// @ts-ignore
 
 interface Signature {
   Args: {

@@ -1,12 +1,12 @@
 import Route from '@ember/routing/route';
-import { service } from '@ember/service';
-import HeadDataService from 'portfolio/services/head-data';
-import IntlService from 'ember-intl/services/intl';
 import RouterService from '@ember/routing/router-service';
+import { service } from '@ember/service';
+import IntlService from 'ember-intl/services/intl';
 // @ts-ignore
 import MetricsService from 'ember-metrics/services/metrics';
 
 import { formats } from 'portfolio/ember-intl';
+import HeadDataService from 'portfolio/services/head-data';
 
 export default class ApplicationRoute extends Route {
   // Services

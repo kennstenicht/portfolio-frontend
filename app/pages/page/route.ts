@@ -1,7 +1,8 @@
-import PageModel from 'portfolio/models/page';
+import Store from '@ember-data/store';
 import Route from '@ember/routing/route';
 import { service } from '@ember/service';
-import Store from '@ember-data/store';
+
+import PageModel from 'portfolio/models/page';
 
 interface Params {
   page_id: string;

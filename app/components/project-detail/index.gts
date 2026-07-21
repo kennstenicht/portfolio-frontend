@@ -1,22 +1,20 @@
-import Component from '@glimmer/component';
-import { service } from '@ember/service';
-import { LinkTo } from '@ember/routing';
 import { hash } from '@ember/helper';
 import type Owner from '@ember/owner';
-
+import { LinkTo } from '@ember/routing';
+import { service } from '@ember/service';
+import Component from '@glimmer/component';
 import { animatedValue } from 'ember-animated';
 import t from 'ember-intl/helpers/t';
 
-import ProjectModel from 'portfolio/models/project';
 import { bem } from 'portfolio/helpers/bem';
+import ProjectModel from 'portfolio/models/project';
 import ProjectSliderService from 'portfolio/services/project-slider';
 
-import styles from './styles.module.css';
-import Header from './header';
-
 import Default from './default';
-import Summary from './summary';
+import Header from './header';
 import MintEc from './mint-ec';
+import styles from './styles.module.css';
+import Summary from './summary';
 
 interface Signature {
   Element: HTMLElement;

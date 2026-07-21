@@ -1,5 +1,5 @@
-import { hash } from '@ember/helper';
 import type { TOC } from '@ember/component/template-only';
+import { hash } from '@ember/helper';
 
 import { bem } from 'portfolio/helpers/bem';
 import ProjectModel from 'portfolio/models/project';

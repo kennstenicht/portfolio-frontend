@@ -1,9 +1,10 @@
-import { defineConfig } from 'vite';
-import { extensions, classicEmberSupport, ember } from '@embroider/vite';
+import { classicEmberSupport, ember, extensions } from '@embroider/vite';
 import { babel } from '@rollup/plugin-babel';
-import path from 'path';
-import { staticJsonApi } from './static-json-api.js';
 import crypto from 'crypto';
+import path from 'path';
+import { defineConfig } from 'vite';
+
+import { staticJsonApi } from './static-json-api.js';
 
 function hash(input) {
   const hash = crypto.createHash('sha256').update(input).digest('hex');

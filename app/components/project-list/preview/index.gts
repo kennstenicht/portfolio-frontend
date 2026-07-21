@@ -1,20 +1,22 @@
-import Component from '@glimmer/component';
-import { service } from '@ember/service';
 import { hash } from '@ember/helper';
 import { LinkTo } from '@ember/routing';
 import RouterService from '@ember/routing/router-service';
+import { service } from '@ember/service';
+import Component from '@glimmer/component';
 import {
+  type TransitionContext,
   animatedValue,
   parallel,
-  type TransitionContext,
 } from 'ember-animated';
+import adjustColor from 'ember-animated/motions/adjust-color';
 import move from 'ember-animated/motions/move';
 import resize from 'ember-animated/motions/resize';
-import adjustColor from 'ember-animated/motions/adjust-color';
-import indexNumber from 'portfolio/helpers/index-number';
+
 import { bem } from 'portfolio/helpers/bem';
-import styles from './styles.module.css';
+import indexNumber from 'portfolio/helpers/index-number';
 import Project from 'portfolio/models/project';
+
+import styles from './styles.module.css';
 
 interface Signature {
   Element: HTMLElement;

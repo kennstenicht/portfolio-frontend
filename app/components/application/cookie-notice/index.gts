@@ -1,16 +1,15 @@
-import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
-import { service } from '@ember/service';
 import { hash } from '@ember/helper';
 import { on } from '@ember/modifier';
-
-import { modifier } from 'ember-modifier';
-import t from 'ember-intl/helpers/t';
+import { service } from '@ember/service';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import CookiesService from 'ember-cookies/services/cookies';
+import t from 'ember-intl/helpers/t';
+import { modifier } from 'ember-modifier';
 
-import { windowOn } from 'portfolio/modifiers/window-on';
-import { bem } from 'portfolio/helpers/bem';
 import buttonStyle from 'portfolio/assets/styles/objects/button.module.css';
+import { bem } from 'portfolio/helpers/bem';
+import { windowOn } from 'portfolio/modifiers/window-on';
 
 import styles from './styles.module.css';
 

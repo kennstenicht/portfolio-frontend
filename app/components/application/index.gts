@@ -1,20 +1,19 @@
+import { fn, hash } from '@ember/helper';
+import RouterService from '@ember/routing/router-service';
+import { service } from '@ember/service';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { hash, fn } from '@ember/helper';
-import { service } from '@ember/service';
-import RouterService from '@ember/routing/router-service';
-
 import { t } from 'ember-intl';
 import IntlService from 'ember-intl/services/intl';
 
-import { windowOn } from 'portfolio/modifiers/window-on';
 import { bem } from 'portfolio/helpers/bem';
+import { windowOn } from 'portfolio/modifiers/window-on';
 import HeadDataService from 'portfolio/services/head-data';
 
-import styles from './styles.module.css';
-import Header from './header';
-import Footer from './footer';
 import CookieNotice from './cookie-notice';
+import Footer from './footer';
+import Header from './header';
+import styles from './styles.module.css';
 
 interface Signature {
   Element: HTMLDivElement;

@@ -1,4 +1,5 @@
 import type { TOC } from '@ember/component/template-only';
+
 import ProjectList from 'portfolio/components/project-list';
 import type ProjectModel from 'portfolio/models/project';
 

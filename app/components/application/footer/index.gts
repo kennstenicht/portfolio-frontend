@@ -1,6 +1,5 @@
-import Component from '@glimmer/component';
 import { concat, hash } from '@ember/helper';
-
+import Component from '@glimmer/component';
 import t from 'ember-intl/helpers/t';
 
 import { bem } from 'portfolio/helpers/bem';

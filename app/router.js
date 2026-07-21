@@ -1,4 +1,5 @@
 import EmberRouter from '@embroider/router';
+
 import config from 'portfolio/config/environment';
 
 export default class Router extends EmberRouter {

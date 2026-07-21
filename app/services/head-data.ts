@@ -1,8 +1,9 @@
-import Service from '@ember/service';
-import { tracked } from '@glimmer/tracking';
-import { service } from '@ember/service';
 import RouterService from '@ember/routing/router-service';
+import Service from '@ember/service';
+import { service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 import IntlService from 'ember-intl/services/intl';
+
 import ENV from 'portfolio/config/environment';
 
 interface MetaTags {

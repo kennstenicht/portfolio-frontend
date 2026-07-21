@@ -1,7 +1,7 @@
 import type { TOC } from '@ember/component/template-only';
 
-import type PageModel from 'portfolio/models/page';
 import { bem } from 'portfolio/helpers/bem';
+import type PageModel from 'portfolio/models/page';
 
 import styles from './styles.module.css';
 

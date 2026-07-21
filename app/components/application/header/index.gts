@@ -1,20 +1,19 @@
-import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
-import { service } from '@ember/service';
-import { hash, array, concat } from '@ember/helper';
+import { array, concat, hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { LinkTo } from '@ember/routing';
 import RouterService from '@ember/routing/router-service';
-
-import t from 'ember-intl/helpers/t';
-import { timeout, task } from 'ember-concurrency';
+import { service } from '@ember/service';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { animatedIf } from 'ember-animated';
 import fade from 'ember-animated/transitions/fade';
+import { task, timeout } from 'ember-concurrency';
+import t from 'ember-intl/helpers/t';
 
 import { bem } from 'portfolio/helpers/bem';
 
-import styles from './styles.module.css';
 import Logo from './logo/index';
+import styles from './styles.module.css';
 
 interface Signature {
   Element: HTMLHeadElement;

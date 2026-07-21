@@ -1,28 +1,27 @@
-import Component from '@glimmer/component';
-import { service } from '@ember/service';
 import { action } from '@ember/object';
-
+import { service } from '@ember/service';
+import Component from '@glimmer/component';
+import { cached } from '@glimmer/tracking';
+import { type TransitionContext, animatedEach } from 'ember-animated';
+import { easeIn, easeOut } from 'ember-animated/easings/cosine';
+import move from 'ember-animated/motions/move';
 import {
   FreeMode,
-  Pagination,
   Keyboard,
   Mousewheel,
+  Pagination,
   Parallax,
 } from 'swiper/modules';
 import type { SwiperOptions } from 'swiper/types';
-import { animatedEach, type TransitionContext } from 'ember-animated';
-import move from 'ember-animated/motions/move';
-import { easeOut, easeIn } from 'ember-animated/easings/cosine';
 
-import ProjectSliderService from 'portfolio/services/project-slider';
-import swiper from 'portfolio/modifiers/swiper';
 import { bem } from 'portfolio/helpers/bem';
 import Project from 'portfolio/models/project';
+import swiper from 'portfolio/modifiers/swiper';
+import ProjectSliderService from 'portfolio/services/project-slider';
 
 import Preview from './preview';
 import previewStyles from './preview/styles.module.css';
 import styles from './styles.module.css';
-import { cached } from '@glimmer/tracking';
 
 interface Signature {
   Element: HTMLElement;

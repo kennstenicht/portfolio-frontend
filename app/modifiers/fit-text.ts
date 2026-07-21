@@ -1,6 +1,5 @@
 import { registerDestructor } from '@ember/destroyable';
-
-import { task, timeout, type TaskInstance } from 'ember-concurrency';
+import { type TaskInstance, task, timeout } from 'ember-concurrency';
 import Modifier from 'ember-modifier';
 
 function cleanup(instance: FitText) {

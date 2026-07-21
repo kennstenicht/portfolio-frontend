@@ -1,13 +1,15 @@
-import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
+import Component from '@glimmer/component';
 import { animatedValue } from 'ember-animated';
+import { parallel } from 'ember-animated';
+import TransitionContext from 'ember-animated/-private/transition-context';
+import adjustColor from 'ember-animated/motions/adjust-color';
 import move from 'ember-animated/motions/move';
 import resize from 'ember-animated/motions/resize';
-import { parallel } from 'ember-animated';
-import adjustColor from 'ember-animated/motions/adjust-color';
-import TransitionContext from 'ember-animated/-private/transition-context';
-import ProjectModel from 'portfolio/models/project';
+
 import { bem } from 'portfolio/helpers/bem';
+import ProjectModel from 'portfolio/models/project';
+
 import styles from './styles.module.css';
 
 interface Signature {

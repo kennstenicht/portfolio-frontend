@@ -1,6 +1,5 @@
-import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
-
+import Component from '@glimmer/component';
 import { gsap } from 'gsap';
 
 import { bem } from 'portfolio/helpers/bem';
