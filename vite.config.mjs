@@ -17,14 +17,16 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [
       staticJsonApi({
-        sourceDir: 'api',
+        sourceDir: 'content',
         outputDir: 'public/api',
         resources: [
           {
             type: 'pages',
+            contentAttribute: 'content',
           },
           {
             type: 'projects',
+            contentAttribute: 'content',
           },
         ],
       }),

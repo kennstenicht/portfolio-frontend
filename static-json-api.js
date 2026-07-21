@@ -1,29 +1,48 @@
 import fs from 'fs';
-import path from 'path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
+import path from 'path';
 
 function parseMarkdownFiles(options) {
   console.log('Generate static JSON:API');
   fs.mkdirSync(options.outputDir, { recursive: true });
 
   for (const resource of options.resources) {
+    const contentAttribute = resource.contentAttribute;
     const sourcePath = path.join(options.sourceDir, resource.type);
-    const files = fs.readdirSync(sourcePath);
 
-    const records = files.map((filename) => {
-      const raw = fs.readFileSync(path.join(sourcePath, filename), 'utf8');
-      const { data, content } = matter(raw);
-      const id = filename.replace(/\.md$/, '');
+    if (!fs.existsSync(sourcePath)) {
+      console.warn(
+        `[static-json-api] Source directory not found: ${sourcePath}`,
+      );
+      continue;
+    }
 
-      return {
-        type: resource.type,
-        id,
-        attributes: {
-          ...data,
-          content: marked(content),
-        },
-      };
+    const files = fs.readdirSync(sourcePath).filter((f) => f.endsWith('.md'));
+
+    const records = files.flatMap((filename) => {
+      try {
+        const raw = fs.readFileSync(path.join(sourcePath, filename), 'utf8');
+        const { data, content } = matter(raw);
+        const id = filename.replace(/\.md$/, '');
+
+        const attributes = { ...data };
+
+        if (contentAttribute) {
+          attributes[contentAttribute] = marked(content);
+        }
+
+        return {
+          type: resource.type,
+          id,
+          attributes,
+        };
+      } catch (err) {
+        console.error(
+          `[static-json-api] Failed to parse ${filename}: ${err.message}`,
+        );
+        return [];
+      }
     });
 
     const outputPath = path.join(options.outputDir, resource.type);
