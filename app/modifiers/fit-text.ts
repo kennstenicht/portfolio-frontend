@@ -1,5 +1,5 @@
 import { registerDestructor } from '@ember/destroyable';
-import { type TaskInstance, task, timeout } from 'ember-concurrency';
+import { task } from 'ember-concurrency';
 import Modifier from 'ember-modifier';
 
 function cleanup(instance: FitText) {
@@ -10,13 +10,13 @@ function cleanup(instance: FitText) {
   }
 
   if (fitTextTask) {
-    fitTextTask.cancelAll();
+    void fitTextTask.cancelAll();
   }
 }
 
 export default class FitText extends Modifier {
   element: HTMLElement | null = null;
-  handler?: () => TaskInstance<void>;
+  handler?: () => void;
   fontSize: number = 10;
   lineHeight: number = 1.15;
   lastElementSize: number = 1;
@@ -27,14 +27,17 @@ export default class FitText extends Modifier {
   }
 
   modify(element: HTMLElement) {
-    this.fitTextTask.perform(element);
+    void this.fitTextTask.perform(element);
 
-    this.handler = () => this.fitTextTask.perform(element);
+    this.handler = () => {
+      void this.fitTextTask.perform(element);
+    };
     this.element = element;
 
     window.addEventListener('resize', this.handler);
   }
 
+  // eslint-disable-next-line @typescript-eslint/require-await -- ember-concurrency async-arrow task requires the async keyword for the task transform
   fitTextTask = task({ restartable: true }, async (element: HTMLElement) => {
     // Reset line height to default
     this.lineHeight = 1.15;

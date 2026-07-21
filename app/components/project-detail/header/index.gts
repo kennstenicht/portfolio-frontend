@@ -25,6 +25,7 @@ export default class ProjectDetailHeader extends Component<Signature> {
   styles = styles;
 
   // Functions
+  // eslint-disable-next-line require-yield -- ember-animated transition generator that fires motions without awaiting them
   *previewImageTransition({ sentSprites }: TransitionContext) {
     sentSprites.forEach((sprite) => {
       sprite.applyStyles({
@@ -32,16 +33,17 @@ export default class ProjectDetailHeader extends Component<Signature> {
       });
     });
 
-    sentSprites.forEach(parallel(move, resize));
+    sentSprites.forEach((sprite) => void parallel(move, resize)(sprite));
   }
 
+  // eslint-disable-next-line require-yield -- ember-animated transition generator that fires motions without awaiting them
   *typoTransition({ sentSprites }: TransitionContext) {
     sentSprites.forEach((sprite) => {
       sprite.applyStyles({
         'z-index': '4',
       });
 
-      // @ts-ignore
+      // @ts-expect-error -- adjustColor's motion typing does not match the parallel() overload
       parallel(move(sprite), adjustColor('color', sprite));
     });
   }

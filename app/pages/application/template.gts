@@ -5,10 +5,6 @@ import HeadLayout from 'ember-cli-head/components/head-layout';
 import Application from 'portfolio/components/application';
 import ENV from 'portfolio/config/environment';
 
-// @ts-ignore
-
-// @ts-ignore
-
 const isDevelopment = ENV.environment == 'development';
 
 <template>

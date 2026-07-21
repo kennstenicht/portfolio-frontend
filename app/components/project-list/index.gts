@@ -103,7 +103,7 @@ export default class ProjectListComponent extends Component<Signature> {
       sprite.startAtPixel({ x: start });
       sprite.applyStyles({ 'z-index': '1' });
 
-      move(sprite, { easing: easeOut });
+      void move(sprite, { easing: easeOut });
     });
 
     removedSprites.forEach((sprite) => {
@@ -117,7 +117,7 @@ export default class ProjectListComponent extends Component<Signature> {
       sprite.endAtPixel({ x: end });
       sprite.applyStyles({ 'z-index': '1' });
 
-      move(sprite, { easing: easeIn });
+      void move(sprite, { easing: easeIn });
     });
   }
 

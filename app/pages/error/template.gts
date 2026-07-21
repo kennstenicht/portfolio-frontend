@@ -11,8 +11,6 @@ import { bem } from 'portfolio/helpers/bem';
 
 import styles from './styles.module.css';
 
-// @ts-ignore
-
 interface Signature {
   Args: {
     model: Error;

@@ -10,6 +10,15 @@ interface MetaTags {
   [key: string]: string | null;
 }
 
+interface RouteMetadata {
+  metaTags?: (model: Record<string, unknown>, env: typeof ENV) => MetaTags;
+}
+
+interface CurrentRouteInfo {
+  attributes: Record<string, unknown> | null;
+  metadata: RouteMetadata | null;
+}
+
 export default class HeadDataService extends Service {
   // Services
   @service declare intl: IntlService;
@@ -34,19 +43,17 @@ export default class HeadDataService extends Service {
     return metaTags;
   }
 
-  get routeMetaTags() {
-    // @ts-ignore
-    let model = this.router.currentRoute.attributes;
-    // @ts-ignore
-    let metadata = this.router.currentRoute.metadata;
+  get routeMetaTags(): MetaTags {
+    const currentRoute = this.router
+      .currentRoute as unknown as CurrentRouteInfo | null;
+    const model = currentRoute?.attributes;
+    const metadata = currentRoute?.metadata;
 
     if (!model) {
       return {};
     }
 
-    // @ts-ignore
-    if (metadata && metadata.metaTags) {
-      // @ts-ignore
+    if (metadata?.metaTags) {
       return metadata.metaTags(model, ENV);
     }
 
