@@ -1,0 +1,6 @@
+{
+  "recommendations": [
+    "lifeart.vscode-glimmer-syntax",
+    "typed-ember.glint-vscode"
+  ]
+}
