@@ -20,3 +20,7 @@
 
 # broccoli-debug
 /DEBUG/
+
+# Agents
+/.claude/settings.local.json
+/.claude/todos.json

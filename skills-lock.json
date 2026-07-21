@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "ember-best-practices": {
+      "source": "ember-tooling/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/ember-best-practices/SKILL.md",
+      "computedHash": "34e82668e2fa1e6b025ac8cf1015634484bf5d8fbc80e8aa642489d2df79498c"
+    },
+    "web-design-guidelines": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/web-design-guidelines/SKILL.md",
+      "computedHash": "f3bc47f890f42a44db1007ab390709ec368e4b8c089baee6b0007182236ac474"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "ember-mcp": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "ember-mcp"],
+      "env": {}
+    }
+  }
+}
