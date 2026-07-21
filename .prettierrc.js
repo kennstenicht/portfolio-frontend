@@ -5,7 +5,16 @@ module.exports = {
 
   singleQuote: true,
   templateSingleQuote: false,
-  plugins: ['prettier-plugin-ember-template-tag'],
+  plugins: [
+    'prettier-plugin-ember-template-tag',
+    '@trivago/prettier-plugin-sort-imports',
+  ],
+  importOrder: ['<THIRD_PARTY_MODULES>', '^portfolio/(.*)$', '^[./]'],
+  importOrderParserPlugins: ['typescript', 'decorators-legacy'],
+  importOrderSeparation: true,
+  importOrderSortSpecifiers: true,
+  importOrderGroupNamespaceSpecifiers: true,
+  importOrderSideEffects: false,
   overrides: [
     {
       files: '*.css',

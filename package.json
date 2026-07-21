@@ -55,6 +55,7 @@
     "@glint/template": "^1.7.8",
     "@glint/tsserver-plugin": "^2.5.18",
     "@rollup/plugin-babel": "^6.0.4",
+    "@trivago/prettier-plugin-sort-imports": "^6.0.2",
     "@types/ember-qunit": "^5.0.2",
     "@types/ember-resolver": "^5.0.13",
     "@types/eslint__js": "^8.42.3",
