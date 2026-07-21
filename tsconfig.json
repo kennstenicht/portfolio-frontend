@@ -41,6 +41,7 @@
       "@ember-data/request/unstable-preview-types",
       "@ember-data/model/unstable-preview-types",
       "@ember-data/serializer/unstable-preview-types",
+      "@ember-intl/vite/virtual",
     ]
   },
 }

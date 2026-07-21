@@ -1,9 +1,8 @@
 import Route from '@ember/routing/route';
-import RouterService from '@ember/routing/router-service';
 import { service } from '@ember/service';
 import IntlService from 'ember-intl/services/intl';
-// @ts-ignore
-import MetricsService from 'ember-metrics/services/metrics';
+import translationsForDe from 'virtual:ember-intl/translations/de';
+import translationsForEn from 'virtual:ember-intl/translations/en';
 
 import { formats } from 'portfolio/ember-intl';
 import HeadDataService from 'portfolio/services/head-data';
@@ -12,12 +11,12 @@ export default class ApplicationRoute extends Route {
   // Services
   @service declare headData: HeadDataService;
   @service declare intl: IntlService;
-  @service declare metrics: MetricsService;
-  @service declare router: RouterService;
 
   // Hooks
   beforeModel() {
     // Setup intl
+    this.intl.addTranslations('en', translationsForEn);
+    this.intl.addTranslations('de', translationsForDe);
     this.intl.setFormats(formats);
     this.intl.setLocale('en');
 
@@ -29,13 +28,5 @@ export default class ApplicationRoute extends Route {
       type: 'website',
       structuredData: null,
     };
-
-    // Setup ember metrics
-    this.router.on('routeDidChange', () => {
-      const page = this.router.currentURL;
-      const title = this.router.currentRouteName || 'unknown';
-
-      this.metrics.trackPage({ page, title });
-    });
   }
 }

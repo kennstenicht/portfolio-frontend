@@ -1,3 +1,4 @@
+import { loadTranslations } from '@ember-intl/vite';
 import { classicEmberSupport, ember, extensions } from '@embroider/vite';
 import { babel } from '@rollup/plugin-babel';
 import crypto from 'crypto';
@@ -33,6 +34,7 @@ export default defineConfig(({ mode }) => {
       }),
       classicEmberSupport(),
       ember(),
+      loadTranslations(),
       // extra plugins here
       babel({
         babelHelpers: 'runtime',

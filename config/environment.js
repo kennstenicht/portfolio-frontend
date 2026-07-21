@@ -12,22 +12,6 @@ module.exports = function (environment) {
       name: 'Christoph Wiedenmann',
     },
 
-    // Tracking
-    metricsAdapters: [
-      {
-        name: 'GoogleAnalyticsFour',
-        environments: ['development', 'production'],
-        config: {
-          id: 'G-35H5Y8W7P8',
-          options: {
-            anonymize_ip: true,
-            send_page_view: true,
-            debug_mode: environment === 'development',
-          },
-        },
-      },
-    ],
-
     EmberENV: {
       EXTEND_PROTOTYPES: false,
       FEATURES: {
