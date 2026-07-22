@@ -12,9 +12,9 @@ import adjustColor from 'ember-animated/motions/adjust-color';
 import move from 'ember-animated/motions/move';
 import resize from 'ember-animated/motions/resize';
 
-import { bem } from 'portfolio/helpers/bem';
 import indexNumber from 'portfolio/helpers/index-number';
 import Project from 'portfolio/models/project';
+import { getBem } from 'portfolio/utils/get-bem';
 
 import styles from './styles.module.css';
 
@@ -25,6 +25,8 @@ interface Signature {
     index: number;
   };
 }
+
+const bem = getBem(styles);
 
 export default class ProjectListPreviewComponent extends Component<Signature> {
   // Services
@@ -58,7 +60,7 @@ export default class ProjectListPreviewComponent extends Component<Signature> {
 
   // Template
   <template>
-    <article class={{bem styles (hash style=@project.id)}} ...attributes>
+    <article class={{bem (hash style=@project.id)}} ...attributes>
       <LinkTo @route="projects.show" @model={{@project}}>
         {{#animatedValue
           @project.previewImage
@@ -67,13 +69,13 @@ export default class ProjectListPreviewComponent extends Component<Signature> {
           as |previewImage|
         }}
           <img
-            class={{bem styles "preview-image" (hash style=@project.id)}}
+            class={{bem "preview-image" (hash style=@project.id)}}
             src={{previewImage}}
             alt={{@project.title}}
           />
         {{/animatedValue}}
-        <header class={{bem styles "header"}}>
-          <div class={{bem styles "index"}} data-swiper-parallax="50">
+        <header class={{bem "header"}}>
+          <div class={{bem "index"}} data-swiper-parallax="50">
             {{indexNumber @index}}
           </div>
 
@@ -81,7 +83,7 @@ export default class ProjectListPreviewComponent extends Component<Signature> {
             @project.title use=this.typoTransition duration=this.duration
             as |title|
           }}
-            <h1 class={{bem styles "title"}}>
+            <h1 class={{bem "title"}}>
               {{title}}
             </h1>
           {{/animatedValue}}
@@ -90,13 +92,13 @@ export default class ProjectListPreviewComponent extends Component<Signature> {
             @project.subtitle use=this.typoTransition duration=this.duration
             as |subtitle|
           }}
-            <div class={{bem styles "subtitle"}} data-swiper-parallax="90">
+            <div class={{bem "subtitle"}} data-swiper-parallax="90">
               {{subtitle}}
             </div>
           {{/animatedValue}}
         </header>
 
-        <div class={{bem styles "tags"}}>
+        <div class={{bem "tags"}}>
           {{join @project.tags " & "}}
         </div>
       </LinkTo>

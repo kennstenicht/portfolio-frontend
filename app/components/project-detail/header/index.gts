@@ -7,8 +7,8 @@ import adjustColor from 'ember-animated/motions/adjust-color';
 import move from 'ember-animated/motions/move';
 import resize from 'ember-animated/motions/resize';
 
-import { bem } from 'portfolio/helpers/bem';
 import ProjectModel from 'portfolio/models/project';
+import { getBem } from 'portfolio/utils/get-bem';
 
 import styles from './styles.module.css';
 
@@ -19,10 +19,11 @@ interface Signature {
   };
 }
 
+const bem = getBem(styles);
+
 export default class ProjectDetailHeader extends Component<Signature> {
   // Defaults
   duration = 600;
-  styles = styles;
 
   // Functions
   // eslint-disable-next-line require-yield -- ember-animated transition generator that fires motions without awaiting them
@@ -50,7 +51,7 @@ export default class ProjectDetailHeader extends Component<Signature> {
 
   // Template
   <template>
-    <div class={{bem this.styles (hash style=@project.id)}} ...attributes>
+    <div class={{bem (hash style=@project.id)}} ...attributes>
       {{#animatedValue
         @project.previewImage
         use=this.previewImageTransition
@@ -58,18 +59,18 @@ export default class ProjectDetailHeader extends Component<Signature> {
         as |previewImage|
       }}
         <img
-          class={{bem this.styles "preview-image" (hash style=@project.id)}}
+          class={{bem "preview-image" (hash style=@project.id)}}
           src={{previewImage}}
           alt={{@project.title}}
         />
       {{/animatedValue}}
 
-      <header class={{bem this.styles "header"}}>
+      <header class={{bem "header"}}>
         {{#animatedValue
           @project.title use=this.typoTransition duration=this.duration
           as |title|
         }}
-          <h1 class={{bem this.styles "title"}}>
+          <h1 class={{bem "title"}}>
             {{title}}
           </h1>
         {{/animatedValue}}
@@ -78,7 +79,7 @@ export default class ProjectDetailHeader extends Component<Signature> {
           @project.subtitle use=this.typoTransition duration=this.duration
           as |subtitle|
         }}
-          <div class={{bem this.styles "subtitle"}}>
+          <div class={{bem "subtitle"}}>
             {{subtitle}}
           </div>
         {{/animatedValue}}

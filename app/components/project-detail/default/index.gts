@@ -2,8 +2,8 @@ import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
 
 import wrapperStyles from 'portfolio/assets/styles/objects/wrapper.module.css';
-import { bem } from 'portfolio/helpers/bem';
 import ProjectModel from 'portfolio/models/project';
+import { getBem } from 'portfolio/utils/get-bem';
 
 import styles from './styles.module.css';
 
@@ -14,9 +14,12 @@ interface Signature {
   };
 }
 
+const bem = getBem(styles);
+const wrapperBem = getBem(wrapperStyles);
+
 export default <template>
-  <div class={{bem styles}} ...attributes>
-    <div class={{bem wrapperStyles (hash size="small")}}>
+  <div class={{(bem)}} ...attributes>
+    <div class={{wrapperBem (hash size="small")}}>
       {{! template-lint-disable no-triple-curlies }}
       {{{@project.content}}}
     </div>

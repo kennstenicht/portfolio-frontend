@@ -1,8 +1,8 @@
 import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
 
-import { bem } from 'portfolio/helpers/bem';
 import ProjectModel from 'portfolio/models/project';
+import { getBem } from 'portfolio/utils/get-bem';
 
 import styles from './styles.module.css';
 
@@ -13,13 +13,15 @@ interface Signature {
   };
 }
 
+const bem = getBem(styles);
+
 export default <template>
-  <div class={{bem styles (hash style=@project.id)}} ...attributes>
-    <div class={{bem styles "excerpt"}}>
+  <div class={{bem (hash style=@project.id)}} ...attributes>
+    <div class={{bem "excerpt"}}>
       {{! template-lint-disable no-triple-curlies }}
       {{{@project.excerpt}}}
     </div>
-    <div class={{bem styles "meta-info"}}>
+    <div class={{bem "meta-info"}}>
       {{! template-lint-disable no-triple-curlies }}
       {{{@project.facts}}}
     </div>

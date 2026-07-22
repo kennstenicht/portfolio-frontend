@@ -10,7 +10,7 @@ import fade from 'ember-animated/transitions/fade';
 import { task, timeout } from 'ember-concurrency';
 import t from 'ember-intl/helpers/t';
 
-import { bem } from 'portfolio/helpers/bem';
+import { getBem } from 'portfolio/utils/get-bem';
 
 import Logo from './logo/index';
 import styles from './styles.module.css';
@@ -22,6 +22,8 @@ interface Signature {
     setIsNavigationOpen: (isOpen: boolean) => void;
   };
 }
+
+const bem = getBem(styles);
 
 export default class ApplicationHeaderComponent extends Component<Signature> {
   // Services
@@ -78,7 +80,6 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
   <template>
     <header
       class={{bem
-        styles
         (hash
           is-navigation-open=@isNavigationOpen
           is-project-detail=this.isProjectDetail
@@ -88,14 +89,14 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
     >
       <LinkTo
         @route="home"
-        class={{bem styles "logo"}}
+        class={{bem "logo"}}
         {{on "click" this.closeNavigation}}
       >
         <Logo />
       </LinkTo>
 
-      <div class={{bem styles "navigation"}}>
-        <div class={{bem styles "back-to-overview"}}>
+      <div class={{bem "navigation"}}>
+        <div class={{bem "back-to-overview"}}>
           {{#animatedIf this.isProjectDetail use=this.fadeTransition}}
             <LinkTo @route="projects" {{on "click" this.closeNavigation}}>
               {{t "application.header.toOverview" htmlSafe=true}}
@@ -104,51 +105,51 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
         </div>
 
         <div
-          class={{bem styles "toggle"}}
+          class={{bem "toggle"}}
           role="button"
           {{on "click" this.toggleNavigation}}
         >
-          <div class={{bem styles "label"}}>
+          <div class={{bem "label"}}>
             {{this.menuLabel}}
           </div>
-          <div class={{bem styles "burger"}}>
-            <div class={{bem styles "layer" (hash is-top=true)}}></div>
-            <div class={{bem styles "layer" (hash is-middle=true)}}></div>
-            <div class={{bem styles "layer" (hash is-bottom=true)}}></div>
+          <div class={{bem "burger"}}>
+            <div class={{bem "layer" (hash is-top=true)}}></div>
+            <div class={{bem "layer" (hash is-middle=true)}}></div>
+            <div class={{bem "layer" (hash is-bottom=true)}}></div>
           </div>
         </div>
       </div>
 
-      <nav class={{bem styles "navigation-overlay"}}>
+      <nav class={{bem "navigation-overlay"}}>
         <div>
-          <ul class={{bem styles "list"}}>
-            <li class={{bem styles "item"}}>
+          <ul class={{bem "list"}}>
+            <li class={{bem "item"}}>
               <LinkTo
                 @route="projects"
-                class={{bem styles "link"}}
+                class={{bem "link"}}
                 {{on "click" this.closeNavigation}}
               >
                 {{t "application.header.projects"}}
               </LinkTo>
             </li>
-            <li class={{bem styles "item"}}>
+            <li class={{bem "item"}}>
               <LinkTo
                 @route="page"
                 @model="about"
-                class={{bem styles "link"}}
+                class={{bem "link"}}
                 {{on "click" this.closeNavigation}}
               >
                 {{t "application.header.about"}}
               </LinkTo>
             </li>
           </ul>
-          <ul class={{bem styles "list"}}>
+          <ul class={{bem "list"}}>
             {{#each (array "imprint" "privacy") as |pageSlug|}}
-              <li class={{bem styles "item" (hash is-small=true)}}>
+              <li class={{bem "item" (hash is-small=true)}}>
                 <LinkTo
                   @route="page"
                   @model={{pageSlug}}
-                  class={{bem styles "link"}}
+                  class={{bem "link"}}
                   {{on "click" this.closeNavigation}}
                 >
                   {{t (concat "application.header." pageSlug)}}

@@ -6,8 +6,8 @@ import { tracked } from '@glimmer/tracking';
 import { t } from 'ember-intl';
 import IntlService from 'ember-intl/services/intl';
 
-import { bem } from 'portfolio/helpers/bem';
 import { windowOn } from 'portfolio/modifiers/window-on';
+import { getBem } from 'portfolio/utils/get-bem';
 
 import CookieNotice from './cookie-notice';
 import Footer from './footer';
@@ -20,6 +20,8 @@ interface Signature {
     default: [];
   };
 }
+
+const bem = getBem(styles);
 
 export default class ApplicationComponent extends Component<Signature> {
   // Services
@@ -68,7 +70,6 @@ export default class ApplicationComponent extends Component<Signature> {
   <template>
     <div
       class={{bem
-        styles
         (hash style=this.urlSegments navigation-is-open=this.isNavigationOpen)
       }}
       {{windowOn
@@ -79,7 +80,7 @@ export default class ApplicationComponent extends Component<Signature> {
       ...attributes
     >
 
-      <div class={{bem styles "content"}}>
+      <div class={{bem "content"}}>
         <Header
           @isNavigationOpen={{this.isNavigationOpen}}
           @setIsNavigationOpen={{this.setIsNavigationOpen}}
@@ -92,7 +93,7 @@ export default class ApplicationComponent extends Component<Signature> {
 
       <CookieNotice />
 
-      <div class={{bem styles "frame"}}></div>
+      <div class={{bem "frame"}}></div>
     </div>
   </template>
 }

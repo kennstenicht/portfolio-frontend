@@ -8,14 +8,17 @@ import t from 'ember-intl/helpers/t';
 import { modifier } from 'ember-modifier';
 
 import buttonStyle from 'portfolio/assets/styles/objects/button.module.css';
-import { bem } from 'portfolio/helpers/bem';
 import { windowOn } from 'portfolio/modifiers/window-on';
+import { getBem } from 'portfolio/utils/get-bem';
 
 import styles from './styles.module.css';
 
 interface Signature {
   Element: HTMLDivElement;
 }
+
+const bem = getBem(styles);
+const buttonBem = getBem(buttonStyle);
 
 export default class ApplicationCookieNoticeComponent extends Component<Signature> {
   // Services
@@ -74,20 +77,20 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
   // Template
   <template>
     <div
-      class={{bem styles (hash is-visible=this.isVisible)}}
+      class={{bem (hash is-visible=this.isVisible)}}
       {{this.setupConsent}}
       {{windowOn "hashchange" this.checkHash}}
       ...attributes
     >
-      <div class={{bem styles "header"}}>
+      <div class={{bem "header"}}>
         {{t "cookieNotice.headline"}}
       </div>
-      <div class={{bem styles "content"}}>
-        <div class={{bem styles "message"}}>
+      <div class={{bem "content"}}>
+        <div class={{bem "message"}}>
           {{t "cookieNotice.message" htmlSafe=true}}
         </div>
-        <div class={{bem styles "settings"}}>
-          <div class={{bem styles "option"}}>
+        <div class={{bem "settings"}}>
+          <div class={{bem "option"}}>
             <input
               id="allow-required-cookies"
               disabled={{true}}
@@ -99,7 +102,7 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
               {{t "cookieNotice.options.required"}}
             </label>
           </div>
-          <div class={{bem styles "option"}}>
+          <div class={{bem "option"}}>
             <input
               id="allow-analyse-cookies"
               name="allow-analyse-cookies"
@@ -111,16 +114,16 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
               {{t "cookieNotice.options.analyse"}}
             </label>
           </div>
-          <div class={{bem styles "spacer"}}></div>
+          <div class={{bem "spacer"}}></div>
           <button
-            class="{{bem styles 'button'}} {{bem buttonStyle 'default'}}"
+            class="{{bem 'button'}} {{buttonBem 'default'}}"
             type="button"
             {{on "click" this.saveSettings}}
           >
             {{t "cookieNotice.allowSelectedCookies"}}
           </button>
           <button
-            class="{{bem styles 'button'}} {{bem buttonStyle 'default'}}"
+            class="{{bem 'button'}} {{buttonBem 'default'}}"
             type="button"
             {{on "click" this.allowAllCookies}}
           >

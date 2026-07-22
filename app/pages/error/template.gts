@@ -8,7 +8,7 @@ import onKey from 'ember-keyboard/helpers/on-key';
 
 import wrapperStyles from 'portfolio/assets/styles/objects/wrapper.module.css';
 import Metadata from 'portfolio/components/seo/metadata';
-import { bem } from 'portfolio/helpers/bem';
+import { getBem } from 'portfolio/utils/get-bem';
 
 import styles from './styles.module.css';
 
@@ -17,6 +17,9 @@ interface Signature {
     model: Error;
   };
 }
+
+const bem = getBem(styles);
+const wrapperBem = getBem(wrapperStyles);
 
 export default class ErrorTemplate extends Component<Signature> {
   // Services
@@ -48,9 +51,9 @@ export default class ErrorTemplate extends Component<Signature> {
     {{onKey "ctrl+alt+del" this.shutdown}}
     {{onKey "ctrl+alt+Escape" this.shutdown}}
     {{onKey "Enter" this.goToHome}}
-    <div class={{bem styles (hash is-turning-off=this.isTurningOff)}}>
-      <div class={{bem wrapperStyles (hash size="small" align="center")}}>
-        <h1 class={{bem styles "title"}}>{{t "route.error.title"}}</h1>
+    <div class={{bem (hash is-turning-off=this.isTurningOff)}}>
+      <div class={{wrapperBem (hash size="small" align="center")}}>
+        <h1 class={{bem "title"}}>{{t "route.error.title"}}</h1>
         {{t "route.error.message" htmlSafe=true}}
       </div>
     </div>

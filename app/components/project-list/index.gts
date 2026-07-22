@@ -14,10 +14,10 @@ import {
 } from 'swiper/modules';
 import type { SwiperOptions } from 'swiper/types';
 
-import { bem } from 'portfolio/helpers/bem';
 import Project from 'portfolio/models/project';
 import swiper from 'portfolio/modifiers/swiper';
 import ProjectSliderService from 'portfolio/services/project-slider';
+import { getBem } from 'portfolio/utils/get-bem';
 
 import Preview from './preview';
 import previewStyles from './preview/styles.module.css';
@@ -29,6 +29,8 @@ interface Signature {
     projects: Project[];
   };
 }
+
+const bem = getBem(styles);
 
 export default class ProjectListComponent extends Component<Signature> {
   // Services
@@ -123,12 +125,8 @@ export default class ProjectListComponent extends Component<Signature> {
 
   // Template
   <template>
-    <div
-      class={{bem styles}}
-      {{swiper options=this.swiperOptions}}
-      ...attributes
-    >
-      <div class={{bem styles "wrapper"}}>
+    <div class={{(bem)}} {{swiper options=this.swiperOptions}} ...attributes>
+      <div class={{bem "wrapper"}}>
         {{#animatedEach
           this.sortedProjects
           initialInsertion=true

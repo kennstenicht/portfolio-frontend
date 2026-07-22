@@ -2,7 +2,7 @@ import { on } from '@ember/modifier';
 import Component from '@glimmer/component';
 import { gsap } from 'gsap';
 
-import { bem } from 'portfolio/helpers/bem';
+import { getBem } from 'portfolio/utils/get-bem';
 
 import styles from './styles.module.css';
 
@@ -26,6 +26,8 @@ function implode(letterElement: Element, newLetter: string) {
 interface Signature {
   Element: HTMLDivElement;
 }
+
+const bem = getBem(styles);
 
 export default class ApplicationLogoComponent extends Component<Signature> {
   // Defaults
@@ -64,7 +66,7 @@ export default class ApplicationLogoComponent extends Component<Signature> {
   // Functions
   explode = (event: MouseEvent) => {
     const element = event.target as HTMLElement;
-    const letters = element.querySelectorAll(`.${bem(styles, 'letter')}`);
+    const letters = element.querySelectorAll(`.${bem('letter')}`);
     const randomWord = this.words[randomBetween(1, this.words.length - 1)];
     const newWord = randomWord?.split('');
 
@@ -87,13 +89,13 @@ export default class ApplicationLogoComponent extends Component<Signature> {
   // Template
   <template>
     <div
-      class={{bem styles}}
+      class={{(bem)}}
       role="button"
       {{on "mouseenter" this.explode}}
       ...attributes
     >
       {{#each this.defaultLetters as |letter|}}
-        <span class={{bem styles "letter"}}>
+        <span class={{bem "letter"}}>
           {{letter}}
         </span>
       {{/each}}

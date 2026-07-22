@@ -6,9 +6,9 @@ import Component from '@glimmer/component';
 import { animatedValue } from 'ember-animated';
 import t from 'ember-intl/helpers/t';
 
-import { bem } from 'portfolio/helpers/bem';
 import ProjectModel from 'portfolio/models/project';
 import ProjectSliderService from 'portfolio/services/project-slider';
+import { getBem } from 'portfolio/utils/get-bem';
 
 import Default from './default';
 import Header from './header';
@@ -22,6 +22,8 @@ interface Signature {
     project: ProjectModel;
   };
 }
+
+const bem = getBem(styles);
 
 export default class ProjectDetail extends Component<Signature> {
   // Services
@@ -37,16 +39,16 @@ export default class ProjectDetail extends Component<Signature> {
   // Template
   <template>
     {{#animatedValue @project as |project|}}
-      <article class={{bem styles (hash style=project.id)}} ...attributes>
+      <article class={{bem (hash style=project.id)}} ...attributes>
         <Header @project={{project}} />
-        <div class={{bem styles "content"}}>
+        <div class={{bem "content"}}>
           <Summary @project={{project}} />
-          <div class={{bem styles "wrapper"}}>
+          <div class={{bem "wrapper"}}>
             {{#let (getContentComponent project.id) as |ContentComponent|}}
               <ContentComponent @project={{project}} />
             {{/let}}
-            <div class={{bem styles "back"}}>
-              <LinkTo @route="projects" class={{bem styles "link"}}>
+            <div class={{bem "back"}}>
+              <LinkTo @route="projects" class={{bem "link"}}>
                 {{t "projectDetail.backToOverview" htmlSafe=true}}
               </LinkTo>
             </div>

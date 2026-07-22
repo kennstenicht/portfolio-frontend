@@ -5,10 +5,12 @@ import { tracked } from '@glimmer/tracking';
 import { t } from 'ember-intl';
 
 import Metadata from 'portfolio/components/seo/metadata';
-import { bem } from 'portfolio/helpers/bem';
 import fitText from 'portfolio/modifiers/fit-text';
+import { getBem } from 'portfolio/utils/get-bem';
 
 import styles from './styles.module.css';
+
+const bem = getBem(styles);
 
 export default class ErrorTemplate extends Component {
   // Defaults
@@ -30,17 +32,17 @@ export default class ErrorTemplate extends Component {
       @description={{t "route.application.meta.description"}}
     />
 
-    <div class={{bem styles}}>
+    <div class={{(bem)}}>
       {{#if this.selectedFragment}}
         <img
           src={{concat "/assets/home/" this.selectedFragment ".jpg"}}
           alt={{t (concat "route.home.altText." this.selectedFragment)}}
-          class={{bem styles "huge-image"}}
+          class={{bem "huge-image"}}
         />
       {{/if}}
-      <div class={{bem styles "message"}} {{fitText}}>
+      <div class={{bem "message"}} {{fitText}}>
         <h1
-          class={{bem styles "title"}}
+          class={{bem "title"}}
           {{on "mouseenter" (fn (mut this.selectedFragment) "moin")}}
           {{on "mouseleave" (fn (mut this.selectedFragment) undefined)}}
         >
@@ -48,7 +50,7 @@ export default class ErrorTemplate extends Component {
         </h1>
         {{#each this.fragments as |fragment|}}
           <span
-            class={{bem styles "fragment" (hash style=fragment)}}
+            class={{bem "fragment" (hash style=fragment)}}
             {{on "mouseenter" (fn (mut this.selectedFragment) fragment)}}
             {{on "mouseleave" (fn (mut this.selectedFragment) undefined)}}
           >

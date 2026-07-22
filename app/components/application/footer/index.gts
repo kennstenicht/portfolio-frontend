@@ -2,7 +2,7 @@ import { concat, hash } from '@ember/helper';
 import Component from '@glimmer/component';
 import t from 'ember-intl/helpers/t';
 
-import { bem } from 'portfolio/helpers/bem';
+import { getBem } from 'portfolio/utils/get-bem';
 
 import styles from './styles.module.css';
 
@@ -19,6 +19,8 @@ interface Signature {
   };
 }
 
+const bem = getBem(styles);
+
 export default class ApplicationFooterComponent extends Component<Signature> {
   // Getter and setter
   get currentYear() {
@@ -27,26 +29,23 @@ export default class ApplicationFooterComponent extends Component<Signature> {
 
   // Template
   <template>
-    <footer
-      class={{bem styles (hash is-toggled=@isNavigationOpen)}}
-      ...attributes
-    >
-      <div class={{bem styles "wrapper"}}>
-        <ul class={{bem styles "social"}}>
+    <footer class={{bem (hash is-toggled=@isNavigationOpen)}} ...attributes>
+      <div class={{bem "wrapper"}}>
+        <ul class={{bem "social"}}>
           {{#each-in SOCIAL_MEDIA_LINKS as |type url|}}
-            <li class={{bem styles "item"}}>
+            <li class={{bem "item"}}>
               <a
                 href={{url}}
                 rel="noopener noreferrer"
                 target="_blank"
-                class={{bem styles "link"}}
+                class={{bem "link"}}
               >
                 {{~t (concat "application.footer.social." type)~}}
               </a>
             </li>
           {{/each-in}}
         </ul>
-        <div class={{bem styles "copy"}}>
+        <div class={{bem "copy"}}>
           {{t "application.footer.copy" year=this.currentYear htmlSafe=true}}
         </div>
       </div>
