@@ -26,14 +26,12 @@ export default class FitText extends Modifier {
   }
 
   modify(element: HTMLElement) {
-    if (this.handler) {
-      window.removeEventListener('resize', this.handler);
-    }
-
-    this.handler = () => this.fitTextTask.perform(element, true);
     this.element = element;
 
-    window.addEventListener('resize', this.handler);
+    if (!this.handler) {
+      this.handler = () => this.fitTextTask.perform(element, true);
+      window.addEventListener('resize', this.handler);
+    }
 
     this.fitTextTask.perform(element);
   }
