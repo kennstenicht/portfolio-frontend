@@ -1,6 +1,11 @@
 import { registerDestructor } from '@ember/destroyable';
-import { task } from 'ember-concurrency';
-import Modifier from 'ember-modifier';
+import type Owner from '@ember/owner';
+import { task, timeout } from 'ember-concurrency';
+import Modifier, { type ArgsFor } from 'ember-modifier';
+
+interface FitTextSignature {
+  Element: HTMLElement;
+}
 
 function cleanup(instance: FitText) {
   const { handler, fitTextTask } = instance;
@@ -14,79 +19,83 @@ function cleanup(instance: FitText) {
   }
 }
 
-export default class FitText extends Modifier {
+export default class FitText extends Modifier<FitTextSignature> {
   element: HTMLElement | null = null;
   handler?: () => void;
   fontSize: number = 10;
   lineHeight: number = 1.15;
-  lastElementSize: number = 1;
 
-  constructor(owner: unknown, args: unknown) {
+  constructor(owner: Owner, args: ArgsFor<FitTextSignature>) {
     super(owner, args);
     registerDestructor(this, cleanup);
   }
 
   modify(element: HTMLElement) {
-    void this.fitTextTask.perform(element);
-
-    this.handler = () => {
-      void this.fitTextTask.perform(element);
-    };
     this.element = element;
 
-    window.addEventListener('resize', this.handler);
+    if (!this.handler) {
+      this.handler = () => {
+        void this.fitTextTask.perform(element, true);
+      };
+      window.addEventListener('resize', this.handler);
+    }
+
+    void this.fitTextTask.perform(element);
   }
 
-  // eslint-disable-next-line @typescript-eslint/require-await -- ember-concurrency async-arrow task requires the async keyword for the task transform
-  fitTextTask = task({ restartable: true }, async (element: HTMLElement) => {
-    // Reset line height to default
-    this.lineHeight = 1.15;
-    element.style.lineHeight = this.lineHeight;
+  fitTextTask = task(
+    { restartable: true },
+    async (element: HTMLElement, debounce = false) => {
+      if (debounce) {
+        await timeout(100);
+      }
 
-    // Get allement size
-    const elementSize = element.clientWidth * element.clientHeight;
+      // Reset line height to default
+      this.lineHeight = 1.15;
+      element.style.lineHeight = `${this.lineHeight}`;
 
-    // Check if the element size increased or decreased
-    if (elementSize > this.lastElementSize) {
-      // If element increase first increase the font size...
+      if (element.scrollHeight > element.clientHeight) {
+        // Text overflows: shrink the font size until it fits
+        while (
+          element.scrollHeight > element.clientHeight &&
+          this.fontSize > 1
+        ) {
+          this.fontSize--;
+          element.style.fontSize = `${this.fontSize}px`;
+        }
+      } else {
+        // Text fits: grow the font size until it just overflows, then back off
+        while (
+          element.scrollHeight <= element.clientHeight &&
+          this.fontSize < 100
+        ) {
+          this.fontSize++;
+          element.style.fontSize = `${this.fontSize}px`;
+
+          // Overshoot fix
+          if (element.scrollHeight > element.clientHeight) {
+            this.fontSize--;
+            element.style.fontSize = `${this.fontSize}px`;
+            break;
+          }
+        }
+      }
+
+      // ... then increase the line height
       while (
         element.scrollHeight <= element.clientHeight &&
-        this.fontSize < 100
+        this.lineHeight < 1.6
       ) {
-        this.fontSize++;
-        element.style.fontSize = `${this.fontSize}px`;
+        this.lineHeight += 0.01;
+        element.style.lineHeight = `${this.lineHeight}`;
 
         // Overshoot fix
         if (element.scrollHeight > element.clientHeight) {
-          this.fontSize--;
-          element.style.fontSize = `${this.fontSize}px`;
+          this.lineHeight -= 0.01;
+          element.style.lineHeight = `${this.lineHeight}`;
           break;
         }
       }
-    } else {
-      // If element decrease first decrease font size...
-      while (element.scrollHeight > element.clientHeight && this.fontSize > 1) {
-        this.fontSize--;
-        element.style.fontSize = `${this.fontSize}px`;
-      }
-    }
-
-    // ... then increase the line height
-    while (
-      element.scrollHeight <= element.clientHeight &&
-      this.lineHeight < 1.6
-    ) {
-      this.lineHeight += 0.01;
-      element.style.lineHeight = this.lineHeight;
-
-      // Overshoot fix
-      if (element.scrollHeight > element.clientHeight) {
-        this.lineHeight -= 0.01;
-        element.style.lineHeight = this.lineHeight;
-        break;
-      }
-    }
-
-    this.lastElementSize = elementSize;
-  });
+    },
+  );
 }
