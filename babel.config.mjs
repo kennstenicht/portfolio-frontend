@@ -1,9 +1,9 @@
-import { dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import {
   babelCompatSupport,
   templateCompatSupport,
 } from '@embroider/compat/babel';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 export default {
   plugins: [
