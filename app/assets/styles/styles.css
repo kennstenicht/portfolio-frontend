@@ -19,5 +19,5 @@
 @import url("elements/elements.video.css");
 
 .animated-tools {
-  z-index: 1000!important;
+  z-index: 1000 !important;
 }

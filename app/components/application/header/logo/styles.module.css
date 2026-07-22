@@ -17,8 +17,8 @@
   font-size: var(--font-size-small);
 }
 
-  .letter {
-    position: relative;
-    display: inline-block;
-    text-align: right;
-  }
+.letter {
+  position: relative;
+  display: inline-block;
+  text-align: right;
+}

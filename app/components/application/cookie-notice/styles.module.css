@@ -18,32 +18,28 @@
   transform: translate(0, 0);
 }
 
-  .header {
-    font-weight: bold;
-  }
+.header {
+  font-weight: bold;
+}
 
-  .content {
-    overflow: auto;
-  }
+.content {
+  overflow: auto;
+}
 
-    .message {
-      flex-grow: 1;
-    }
+.message {
+  flex-grow: 1;
+}
 
-    .settings {
-      display: flex;
-      align-items: flex-start;
-      margin-top: var(--spacing-base);
-      width: 100%;
-    }
+.settings {
+  display: flex;
+  align-items: flex-start;
+  margin-top: var(--spacing-base);
+  width: 100%;
+}
 
-      .option {
-        margin-bottom: var(--spacing-tiny);
-      }
-
-
-
-
+.option {
+  margin-bottom: var(--spacing-tiny);
+}
 
 /* Media queries
   ========================================================================== */
@@ -57,25 +53,25 @@
     font-size: var(--font-size-small);
   }
 
-    .content {
-      flex-direction: column;
-    }
+  .content {
+    flex-direction: column;
+  }
 
-      .settings {
-        flex-direction: column;
-      }
+  .settings {
+    flex-direction: column;
+  }
 
-        .button {
-          margin-bottom: var(--spacing-tiny);
-        }
+  .button {
+    margin-bottom: var(--spacing-tiny);
+  }
 
-        .button:last-child {
-          margin-bottom: 0;
-        }
+  .button:last-child {
+    margin-bottom: 0;
+  }
 
-        .option {
-          margin-bottom: var(--spacing-tiny);
-        }
+  .option {
+    margin-bottom: var(--spacing-tiny);
+  }
 }
 
 @media (width >= 768px) {
@@ -86,24 +82,23 @@
     padding: var(--spacing-base);
   }
 
-    .settings {
-      flex-direction: row;
-    }
+  .settings {
+    flex-direction: row;
+  }
 
-      .spacer {
-        flex-grow: 1;
-      }
+  .spacer {
+    flex-grow: 1;
+  }
 
-      .button {
-        margin-right: var(--spacing-tiny);
-      }
+  .button {
+    margin-right: var(--spacing-tiny);
+  }
 
-      .button:last-child {
-        margin-right: 0;
-      }
+  .button:last-child {
+    margin-right: 0;
+  }
 
-      .option {
-        margin-right: var(--spacing-base);
-      }
+  .option {
+    margin-right: var(--spacing-base);
+  }
 }
-

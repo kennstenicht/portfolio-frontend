@@ -6,53 +6,48 @@
   position: relative;
 }
 
-  .wrapper {
-    position: fixed;
-    right: var(--spacing-large-small);
-    bottom: var(--spacing-base);
-    left: var(--spacing-large-small);
-    z-index: 902;
-    display: flex;
-    font-weight: bold;
-    font-size: var(--font-size-small);
-    transition: transform var(--transition-base) 0s;
-    transform-origin: 100% 100%;
-    transform: translate(0, 300%);
-  }
+.wrapper {
+  position: fixed;
+  right: var(--spacing-large-small);
+  bottom: var(--spacing-base);
+  left: var(--spacing-large-small);
+  z-index: 902;
+  display: flex;
+  font-weight: bold;
+  font-size: var(--font-size-small);
+  transition: transform var(--transition-base) 0s;
+  transform-origin: 100% 100%;
+  transform: translate(0, 300%);
+}
 
-  .scope--is-toggled .wrapper {
-    transform: translate(0, 0);
-    transition: transform var(--transition-base) 0.6s;
-  }
+.scope--is-toggled .wrapper {
+  transform: translate(0, 0);
+  transition: transform var(--transition-base) 0.6s;
+}
 
-    .social {
-      margin: 0;
-    }
+.social {
+  margin: 0;
+}
 
-      .item {
-        display: inline-block;
-      }
+.item {
+  display: inline-block;
+}
 
-      .item::after {
-        content: '—';
-      }
+.item::after {
+  content: "—";
+}
 
-      .item:last-child::after {
-        content: '';
-      }
+.item:last-child::after {
+  content: "";
+}
 
-        .link {
-          composes: scope from '/app/assets/styles/objects/link.module.css';
-        }
+.link {
+  composes: scope from "/app/assets/styles/objects/link.module.css";
+}
 
-    .copy {
-      text-transform: lowercase;
-    }
-
-
-
-
-
+.copy {
+  text-transform: lowercase;
+}
 
 /* Media Queries
    ========================================================================== */
@@ -66,14 +61,14 @@
     text-align: center;
   }
 
-    .social {
-      width: 100%;
-      margin-bottom: var(--spacing-small)
-    }
+  .social {
+    width: 100%;
+    margin-bottom: var(--spacing-small);
+  }
 
-    .copy {
-      width: 100%;
-    }
+  .copy {
+    width: 100%;
+  }
 }
 
 @media (width >= 768px) {
@@ -82,12 +77,12 @@
     left: var(--spacing-large-small);
   }
 
-    .social {
-      flex-basis: 30%;
-    }
+  .social {
+    flex-basis: 30%;
+  }
 
-    .copy {
-      flex-basis: 70%;
-      text-align: right;
-    }
+  .copy {
+    flex-basis: 70%;
+    text-align: right;
+  }
 }

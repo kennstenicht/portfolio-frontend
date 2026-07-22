@@ -16,6 +16,7 @@ interface Signature {
 export default <template>
   <div class={{bem styles}} ...attributes>
     <div class={{bem wrapperStyles}}>
+      {{! template-lint-disable no-bare-strings }}
       <h2>Custom Project Detail Template</h2>
       {{! template-lint-disable no-triple-curlies }}
       {{{@project.content}}}

@@ -21,7 +21,8 @@
   display: inline;
 }
 
-.message:hover .fragment, .message:hover .title {
+.message:hover .fragment,
+.message:hover .title {
   opacity: 0.2;
 }
 
@@ -41,25 +42,22 @@
   z-index: 1;
 }
 
-
-
-
-
 /* Media Queries
    ========================================================================== */
 
 @media (width < 768px) {
   .message {
-    margin: var(--spacing-giant) var(--spacing-base) var(--spacing-base) var(--spacing-base);
+    margin: var(--spacing-giant) var(--spacing-base) var(--spacing-base)
+      var(--spacing-base);
     width: calc(var(--vw) - var(--spacing-large));
     height: calc(var(--vh) - var(--spacing-giant) - var(--spacing-base));
   }
 }
 
-
 @media (width >= 768px) {
   .message {
-    margin: var(--spacing-giant) var(--spacing-large) var(--spacing-large) var(--spacing-large);
+    margin: var(--spacing-giant) var(--spacing-large) var(--spacing-large)
+      var(--spacing-large);
     width: calc(var(--vw) - var(--spacing-huge));
     height: calc(var(--vh) - var(--spacing-giant) - var(--spacing-large));
   }

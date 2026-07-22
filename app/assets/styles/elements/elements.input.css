@@ -7,24 +7,23 @@
  * than simple basic style changes should likely be applied via classes
  */
 
-input:not([type=submit]),
-input:not([type=file]),
-input:not([type=search]),
-input:not([type=range]),
-input:not([type=checkbox]) {
+input:not([type="button"]) {
+  border: 0;
+}
+
+input:not([type="submit"]),
+input:not([type="file"]),
+input:not([type="search"]),
+input:not([type="range"]),
+input:not([type="checkbox"]) {
   padding: var(--spacing-small);
   width: 100%;
   border-width: var(--border-width-small);
   border-style: solid;
   border-color: var(--color-black);
-
   font-size: var(--font-size);
 
   &:focus {
     outline: none;
   }
-}
-
-input:not([type=button]) {
-  border: 0px;
 }
