@@ -19,7 +19,6 @@ interface Signature {
   Blocks: {
     default: [];
   };
-  Args: null;
 }
 
 export default class ApplicationComponent extends Component<Signature> {

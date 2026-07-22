@@ -1,21 +1,21 @@
 import type { Formats } from 'ember-intl';
 
 export const formats: Formats = {
-  'format-time': {
+  formatTime: {
     hhmmss: {
       hour: 'numeric',
       minute: 'numeric',
       second: 'numeric',
     },
   },
-  'format-date': {
+  formatDate: {
     hhmmss: {
       hour: 'numeric',
       minute: 'numeric',
       second: 'numeric',
     },
   },
-  'format-number': {
+  formatNumber: {
     EUR: {
       style: 'currency',
       currency: 'EUR',
