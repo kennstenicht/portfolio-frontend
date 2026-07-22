@@ -1,6 +1,11 @@
 import { registerDestructor } from '@ember/destroyable';
-import { type TaskInstance, task, timeout } from 'ember-concurrency';
-import Modifier from 'ember-modifier';
+import type Owner from '@ember/owner';
+import { task, timeout } from 'ember-concurrency';
+import Modifier, { type ArgsFor } from 'ember-modifier';
+
+interface FitTextSignature {
+  Element: HTMLElement;
+}
 
 function cleanup(instance: FitText) {
   const { handler, fitTextTask } = instance;
@@ -10,17 +15,17 @@ function cleanup(instance: FitText) {
   }
 
   if (fitTextTask) {
-    fitTextTask.cancelAll();
+    void fitTextTask.cancelAll();
   }
 }
 
-export default class FitText extends Modifier {
+export default class FitText extends Modifier<FitTextSignature> {
   element: HTMLElement | null = null;
-  handler?: () => TaskInstance<void>;
+  handler?: () => void;
   fontSize: number = 10;
   lineHeight: number = 1.15;
 
-  constructor(owner: unknown, args: unknown) {
+  constructor(owner: Owner, args: ArgsFor<FitTextSignature>) {
     super(owner, args);
     registerDestructor(this, cleanup);
   }
@@ -29,11 +34,13 @@ export default class FitText extends Modifier {
     this.element = element;
 
     if (!this.handler) {
-      this.handler = () => this.fitTextTask.perform(element, true);
+      this.handler = () => {
+        void this.fitTextTask.perform(element, true);
+      };
       window.addEventListener('resize', this.handler);
     }
 
-    this.fitTextTask.perform(element);
+    void this.fitTextTask.perform(element);
   }
 
   fitTextTask = task(
