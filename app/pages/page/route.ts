@@ -4,16 +4,12 @@ import { service } from '@ember/service';
 
 import PageModel from 'portfolio/models/page';
 
-interface Params {
-  page_id: string;
-}
-
-export default class PagesShowRoute extends Route {
+export default class PagesShowRoute extends Route<PageModel> {
   // Services
   @service declare store: Store;
 
   // Hooks
-  model(params: Params) {
+  model(params: { page_id: string }) {
     return this.store.findRecord<PageModel>('page', params.page_id);
   }
 }

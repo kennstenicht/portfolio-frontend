@@ -4,16 +4,12 @@ import { service } from '@ember/service';
 
 import ProjectModel from 'portfolio/models/project';
 
-interface Params {
-  id: string;
-}
-
-export default class ProjectsShowRoute extends Route {
+export default class ProjectsShowRoute extends Route<ProjectModel> {
   // Services
   @service declare store: Store;
 
   // Hooks
-  model({ id }: Params) {
-    return this.store.findRecord<ProjectModel>('project', id);
+  model(params: { id: string }) {
+    return this.store.findRecord<ProjectModel>('project', params.id);
   }
 }

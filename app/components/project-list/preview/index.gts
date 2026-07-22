@@ -41,7 +41,7 @@ export default class ProjectListPreviewComponent extends Component<Signature> {
         'z-index': '3',
       });
 
-      parallel(move(sprite), resize(sprite));
+      void parallel(move, resize)(sprite);
     });
   }
 
@@ -52,7 +52,7 @@ export default class ProjectListPreviewComponent extends Component<Signature> {
         'z-index': '4',
       });
 
-      parallel(move(sprite), adjustColor('color', sprite));
+      void parallel(move, () => adjustColor('color', sprite))(sprite);
     });
   }
 
