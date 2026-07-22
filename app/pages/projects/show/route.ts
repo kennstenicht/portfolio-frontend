@@ -13,19 +13,6 @@ export default class ProjectsShowRoute extends Route {
   @service declare store: Store;
 
   // Hooks
-  buildRouteInfoMetadata() {
-    return {
-      metaTags(model: ProjectModel) {
-        return {
-          title: model.metaTitle,
-          description: model.metaDescription,
-          type: 'article',
-          image: `images/projects/${model.id}/${model.id}_preview.jpg`,
-        };
-      },
-    };
-  }
-
   model({ id }: Params) {
     return this.store.findRecord<ProjectModel>('project', id);
   }

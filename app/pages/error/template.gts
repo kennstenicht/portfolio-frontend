@@ -7,6 +7,7 @@ import { t } from 'ember-intl';
 import onKey from 'ember-keyboard/helpers/on-key';
 
 import wrapperStyles from 'portfolio/assets/styles/objects/wrapper.module.css';
+import Metadata from 'portfolio/components/seo/metadata';
 import { bem } from 'portfolio/helpers/bem';
 
 import styles from './styles.module.css';
@@ -39,6 +40,11 @@ export default class ErrorTemplate extends Component<Signature> {
 
   // Template
   <template>
+    <Metadata
+      @title={{t "route.error.meta.title"}}
+      @description={{t "route.error.meta.description"}}
+    />
+
     {{onKey "ctrl+alt+del" this.shutdown}}
     {{onKey "ctrl+alt+Escape" this.shutdown}}
     {{onKey "Enter" this.goToHome}}

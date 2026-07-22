@@ -8,7 +8,6 @@ import IntlService from 'ember-intl/services/intl';
 
 import { bem } from 'portfolio/helpers/bem';
 import { windowOn } from 'portfolio/modifiers/window-on';
-import HeadDataService from 'portfolio/services/head-data';
 
 import CookieNotice from './cookie-notice';
 import Footer from './footer';
@@ -25,12 +24,14 @@ interface Signature {
 
 export default class ApplicationComponent extends Component<Signature> {
   // Services
-  @service declare headData: HeadDataService;
   @service declare intl: IntlService;
   @service declare router: RouterService;
 
   // Defaults
   @tracked isNavigationOpen = false;
+
+  // Stashes the real document title while the blur-title easter egg is shown.
+  previousTitle = '';
 
   // Getter and setter
   get urlSegments(): string {
@@ -50,7 +51,14 @@ export default class ApplicationComponent extends Component<Signature> {
 
   // Functions
   changeMetaTitle = (title: string) => {
-    this.headData.blurTitle = title;
+    if (title) {
+      // Window lost focus: stash the real title and show the teaser.
+      this.previousTitle = document.title;
+      document.title = title;
+    } else if (this.previousTitle) {
+      // Window regained focus: restore the real title.
+      document.title = this.previousTitle;
+    }
   };
 
   setIsNavigationOpen = (isOpen: boolean) => {

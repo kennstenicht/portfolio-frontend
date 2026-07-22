@@ -1,5 +1,6 @@
 import type { TOC } from '@ember/component/template-only';
 
+import Metadata from 'portfolio/components/seo/metadata';
 import { bem } from 'portfolio/helpers/bem';
 import type PageModel from 'portfolio/models/page';
 
@@ -12,6 +13,12 @@ interface PagesShowRouteSignature {
 }
 
 <template>
+  <Metadata
+    @title={{@model.metaTitle}}
+    @description={{@model.metaDescription}}
+    @type="article"
+  />
+
   <div class={{bem styles}}>
     <div class={{bem styles "title-wrapper"}}>
       <h1 class={{bem styles "title"}}>
