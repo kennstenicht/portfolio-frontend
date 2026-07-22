@@ -8,9 +8,11 @@ module.exports = function (environment) {
     rootURL: '/',
     locationType: 'history',
 
-    company: {
-      name: 'Christoph Wiedenmann',
-    },
+    // Canonical origin used to build absolute URLs in meta tags.
+    host: 'https://wiedenmann.cc',
+
+    // Brand name used for the document title suffix and the web-app title.
+    siteName: 'wiedenmann.cc',
 
     EmberENV: {
       EXTEND_PROTOTYPES: false,

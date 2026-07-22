@@ -13,18 +13,6 @@ export default class PagesShowRoute extends Route {
   @service declare store: Store;
 
   // Hooks
-  buildRouteInfoMetadata() {
-    return {
-      metaTags(model: PageModel) {
-        return {
-          title: model.metaTitle,
-          description: model.metaDescription,
-          type: 'article',
-        };
-      },
-    };
-  }
-
   model(params: Params) {
     return this.store.findRecord<PageModel>('page', params.page_id);
   }

@@ -10,8 +10,7 @@ declare const config: {
   podModulePrefix: string;
   locationType: string;
   rootURL: string;
+  host: string;
+  siteName: string;
   APP: Record<string, unknown>;
-  company: {
-    name: string;
-  };
 };

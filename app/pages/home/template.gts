@@ -4,6 +4,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { t } from 'ember-intl';
 
+import Metadata from 'portfolio/components/seo/metadata';
 import { bem } from 'portfolio/helpers/bem';
 import fitText from 'portfolio/modifiers/fit-text';
 
@@ -24,6 +25,11 @@ export default class ErrorTemplate extends Component {
 
   // Template
   <template>
+    <Metadata
+      @title={{t "route.application.meta.title"}}
+      @description={{t "route.application.meta.description"}}
+    />
+
     <div class={{bem styles}}>
       {{#if this.selectedFragment}}
         <img
