@@ -3,6 +3,12 @@ declare module '*.css' {
   export default styles;
 }
 
+// The classic `ember-data/store` re-export ships no types; borrow @ember-data/store's.
+declare module 'ember-data/store' {
+  import Store from '@ember-data/store';
+  export default Store;
+}
+
 // Untyped v1 addons used in templates — minimal glint shims.
 declare module 'ember-keyboard/helpers/on-key' {
   import type { HelperLike } from '@glint/template';

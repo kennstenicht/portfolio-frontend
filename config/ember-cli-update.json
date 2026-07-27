@@ -12,7 +12,8 @@
             "--no-welcome",
             "--pnpm",
             "--ci-provider=github",
-            "--no-warp-drive"
+            "--no-warp-drive",
+            "--typescript"
           ]
         }
       ]
