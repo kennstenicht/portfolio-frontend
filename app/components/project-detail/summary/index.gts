@@ -1,7 +1,7 @@
 import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
 
-import ProjectModel from 'portfolio/models/project';
+import type { Project } from 'portfolio/data/project';
 import { getBem } from 'portfolio/utils/get-bem';
 
 import styles from './styles.module.css';
@@ -9,7 +9,7 @@ import styles from './styles.module.css';
 interface Signature {
   Element: HTMLDivElement;
   Args: {
-    project: ProjectModel;
+    project: Project;
   };
 }
 

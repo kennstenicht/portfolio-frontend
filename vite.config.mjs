@@ -23,11 +23,11 @@ export default defineConfig(({ mode }) => {
         outputDir: 'public/api',
         resources: [
           {
-            type: 'pages',
+            type: 'page',
             contentAttribute: 'content',
           },
           {
-            type: 'projects',
+            type: 'project',
             contentAttribute: 'content',
           },
         ],

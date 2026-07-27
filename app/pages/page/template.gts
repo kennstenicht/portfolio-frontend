@@ -1,14 +1,15 @@
 import type { TOC } from '@ember/component/template-only';
+import type { ReactiveDataDocument } from '@warp-drive/core/reactive';
 
 import Metadata from 'portfolio/components/seo/metadata';
-import type PageModel from 'portfolio/models/page';
+import type { Page } from 'portfolio/data/page';
 import { getBem } from 'portfolio/utils/get-bem';
 
 import styles from './styles.module.css';
 
 interface PagesShowRouteSignature {
   Args: {
-    model: PageModel;
+    model: ReactiveDataDocument<Page>;
   };
 }
 
@@ -16,8 +17,8 @@ const bem = getBem(styles);
 
 <template>
   <Metadata
-    @title={{@model.metaTitle}}
-    @description={{@model.metaDescription}}
+    @title={{@model.data.metaTitle}}
+    @description={{@model.data.metaDescription}}
     @type="article"
   />
 
@@ -25,12 +26,12 @@ const bem = getBem(styles);
     <div class={{bem "title-wrapper"}}>
       <h1 class={{bem "title"}}>
         {{! template-lint-disable no-triple-curlies }}
-        {{{@model.title}}}
+        {{{@model.data.title}}}
       </h1>
     </div>
     <div class={{bem "content"}}>
       {{! template-lint-disable no-triple-curlies }}
-      {{{@model.content}}}
+      {{{@model.data.content}}}
     </div>
   </div>
 </template> satisfies TOC<PagesShowRouteSignature>;

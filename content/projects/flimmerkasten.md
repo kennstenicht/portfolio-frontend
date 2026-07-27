@@ -1,10 +1,10 @@
 ---
 excerpt: Lorem ipsum
 facts: Facts
-meta-description: Retro games controlled by you phone
-meta-title: Flimmerkasten
+metaDescription: Retro games controlled by you phone
+metaTitle: Flimmerkasten
 position: 4
-preview-image: '/assets/projects/flimmerkasten/flimmerkasten_preview.jpg'
+previewImage: '/assets/projects/flimmerkasten/flimmerkasten_preview.jpg'
 subtitle: Retro games on tube TVs controlled by you phone
 title: Flimmerkasten
 visible: true

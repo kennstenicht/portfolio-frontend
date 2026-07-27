@@ -6,7 +6,7 @@ import Component from '@glimmer/component';
 import { animatedValue } from 'ember-animated';
 import t from 'ember-intl/helpers/t';
 
-import ProjectModel from 'portfolio/models/project';
+import type { Project } from 'portfolio/data/project';
 import ProjectSliderService from 'portfolio/services/project-slider';
 import { getBem } from 'portfolio/utils/get-bem';
 
@@ -19,7 +19,7 @@ import Summary from './summary';
 interface Signature {
   Element: HTMLElement;
   Args: {
-    project: ProjectModel;
+    project: Project;
   };
 }
 

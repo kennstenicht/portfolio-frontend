@@ -1,7 +1,7 @@
 import type { TOC } from '@ember/component/template-only';
 
 import wrapperStyles from 'portfolio/assets/styles/objects/wrapper.module.css';
-import ProjectModel from 'portfolio/models/project';
+import type { Project } from 'portfolio/data/project';
 import { getBem } from 'portfolio/utils/get-bem';
 
 import styles from './styles.module.css';
@@ -9,7 +9,7 @@ import styles from './styles.module.css';
 interface Signature {
   Element: HTMLDivElement;
   Args: {
-    project: ProjectModel;
+    project: Project;
   };
 }
 

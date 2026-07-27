@@ -1,7 +1,7 @@
 ---
 title: This<br>Is Me
-meta-title: This is me
-meta-description: I’m a berlin based senior frontend developer with a strong ux background and a love for details.
+metaTitle: This is me
+metaDescription: I’m a berlin based senior frontend developer with a strong ux background and a love for details.
 ---
 
 ![alt text](/assets/home/i-am.jpg)

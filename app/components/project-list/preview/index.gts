@@ -13,7 +13,7 @@ import move from 'ember-animated/motions/move';
 import resize from 'ember-animated/motions/resize';
 
 import indexNumber from 'portfolio/helpers/index-number';
-import Project from 'portfolio/models/project';
+import type { Project } from 'portfolio/data/project';
 import { getBem } from 'portfolio/utils/get-bem';
 
 import styles from './styles.module.css';
@@ -61,7 +61,7 @@ export default class ProjectListPreviewComponent extends Component<Signature> {
   // Template
   <template>
     <article class={{bem (hash style=@project.id)}} ...attributes>
-      <LinkTo @route="projects.show" @model={{@project}}>
+      <LinkTo @route="projects.show" @model={{@project.id}}>
         {{#animatedValue
           @project.previewImage
           use=this.backgroundTransition

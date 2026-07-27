@@ -1,10 +1,10 @@
 ---
 excerpt: Lorem ipsum
 facts: Facts
-meta-description: Das ist die Chin Chin Projekt Seite
-meta-title: Chin Chin
+metaDescription: Das ist die Chin Chin Projekt Seite
+metaTitle: Chin Chin
 position: 5
-preview-image: '/assets/projects/chin-chin/chin-chin_preview.jpg'
+previewImage: '/assets/projects/chin-chin/chin-chin_preview.jpg'
 subtitle: interact with the physical world to control the digital. An interactive installation for the 7 anniversary party of ag—prop
 title: Chin Chin
 visible: true

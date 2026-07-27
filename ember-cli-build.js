@@ -6,7 +6,7 @@ const { compatBuild } = require('@embroider/compat');
 module.exports = async function (defaults) {
   const { buildOnce } = await import('@embroider/vite');
 
-  const { setConfig } = await import('@warp-drive/build-config');
+  const { setConfig } = await import('@warp-drive/core/build-config');
 
   const app = new EmberApp(defaults, {
     babel: {
@@ -15,9 +15,9 @@ module.exports = async function (defaults) {
   });
 
   setConfig(app, __dirname, {
-    deprecations: {
-      DEPRECATE_STORE_EXTENDS_EMBER_OBJECT: false,
-    },
+    // this should be the most recent <major>.<minor> version for
+    // which all deprecations have been fully resolved
+    compatWith: '5.8',
   });
 
   // Use `app.import` to add additional libraries to the generated

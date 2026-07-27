@@ -1,10 +1,10 @@
 ---
 excerpt: Lorem ipsum
 facts: Facts
-meta-description: let's create a network of mint schools
-meta-title: Network map - MINT EC
+metaDescription: let's create a network of mint schools
+metaTitle: Network map - MINT EC
 position: 3
-preview-image: '/assets/projects/mint-ec/mint-ec_preview.jpg'
+previewImage: '/assets/projects/mint-ec/mint-ec_preview.jpg'
 subtitle: Let's visualize the network to support the MINT schools
 title: MINT EC
 visible: true
