@@ -1,15 +1,17 @@
-import Store from '@ember-data/store';
 import Route from '@ember/routing/route';
 import { service } from '@ember/service';
 
-import ProjectModel from 'portfolio/models/project';
+import { getProject } from 'portfolio/data/project';
+import type Store from 'portfolio/services/store';
 
-export default class ProjectsShowRoute extends Route<ProjectModel> {
+export default class ProjectsShowRoute extends Route {
   // Services
   @service declare store: Store;
 
   // Hooks
-  model(params: { id: string }) {
-    return this.store.findRecord<ProjectModel>('project', params.id);
+  async model(params: { id: string }) {
+    const { content } = await this.store.request(getProject(params.id));
+
+    return content;
   }
 }

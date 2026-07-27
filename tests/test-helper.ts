@@ -1,3 +1,5 @@
+import '@warp-drive/ember/install';
+
 import * as QUnit from 'qunit';
 import { setApplication } from '@ember/test-helpers';
 import { start as qunitStart, setupEmberOnerrorValidation } from 'ember-qunit';

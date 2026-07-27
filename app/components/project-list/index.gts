@@ -14,7 +14,7 @@ import {
 } from 'swiper/modules';
 import type { SwiperOptions } from 'swiper/types';
 
-import Project from 'portfolio/models/project';
+import type { Project } from 'portfolio/data/project';
 import swiper from 'portfolio/modifiers/swiper';
 import ProjectSliderService from 'portfolio/services/project-slider';
 import { getBem } from 'portfolio/utils/get-bem';

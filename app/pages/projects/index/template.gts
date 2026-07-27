@@ -1,13 +1,14 @@
 import type { TOC } from '@ember/component/template-only';
+import type { ReactiveDataDocument } from '@warp-drive/core/reactive';
 import { t } from 'ember-intl';
 
 import ProjectList from 'portfolio/components/project-list';
 import Metadata from 'portfolio/components/seo/metadata';
-import type ProjectModel from 'portfolio/models/project';
+import type { Project } from 'portfolio/data/project';
 
 interface ProjectsIndexRouteSignature {
   Args: {
-    model: ProjectModel[];
+    model: ReactiveDataDocument<Project[]>;
   };
 }
 
@@ -17,5 +18,5 @@ interface ProjectsIndexRouteSignature {
     @description={{t "route.projects.meta.description"}}
   />
 
-  <ProjectList @projects={{@model}} />
+  <ProjectList @projects={{@model.data}} />
 </template> satisfies TOC<ProjectsIndexRouteSignature>;

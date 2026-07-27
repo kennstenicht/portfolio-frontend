@@ -1,7 +1,7 @@
 ---
 title: Imprint<br>Contact
-meta-title: Imprint
-meta-description: Das ist die Impressums Seite
+metaTitle: Imprint
+metaDescription: Das ist die Impressums Seite
 ---
 
 ## Responsible for content:

@@ -7,7 +7,7 @@ import adjustColor from 'ember-animated/motions/adjust-color';
 import move from 'ember-animated/motions/move';
 import resize from 'ember-animated/motions/resize';
 
-import ProjectModel from 'portfolio/models/project';
+import type { Project } from 'portfolio/data/project';
 import { getBem } from 'portfolio/utils/get-bem';
 
 import styles from './styles.module.css';
@@ -15,7 +15,7 @@ import styles from './styles.module.css';
 interface Signature {
   Element: HTMLDivElement;
   Args: {
-    project: ProjectModel;
+    project: Project;
   };
 }
 

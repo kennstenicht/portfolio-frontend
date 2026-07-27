@@ -3,6 +3,7 @@ import setupInspector from '@embroider/legacy-inspector-support/ember-source-4.1
 import { importSync, isDevelopingApp, macroCondition } from '@embroider/macros';
 import loadInitializers from 'ember-load-initializers';
 import Resolver from 'ember-resolver';
+import '@warp-drive/ember/install';
 
 import config from './config/environment';
 

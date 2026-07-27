@@ -1,10 +1,10 @@
 ---
 excerpt: In the last years i transformed the legancy content menanagment system of Universal Music into a modern app and extended the system.
 facts: '<strong>Year:</strong> 2015 — now<br><strong>Client:</strong> Universal Music<br><strong>Technology:</strong> ember.js'
-meta-description: Universal Music CMS
-meta-title: CMS - Universal Music
+metaDescription: Universal Music CMS
+metaTitle: CMS - Universal Music
 position: 0
-preview-image: '/assets/projects/umg-cms/umg-cms_preview.jpg'
+previewImage: '/assets/projects/umg-cms/umg-cms_preview.jpg'
 subtitle: Providing the backbone for hundreds of websites at Universal Music Germany and beyond.
 title: UMG CMS
 visible: true

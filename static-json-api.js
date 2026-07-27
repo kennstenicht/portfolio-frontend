@@ -1,3 +1,4 @@
+import { pluralize } from '@warp-drive/utilities/string';
 import fs from 'fs';
 import matter from 'gray-matter';
 import { marked } from 'marked';
@@ -9,7 +10,7 @@ function parseMarkdownFiles(options) {
 
   for (const resource of options.resources) {
     const contentAttribute = resource.contentAttribute;
-    const sourcePath = path.join(options.sourceDir, resource.type);
+    const sourcePath = path.join(options.sourceDir, pluralize(resource.type));
 
     if (!fs.existsSync(sourcePath)) {
       console.warn(
@@ -45,7 +46,7 @@ function parseMarkdownFiles(options) {
       }
     });
 
-    const outputPath = path.join(options.outputDir, resource.type);
+    const outputPath = path.join(options.outputDir, pluralize(resource.type));
     fs.mkdirSync(outputPath, { recursive: true });
     fs.writeFileSync(
       path.join(outputPath, 'index.json'),
