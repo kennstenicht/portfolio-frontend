@@ -2,6 +2,7 @@
 @import url("settings/settings.global.css");
 
 /* GENERIC */
+@import url("generic/generic.fonts.css");
 @import url("generic/generic.box-sizing.css");
 @import url("generic/generic.normalize.css");
 @import url("generic/generic.reset.css");
