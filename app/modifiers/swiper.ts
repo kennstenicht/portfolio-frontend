@@ -13,6 +13,10 @@ interface Signature {
 }
 
 export default modifier<Signature>((element, _, { options }) => {
+  if (import.meta.env.SSR) {
+    return;
+  }
+
   const swiper = new Swiper(element, options);
 
   return () => {

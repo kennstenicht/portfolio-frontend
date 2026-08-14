@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <meta name="twitter:site" content="@herrwiedenmann" />
     <meta name="apple-mobile-web-app-title" content="wiedenmann.cc" />
     <meta
@@ -14,13 +13,12 @@
 
     <link rel="icon" href="/assets/meta/favicon.png" />
     <link rel="apple-touch-icon-precomposed" href="/assets/meta/touch-icon.png" />
+
+    <!-- VITE_EMBER_SSR_HEAD -->
   </head>
   <body>
-    <script type="module">
-      import Application from './app/app';
-      import environment from './app/config/environment';
+    <!-- VITE_EMBER_SSR_BODY -->
 
-      Application.create(environment.APP);
-    </script>
+    <script type="module" src="/app/entry.ts"></script>
   </body>
 </html>

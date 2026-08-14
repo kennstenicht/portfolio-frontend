@@ -1,0 +1,24 @@
+diff --git a/dist/vite-plugin-9BSJgEL9.js b/dist/vite-plugin-9BSJgEL9.js
+index e74e1f1c9537eb0d7239722f39fbbf053b3cb2ff..3159beb2da34a3946ac96dad79e990d2b953f9fe 100644
+--- a/dist/vite-plugin-9BSJgEL9.js
++++ b/dist/vite-plugin-9BSJgEL9.js
+@@ -142,6 +142,11 @@ function cjsSsrShimTransform(code, _id, options) {
+ 	if (!options?.ssr) return null;
+ 	if (/^(?:import\s|export\s|export\{|export default)/m.test(code)) return null;
+ 	if (!/\bexports\s*[.[=]|\bmodule\s*\.\s*exports\b/.test(code)) return null;
++	const __names = new Set();
++	for (const m of code.matchAll(/\bexports\.([A-Za-z_$][\w$]*)\s*=/g)) __names.add(m[1]);
++	for (const m of code.matchAll(/Object\.defineProperty\(\s*exports\s*,\s*['"]([A-Za-z_$][\w$]*)['"]/g)) __names.add(m[1]);
++	__names.delete("default");
++	const __named = [...__names].map((n) => `export const ${n} = __cjs_module__.exports.${n};`).join("\n");
+ 	return {
+ 		code: `\
+ const __cjs_module__ = { exports: {} };
+@@ -151,6 +156,7 @@ const __cjs_global__ = typeof globalThis !== 'undefined' ? globalThis : typeof g
+ ${code}
+ })(__cjs_module__, __cjs_exports__, __cjs_global__);
+ export default __cjs_module__.exports;
++${__named}
+ `,
+ 		map: null
+ 	};

@@ -4,7 +4,9 @@ import { babel } from '@rollup/plugin-babel';
 import crypto from 'crypto';
 import path from 'path';
 import { defineConfig } from 'vite';
+import { emberSsg } from 'vite-ember-ssr/vite-plugin';
 
+import { routes } from './ssg-routes.mjs';
 import { staticJsonApi } from './static-json-api.js';
 
 function hash(input) {
@@ -38,6 +40,9 @@ export default defineConfig(({ mode }) => {
       babel({
         babelHelpers: 'runtime',
         extensions,
+      }),
+      emberSsg({
+        routes,
       }),
     ],
     css: {

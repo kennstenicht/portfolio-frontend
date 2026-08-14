@@ -58,6 +58,7 @@
     "@types/ember-qunit": "^5.0.2",
     "@types/ember-resolver": "^5.0.13",
     "@types/eslint__js": "^8.42.3",
+    "@types/node": "^25.9.1",
     "@types/qunit": "^2.19.12",
     "@types/rsvp": "^4.0.9",
     "@warp-drive/core": "~5.8.1",
@@ -114,7 +115,8 @@
     "swiper": "^11.2.6",
     "typescript": "^5.6.3",
     "typescript-eslint": "^8.31.1",
-    "vite": "^8.0.10"
+    "vite": "^8.0.10",
+    "vite-ember-ssr": "^0.4.1"
   },
   "dependencies": {
     "@ember/string": "^4.0.1"
@@ -132,6 +134,9 @@
   "pnpm": {
     "overrides": {
       "stylelint>css-tree": "^3.2.1"
+    },
+    "patchedDependencies": {
+      "vite-ember-ssr@0.4.1": "patches/vite-ember-ssr@0.4.1.patch"
     }
   },
   "packageManager": "pnpm@9.15.1+sha512.1acb565e6193efbebda772702950469150cf12bcc764262e7587e71d19dc98a423dff9536e57ea44c49bdf790ff694e83c27be5faa23d67e0c033b583be4bfcf"
