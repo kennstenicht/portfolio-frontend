@@ -1,9 +1,20 @@
-import {
-  babelCompatSupport,
-  templateCompatSupport,
-} from '@embroider/compat/babel';
+import { buildMacros } from '@embroider/macros/babel';
+import { setConfig } from '@warp-drive/core/build-config';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+
+// Configure the @embroider/macros global config so WarpDrive's build-time
+// macros (getGlobalConfig().WarpDrive.*) resolve. This replaces the
+// `setConfig(app, __dirname, …)` call that used to live in ember-cli-build.js.
+const Macros = buildMacros({
+  configure: (config) => {
+    setConfig(config, {
+      // this should be the most recent <major>.<minor> version for
+      // which all deprecations have been fully resolved
+      compatWith: '5.8',
+    });
+  },
+});
 
 export default {
   plugins: [
@@ -23,7 +34,7 @@ export default {
           'ember-cli-htmlbars-inline-precompile',
           'htmlbars-inline-precompile',
         ],
-        transforms: [...templateCompatSupport()],
+        transforms: [...Macros.templateMacros],
       },
     ],
     [
@@ -45,7 +56,7 @@ export default {
       },
     ],
     ['ember-concurrency/async-arrow-task-transform'],
-    ...babelCompatSupport(),
+    ...Macros.babelMacros,
   ],
 
   generatorOpts: {

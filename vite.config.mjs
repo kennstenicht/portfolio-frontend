@@ -1,5 +1,5 @@
 import { loadTranslations } from '@ember-intl/vite';
-import { classicEmberSupport, ember, extensions } from '@embroider/vite';
+import { ember, extensions } from '@embroider/vite';
 import { babel } from '@rollup/plugin-babel';
 import crypto from 'crypto';
 import path from 'path';
@@ -32,7 +32,6 @@ export default defineConfig(({ mode }) => {
           },
         ],
       }),
-      classicEmberSupport(),
       ember(),
       loadTranslations(),
       // extra plugins here
