@@ -3,7 +3,13 @@ declare module '*.css' {
   export default styles;
 }
 
-// Untyped v1 addons used in templates — minimal glint shims.
+// Untyped addon modules — minimal shims.
+declare module 'ember-keyboard/services/keyboard' {
+  import type Service from '@ember/service';
+
+  export default class KeyboardService extends Service {}
+}
+
 declare module 'ember-keyboard/helpers/on-key' {
   import type { HelperLike } from '@glint/template';
 
