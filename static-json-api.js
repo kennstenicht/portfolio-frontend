@@ -82,6 +82,39 @@ function unlinkOutputFile(file, options) {
   if (fs.existsSync(outFile)) fs.unlinkSync(outFile);
 }
 
+function serveNotFound(server, options) {
+  const apiRoot = path.resolve(options.outputDir);
+  const urlPrefix = `/${path
+    .relative(server.config.publicDir, apiRoot)
+    .split(path.sep)
+    .join('/')}/`;
+
+  server.middlewares.use((request, response, next) => {
+    const url = (request.url ?? '').split('?')[0] ?? '';
+
+    if (!url.startsWith(urlPrefix)) {
+      return next();
+    }
+
+    const filePath = path.join(
+      apiRoot,
+      decodeURIComponent(url.slice(urlPrefix.length)),
+    );
+
+    if (filePath.startsWith(apiRoot) && fs.existsSync(filePath)) {
+      return next();
+    }
+
+    response.statusCode = 404;
+    response.setHeader('content-type', 'application/json');
+    response.end(
+      JSON.stringify({
+        errors: [{ status: '404', title: 'Not Found', detail: url }],
+      }),
+    );
+  });
+}
+
 export function staticJsonApi(options) {
   return {
     name: 'static-json-api',
@@ -89,6 +122,8 @@ export function staticJsonApi(options) {
       parseMarkdownFiles(options);
     },
     configureServer(server) {
+      serveNotFound(server, options);
+
       server.watcher.on('add', (file) => {
         if (isJsonApiFile(file, options)) {
           parseMarkdownFiles(options);
