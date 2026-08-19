@@ -9,10 +9,13 @@ interface Signature {
 
 export const windowOn = modifier<Signature>(
   (_element, [eventName, callback]) => {
-    window.addEventListener(eventName, callback, false);
+    window.addEventListener(eventName, callback);
 
     return () => {
-      window.removeEventListener(eventName, callback, true);
+      // The capture flag must match the one used to add the listener, or the
+      // listener is never removed — a destroyed component would keep handling
+      // window events (and looking up services on its dead owner).
+      window.removeEventListener(eventName, callback);
     };
   },
 );

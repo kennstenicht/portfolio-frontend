@@ -182,8 +182,28 @@ lowercased by design.
 Tests run in a real browser (QUnit + Testem, Chrome headless), not jsdom, so
 stylesheet CSS is applied and `assert.dom(...).hasStyle(...)` works.
 
-- `pnpm test` = `vite build --mode development && ember test --path dist`. There is
-  no watch runner: use `pnpm test:ember --server` for an interactive run.
+- `pnpm test` = `vite build --mode test && ember test --path dist`. There is no watch
+  runner: append `--server` (`pnpm test --server`) for an interactive run.
+- The QUnit page is also served by the dev server at `/tests` (`pnpm start`).
+- **The test-page settings live in the bootstrap, not in the config.**
+  `tests/test-helper.ts` sets `autoboot: false`, `rootElement: '#ember-testing'` and
+  `locationType: 'none'` itself, because `app/config/environment.ts` can only see
+  the build mode and the dev server always builds `development` — a mode check
+  there misses the page served at `/tests`. Without `autoboot: false` the
+  application boots into `<body>` and renders the real app (routed from the
+  `/tests` URL, so the error page) on top of the QUnit UI, and its route-level
+  `<Metadata>` writes tags into `document.head` that break the `seo/metadata`
+  integration tests.
+- Build the suite with `--mode test` regardless: that is what makes
+  `config.environment === 'test'`, quiets the app logs, and keeps development-only
+  branches (e.g. `AnimatedTools`) out of the run.
+- `tests/index.html` links no CSS or JS of its own. App styles arrive through the
+  module graph (`app.ts` imports `styles.css`); qunit and `#ember-testing-container`
+  styles come from `ember-qunit`'s own imports. Do not re-add
+  `/@embroider/virtual/{vendor,app,test-support}.{css,js}`: the two CSS bundles are
+  empty, `app.css` is not emitted at all (it 404s), and the JS bundles only set
+  legacy globals (`runningTests`, the macros runtime config) that nothing in this
+  build reads.
 - Because production hashes class names, select by role/text or `data-test-*`
   attributes — never by a BEM class.
 - Layout: `tests/acceptance`, `tests/integration`, `tests/unit`; use the wrappers in
