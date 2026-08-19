@@ -31,7 +31,7 @@ Make use of the many generators for code, try `pnpm ember help generate` for mor
 ### Running Tests
 
 - `pnpm test`
-- `pnpm test:ember --server`
+- `pnpm test --server` (interactive)
 
 ### Linting
 

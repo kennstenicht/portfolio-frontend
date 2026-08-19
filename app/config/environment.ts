@@ -35,16 +35,10 @@ const config: AppConfig = {
   APP: {},
 };
 
-if (environment === 'test') {
-  // Testem prefers this...
-  config.locationType = 'none';
-
-  // keep test console output quieter
-  config.APP.LOG_ACTIVE_GENERATION = false;
-  config.APP.LOG_VIEW_LOOKUPS = false;
-
-  config.APP.rootElement = '#ember-testing';
-  config.APP.autoboot = false;
-}
+// Test-page settings (autoboot, rootElement, locationType, the LOG_* flags)
+// deliberately do not live here: this file only sees the build mode, and the dev
+// server always builds `development`, so a mode check would miss the test page
+// served at /tests. `tests/test-helper.ts` applies them instead — it is loaded by
+// the test page and nothing else.
 
 export default config;
