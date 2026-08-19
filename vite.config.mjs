@@ -57,7 +57,7 @@ export default defineConfig(({ mode }) => {
             .replace(/\\/g, '/')
             .replace('app/', '')
             .replace('components', 'c')
-            .replace('pages', 'c-pages')
+            .replace('routes', 'r')
             .replace('assets/styles/objects', 'o')
             .replace('assets/styles/utils', 'u')
             .replaceAll('/', '-');

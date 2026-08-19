@@ -14,9 +14,10 @@ import Router from './router';
 
 // The strict resolver looks modules up by their flat name (e.g. "routes/page"
 // for route:page, "templates/projects/show" for the projects.show template).
-// This app keeps its routes and templates in pod folders under `pages/`, so we
-// translate the glob keys into the `routes/*` and `templates/*` paths the
-// resolver expects. Anything that isn't a route or template is ignored.
+// This app keeps its routes and templates in pod folders under `routes/`
+// (route.ts / template.gts), so we translate the glob keys into the flat
+// `routes/*` and `templates/*` paths the resolver expects. Anything that is
+// neither a route nor a template is ignored.
 export function normalizePodModules(
   glob: Record<string, unknown>,
 ): Record<string, unknown> {
@@ -26,7 +27,7 @@ export function normalizePodModules(
     const path = key
       .replace(/^\.\//, '')
       .replace(/\.\w+$/, '')
-      .replace(/^pages\//, '');
+      .replace(/^routes\//, '');
 
     if (path.endsWith('/route')) {
       out[`routes/${path.slice(0, -'/route'.length)}`] = value;
@@ -62,7 +63,7 @@ export const modules: Record<string, unknown> = {
   'components/animated-value': { default: AnimatedValue },
   'components/ea-list-element': { default: EaListElement },
   ...normalizePodModules(
-    import.meta.glob('./pages/**/*.{gts,gjs,ts,js}', { eager: true }),
+    import.meta.glob('./routes/**/*.{gts,gjs,ts,js}', { eager: true }),
   ),
   ...import.meta.glob('./services/**/*.{ts,js}', { eager: true }),
 };

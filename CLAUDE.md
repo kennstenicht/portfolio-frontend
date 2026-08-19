@@ -32,7 +32,7 @@ Given `app/components/application/header/styles.module.css`:
 3. `blockClass` = relativePath with substitutions (first occurrence only, then `/` → `-`):
    - `app/` → dropped
    - `components` → `c`
-   - `pages` → `c-pages`
+   - `routes` → `r`
    - `assets/styles/objects` → `o`
    - `assets/styles/utils` → `u`
 4. If `moduleName !== 'styles'`, append `-${moduleName}` (used for the object modules,
@@ -43,7 +43,7 @@ Given `app/components/application/header/styles.module.css`:
      → `c-application-header` (for `scope`) or
      `c-application-header--is-navigation-open` (for `scope--is-navigation-open`)
 
-Examples: `app/pages/page/styles.module.css` → `c-pages-page`,
+Examples: `app/routes/page/styles.module.css` → `r-page`,
 `app/components/project-detail/mint-ec/styles.module.css` → `c-project-detail-mint-ec`,
 `app/assets/styles/objects/link.module.css` → `o-link`.
 
@@ -102,14 +102,14 @@ resource type), so adding a Markdown file also adds its prerendered route with n
 route list to edit. Top-level content pages resolve through the `page` route
 (`/:page_id`), so a new `content/pages/foo.md` is live at `/foo` immediately.
 
-## Routes live in `app/pages/`, and the strict resolver needs a registry
+## Routes live in `app/routes/`, and the strict resolver needs a registry
 
-Routes are pod-style: `app/pages/<route>/{route.ts,template.gts,styles.module.css}`.
+Routes are pod-style: `app/routes/<route>/{route.ts,template.gts,styles.module.css}`.
 The app uses `ember-strict-application-resolver`, which does an exact key lookup
 (`routes/page`, `templates/projects/show`), so `app/modules.ts` is the registry:
 
-- `normalizePodModules` strips the `pages/` prefix and maps `*/route` → `routes/*`
-  and `*/template` → `templates/*`. Anything under `app/pages/` that is neither is
+- `normalizePodModules` strips the `routes/` prefix and maps `*/route` → `routes/*`
+  and `*/template` → `templates/*`. Anything under `app/routes/` that is neither is
   ignored.
 - `app/services/**` is globbed in automatically.
 - **Addon services injected by name** (`@service intl`, `cookies`, `keyboard`,
@@ -119,7 +119,7 @@ The app uses `ember-strict-application-resolver`, which does an exact key lookup
 - This app's own components, helpers, and modifiers are imported directly in `.gts`
   files and must **not** be registered.
 
-Adding a route means: an entry in `app/router.ts`, a folder under `app/pages/`, and —
+Adding a route means: an entry in `app/router.ts`, a folder under `app/routes/`, and —
 if it should be prerendered — an entry in `staticRoutes` in `ssg-routes.mjs`. A
 missing-module resolver error at boot usually means something needs a `modules.ts`
 entry.
@@ -153,7 +153,7 @@ writes the HTML into `dist/`, using the `<!-- VITE_EMBER_SSR_HEAD -->` /
 
 `ember-intl` with `translations/{en,de}.yaml` (plus `components/` and `routes/`
 subfolders). Translations are added and the locale is set in
-`app/pages/application/route.ts#beforeModel` (currently `en`). `no-bare-strings` is
+`app/routes/application/route.ts#beforeModel` (currently `en`). `no-bare-strings` is
 enabled in `.template-lintrc.js`, so user-facing copy goes through `t`; add
 `{{! template-lint-disable no-bare-strings }}` only for deliberate exceptions.
 
