@@ -96,6 +96,16 @@ Records are consumed via WarpDrive; schema + fetch helpers live in
 `app/data/<type>.ts`. **A field added to frontmatter must also be added to that
 schema's `fields` and to the TS interface** or it is invisible to the app.
 
+In the dev server, a request for a generated file that does not exist would hit
+Vite's SPA fallback and come back as `index.html` with status 200, which the app
+then tries to parse as JSON. The `static-json-api` plugin answers those misses with
+a real 404 instead, matching the static host and the test runner — that is what
+makes a mistyped URL like `/projects/typo` render the error page in dev, and what
+keeps the "unknown project id" acceptance test honest when the suite is opened at
+`/tests`. Its middleware has to be registered from the body of `configureServer`:
+a returned post hook is installed after the SPA fallback and never sees the
+request.
+
 `ssg-routes.mjs` discovers prerender routes from the content **source** directories
 (`contentRouteIds('pages')`, `contentRouteIds('projects')` — directory names, not the
 resource type), so adding a Markdown file also adds its prerendered route with no
