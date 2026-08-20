@@ -3,6 +3,84 @@ import matter from 'gray-matter';
 import { marked } from 'marked';
 import path from 'path';
 
+// Renders a `:::type ... :::` container as markdown-aware HTML. Depth is
+// tracked across ALL container fences (not just same-typed ones) so a
+// `:::row` can hold nested `:::col` blocks without closing early.
+const CONTAINER_TEMPLATES = {
+  row: (html) => `<div class="content-row">${html}</div>`,
+  col: (html) => `<div class="content-col">${html}</div>`,
+  slider: (html) =>
+    `<div class="content-slider"><div class="content-slider__wrapper">${html}</div></div>`,
+  slide: (html) => `<div class="content-slider__slide">${html}</div>`,
+};
+
+const containerExtension = {
+  name: 'container',
+  level: 'block',
+  start(src) {
+    const match = src.match(/:::[a-zA-Z]/);
+
+    return match ? match.index : undefined;
+  },
+  tokenizer(src) {
+    const openMatch = /^:::([a-zA-Z][\w-]*)[ \t]*\n/.exec(src);
+
+    if (!openMatch) {
+      return undefined;
+    }
+
+    const lines = src.split('\n');
+    let depth = 1;
+    let closeLineIndex = -1;
+
+    for (let i = 1; i < lines.length; i++) {
+      if (/^:::[a-zA-Z][\w-]*[ \t]*$/.test(lines[i])) {
+        depth++;
+      } else if (/^:::[ \t]*$/.test(lines[i])) {
+        depth--;
+        if (depth === 0) {
+          closeLineIndex = i;
+          break;
+        }
+      }
+    }
+
+    if (closeLineIndex === -1) {
+      return undefined;
+    }
+
+    const bodyLines = lines.slice(1, closeLineIndex);
+    let raw = lines.slice(0, closeLineIndex + 1).join('\n');
+
+    if (src.length > raw.length && src[raw.length] === '\n') {
+      raw += '\n';
+    }
+
+    const token = {
+      type: 'container',
+      raw,
+      containerType: openMatch[1],
+      tokens: [],
+    };
+
+    this.lexer.blockTokens(bodyLines.join('\n'), token.tokens);
+
+    return token;
+  },
+  renderer(token) {
+    const inner = this.parser.parse(token.tokens);
+    const wrap = CONTAINER_TEMPLATES[token.containerType];
+
+    return (
+      (wrap
+        ? wrap(inner)
+        : `<div class="content-${token.containerType}">${inner}</div>`) + '\n'
+    );
+  },
+};
+
+marked.use({ extensions: [containerExtension] });
+
 function parseMarkdownFiles(options) {
   console.log('Generate static JSON:API');
   fs.mkdirSync(options.outputDir, { recursive: true });

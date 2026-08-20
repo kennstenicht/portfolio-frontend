@@ -2,6 +2,7 @@ import type { TOC } from '@ember/component/template-only';
 
 import Metadata from 'portfolio/components/seo/metadata';
 import type PageModel from 'portfolio/models/page';
+import hydrateContentSliders from 'portfolio/modifiers/hydrate-content-sliders';
 import { getBem } from 'portfolio/utils/get-bem';
 
 import styles from './styles.module.css';
@@ -28,7 +29,7 @@ const bem = getBem(styles);
         {{{@model.title}}}
       </h1>
     </div>
-    <div class={{bem "content"}}>
+    <div class={{bem "content"}} {{hydrateContentSliders @model.content}}>
       {{! template-lint-disable no-triple-curlies }}
       {{{@model.content}}}
     </div>

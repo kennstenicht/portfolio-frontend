@@ -18,6 +18,9 @@
 @import url("elements/elements.textarea.css");
 @import url("elements/elements.video.css");
 
+/* OBJECTS */
+@import url("objects/objects.content-blocks.css");
+
 .animated-tools {
   z-index: 1000 !important;
 }

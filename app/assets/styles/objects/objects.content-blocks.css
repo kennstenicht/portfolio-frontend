@@ -1,0 +1,35 @@
+/* ==========================================================================
+   # CONTENT BLOCKS
+   ========================================================================== */
+
+/**
+ * Structural blocks authors can use inside markdown content
+ * (`:::row` / `:::col` / `:::slider` / `:::slide`, see static-json-api.js).
+ * Plain, unscoped class names — this markup is generated at build time from
+ * markdown, outside of CSS Modules, so it can't reference hashed classes.
+ */
+
+.content-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  gap: var(--spacing-base);
+  margin-bottom: var(--spacing-base);
+}
+
+.content-col {
+  min-width: 0;
+}
+
+.content-slider {
+  overflow: hidden;
+  margin-bottom: var(--spacing-base);
+}
+
+.content-slider__wrapper {
+  display: flex;
+}
+
+.content-slider__slide {
+  flex-shrink: 0;
+  width: 100%;
+}
