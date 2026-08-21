@@ -1,0 +1,8 @@
+/* ==========================================================================
+   # BLOCKQUOTE
+   ========================================================================== */
+
+blockquote {
+  padding-left: var(--spacing-small);
+  border-left: var(--border-width) solid currentcolor;
+}

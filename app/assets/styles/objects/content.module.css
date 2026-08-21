@@ -1,0 +1,42 @@
+/* ==========================================================================
+   # CONTENT
+   ========================================================================== */
+
+/**
+* Applied to the element that renders authored markdown. The bare elements
+* themselves are styled in `elements/`, so they stay usable outside content;
+* everything here shapes the rendered document as a whole.
+*/
+
+.scope :global(h2),
+.scope :global(h3),
+.scope :global(h4),
+.scope :global(h5),
+.scope :global(h6) {
+  margin-top: var(--spacing-large);
+}
+
+/* Wide blocks scroll instead of stretching the layout on small screens. */
+.scope :global(table) {
+  display: block;
+  overflow-x: auto;
+}
+
+/* Image-only lists — the `- ![alt](src)` pattern — read as a stack, not a list. */
+.scope :global(ul:has(img)) {
+  margin-left: 0;
+  list-style: none;
+}
+
+.scope :global(li img) {
+  display: block;
+}
+
+.scope :global(figure) {
+  margin-left: 0;
+}
+
+/* No trailing gap under the document. */
+.scope > :global(*:last-child) {
+  margin-bottom: 0;
+}

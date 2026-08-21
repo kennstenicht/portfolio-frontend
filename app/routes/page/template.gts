@@ -1,6 +1,7 @@
 import type { TOC } from '@ember/component/template-only';
 import type { ReactiveDataDocument } from '@warp-drive/core/reactive';
 
+import Content from 'portfolio/components/content';
 import Metadata from 'portfolio/components/seo/metadata';
 import type { Page } from 'portfolio/data/page';
 import { getBem } from 'portfolio/utils/get-bem';
@@ -29,9 +30,6 @@ const bem = getBem(styles);
         {{{@model.data.title}}}
       </h1>
     </div>
-    <div class={{bem "content"}}>
-      {{! template-lint-disable no-triple-curlies }}
-      {{{@model.data.content}}}
-    </div>
+    <Content @html={{@model.data.content}} class={{bem "content"}} />
   </div>
 </template> satisfies TOC<PagesShowRouteSignature>;

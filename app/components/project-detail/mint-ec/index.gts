@@ -1,6 +1,7 @@
 import type { TOC } from '@ember/component/template-only';
 
 import wrapperStyles from 'portfolio/assets/styles/objects/wrapper.module.css';
+import Content from 'portfolio/components/content';
 import type { Project } from 'portfolio/data/project';
 import { getBem } from 'portfolio/utils/get-bem';
 
@@ -21,8 +22,7 @@ export default <template>
     <div class={{(wrapperBem)}}>
       {{! template-lint-disable no-bare-strings }}
       <h2>Custom Project Detail Template</h2>
-      {{! template-lint-disable no-triple-curlies }}
-      {{{@project.content}}}
+      <Content @html={{@project.content}} />
     </div>
   </div>
 </template> satisfies TOC<Signature>;

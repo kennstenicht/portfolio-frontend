@@ -75,6 +75,22 @@ Reusable multi-component blocks live in `assets/styles/objects/*.module.css` and
 pulled into a component module with
 `composes: scope from "/app/assets/styles/objects/link.module.css";`.
 
+### Styling rendered content
+
+Markdown output is styled in two layers. Bare elements live in
+`app/assets/styles/elements/` (`blockquote`, `code`/`pre`, `table`, `hr`, `dl`, …)
+so they stay usable anywhere in the app, and they mix their colours from
+`currentcolor` because project pages theme `--color-background`/`--color-typo` per
+project. Rules that only make sense for a rendered document — heading rhythm,
+scrolling tables, marker-less image lists, no trailing margin — live in
+`app/assets/styles/objects/content.module.css` as `:global(...)` selectors under
+its `scope` class. That class is applied by the `content` component
+(`app/components/content`), which is the single place raw content HTML is
+inserted — route templates and project detail components pass the HTML to it and
+add their own layout class through `...attributes`. Anything a content embed needs
+must be reachable by element or `data-*` selector, since markdown output never
+carries app class names.
+
 ## Content as a static JSON:API
 
 Editorial content is Markdown in `content/pages/` and `content/projects/`. The
@@ -87,6 +103,14 @@ compiles it to a static JSON:API under `public/api/<type>s/`:
 - **Body → the `contentAttribute`**, rendered to HTML with `marked`. Both `page` and
   `project` use `content`. HTML in frontmatter and body is allowed and rendered
   as-is (e.g. `<br>` in a title).
+
+The body is rendered with marked 15 (GFM on: tables, task lists, strikethrough;
+`breaks` off, so a single newline is not a `<br>`), and raw HTML passes straight
+through — that is the escape hatch for `<figure>`, `<details>`, `<video>` and
+anything else markdown cannot express. Frontmatter values are _not_ run through
+marked: `title` and `subtitle` render as plain text, while `excerpt` and `facts`
+are inserted as raw HTML. Content cannot reference the app's CSS-module classes
+either (they are hashed in production) — see the styling note below.
 
 `public/api/**` is a build artifact — gitignored, **never hand-edit it**. The dev
 server regenerates it on add/change/unlink of a source `.md`; a clean checkout
