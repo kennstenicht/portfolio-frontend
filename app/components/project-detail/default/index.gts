@@ -2,6 +2,7 @@ import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
 
 import wrapperStyles from 'portfolio/assets/styles/objects/wrapper.module.css';
+import Content from 'portfolio/components/content';
 import type { Project } from 'portfolio/data/project';
 import { getBem } from 'portfolio/utils/get-bem';
 
@@ -19,9 +20,9 @@ const wrapperBem = getBem(wrapperStyles);
 
 export default <template>
   <div class={{(bem)}} ...attributes>
-    <div class={{wrapperBem (hash size="small")}}>
-      {{! template-lint-disable no-triple-curlies }}
-      {{{@project.content}}}
-    </div>
+    <Content
+      @html={{@project.content}}
+      class={{wrapperBem (hash size="small")}}
+    />
   </div>
 </template> satisfies TOC<Signature>;

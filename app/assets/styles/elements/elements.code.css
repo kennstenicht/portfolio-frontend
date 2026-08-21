@@ -1,0 +1,24 @@
+/* ==========================================================================
+   # CODE
+   ========================================================================== */
+
+/**
+* The body font is already monospaced, so code only needs a surface. Both are
+* mixed from `currentcolor` to survive the per-project colour schemes.
+*/
+
+code {
+  padding: 0 0.25em;
+  background-color: color-mix(in srgb, transparent, currentcolor 12%);
+}
+
+pre {
+  padding: var(--spacing-small);
+  overflow-x: auto;
+  background-color: color-mix(in srgb, transparent, currentcolor 8%);
+}
+
+pre code {
+  padding: 0;
+  background-color: transparent;
+}

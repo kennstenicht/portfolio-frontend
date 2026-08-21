@@ -1,0 +1,19 @@
+/* ==========================================================================
+   # TABLE
+   ========================================================================== */
+
+table {
+  width: 100%;
+  text-align: left;
+}
+
+th,
+td {
+  padding: var(--spacing-tiny) var(--spacing-small);
+  border-bottom: var(--border-width-small) solid
+    color-mix(in srgb, transparent, currentcolor 30%);
+}
+
+th {
+  font-weight: bold;
+}

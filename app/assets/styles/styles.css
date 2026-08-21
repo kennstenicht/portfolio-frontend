@@ -9,13 +9,18 @@
 @import url("generic/generic.shared.css");
 
 /* ELEMENTS */
+@import url("elements/elements.blockquote.css");
 @import url("elements/elements.button.css");
+@import url("elements/elements.code.css");
+@import url("elements/elements.definition-list.css");
 @import url("elements/elements.headings.css");
+@import url("elements/elements.hr.css");
 @import url("elements/elements.image.css");
 @import url("elements/elements.input.css");
 @import url("elements/elements.label.css");
 @import url("elements/elements.link.css");
 @import url("elements/elements.page.css");
+@import url("elements/elements.table.css");
 @import url("elements/elements.textarea.css");
 @import url("elements/elements.video.css");
 
