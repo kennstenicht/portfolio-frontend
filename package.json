@@ -107,6 +107,7 @@
     "qunit-dom": "^3.4.0",
     "style-loader": "^3.3.3",
     "stylelint": "^16.26.1",
+    "stylelint-config-css-modules": "^4.6.0",
     "stylelint-config-standard": "^37.0.0",
     "stylelint-prettier": "^5.0.3",
     "swiper": "^11.2.6",
