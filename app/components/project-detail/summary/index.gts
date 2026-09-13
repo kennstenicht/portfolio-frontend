@@ -6,7 +6,7 @@ import { getBem } from 'portfolio/utils/get-bem';
 
 import styles from './styles.module.css';
 
-interface Signature {
+export interface ProjectDetailSummarySignature {
   Element: HTMLDivElement;
   Args: {
     project: Project;
@@ -28,4 +28,4 @@ export default <template>
       {{/each-in}}
     </dl>
   </div>
-</template> satisfies TOC<Signature>;
+</template> satisfies TOC<ProjectDetailSummarySignature>;

@@ -2,7 +2,7 @@ import { modifier } from 'ember-modifier';
 import Swiper from 'swiper';
 import type { SwiperOptions } from 'swiper/types';
 
-interface Signature {
+export interface SwiperSignature {
   Element: HTMLElement;
   Args: {
     Named: {
@@ -12,14 +12,16 @@ interface Signature {
   };
 }
 
-export default modifier<Signature>((element, _, { options }) => {
+const swiper = modifier<SwiperSignature>((element, _, { options }) => {
   if (import.meta.env.SSR) {
     return;
   }
 
-  const swiper = new Swiper(element, options);
+  const instance = new Swiper(element, options);
 
   return () => {
-    swiper.destroy(true, true);
+    instance.destroy(true, true);
   };
 });
+
+export default swiper;

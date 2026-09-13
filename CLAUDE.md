@@ -5,6 +5,85 @@ as a prerendered static site. Generic Ember/Glimmer guidance lives in
 `.agents/skills/ember-best-practices/` — this file only covers what is specific to
 this app.
 
+## Component naming
+
+Follow what `ember-source`'s `.gts` blueprint generates, so `ember g component`
+output needs no reshaping:
+
+- **Class/const name = the pod path, PascalCased, with no `Component` suffix.**
+  `app/components/application/header/logo/index.gts` → `ApplicationHeaderLogo`
+  (the blueprint does `entity.name.replace(/\//g, '-')` then `classify`). The
+  name is only a debugging label — in strict mode it is never a resolution key,
+  and never the call-site name, since every import picks its own local binding
+  (`import Logo from './logo'`). Keeping the full path makes it unique by
+  construction, which matters here: `application/header` and
+  `project-detail/header` would otherwise both be `Header`.
+- **The signature is exported and prefixed** —
+  `export interface ApplicationHeaderLogoSignature`. That is the blueprint
+  default for both component kinds, and it lets a parent type against a child's
+  args.
+- **Template-only components are anonymous**, with the type on a trailing
+  `satisfies` — but keep the `export default` keyword the blueprint omits:
+
+  ```gts
+  export interface ProjectDetailHeaderSignature { ... }
+
+  export default <template>
+    ...
+  </template> satisfies TOC<ProjectDetailHeaderSignature>;
+  ```
+
+  A bare top-level `<template>` is a valid default export and `ember-tsc`
+  resolves it, but eslint's type-aware program does not: every importer then
+  sees the default as type `error`, which surfaces as
+  `@typescript-eslint/no-unsafe-return` in whatever function returns the
+  component (`getContentComponent` in `project-detail/index.gts`).
+
+  A component local to one file (`Chevron` in `project-list/scroll-indicator`)
+  is a plain const and may inline its signature.
+
+- **Modifiers follow the same shape**, camelCased because they are invoked
+  lowercase: `app/modifiers/window-on.ts` → `windowOn` with
+  `export interface WindowOnSignature`. Class-based ones keep PascalCase
+  (`FitText`).
+
+Naming a template-only component would **not** buy a name in the Ember
+Inspector, so it is not worth the deviation.
+`babel-plugin-ember-template-compilation` emits `templateOnly()` with no
+arguments, and `templateOnly(moduleName, name)` defaults `name` to
+`'(unknown template-only component)'` — a const name never reaches that call.
+Only a backing class shows up named, because the custom component manager's
+`getDebugName` returns the class's `.name`.
+
+## Class member grouping
+
+Group members by what they belong to, not by what they are — no `// Defaults`,
+`// Getter and setter` or `// Functions` blocks. Services come first under
+`// Services`, because a service is a dependency rather than one of the things
+the component does; the `<template>` comes last under `// Template`. In between,
+one comment per feature, holding that feature's state, getters and functions
+together:
+
+```ts
+// Services
+@service declare router: RouterService;
+
+// Back to overview
+get isProjectDetail() { ... }
+
+// Navigation
+closeNavigation = async () => { ... };
+toggleNavigation = async () => { ... };
+
+// Toggle label
+@tracked menuLabel = 'menu';
+numberOfGenerations = 0;
+randomString = task(async () => { ... });
+```
+
+A member that fits nowhere is usually dead — that is the signal, not a reason to
+invent a group for it.
+
 ## HTML attribute ordering (Glimmer templates)
 
 Apply this order in `.gts` template markup:

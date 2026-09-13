@@ -14,7 +14,7 @@ import Footer from './footer';
 import Header from './header';
 import styles from './styles.module.css';
 
-interface Signature {
+export interface ApplicationSignature {
   Element: HTMLDivElement;
   Blocks: {
     default: [];
@@ -23,18 +23,12 @@ interface Signature {
 
 const bem = getBem(styles);
 
-export default class ApplicationComponent extends Component<Signature> {
+export default class Application extends Component<ApplicationSignature> {
   // Services
   @service declare intl: IntlService;
   @service declare router: RouterService;
 
-  // Defaults
-  @tracked isNavigationOpen = false;
-
-  // Stashes the real document title while the blur-title easter egg is shown.
-  previousTitle = '';
-
-  // Getter and setter
+  // Page theme
   get urlSegments(): string {
     if (this.router.currentRouteName === 'error') {
       return 'error';
@@ -50,7 +44,16 @@ export default class ApplicationComponent extends Component<Signature> {
     return segments[segments.length - 1] ?? 'default';
   }
 
-  // Functions
+  // Navigation
+  @tracked isNavigationOpen = false;
+
+  setIsNavigationOpen = (isOpen: boolean) => {
+    this.isNavigationOpen = isOpen;
+  };
+
+  // Blur-title
+  previousTitle = '';
+
   changeMetaTitle = (title: string) => {
     if (title) {
       // Window lost focus: stash the real title and show the teaser.
@@ -60,10 +63,6 @@ export default class ApplicationComponent extends Component<Signature> {
       // Window regained focus: restore the real title.
       document.title = this.previousTitle;
     }
-  };
-
-  setIsNavigationOpen = (isOpen: boolean) => {
-    this.isNavigationOpen = isOpen;
   };
 
   // Template

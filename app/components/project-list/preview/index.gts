@@ -11,7 +11,7 @@ import { getBem } from 'portfolio/utils/get-bem';
 
 import styles from './styles.module.css';
 
-interface Signature {
+export interface ProjectListPreviewSignature {
   Element: HTMLElement;
   Args: {
     project: Project;
@@ -21,7 +21,7 @@ interface Signature {
 
 const bem = getBem(styles);
 
-export default class ProjectListPreviewComponent extends Component<Signature> {
+export default class ProjectListPreview extends Component<ProjectListPreviewSignature> {
   // Services
   @service declare router: RouterService;
 

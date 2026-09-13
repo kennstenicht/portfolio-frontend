@@ -4,6 +4,10 @@ import { getBem } from 'portfolio/utils/get-bem';
 
 import styles from './styles.module.css';
 
+export interface ProjectListScrollIndicatorSignature {
+  Element: HTMLDivElement;
+}
+
 const bem = getBem(styles);
 
 const Chevron: TOC<{ Element: SVGSVGElement }> = <template>
@@ -18,10 +22,10 @@ const Chevron: TOC<{ Element: SVGSVGElement }> = <template>
   </svg>
 </template>;
 
-<template>
+export default <template>
   <div class={{(bem)}} aria-hidden="true" ...attributes>
     <Chevron />
     <Chevron />
     <Chevron />
   </div>
-</template> satisfies TOC<{ Element: HTMLDivElement }>;
+</template> satisfies TOC<ProjectListScrollIndicatorSignature>;

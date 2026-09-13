@@ -15,7 +15,7 @@ import MintEc from './mint-ec';
 import styles from './styles.module.css';
 import Summary from './summary';
 
-interface Signature {
+export interface ProjectDetailSignature {
   Element: HTMLElement;
   Args: {
     project: Project;
@@ -24,12 +24,12 @@ interface Signature {
 
 const bem = getBem(styles);
 
-export default class ProjectDetail extends Component<Signature> {
+export default class ProjectDetail extends Component<ProjectDetailSignature> {
   // Services
   @service projectSlider!: ProjectSliderService;
 
-  // Hooks
-  constructor(owner: Owner, args: Signature['Args']) {
+  // Slider position
+  constructor(owner: Owner, args: ProjectDetailSignature['Args']) {
     super(owner, args);
 
     this.projectSlider.position = this.args.project.position;
