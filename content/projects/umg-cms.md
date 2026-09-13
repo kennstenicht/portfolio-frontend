@@ -1,6 +1,9 @@
 ---
 excerpt: In the last years i transformed the legancy content menanagment system of Universal Music into a modern app and extended the system.
-facts: '<strong>Year:</strong> 2015 — now<br><strong>Client:</strong> Universal Music<br><strong>Technology:</strong> ember.js'
+facts:
+  Year: '2015 — now'
+  Client: Universal Music
+  Built with: ember.js
 metaDescription: Universal Music CMS
 metaTitle: CMS - Universal Music
 position: 0

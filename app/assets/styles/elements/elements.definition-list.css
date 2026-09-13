@@ -8,4 +8,5 @@ dt {
 
 dd {
   margin-bottom: var(--spacing-small);
+  margin-left: 0;
 }

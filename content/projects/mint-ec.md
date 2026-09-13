@@ -1,6 +1,9 @@
 ---
 excerpt: Lorem ipsum
-facts: Facts
+facts:
+  Year: '2023'
+  Client: MINT EC
+  Built with: WordPress and ember.js
 metaDescription: let's create a network of mint schools
 metaTitle: Network map - MINT EC
 position: 3

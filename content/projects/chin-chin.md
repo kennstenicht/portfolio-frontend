@@ -1,7 +1,11 @@
 ---
 excerpt: Lorem ipsum
-facts: Facts
 metaDescription: Das ist die Chin Chin Projekt Seite
+facts:
+  Year: '2019'
+  Role: Concept, film setup and development
+  Built with: Ember Octane, js-aruco, getUserMedia
+  Shown at: ag—prop 7th anniversary party, Berlin
 metaTitle: Chin Chin
 position: 5
 previewImage: '/assets/projects/chin-chin/chin-chin_preview.jpg'

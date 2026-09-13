@@ -1,6 +1,10 @@
 ---
 excerpt: Lorem ipsum
-facts: Facts
+facts:
+  Year: '2019'
+  Role: Concept, film setup and development
+  Built with: Ember.js
+  Shown at: ag—prop 11th anniversary party, Berlin
 metaDescription: Retro games controlled by you phone
 metaTitle: Flimmerkasten
 position: 4

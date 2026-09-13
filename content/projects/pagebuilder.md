@@ -1,6 +1,9 @@
 ---
 excerpt: Quickly create and launch a professional marketing page with just a few clicks—no coding or hassle required.
-facts: Facts
+facts:
+  Year: '2023 — now'
+  Client: Universal Music
+  Built with: next.js
 metaDescription: Quickly create and launch a professional marketing page with just a few clicks—no coding or hassle required.
 metaTitle: PageBuilder - Universal Music
 position: 1
