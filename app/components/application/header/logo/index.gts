@@ -23,6 +23,32 @@ function implode(letterElement: Element, newLetter: string) {
   });
 }
 
+export const WORDS = [
+  'Christoph Wiedenmann',
+  'Handcrafted with ♥♥♥',
+  'Javascript Developer',
+  'Experience Designer ',
+  'Frontend  Engineer  ',
+  'Stylesheet Architect',
+  'Addicted to Ember.js',
+  'Basedin   Ber-   lin',
+  '1000101101 sommelier',
+  'Buildcode not  walls',
+  'Pushing boundaries  ',
+  'Digital Craftsman   ',
+  'Open ··¦··mindedness',
+  'working atag—prop   ',
+  'creative  </>  coder',
+  'embereño  from heart',
+  'open source lover ♥♥',
+  'master  ofdisaster  ',
+  'fusion of design&dev',
+  'No border, No nation',
+  'Make Code not  war  ',
+  '01100011    01110111',
+  'Rescue is not acrime',
+];
+
 interface Signature {
   Element: HTMLDivElement;
 }
@@ -30,44 +56,16 @@ interface Signature {
 const bem = getBem(styles);
 
 export default class ApplicationLogoComponent extends Component<Signature> {
-  // Defaults
-  declare element: HTMLElement;
-  words = [
-    'Christoph Wiedenmann',
-    'Handcrafted with ♥♥♥',
-    'Javascript Developer',
-    'Experience Designer ',
-    'Frontend  Engineer  ',
-    'Stylesheet Architect',
-    'Addicted to Ember.js',
-    'Basedin   Ber-   lin',
-    '1000101101 sommelier',
-    'Buildcode not  walls',
-    'Pushing boundaries  ',
-    'Digital Craftsman   ',
-    'Open ··¦··mindedness',
-    'working atag—prop   ',
-    'creative  </>  coder',
-    'embereño  from heart',
-    'open source lover ♥♥',
-    'master  ofdisaster  ',
-    'fusion of design&dev',
-    'No border, No nation',
-    'Make Code not  war  ',
-    '01100011    01110111',
-    'Rescue is not acrime',
-  ];
-
   // Getter and setter
   get defaultLetters() {
-    return this.words[0]?.split('');
+    return WORDS[0]?.split('');
   }
 
   // Functions
   explode = (event: MouseEvent) => {
     const element = event.target as HTMLElement;
     const letters = element.querySelectorAll(`.${bem('letter')}`);
-    const randomWord = this.words[randomBetween(1, this.words.length - 1)];
+    const randomWord = WORDS[randomBetween(1, WORDS.length - 1)];
     const newWord = randomWord?.split('');
 
     letters.forEach(function (letterElement, index) {
@@ -91,11 +89,12 @@ export default class ApplicationLogoComponent extends Component<Signature> {
     <div
       class={{(bem)}}
       role="button"
+      data-test-logo
       {{on "mouseenter" this.explode}}
       ...attributes
     >
       {{#each this.defaultLetters as |letter|}}
-        <span class={{bem "letter"}}>
+        <span class={{bem "letter"}} data-test-logo-letter>
           {{letter}}
         </span>
       {{/each}}

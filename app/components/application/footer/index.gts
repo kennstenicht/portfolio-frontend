@@ -29,23 +29,28 @@ export default class ApplicationFooterComponent extends Component<Signature> {
 
   // Template
   <template>
-    <footer class={{bem (hash is-toggled=@isNavigationOpen)}} ...attributes>
-      <div class={{bem "wrapper"}}>
+    <footer
+      class={{bem (hash is-toggled=@isNavigationOpen)}}
+      data-test-footer
+      ...attributes
+    >
+      <div class={{bem "wrapper"}} data-test-footer-wrapper>
         <ul class={{bem "social"}}>
           {{#each-in SOCIAL_MEDIA_LINKS as |type url|}}
             <li class={{bem "item"}}>
               <a
+                class={{bem "link"}}
                 href={{url}}
                 rel="noopener noreferrer"
                 target="_blank"
-                class={{bem "link"}}
+                data-test-social-link={{type}}
               >
                 {{~t (concat "application.footer.social." type)~}}
               </a>
             </li>
           {{/each-in}}
         </ul>
-        <div class={{bem "copy"}}>
+        <div class={{bem "copy"}} data-test-copyright>
           {{t "application.footer.copy" year=this.currentYear htmlSafe=true}}
         </div>
       </div>

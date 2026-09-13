@@ -72,6 +72,7 @@ export default class ApplicationComponent extends Component<Signature> {
       class={{bem
         (hash style=this.urlSegments navigation-is-open=this.isNavigationOpen)
       }}
+      data-test-application
       {{windowOn
         "blur"
         (fn this.changeMetaTitle (t "route.application.meta.blurTitle"))
@@ -80,12 +81,12 @@ export default class ApplicationComponent extends Component<Signature> {
       ...attributes
     >
 
-      <div class={{bem "content"}}>
+      <div class={{bem "content"}} data-test-content>
         <Header
           @isNavigationOpen={{this.isNavigationOpen}}
           @setIsNavigationOpen={{this.setIsNavigationOpen}}
         />
-        <main>
+        <main data-test-main>
           {{yield}}
         </main>
         <Footer @isNavigationOpen={{this.isNavigationOpen}} />
@@ -93,7 +94,7 @@ export default class ApplicationComponent extends Component<Signature> {
 
       <CookieNotice />
 
-      <div class={{bem "frame"}}></div>
+      <div class={{bem "frame"}} data-test-frame></div>
     </div>
   </template>
 }
