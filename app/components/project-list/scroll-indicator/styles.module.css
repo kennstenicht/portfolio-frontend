@@ -1,0 +1,79 @@
+/* ==========================================================================
+   # PROJECT LIST / SCROLL INDICATOR
+   ========================================================================== */
+
+.scope {
+  --pixel: round(down, clamp(9px, 1.5vw, 23px), 1px);
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33vw;
+  color: var(--color-typo);
+  opacity: calc(1 - var(--scroll-indicator-progress, 0));
+  pointer-events: none;
+}
+
+.chevron {
+  width: calc(var(--pixel) * 4);
+  height: calc(var(--pixel) * 7);
+  fill: currentcolor;
+  animation: drift 1.8s infinite;
+}
+
+.chevron:nth-child(1) {
+  opacity: 0.07;
+}
+
+.chevron:nth-child(2) {
+  opacity: 0.13;
+  animation-delay: 0.12s;
+}
+
+.chevron:nth-child(3) {
+  opacity: 0.19;
+  animation-delay: 0.24s;
+}
+
+@keyframes drift {
+  0% {
+    transform: translateX(0);
+    animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  40% {
+    transform: translateX(var(--pixel));
+    animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  75%,
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Media Queries
+   ========================================================================== */
+
+@media (width < 768px) {
+  .scope {
+    --pixel: round(down, clamp(6px, 2.2vw, 10px), 1px);
+
+    top: auto;
+    right: 0;
+    bottom: var(--spacing-base);
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chevron {
+    animation: none;
+  }
+}

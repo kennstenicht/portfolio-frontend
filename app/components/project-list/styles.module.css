@@ -3,6 +3,7 @@
    ========================================================================== */
 
 .scope {
+  position: relative;
   overflow: hidden;
   width: var(--vw);
   height: var(--vh);

@@ -5,6 +5,7 @@ import { cached } from '@glimmer/tracking';
 import { type TransitionContext, animatedEach } from 'ember-animated';
 import { easeIn, easeOut } from 'ember-animated/easings/cosine';
 import move from 'ember-animated/motions/move';
+import type Swiper from 'swiper';
 import {
   FreeMode,
   Keyboard,
@@ -21,6 +22,7 @@ import { getBem } from 'portfolio/utils/get-bem';
 
 import Preview from './preview';
 import previewStyles from './preview/styles.module.css';
+import ScrollIndicator from './scroll-indicator';
 import styles from './styles.module.css';
 
 interface Signature {
@@ -50,6 +52,7 @@ export default class ProjectListComponent extends Component<Signature> {
       modules: [FreeMode, Pagination, Keyboard, Mousewheel, Parallax],
       slidesPerView: 'auto',
       centeredSlides: true,
+      spaceBetween: '12%',
       grabCursor: true,
       simulateTouch: true,
       parallax: true,
@@ -70,6 +73,10 @@ export default class ProjectListComponent extends Component<Signature> {
         releaseOnEdges: true,
       },
 
+      on: {
+        progress: this.updateScrollIndicator,
+      },
+
       // Classes
       wrapperClass: styles['wrapper'],
       slideClass: previewStyles['scope'],
@@ -78,6 +85,15 @@ export default class ProjectListComponent extends Component<Signature> {
   }
 
   // Functions
+  updateScrollIndicator = (swiper: Swiper, progress: number) => {
+    const steps = swiper.slides.length - 1;
+
+    swiper.el.style.setProperty(
+      '--scroll-indicator-progress',
+      `${Math.min(progress * steps, 1)}`,
+    );
+  };
+
   @action
   // eslint-disable-next-line require-yield
   *listTransition(
@@ -126,6 +142,8 @@ export default class ProjectListComponent extends Component<Signature> {
   // Template
   <template>
     <div class={{(bem)}} {{swiper options=this.swiperOptions}} ...attributes>
+      <ScrollIndicator />
+
       <div class={{bem "wrapper"}}>
         {{#animatedEach
           this.sortedProjects
