@@ -82,11 +82,13 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
           is-project-detail=this.isProjectDetail
         )
       }}
+      data-test-header
       ...attributes
     >
       <LinkTo
         @route="home"
         class={{bem "logo"}}
+        data-test-logo-link
         {{on "click" this.closeNavigation}}
       >
         <Logo />
@@ -98,8 +100,13 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
             "back-to-overview"
             (hash is-project-detail=this.isProjectDetail)
           }}
+          data-test-back-to-overview
         >
-          <LinkTo @route="projects" {{on "click" this.closeNavigation}}>
+          <LinkTo
+            @route="projects"
+            data-test-back-to-overview-link
+            {{on "click" this.closeNavigation}}
+          >
             {{t "application.header.toOverview" htmlSafe=true}}
           </LinkTo>
         </div>
@@ -107,9 +114,10 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
         <div
           class={{bem "toggle"}}
           role="button"
+          data-test-navigation-toggle
           {{on "click" this.toggleNavigation}}
         >
-          <div class={{bem "label"}}>
+          <div class={{bem "label"}} data-test-navigation-toggle-label>
             {{this.menuLabel}}
           </div>
           <div class={{bem "burger"}}>
@@ -120,13 +128,14 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
         </div>
       </div>
 
-      <nav class={{bem "navigation-overlay"}}>
+      <nav class={{bem "navigation-overlay"}} data-test-navigation-overlay>
         <div>
           <ul class={{bem "list"}}>
             <li class={{bem "item"}}>
               <LinkTo
                 @route="projects"
                 class={{bem "link"}}
+                data-test-navigation-link="projects"
                 {{on "click" this.closeNavigation}}
               >
                 {{t "application.header.projects"}}
@@ -137,6 +146,7 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
                 @route="page"
                 @model="about"
                 class={{bem "link"}}
+                data-test-navigation-link="about"
                 {{on "click" this.closeNavigation}}
               >
                 {{t "application.header.about"}}
@@ -150,6 +160,7 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
                   @route="page"
                   @model={{pageSlug}}
                   class={{bem "link"}}
+                  data-test-navigation-link={{pageSlug}}
                   {{on "click" this.closeNavigation}}
                 >
                   {{t (concat "application.header." pageSlug)}}

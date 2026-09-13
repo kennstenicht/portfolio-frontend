@@ -78,6 +78,7 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
   <template>
     <div
       class={{bem (hash is-visible=this.isVisible)}}
+      data-test-cookie-notice
       {{this.setupConsent}}
       {{windowOn "hashchange" this.checkHash}}
       ...attributes
@@ -118,6 +119,7 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
           <button
             class="{{bem 'button'}} {{buttonBem 'default'}}"
             type="button"
+            data-test-allow-selected-cookies
             {{on "click" this.saveSettings}}
           >
             {{t "cookieNotice.allowSelectedCookies"}}
@@ -125,6 +127,7 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
           <button
             class="{{bem 'button'}} {{buttonBem 'default'}}"
             type="button"
+            data-test-allow-all-cookies
             {{on "click" this.allowAllCookies}}
           >
             {{t "cookieNotice.allowAllCookies"}}
