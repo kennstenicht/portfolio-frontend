@@ -5,8 +5,8 @@
 .scope {
   position: relative;
   flex-shrink: 0;
-  width: 32vw;
-  height: 32vh;
+  width: 42vw;
+  height: 42vh;
   cursor: pointer;
   margin-top: auto;
   margin-bottom: auto;
@@ -71,4 +71,13 @@
     width: 80vw;
     height: 40vh;
   }
+}
+
+/* View transitions
+   ========================================================================== */
+
+.scope--is-active .preview-image,
+.scope--is-active .title,
+.scope--is-active .subtitle {
+  view-transition-class: morph;
 }

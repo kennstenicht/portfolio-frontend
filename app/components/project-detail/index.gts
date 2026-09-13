@@ -3,7 +3,6 @@ import type Owner from '@ember/owner';
 import { LinkTo } from '@ember/routing';
 import { service } from '@ember/service';
 import Component from '@glimmer/component';
-import { animatedValue } from 'ember-animated';
 import t from 'ember-intl/helpers/t';
 
 import type { Project } from 'portfolio/data/project';
@@ -38,24 +37,22 @@ export default class ProjectDetail extends Component<Signature> {
 
   // Template
   <template>
-    {{#animatedValue @project as |project|}}
-      <article class={{bem (hash style=project.id)}} ...attributes>
-        <Header @project={{project}} />
-        <div class={{bem "content"}}>
-          <Summary @project={{project}} />
-          <div class={{bem "wrapper"}}>
-            {{#let (getContentComponent project.id) as |ContentComponent|}}
-              <ContentComponent @project={{project}} />
-            {{/let}}
-            <div class={{bem "back"}}>
-              <LinkTo @route="projects" class={{bem "link"}}>
-                {{t "projectDetail.backToOverview" htmlSafe=true}}
-              </LinkTo>
-            </div>
+    <article class={{bem (hash style=@project.id)}} ...attributes>
+      <Header @project={{@project}} />
+      <div class={{bem "content"}}>
+        <Summary @project={{@project}} />
+        <div class={{bem "wrapper"}}>
+          {{#let (getContentComponent @project.id) as |ContentComponent|}}
+            <ContentComponent @project={{@project}} />
+          {{/let}}
+          <div class={{bem "back"}}>
+            <LinkTo @route="projects" class={{bem "link"}}>
+              {{t "projectDetail.backToOverview" htmlSafe=true}}
+            </LinkTo>
           </div>
         </div>
-      </article>
-    {{/animatedValue}}
+      </div>
+    </article>
   </template>
 }
 
