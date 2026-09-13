@@ -1,6 +1,7 @@
 import setupInspector from '@embroider/legacy-inspector-support/ember-source-4.12';
 import { importSync, isDevelopingApp, macroCondition } from '@embroider/macros';
 import Application from 'ember-strict-application-resolver';
+
 import '@warp-drive/ember/install';
 
 import { modules } from './modules';

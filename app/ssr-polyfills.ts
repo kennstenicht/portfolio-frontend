@@ -8,7 +8,10 @@
  * before ember-animated's modules evaluate. It is SSR-only and never reaches the
  * browser bundle.
  */
-if (import.meta.env.SSR && typeof (globalThis as { DOMRect?: unknown }).DOMRect === 'undefined') {
+if (
+  import.meta.env.SSR &&
+  typeof (globalThis as { DOMRect?: unknown }).DOMRect === 'undefined'
+) {
   class DOMRectPolyfill {
     x: number;
     y: number;
@@ -35,7 +38,9 @@ if (import.meta.env.SSR && typeof (globalThis as { DOMRect?: unknown }).DOMRect 
       return this.height < 0 ? this.y : this.y + this.height;
     }
 
-    static fromRect(rect: { x?: number; y?: number; width?: number; height?: number } = {}) {
+    static fromRect(
+      rect: { x?: number; y?: number; width?: number; height?: number } = {},
+    ) {
       return new DOMRectPolyfill(rect.x, rect.y, rect.width, rect.height);
     }
 

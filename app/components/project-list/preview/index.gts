@@ -12,8 +12,8 @@ import adjustColor from 'ember-animated/motions/adjust-color';
 import move from 'ember-animated/motions/move';
 import resize from 'ember-animated/motions/resize';
 
-import indexNumber from 'portfolio/helpers/index-number';
 import type { Project } from 'portfolio/data/project';
+import indexNumber from 'portfolio/helpers/index-number';
 import { getBem } from 'portfolio/utils/get-bem';
 
 import styles from './styles.module.css';
