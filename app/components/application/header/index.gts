@@ -5,8 +5,6 @@ import RouterService from '@ember/routing/router-service';
 import { service } from '@ember/service';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { animatedIf } from 'ember-animated';
-import fade from 'ember-animated/transitions/fade';
 import { task, timeout } from 'ember-concurrency';
 import t from 'ember-intl/helpers/t';
 
@@ -31,7 +29,6 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
 
   // Defaults
   @tracked menuLabel = 'menu';
-  fadeTransition = fade;
   numberOfGenerations = 0;
 
   // Getter and setter
@@ -96,12 +93,15 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
       </LinkTo>
 
       <div class={{bem "navigation"}}>
-        <div class={{bem "back-to-overview"}}>
-          {{#animatedIf this.isProjectDetail use=this.fadeTransition}}
-            <LinkTo @route="projects" {{on "click" this.closeNavigation}}>
-              {{t "application.header.toOverview" htmlSafe=true}}
-            </LinkTo>
-          {{/animatedIf}}
+        <div
+          class={{bem
+            "back-to-overview"
+            (hash is-project-detail=this.isProjectDetail)
+          }}
+        >
+          <LinkTo @route="projects" {{on "click" this.closeNavigation}}>
+            {{t "application.header.toOverview" htmlSafe=true}}
+          </LinkTo>
         </div>
 
         <div

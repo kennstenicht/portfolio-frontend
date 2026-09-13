@@ -16,6 +16,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  view-transition-class: morph;
 
   &--style-meinezeit {
     object-position: bottom 0% right 15%;
@@ -30,6 +31,7 @@
 }
 
 .title {
+  view-transition-class: morph;
   margin-bottom: var(--spacing-small);
   text-transform: uppercase;
   text-shadow: 0 0 250px var(--color-white);
@@ -37,7 +39,9 @@
 }
 
 .subtitle {
+  view-transition-class: morph;
   display: block;
+  width: calc(32vw - var(--spacing-base));
 }
 
 /* Media queries

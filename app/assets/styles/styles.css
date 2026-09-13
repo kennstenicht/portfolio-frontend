@@ -7,6 +7,7 @@
 @import url("generic/generic.normalize.css");
 @import url("generic/generic.reset.css");
 @import url("generic/generic.shared.css");
+@import url("generic/generic.view-transitions.css");
 
 /* ELEMENTS */
 @import url("elements/elements.blockquote.css");
@@ -23,7 +24,3 @@
 @import url("elements/elements.table.css");
 @import url("elements/elements.textarea.css");
 @import url("elements/elements.video.css");
-
-.animated-tools {
-  z-index: 1000 !important;
-}

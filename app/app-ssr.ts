@@ -1,5 +1,3 @@
-import './ssr-polyfills';
-
 import Application from 'ember-strict-application-resolver';
 
 import '@warp-drive/ember/install';

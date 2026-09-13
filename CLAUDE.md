@@ -146,10 +146,11 @@ The app uses `ember-strict-application-resolver`, which does an exact key lookup
   and `*/template` → `templates/*`. Anything under `app/routes/` that is neither is
   ignored.
 - `app/services/**` is globbed in automatically.
-- **Addon services injected by name** (`@service intl`, `cookies`, `keyboard`,
-  `-ea-motion`) must be registered by hand — the glob only covers this app's services.
-- **Addon components that addons invoke by name from their own templates** must be
-  registered by hand too (all the `ember-animated` ones).
+- **Addon services injected by name** (`@service intl`, `cookies`, `keyboard`)
+  must be registered by hand — the glob only covers this app's services.
+- **Addon components that addons invoke by name from their own templates** would
+  need registering by hand too. Nothing does today; the `ember-animated`
+  entries were the only ones.
 - This app's own components, helpers, and modifiers are imported directly in `.gts`
   files and must **not** be registered.
 
@@ -170,11 +171,12 @@ writes the HTML into `dist/`, using the `<!-- VITE_EMBER_SSR_HEAD -->` /
   `app/modules.ts`. Keep `modules.ts` free of side-effect imports.
 - `app/entry.ts` uses `bootRehydrated`, not `Application.create()` — a plain create
   would boot a second interactive copy next to the prerendered DOM.
-- **No browser globals at module-evaluation time.** The prerender runs in HappyDOM;
-  anything an addon touches while its module evaluates must be polyfilled in
-  `app/ssr-polyfills.ts`, which must stay the _first_ import of `app-ssr.ts` (this is
-  why `ember-animated`'s module-level `new DOMRect(...)` works). Guard SSR-only code
-  with `import.meta.env.SSR` so Vite strips it from the client bundle.
+- **No browser globals at module-evaluation time.** The prerender runs in
+  HappyDOM, so anything an addon touches while its module evaluates has to exist
+  there. Guard SSR-only code with `import.meta.env.SSR` so Vite strips it from
+  the client bundle. There is no polyfill module today — `app/ssr-polyfills.ts`
+  existed solely for `ember-animated`'s module-level `new DOMRect(...)` and went
+  with it.
 - Data during prerender is served off disk by `SsgFileHandler`
   (`app/utils/ssg-file-handler.ts`), registered ahead of `Fetch` in
   `app/services/store.ts`. It only handles **root-relative** GET URLs, so request
@@ -182,6 +184,94 @@ writes the HTML into `dist/`, using the `<!-- VITE_EMBER_SSR_HEAD -->` /
 - `vite-ember-ssr@0.4.1` is **patched** (`patches/vite-ember-ssr@0.4.1.patch`) to add
   named exports to its CJS-in-SSR shim. Bumping the version means refreshing the
   patch, not just the range.
+
+## View transitions
+
+Route changes animate through the native View Transition API, with
+`@cardstack/view-transitions` supplying the `viewTransitionName` modifier. There
+is no animation library in this path — `ember-animated` no longer drives the
+project list or the project detail.
+
+`app/routes/application/route.ts#beforeModel` registers a `routeWillChange`
+listener that wraps the transition. Two constraints shape it, and both are
+invisible from the code:
+
+- **The DOM update has to happen inside the `startViewTransition` callback.**
+  The browser captures the "before" state on the next frame, not when
+  `startViewTransition` is called. A route whose model is already cached
+  resolves in a microtask, so simply starting a transition and waiting for
+  `routeDidChange` lets Ember swap the DOM first — both snapshots then capture
+  the _new_ page and nothing animates, with no error. The listener therefore
+  calls `transition.abort()` and `await transition.retry()` from inside the
+  callback. `#isRetrying` stops the retry from re-entering the listener.
+- **The callback must also await `afterRender`**, since `retry()` resolves
+  before Ember has rendered.
+
+Elements morph by carrying the same `view-transition-name` on both sides —
+`{{viewTransitionName "project-image-" @project.id}}` on the list preview and
+on the project detail header, plus the title and subtitle. Names must be unique
+per document, which is why they are keyed by project id. `generic.view-transitions.css` holds the tuning: `:root {
+view-transition-name: none }` opts out of the implicit whole-page crossfade so
+only named elements take part, and `::view-transition-group(*)` sets the
+duration and easing of the morph.
+
+The group's timing cascades to the old and new snapshots, so the file then
+overrides those back to a short duration on purpose. The group is what moves and
+resizes an element; the old and new snapshots only cross-fade between the two
+bitmaps. Running both over the same long duration means the two images sit on
+screen together for most of the morph, which reads as a double exposure. Fading
+them out quickly leaves just the new snapshot being carried by the group — a
+morph rather than a dissolve — while unmatched elements (the previews of the
+five projects you did not click) still get their fade-out.
+
+`object-fit: contain` on the snapshots matters for the same reason. The UA
+default is `height: auto`, so each snapshot keeps its own aspect ratio inside
+the shared group box and old and new render at different heights, visibly
+offset. Filling the box with `contain` keeps them aligned without the stretch
+that `fill` would introduce on text, whose box changes aspect far more than the
+images do.
+
+Snapshots render in the browser's **top layer**, above every `z-index` on the
+page — including the application frame. `::view-transition { clip-path:
+inset(var(--spacing-small)) }` clips the whole overlay to the frame's inner
+edge, which also restores the clipping that `.c-project-list`'s `overflow:
+hidden` normally does: a captured preview is snapshotted whole, not clipped to
+what was visible, so without this the slides at the edges spill across the
+frame.
+
+Within the overlay, groups paint in capture order, which puts the five previews
+you did not click _above_ the one that is morphing on the way back.
+`view-transition-class: morph` plus `::view-transition-group(.morph) { z-index:
+1 }` lifts the morphing pair out of that order.
+
+**A group takes its class from the new element**, falling back to the old one
+only when there is no new — it is not the union of the two. So marking one side
+is not enough: going forward the detail header is the new element, but coming
+back it is the old one and the group would pick up the list preview's (absent)
+class. Both sides carry it. On the list side only `.scope--is-active` does, or
+all six previews would rank equally and capture order would decide again — and
+that works because the slider is initialised with `projectSlider.position`, so
+the active slide is the one you came from.
+
+This works from inside a CSS module because `view-transition-class` is a
+property _value_, which CSS Modules leaves alone; only a selector would be
+rewritten, and those live in the global file.
+
+Two things to know when working on this:
+
+- **A plain screenshot cannot verify a view transition.** A captured frame
+  shows the post-transition DOM and looks identical whether the morph works or
+  silently does nothing. Two ways through: read
+  `animation.effect.getKeyframes()` off `document.getAnimations()` for the real
+  from/to geometry, or freeze the overlay — set `currentTime` on every
+  view-transition animation and `pause()` them, then capture with CDP
+  `Page.captureScreenshot` and `fromSurface: true`, which does include the top
+  layer.
+- **CSS Modules hashes `view-transition-class` selectors.**
+  `::view-transition-group(name)` with a plain ident passes through untouched,
+  but `::view-transition-group(.foo)` is rewritten to the hashed class while the
+  `view-transition-class: foo` property value is not, so the two can never
+  match — silently. Wrap those selectors in `:global(...)`.
 
 ## i18n
 
