@@ -7,7 +7,7 @@ export interface Project {
   $type: 'project';
   content: string;
   excerpt: string;
-  facts: string;
+  facts: Record<string, string>;
   metaDescription: string;
   metaTitle: string;
   position: number;

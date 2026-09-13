@@ -21,9 +21,11 @@ export default <template>
       {{! template-lint-disable no-triple-curlies }}
       {{{@project.excerpt}}}
     </div>
-    <div class={{bem "meta-info"}}>
-      {{! template-lint-disable no-triple-curlies }}
-      {{{@project.facts}}}
-    </div>
+    <dl class={{bem "meta-info"}}>
+      {{#each-in @project.facts as |label value|}}
+        <dt>{{label}}</dt>
+        <dd>{{value}}</dd>
+      {{/each-in}}
+    </dl>
   </div>
 </template> satisfies TOC<Signature>;

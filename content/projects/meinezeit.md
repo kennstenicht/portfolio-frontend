@@ -1,6 +1,9 @@
 ---
 excerpt: I created a custom CMS solution for MeineZeit, enabling them to effortlessly manage multiple websites for their hotels and wellness resorts from one central platform. This tailored system streamlines content updates, ensures consistent branding, and provides seamless control, making it easier than ever for MeineZeit to maintain a unified online presence across all their properties.
-facts: '<strong>Year:</strong> 2016 — now<br><strong>Client:</strong> MeineZeit<br><strong>Technology:</strong> ember.js, Ruby on Rails'
+facts:
+  Year: '2016 — now'
+  Client: MeineZeit
+  Built with: ember.js and Ruby on Rails
 metaDescription: A custom CMS solution built for MeineZeit, empowering them to manage multiple hotel and wellness resort websites from a single, centralized platform—streamlining updates and maintaining consistent branding effortlessly.
 metaTitle: MeineZeit
 position: 2
