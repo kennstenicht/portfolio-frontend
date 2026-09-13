@@ -12,7 +12,7 @@ const SOCIAL_MEDIA_LINKS = {
   linkedin: 'https://www.linkedin.com/in/christoph-wiedenmann',
 };
 
-interface Signature {
+export interface ApplicationFooterSignature {
   Element: HTMLElement;
   Args: {
     isNavigationOpen?: boolean;
@@ -21,8 +21,8 @@ interface Signature {
 
 const bem = getBem(styles);
 
-export default class ApplicationFooterComponent extends Component<Signature> {
-  // Getter and setter
+export default class ApplicationFooter extends Component<ApplicationFooterSignature> {
+  // Copyright
   get currentYear() {
     return new Date().getFullYear();
   }

@@ -4,7 +4,7 @@ import { htmlSafe } from '@ember/template';
 import contentStyles from 'portfolio/assets/styles/objects/content.module.css';
 import { getBem } from 'portfolio/utils/get-bem';
 
-interface Signature {
+export interface ContentSignature {
   Element: HTMLDivElement;
   Args: {
     html: string;
@@ -17,4 +17,4 @@ export default <template>
   <div class={{(bem)}} ...attributes>
     {{htmlSafe @html}}
   </div>
-</template> satisfies TOC<Signature>;
+</template> satisfies TOC<ContentSignature>;

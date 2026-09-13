@@ -3,7 +3,7 @@ import type Owner from '@ember/owner';
 import { task, timeout } from 'ember-concurrency';
 import Modifier, { type ArgsFor } from 'ember-modifier';
 
-interface FitTextSignature {
+export interface FitTextSignature {
   Element: HTMLElement;
 }
 

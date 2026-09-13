@@ -13,7 +13,7 @@ import { getBem } from 'portfolio/utils/get-bem';
 import Logo from './logo/index';
 import styles from './styles.module.css';
 
-interface Signature {
+export interface ApplicationHeaderSignature {
   Element: HTMLHeadElement;
   Args: {
     isNavigationOpen: boolean;
@@ -23,20 +23,16 @@ interface Signature {
 
 const bem = getBem(styles);
 
-export default class ApplicationHeaderComponent extends Component<Signature> {
+export default class ApplicationHeader extends Component<ApplicationHeaderSignature> {
   // Services
   @service declare router: RouterService;
 
-  // Defaults
-  @tracked menuLabel = 'menu';
-  numberOfGenerations = 0;
-
-  // Getter and setter
+  // Back to overview
   get isProjectDetail() {
     return this.router.currentRoute?.name === 'projects.show';
   }
 
-  // Functions
+  // Navigation
   closeNavigation = async () => {
     if (!this.args.isNavigationOpen) {
       return;
@@ -50,6 +46,10 @@ export default class ApplicationHeaderComponent extends Component<Signature> {
     this.args.setIsNavigationOpen(!this.args.isNavigationOpen);
     await this.randomString.perform();
   };
+
+  // Toggle label
+  @tracked menuLabel = 'menu';
+  numberOfGenerations = 0;
 
   randomString = task(async () => {
     await timeout(100);

@@ -18,7 +18,7 @@ interface Tag {
   content?: string;
 }
 
-interface MetadataSignature {
+export interface SeoMetadataSignature {
   Args: {
     title: string;
     description?: string;
@@ -27,15 +27,30 @@ interface MetadataSignature {
   };
 }
 
-export default class Metadata extends Component<MetadataSignature> {
+export default class SeoMetadata extends Component<SeoMetadataSignature> {
+  // Services
   @service declare router: RouterService;
   @service declare intl: IntlService;
 
-  // Read lazily: the meta-loaded config is not populated at module-eval time.
+  // Document title
+  // `siteName` is read lazily: the meta-loaded config is not populated at
+  // module-eval time.
   get siteName(): string {
     return config.siteName;
   }
 
+  // The brand renders lowercase throughout, including the browser-tab title.
+  get title(): string {
+    return this.args.title.toLowerCase();
+  }
+
+  get documentTitle(): string {
+    return this.args.title === this.siteName
+      ? this.siteName
+      : `${this.title}${TITLE_SEPARATOR}${this.siteName}`;
+  }
+
+  // Meta tags
   get type(): string {
     return this.args.type ?? 'website';
   }
@@ -59,17 +74,6 @@ export default class Metadata extends Component<MetadataSignature> {
     return image.startsWith('http') ? image : `${config.host}${image}`;
   }
 
-  // The brand renders lowercase throughout, including the browser-tab title.
-  get title(): string {
-    return this.args.title.toLowerCase();
-  }
-
-  get documentTitle(): string {
-    return this.args.title === this.siteName
-      ? this.siteName
-      : `${this.title}${TITLE_SEPARATOR}${this.siteName}`;
-  }
-
   get tags(): Tag[] {
     const description = this.args.description?.toLowerCase();
     const title = this.title;
@@ -90,6 +94,7 @@ export default class Metadata extends Component<MetadataSignature> {
     ].filter((tag) => tag.content);
   }
 
+  // Template
   <template>
     {{! template-lint-disable no-forbidden-elements }}
     {{#in-element (headElement) insertBefore=null}}

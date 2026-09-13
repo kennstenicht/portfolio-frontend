@@ -13,28 +13,19 @@ import { getBem } from 'portfolio/utils/get-bem';
 
 import styles from './styles.module.css';
 
-interface Signature {
+export interface ApplicationCookieNoticeSignature {
   Element: HTMLDivElement;
 }
 
 const bem = getBem(styles);
 const buttonBem = getBem(buttonStyle);
 
-export default class ApplicationCookieNoticeComponent extends Component<Signature> {
+export default class ApplicationCookieNotice extends Component<ApplicationCookieNoticeSignature> {
   // Services
   @service declare cookies: CookiesService;
 
-  // Defaults
-  @tracked allowAnalyseCookies = false;
-  @tracked allowMarketingCookies = false;
+  // Visibility
   @tracked isVisible = false;
-
-  // Functions
-  allowAllCookies = () => {
-    this.allowAnalyseCookies = true;
-
-    this.saveSettings();
-  };
 
   checkHash = () => {
     if (location.hash == '#change-cookie-settings') {
@@ -44,20 +35,9 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
     }
   };
 
-  getCookieWithFallback = (cookie: string, fallback: string) => {
-    if (!this.cookies.exists(cookie)) {
-      this.cookies.write(cookie, fallback);
-    }
-
-    return this.cookies.read(cookie) == 'true';
-  };
-
-  saveSettings = () => {
-    this.cookies.write('allow_analyse_cookies', this.allowAnalyseCookies);
-    this.cookies.write('hide_cookie_notice', true);
-
-    this.isVisible = false;
-  };
+  // Consent
+  @tracked allowAnalyseCookies = false;
+  @tracked allowMarketingCookies = false;
 
   setupConsent = modifier(() => {
     if (!this.cookies.exists('hide_cookie_notice')) {
@@ -68,10 +48,31 @@ export default class ApplicationCookieNoticeComponent extends Component<Signatur
       this.cookies.read('allow_analyse_cookies') == 'true';
   });
 
+  getCookieWithFallback = (cookie: string, fallback: string) => {
+    if (!this.cookies.exists(cookie)) {
+      this.cookies.write(cookie, fallback);
+    }
+
+    return this.cookies.read(cookie) == 'true';
+  };
+
   toggleAnalyseCookies = (event: Event) => {
     const target = event.target as HTMLInputElement;
 
     this.allowAnalyseCookies = target.checked;
+  };
+
+  allowAllCookies = () => {
+    this.allowAnalyseCookies = true;
+
+    this.saveSettings();
+  };
+
+  saveSettings = () => {
+    this.cookies.write('allow_analyse_cookies', this.allowAnalyseCookies);
+    this.cookies.write('hide_cookie_notice', true);
+
+    this.isVisible = false;
   };
 
   // Template

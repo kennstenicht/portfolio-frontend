@@ -1,6 +1,6 @@
 import { modifier } from 'ember-modifier';
 
-interface InViewportSignature {
+export interface InViewportSignature {
   Element: HTMLMediaElement;
   Args: {
     Named: {

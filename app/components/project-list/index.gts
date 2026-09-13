@@ -21,7 +21,7 @@ import previewStyles from './preview/styles.module.css';
 import ScrollIndicator from './scroll-indicator';
 import styles from './styles.module.css';
 
-interface Signature {
+export interface ProjectListSignature {
   Element: HTMLElement;
   Args: {
     projects: Project[];
@@ -30,15 +30,16 @@ interface Signature {
 
 const bem = getBem(styles);
 
-export default class ProjectListComponent extends Component<Signature> {
+export default class ProjectList extends Component<ProjectListSignature> {
   // Services
   @service declare projectSlider: ProjectSliderService;
 
-  // Getter and setter
+  // Projects
   get sortedProjects() {
     return this.args.projects.slice().sort((a, b) => a.position - b.position);
   }
 
+  // Slider
   @cached
   get swiperOptions(): SwiperOptions {
     return {
@@ -77,7 +78,7 @@ export default class ProjectListComponent extends Component<Signature> {
     };
   }
 
-  // Functions
+  // Scroll indicator
   updateScrollIndicator = (swiper: Swiper, progress: number) => {
     const steps = swiper.slides.length - 1;
 

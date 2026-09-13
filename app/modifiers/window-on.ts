@@ -1,13 +1,13 @@
 import { modifier } from 'ember-modifier';
 
-interface Signature {
+export interface WindowOnSignature {
   Element: HTMLDivElement;
   Args: {
     Positional: [string, () => void];
   };
 }
 
-export const windowOn = modifier<Signature>(
+export const windowOn = modifier<WindowOnSignature>(
   (_element, [eventName, callback]) => {
     window.addEventListener(eventName, callback);
 

@@ -49,19 +49,19 @@ export const WORDS = [
   'Rescue is not acrime',
 ];
 
-interface Signature {
+export interface ApplicationHeaderLogoSignature {
   Element: HTMLDivElement;
 }
 
 const bem = getBem(styles);
 
-export default class ApplicationLogoComponent extends Component<Signature> {
-  // Getter and setter
+export default class ApplicationHeaderLogo extends Component<ApplicationHeaderLogoSignature> {
+  // Default word
   get defaultLetters() {
     return WORDS[0]?.split('');
   }
 
-  // Functions
+  // Hover animation
   explode = (event: MouseEvent) => {
     const element = event.target as HTMLElement;
     const letters = element.querySelectorAll(`.${bem('letter')}`);

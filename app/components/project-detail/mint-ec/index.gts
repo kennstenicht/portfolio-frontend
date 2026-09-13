@@ -7,7 +7,7 @@ import { getBem } from 'portfolio/utils/get-bem';
 
 import styles from './styles.module.css';
 
-interface Signature {
+export interface ProjectDetailMintEcSignature {
   Element: HTMLDivElement;
   Args: {
     project: Project;
@@ -25,4 +25,4 @@ export default <template>
       <Content @html={{@project.content}} />
     </div>
   </div>
-</template> satisfies TOC<Signature>;
+</template> satisfies TOC<ProjectDetailMintEcSignature>;
