@@ -34,7 +34,7 @@
 
   /* Heading sizes */
   --font-size-h1: clamp(40px, 6.33vw, 76px);
-  --font-size-h2: 20px;
+  --font-size-h2: 24px;
   --font-size-h3: 18px;
   --font-size-h4: 18px;
   --font-size-h5: 18px;

@@ -21,21 +21,18 @@ route:
   home:
     title: 'Moin'
     message:
-      'i-am': 'Ich bin'
-      'berlin-based': 'ein Berliner'
-      'senior-developer': 'Senior Softwareentwickler'
-      'ux-background': 'mit starken UX-Hintergrund'
-      'love-for-details': 'und einer Leidenschaft zu Details.'
-      'currently-shipping': 'Derzeit entwickel ich Produkte mit Ember.js und Next.js'
-      'learn-svelte': 'und würde mich freuen Svelte zu testen.'
+      'i-am': 'Ich bin Christoph,'
+      'lead-developer': 'Lead Frontend Developer aus Berlin'
+      'ux-background': 'mit starkem UX-Hintergrund.'
+      'products-that-last': 'Ich entwickle Produkte, die über Jahre bestehen –'
+      'playful-ideas': 'und setze zwischendurch gern kleine, verspielte Ideen um.'
     altText:
+      'moin': 'Moin'
       'i-am': 'Portrait von Christoph Wiedenmann in 16-Bit Pixel-Art'
-      'berlin-based': 'Berliner Skyline in 16-Bit Pixel-Art'
-      'senior-developer': 'Ein Progammierer vor einem Monitor in 16-Bit Pixel-Art'
-      'ux-background': 'Ein Designer vor einem Monitor 16-Bit Pixel-Art'
-      'love-for-details': 'Visualisierung von Liebe zu Details in 16-Bit Pixel-Art'
-      'currently-shipping': 'ember.js und next.js Logo in 16-Bit Pixel-Art'
-      'learn-svelte': 'Svelte Logo in 16-Bit Pixel-Art'
+      'lead-developer': 'Berliner Skyline in 16-Bit Pixel-Art'
+      'ux-background': 'Ein Designer vor einem Monitor in 16-Bit Pixel-Art'
+      'products-that-last': 'Ember.js- und Next.js-Logo in 16-Bit Pixel-Art'
+      'playful-ideas': 'Visualisierung von Liebe zu Details in 16-Bit Pixel-Art'
   projects:
     meta:
       description: Für unsere unsere Kunden entwickeln wir digitale Produkte, Services und Kommunikationsstrategien.

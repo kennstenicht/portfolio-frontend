@@ -10,6 +10,9 @@
   text-align: justify;
   hyphens: auto;
   text-transform: uppercase;
+  overflow-wrap: break-word;
+  -webkit-text-stroke: 0.08em var(--color-background);
+  paint-order: stroke fill;
 }
 
 .title {
@@ -17,18 +20,23 @@
   font-size: inherit;
 }
 
-.message p {
-  display: inline;
+.fragment {
+  cursor: default;
 }
 
-.message:hover .fragment,
-.message:hover .title {
-  opacity: 0.2;
+.fragment:focus-visible {
+  outline: 2px solid currentcolor;
+  outline-offset: 0.1em;
 }
 
-.message .fragment:hover,
+.message:is(:hover, :focus-within) .fragment,
+.message:is(:hover, :focus-within) .title {
+  opacity: 0.1;
+}
+
+.message .fragment:is(:hover, :focus-visible),
+.message .fragment--is-selected,
 .message .title:hover {
-  color: #fff;
   opacity: 1 !important;
 }
 
@@ -40,6 +48,9 @@
   height: 100%;
   object-fit: cover;
   z-index: 1;
+
+  /* Hides the alt text the browser paints until the image has loaded. */
+  color: transparent;
 }
 
 /* Media Queries

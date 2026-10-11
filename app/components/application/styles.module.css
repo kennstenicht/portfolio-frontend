@@ -11,40 +11,40 @@
     --color-primary: #fff;
     --color-secondary: #fff;
     --color-typo: #333;
-    --color-background: #f5f5f5;
+    --color-background: #f4f1ea;
   }
 
   &--style-imprint {
     --color-primary: #fff;
     --color-secondary: #fff;
     --color-typo: #333;
-    --color-background: #f5f5f5;
+    --color-background: #f4f1ea;
   }
 
   &--style-privacy {
     --color-primary: #fff;
     --color-secondary: #fff;
     --color-typo: #333;
-    --color-background: #f5f5f5;
+    --color-background: #f4f1ea;
   }
 
   &--style-projects {
     --color-primary: #fff;
     --color-secondary: #fff;
     --color-typo: #333;
-    --color-background: #f5f5f5;
+    --color-background: #f4f1ea;
   }
 
   &--style-about {
     --color-primary: #121212;
-    --color-secondary: #fff;
+    --color-secondary: #f2f2f2;
     --color-typo: #f2f2f2;
     --color-background: #111;
   }
 
   &--style-error {
     --color-primary: #041aac;
-    --color-secondary: #fff;
+    --color-secondary: #f2f2f2;
     --color-typo: #f2f2f2;
     --color-background: #0015a3;
   }

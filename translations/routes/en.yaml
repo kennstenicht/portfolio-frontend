@@ -21,21 +21,18 @@ route:
   home:
     title: 'Moin'
     message:
-      'i-am': "I'm"
-      'berlin-based': 'a berlin based'
-      'senior-developer': 'senior software developer'
-      'ux-background': 'with a strong ux background'
-      'love-for-details': 'and a love for details.'
-      'currently-shipping': 'Currently shipping products with Ember.js and Next.js,'
-      'learn-svelte': 'while eager to explore Svelte.'
+      'i-am': "I'm Christoph,"
+      'lead-developer': 'a Berlin based lead frontend developer'
+      'ux-background': 'with a strong UX background.'
+      'products-that-last': 'I build products that last for years'
+      'playful-ideas': 'and love bringing small, playful ideas to life.'
     altText:
+      'moin': 'Moin'
       'i-am': 'Portrait of Christoph Wiedenmann in 16-Bit pixel art'
-      'berlin-based': 'Berlin skyline in 16-Bit pixel art'
-      'senior-developer': 'A developer in front of a monitor in 16-Bit pixel art'
+      'lead-developer': 'Berlin skyline in 16-Bit pixel art'
       'ux-background': 'A designer in front of a monitor in 16-Bit pixel art'
-      'love-for-details': 'visualisation of love for details in 16-Bit pixel art'
-      'currently-shipping': 'Ember.js and Next.js logo in 16-Bit pixel art'
-      'learn-svelte': 'Svelte logo in 16-Bit pixel art'
+      'products-that-last': 'Ember.js and Next.js logo in 16-Bit pixel art'
+      'playful-ideas': 'visualisation of love for details in 16-Bit pixel art'
   projects:
     meta:
       description: Für unsere unsere Kunden entwickeln wir digitale Produkte, Services und Kommunikationsstrategien.
