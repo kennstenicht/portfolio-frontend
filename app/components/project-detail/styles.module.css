@@ -2,18 +2,69 @@
    # PROJECT DETAIL
    ========================================================================== */
 
+.scope {
+  color: var(--color-typo);
+}
+
+.preview-image {
+  position: fixed;
+  inset: var(--spacing-small);
+  width: var(--vw);
+  height: var(--vh);
+  background-color: var(--color-grey);
+  object-fit: cover;
+  object-position: center;
+  view-transition-class: morph;
+}
+
+.scope--style-meinezeit .preview-image {
+  object-position: bottom 0% right 15%;
+}
+
 .content {
   position: relative;
   z-index: 2;
-  padding-top: var(--vh);
+}
+
+.header {
+  background: linear-gradient(
+    transparent var(--vh),
+    var(--color-secondary) var(--vh)
+  );
+}
+
+.intro::before {
+  content: "";
+  display: block;
+  height: var(--vh);
+}
+
+.heading {
+  position: sticky;
+}
+
+.title {
+  view-transition-class: morph;
+  margin-bottom: var(--spacing-small);
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+}
+
+.subtitle {
+  view-transition-class: morph;
+  margin-bottom: 0;
+  font-size: var(--font-size-h2);
+  line-height: 1.5;
+}
+
+.meta-info {
+  font-size: var(--font-size-small);
 }
 
 .wrapper {
   position: relative;
-  margin-top: var(--spacing-small);
   padding-top: var(--spacing-large);
   background-color: var(--color-background);
-  color: var(--color-typo);
 }
 
 .back {
@@ -36,12 +87,51 @@
    ========================================================================== */
 
 @media (width < 768px) {
+  .header {
+    padding: var(--spacing-base);
+  }
+
+  .heading {
+    bottom: var(--spacing-base);
+    margin-bottom: var(--spacing-base);
+    padding-top: var(--spacing-small);
+  }
+
+  .meta-info {
+    padding-top: var(--spacing-base);
+  }
+
   .back {
     font-size: var(--font-size-h2);
   }
 }
 
 @media (width >= 768px) {
+  .header {
+    display: grid;
+    margin: 0 var(--spacing-small);
+    padding: 0 var(--spacing-base-small) var(--spacing-base-small);
+    grid-template-columns: 2fr 1fr;
+    column-gap: var(--spacing-huge);
+  }
+
+  .heading {
+    bottom: var(--spacing-large);
+    margin-top: calc(
+      -1 * var(--spacing-base-small) - (var(--font-size-h1) / 2)
+    );
+    margin-bottom: var(--spacing-large);
+    padding-top: var(--spacing-base-small);
+  }
+
+  .meta-info {
+    padding-top: calc(var(--vh) + var(--spacing-base-small));
+  }
+
+  .wrapper {
+    margin-top: var(--spacing-small);
+  }
+
   .back {
     font-size: var(--font-size-h1);
   }
