@@ -5,8 +5,6 @@
 .scope {
   margin-right: auto;
   margin-left: 0;
-  padding-right: var(--spacing-large);
-  padding-left: var(--spacing-large);
   max-width: var(--wrapper-width);
 }
 
@@ -43,4 +41,21 @@
 
 .scope--size-no-padding {
   padding: 0;
+}
+
+/* Media Queries
+   ========================================================================== */
+
+@media (width < 768px) {
+  .scope {
+    padding-right: var(--spacing-base);
+    padding-left: var(--spacing-base);
+  }
+}
+
+@media (width >= 768px) {
+  .scope {
+    padding-right: var(--spacing-large);
+    padding-left: var(--spacing-large);
+  }
 }
