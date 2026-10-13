@@ -88,6 +88,6 @@
   --transition-slow: 0.6s ease-in-out;
 
   /* Viewport */
-  --vh: calc(100vh - var(--spacing-base));
+  --vh: calc(100svh - var(--spacing-base));
   --vw: calc(100vw - var(--spacing-base));
 }

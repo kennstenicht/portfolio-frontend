@@ -14,6 +14,8 @@
 html {
   overflow: hidden;
   height: 100%; /* [2] */
+  background-color: var(--color-primary);
+  transition: background-color var(--transition-slow) 0.2s;
 }
 
 body {
