@@ -31,6 +31,10 @@ export default class FitText extends Modifier<FitTextSignature> {
   }
 
   modify(element: HTMLElement) {
+    if (import.meta.env.SSR) {
+      return;
+    }
+
     this.element = element;
 
     if (!this.handler) {
@@ -50,30 +54,41 @@ export default class FitText extends Modifier<FitTextSignature> {
         await timeout(100);
       }
 
+      // Measuring with the fallback font fits the text to the wrong metrics,
+      // which leaves a gap once the web font swaps in.
+      await document.fonts.ready;
+
+      // Fit to the last baseline rather than scrollHeight: the text is
+      // uppercase, so below it is only empty half-leading, which may overflow.
+      // A zero-height inline-block sits with its bottom edge on the baseline.
+      const probe = document.createElement('span');
+      probe.style.display = 'inline-block';
+      probe.setAttribute('aria-hidden', 'true');
+      element.append(probe);
+
+      const overflows = () =>
+        probe.getBoundingClientRect().bottom -
+          element.getBoundingClientRect().top >
+        element.clientHeight;
+
       // Reset line height to default
       this.lineHeight = 1.15;
       element.style.lineHeight = `${this.lineHeight}`;
 
-      if (element.scrollHeight > element.clientHeight) {
+      if (overflows()) {
         // Text overflows: shrink the font size until it fits
-        while (
-          element.scrollHeight > element.clientHeight &&
-          this.fontSize > 1
-        ) {
+        while (overflows() && this.fontSize > 1) {
           this.fontSize--;
           element.style.fontSize = `${this.fontSize}px`;
         }
       } else {
         // Text fits: grow the font size until it just overflows, then back off
-        while (
-          element.scrollHeight <= element.clientHeight &&
-          this.fontSize < 100
-        ) {
+        while (!overflows() && this.fontSize < 100) {
           this.fontSize++;
           element.style.fontSize = `${this.fontSize}px`;
 
           // Overshoot fix
-          if (element.scrollHeight > element.clientHeight) {
+          if (overflows()) {
             this.fontSize--;
             element.style.fontSize = `${this.fontSize}px`;
             break;
@@ -82,20 +97,19 @@ export default class FitText extends Modifier<FitTextSignature> {
       }
 
       // ... then increase the line height
-      while (
-        element.scrollHeight <= element.clientHeight &&
-        this.lineHeight < 1.6
-      ) {
+      while (!overflows() && this.lineHeight < 1.6) {
         this.lineHeight += 0.01;
         element.style.lineHeight = `${this.lineHeight}`;
 
         // Overshoot fix
-        if (element.scrollHeight > element.clientHeight) {
+        if (overflows()) {
           this.lineHeight -= 0.01;
           element.style.lineHeight = `${this.lineHeight}`;
           break;
         }
       }
+
+      probe.remove();
     },
   );
 }
