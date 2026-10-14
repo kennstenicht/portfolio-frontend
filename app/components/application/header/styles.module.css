@@ -198,8 +198,12 @@
   }
 
   .item {
-    margin-bottom: var(--spacing-small);
+    margin-bottom: var(--spacing-base);
     width: 100%;
+
+    &--is-small {
+      margin-bottom: var(--spacing-small);
+    }
   }
 }
 
