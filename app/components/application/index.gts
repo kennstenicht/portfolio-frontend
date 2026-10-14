@@ -9,10 +9,11 @@ import IntlService from 'ember-intl/services/intl';
 import { windowOn } from 'portfolio/modifiers/window-on';
 import { getBem } from 'portfolio/utils/get-bem';
 
-import CookieNotice from './cookie-notice';
 import Footer from './footer';
 import Header from './header';
 import styles from './styles.module.css';
+
+// import CookieNotice from './cookie-notice';
 
 export interface ApplicationSignature {
   Element: HTMLDivElement;
@@ -91,7 +92,7 @@ export default class Application extends Component<ApplicationSignature> {
         <Footer @isNavigationOpen={{this.isNavigationOpen}} />
       </div>
 
-      <CookieNotice />
+      {{! <CookieNotice /> }}
 
       <div class={{bem "frame"}} data-test-frame></div>
     </div>
