@@ -79,12 +79,12 @@ export default class Application extends Component<ApplicationSignature> {
       {{windowOn "focus" (fn this.changeMetaTitle "")}}
       ...attributes
     >
+      <Header
+        @isNavigationOpen={{this.isNavigationOpen}}
+        @setIsNavigationOpen={{this.setIsNavigationOpen}}
+      />
 
       <div class={{bem "content"}} data-test-content>
-        <Header
-          @isNavigationOpen={{this.isNavigationOpen}}
-          @setIsNavigationOpen={{this.setIsNavigationOpen}}
-        />
         <main data-test-main>
           {{yield}}
         </main>
