@@ -2,8 +2,8 @@ route:
   application:
     meta:
       blurTitle: '>>>>  Schnell hier klicken  <<<<'
-      description: Moin, ich bin Christoph und ein Berliner Software Entwickler mit einem starken UX-Hintergrund und eine liebe zu Details. Neben diversen Sprachen und Frameworks bevorzuge ich ember.js und Ruby on Rails.
-      title: Christoph Wiedenmann » Software Engenieer & UX Designer
+      description: Moin, ich bin Christoph, Lead Product Engineer aus Berlin mit Fokus auf Frontend und starkem UX-Hintergrund. Ich entwickle Produkte, die über Jahre bestehen, und setze zwischendurch kleine, verspielte Ideen um.
+      title: Christoph Wiedenmann » Lead Product Engineer
   error:
     title: 404 - Not Found
     message:
@@ -22,17 +22,17 @@ route:
     title: 'Moin'
     message:
       'i-am': 'Ich bin Christoph,'
-      'lead-developer': 'Lead Frontend Developer aus Berlin'
-      'ux-background': 'mit starkem UX-Hintergrund.'
-      'products-that-last': 'Ich entwickle Produkte, die über Jahre bestehen –'
-      'playful-ideas': 'und setze zwischendurch gern kleine, verspielte Ideen um.'
+      'lead-developer': 'Lead Product Engineer aus Berlin'
+      'ux-background': 'mit Fokus auf Frontend und starkem UX-Hintergrund.'
+      'products-that-last': 'Ich entwickle Produkte, die über Jahre bestehen'
+      'playful-ideas': 'und setze zwischendurch kleine, verspielte Ideen um.'
     altText:
-      'moin': 'Moin'
-      'i-am': 'Portrait von Christoph Wiedenmann in 16-Bit Pixel-Art'
-      'lead-developer': 'Berliner Skyline in 16-Bit Pixel-Art'
-      'ux-background': 'Ein Designer vor einem Monitor in 16-Bit Pixel-Art'
-      'products-that-last': 'Ember.js- und Next.js-Logo in 16-Bit Pixel-Art'
-      'playful-ideas': 'Visualisierung von Liebe zu Details in 16-Bit Pixel-Art'
+      'moin': '16-Bit-Pixel-Art: Christoph winkt'
+      'i-am': 'Christoph im Lichtkegel einer alten Lampe'
+      'lead-developer': 'Christoph läuft vor dem Brandenburger Tor, drei kleine Figuren folgen ihm'
+      'ux-background': 'Christoph mit einer Lupe neben einem Mauszeiger'
+      'products-that-last': 'Christoph gießt einen Bonsai'
+      'playful-ideas': 'Christoph springt gegen einen Block, eine Glühbirne kommt heraus'
   projects:
     meta:
       description: Für unsere unsere Kunden entwickeln wir digitale Produkte, Services und Kommunikationsstrategien.
