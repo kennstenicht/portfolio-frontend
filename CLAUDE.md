@@ -272,8 +272,15 @@ is no animation library in this path — `ember-animated` no longer drives the
 project list or the project detail.
 
 `app/routes/application/route.ts#beforeModel` registers a `routeWillChange`
-listener that wraps the transition. Two constraints shape it, and both are
-invisible from the code:
+listener that wraps the transition. A route change from a **link click** does
+not use the view transition: the pixel overlay covers the page from the
+clicked link and opens it up again once the new route has rendered. The
+`pixel-overlay` service records the clicked element only while its click is
+dispatched, so back and forward fall through to the view transition. A link
+whose target morphs (project preview, back to overview) carries
+`data-view-transition` to keep it — add that to any new link that should
+morph. Two constraints shape the view transition, and both are invisible from
+the code:
 
 - **The DOM update has to happen inside the `startViewTransition` callback.**
   The browser captures the "before" state on the next frame, not when
@@ -282,7 +289,12 @@ invisible from the code:
   `routeDidChange` lets Ember swap the DOM first — both snapshots then capture
   the _new_ page and nothing animates, with no error. The listener therefore
   calls `transition.abort()` and `await transition.retry()` from inside the
-  callback. `#isRetrying` stops the retry from re-entering the listener.
+  callback. Both re-enter the listener synchronously: `abort()` announces the
+  transition again with `isAborted` set, and `retry()` announces a new one,
+  which `#isRetrying` — set only around the `retry()` call — filters out. Keep
+  that flag off any `await`: a cancelled ember-concurrency task runs its
+  `finally` asynchronously, and a flag reset there once leaked into the next
+  route change and looped view transitions.
 - **The callback must also await `afterRender`**, since `retry()` resolves
   before Ember has rendered.
 

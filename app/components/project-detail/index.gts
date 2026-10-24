@@ -77,7 +77,7 @@ export default class ProjectDetail extends Component<ProjectDetailSignature> {
             <ContentComponent @project={{@project}} />
           {{/let}}
           <div class={{bem "back"}}>
-            <LinkTo @route="projects" class={{bem "link"}}>
+            <LinkTo @route="projects" class={{bem "link"}} data-view-transition>
               {{t "projectDetail.backToOverview" htmlSafe=true}}
             </LinkTo>
           </div>

@@ -50,7 +50,7 @@
 
 :global(html):has(.scope--style-about) {
   --color-primary: #222;
-  --color-secondary: #f2f2f2;
+  --color-secondary: #fff;
   --color-typo: #f2f2f2;
   --color-background: #111;
 }
@@ -119,25 +119,9 @@
   display: flex;
   flex-direction: column;
   overflow: auto;
-  -webkit-overflow-scrolling: touch;
   margin: var(--spacing-small);
   height: var(--vh);
-}
-
-.frame {
-  box-sizing: content-box;
-  position: fixed;
-  inset: 0;
-  z-index: 901;
-  border-color: var(--color-primary);
-  border-width: var(--spacing-small);
-  border-style: solid;
-  pointer-events: none;
-  transition: border-color var(--transition-slow) 0.2s;
-}
-
-.scope--navigation-is-open .frame {
-  border-width: 51vw;
+  border-radius: var(--spacing-small);
 }
 
 /* Media Queries
@@ -145,7 +129,7 @@
 
 @media (width < 768px) {
   .content {
-    min-height: 101%;
+    min-height: 100%;
   }
 }
 

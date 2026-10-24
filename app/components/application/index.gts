@@ -11,6 +11,7 @@ import { getBem } from 'portfolio/utils/get-bem';
 
 import Footer from './footer';
 import Header from './header';
+import PixelOverlay from './pixel-overlay';
 import styles from './styles.module.css';
 
 // import CookieNotice from './cookie-notice';
@@ -69,9 +70,7 @@ export default class Application extends Component<ApplicationSignature> {
   // Template
   <template>
     <div
-      class={{bem
-        (hash style=this.urlSegments navigation-is-open=this.isNavigationOpen)
-      }}
+      class={{bem (hash style=this.urlSegments)}}
       data-test-application
       {{windowOn
         "blur"
@@ -94,7 +93,7 @@ export default class Application extends Component<ApplicationSignature> {
 
       {{! <CookieNotice /> }}
 
-      <div class={{bem "frame"}} data-test-frame></div>
+      <PixelOverlay />
     </div>
   </template>
 }

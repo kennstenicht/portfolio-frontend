@@ -28,7 +28,11 @@ export default class ProjectListPreview extends Component<ProjectListPreviewSign
   // Template
   <template>
     <article class={{bem (hash style=@project.id)}} ...attributes>
-      <LinkTo @route="projects.show" @model={{@project.id}}>
+      <LinkTo
+        @route="projects.show"
+        @model={{@project.id}}
+        data-view-transition
+      >
         <img
           class={{bem "preview-image" (hash style=@project.id)}}
           src={{@project.previewImage}}
