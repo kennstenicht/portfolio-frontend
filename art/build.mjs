@@ -1,4 +1,4 @@
-// Builds the home route's pixel-art scenes into app/routes/home/images/.
+// Builds the home illustrations into app/components/intro/images/.
 // Usage: pnpm art
 import { execFileSync } from 'node:child_process';
 import {
@@ -13,7 +13,7 @@ import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 
 const ART = path.dirname(fileURLToPath(import.meta.url));
-const OUT = path.join(ART, '..', 'app/routes/home/images');
+const OUT = path.join(ART, '..', 'app/components/intro/images');
 const SIZE = 350;
 const WALL = 246;
 const BG = '#312d2c';

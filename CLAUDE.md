@@ -374,7 +374,7 @@ enabled in `.template-lintrc.js`, so user-facing copy goes through `t`; add
 
 ## Home illustrations
 
-The home route's hover images (`app/routes/home/images/*.png`) are pixel art at
+The home route's hover images (`app/components/intro/images/*.png`) are pixel art at
 **native resolution**: 350×350 indexed PNGs of 15–22 colours, about 1–2 KB
 each, scaled up by the browser with `image-rendering: pixelated`. They are
 plain `<img>` imports, deliberately **not** `?responsive` / `ResponsiveImage`:
@@ -407,7 +407,7 @@ and Aseprite load the same files): import the PNG, load `art/palette.gpl`,
 draw with a 1 px pencil and no anti-aliasing, export PNG to the same path.
 
 - To change the character everywhere, edit `art/sprites/i-am.png`.
-- To touch up one finished scene, copy its image from `app/routes/home/images/`
+- To touch up one finished scene, copy its image from `app/components/intro/images/`
   to `art/sprites/<scene>.edit.png` and paint on it. The next `pnpm art` diffs
   it against the generated scene, keeps only the changed pixels as
   `<scene>.overlay.png`, deletes the `.edit.png` and draws the overlay last on

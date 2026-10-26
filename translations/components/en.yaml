@@ -22,5 +22,21 @@ cookieNotice:
     marketing: Marketing
     required: Only required
 
+intro:
+  title: 'Moin'
+  message:
+    'i-am': "I'm Christoph,"
+    'lead-developer': 'a Berlin-based lead product engineer'
+    'ux-background': 'with a focus on frontend and roots in interface design.'
+    'products-that-last': 'I build products that last'
+    'playful-ideas': 'and love bringing small, playful ideas to life.'
+  altText:
+    'moin': '16-bit pixel art of Christoph waving'
+    'i-am': 'Christoph in the beam of an old lamp'
+    'lead-developer': 'Christoph holding a huge arrow that points forward and up'
+    'ux-background': 'Christoph juggling a toggle switch, a calendar and a bar chart'
+    'products-that-last': 'Christoph watering a bonsai'
+    'playful-ideas': 'Christoph jumping against a block, and a light bulb pops out'
+
 projectDetail:
   backToOverview: Back to overview

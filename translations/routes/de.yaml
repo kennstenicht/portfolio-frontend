@@ -18,21 +18,6 @@ route:
     meta:
       description: Wir konnten die Seite leider nicht finden. Entweder ist die Seite nicht mehr vorhanden oder du hast in der url etwas falsches eingeben.
       title: 404 » nicht gefunden
-  home:
-    title: 'Moin'
-    message:
-      'i-am': 'Ich bin Christoph,'
-      'lead-developer': 'Lead Product Engineer aus Berlin'
-      'ux-background': 'mit Fokus auf Frontend und starkem UX-Hintergrund.'
-      'products-that-last': 'Ich entwickle Produkte, die über Jahre bestehen'
-      'playful-ideas': 'und setze zwischendurch kleine, verspielte Ideen um.'
-    altText:
-      'moin': '16-Bit-Pixel-Art: Christoph winkt'
-      'i-am': 'Christoph im Lichtkegel einer alten Lampe'
-      'lead-developer': 'Christoph hält einen riesigen Pfeil, der nach vorn und oben zeigt'
-      'ux-background': 'Christoph jongliert mit einem Schalter, einem Kalender und einem Balkendiagramm'
-      'products-that-last': 'Christoph gießt einen Bonsai'
-      'playful-ideas': 'Christoph springt gegen einen Block, eine Glühbirne kommt heraus'
   projects:
     meta:
       description: Für unsere unsere Kunden entwickeln wir digitale Produkte, Services und Kommunikationsstrategien.
