@@ -2,19 +2,18 @@ import { concat, fn, hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { ResponsiveImage } from '@responsive-image/ember';
 import { t } from 'ember-intl';
 
 import Metadata from 'portfolio/components/seo/metadata';
 import fitText from 'portfolio/modifiers/fit-text';
 import { getBem } from 'portfolio/utils/get-bem';
 
-import iAm from './images/i-am.png?responsive';
-import leadDeveloper from './images/lead-developer.png?responsive';
-import moin from './images/moin.png?responsive';
-import playfulIdeas from './images/playful-ideas.png?responsive';
-import productsThatLast from './images/products-that-last.png?responsive';
-import uxBackground from './images/ux-background.png?responsive';
+import iAm from './images/i-am.png';
+import leadDeveloper from './images/lead-developer.png';
+import moin from './images/moin.png';
+import playfulIdeas from './images/playful-ideas.png';
+import productsThatLast from './images/products-that-last.png';
+import uxBackground from './images/ux-background.png';
 import styles from './styles.module.css';
 
 const bem = getBem(styles);
@@ -65,10 +64,11 @@ export default class ErrorTemplate extends Component {
 
     <div class={{(bem)}}>
       {{#if this.selectedImage}}
-        <ResponsiveImage
-          @src={{this.selectedImage}}
-          @sizes="100vw"
+        <img
           class={{bem "huge-image"}}
+          src={{this.selectedImage}}
+          width="350"
+          height="350"
           alt={{t (concat "route.home.altText." this.selectedFragment)}}
           data-test-home-image={{this.selectedFragment}}
         />

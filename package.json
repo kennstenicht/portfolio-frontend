@@ -16,6 +16,7 @@
   },
   "scripts": {
     "build": "vite build",
+    "art": "node art/build.mjs",
     "format": "prettier . --cache --write",
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
     "lint:css": "stylelint \"**/*.css\"",
@@ -107,6 +108,7 @@
     "prettier-plugin-ember-template-tag": "^2.1.3",
     "qunit": "^2.25.0",
     "qunit-dom": "^3.4.0",
+    "sharp": "0.35.5",
     "style-loader": "^3.3.3",
     "stylelint": "^16.26.1",
     "stylelint-config-css-modules": "^4.6.0",

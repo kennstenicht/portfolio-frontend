@@ -48,7 +48,6 @@ module('Acceptance | home', function (hooks) {
     await visit('/');
     await focus('[data-test-home-fragment="i-am"]');
 
-    // `.ri-responsive` from @responsive-image/ember sets `height: auto` with the same specificity, so only bundle order keeps ours.
     const image = document.querySelector<HTMLImageElement>(
       '[data-test-home-image="i-am"]',
     )!;
