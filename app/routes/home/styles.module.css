@@ -18,23 +18,17 @@
   font-size: inherit;
 }
 
-.fragment {
-  cursor: default;
-}
-
 .fragment:focus-visible {
   outline: 2px solid currentcolor;
   outline-offset: 0.1em;
 }
 
-.message:is(:hover, :focus-within) .fragment,
-.message:is(:hover, :focus-within) .title {
+.message:is(:hover, :focus-within) .fragment {
   opacity: 0.1;
 }
 
 .message .fragment:is(:hover, :focus-visible),
-.message .fragment--is-selected,
-.message .title:hover {
+.message .fragment--is-selected {
   opacity: 1 !important;
 }
 
