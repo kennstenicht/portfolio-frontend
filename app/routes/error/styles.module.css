@@ -1,5 +1,5 @@
 /* ==========================================================================
-  # PAGE
+  # ERROR
   ========================================================================== */
 
 .scope {
@@ -7,9 +7,50 @@
   align-items: center;
   justify-content: center;
   height: var(--vh);
+}
 
-  &--is-turning-off {
-    background-color: red;
+/* Screen
+   ==========================================================================
+   Printed line by line, like a BIOS writing to the screen. */
+
+.screen {
+  display: grid;
+  gap: var(--spacing-base);
+  overflow-wrap: anywhere;
+
+  & > * {
+    margin: 0;
+    animation: print 0s calc(var(--line) * 0.2s) both;
+  }
+
+  & > :nth-child(1) {
+    --line: 1;
+  }
+
+  & > :nth-child(2) {
+    --line: 2;
+  }
+
+  & > :nth-child(3) {
+    --line: 3;
+  }
+
+  & > :nth-child(4) {
+    --line: 4;
+  }
+
+  & > :nth-child(5) {
+    --line: 5;
+  }
+
+  & > :nth-child(6) {
+    --line: 6;
+  }
+}
+
+@keyframes print {
+  from {
+    visibility: hidden;
   }
 }
 
@@ -22,5 +63,96 @@
   width: fit-content;
   font-size: var(--font-size);
   padding: 2px 4px;
-  margin-bottom: var(--spacing-base);
+}
+
+.option {
+  display: flex;
+  gap: 1ch;
+
+  &::before {
+    content: "*";
+  }
+}
+
+/* Plain text, as on the original: no hover, no pointer. Tapping still works,
+   so the page is not a dead end without a keyboard. */
+.action {
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-align: left;
+  text-transform: inherit;
+}
+
+.cursor {
+  display: inline-block;
+  width: 1ch;
+  height: 1.2em;
+  margin-left: 1ch;
+  vertical-align: text-bottom;
+  background-color: currentcolor;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    visibility: hidden;
+  }
+}
+
+/* Power off
+   ==========================================================================
+   The whole screen goes, header and footer included, so the CRT collapse runs
+   on the body and the root turns black behind it. */
+
+:global(html):has(.scope--is-turning-off) {
+  background-color: #000;
+  transition: none;
+
+  & :global(body) {
+    animation: power-off 1.4s ease-in forwards;
+  }
+}
+
+@keyframes power-off {
+  15% {
+    transform: none;
+    filter: brightness(1.6);
+  }
+
+  50% {
+    transform: scale(1, 0.004);
+    filter: grayscale(1) brightness(8);
+  }
+
+  80% {
+    transform: scale(0.004, 0.004);
+    opacity: 1;
+    filter: grayscale(1) brightness(8);
+  }
+
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .screen > *,
+  .cursor {
+    animation: none;
+  }
+
+  :global(html):has(.scope--is-turning-off) :global(body) {
+    animation: fade-out 0.3s forwards;
+  }
 }
