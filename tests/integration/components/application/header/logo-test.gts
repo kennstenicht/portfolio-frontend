@@ -37,19 +37,18 @@ module('Integration | Component | application/header/logo', function (hooks) {
     assert.strictEqual(renderedWord(), withoutSpaces(DEFAULT_WORD));
   });
 
-  test('it exposes the logo as a button and forwards attributes', async function (assert) {
+  test('it forwards attributes', async function (assert) {
     await render(<template><Logo data-test-custom="yes" /></template>);
 
-    assert
-      .dom('[data-test-logo]')
-      .hasAttribute('role', 'button')
-      .hasAttribute('data-test-custom', 'yes');
+    assert.dom('[data-test-logo]').hasAttribute('data-test-custom', 'yes');
   });
 
   test('hovering swaps the letters for another word of the list', async function (assert) {
     await render(<template><Logo /></template>);
 
-    await triggerEvent('[data-test-logo]', 'mouseenter');
+    await triggerEvent('[data-test-logo]', 'pointerenter', {
+      pointerType: 'mouse',
+    });
 
     await waitUntil(() => renderedWord() !== withoutSpaces(DEFAULT_WORD), {
       timeout: 3000,
@@ -67,10 +66,31 @@ module('Integration | Component | application/header/logo', function (hooks) {
     );
   });
 
+  test('every tap runs the animation again', async function (assert) {
+    await render(<template><Logo /></template>);
+
+    const tap = () =>
+      triggerEvent('[data-test-logo]', 'pointerup', { pointerType: 'touch' });
+    const isScattered = () =>
+      !findAll('[data-test-logo-letter]').every(isBackInPlace);
+
+    await tap();
+    await waitUntil(isScattered, { timeout: 3000 });
+    await waitUntil(() => !isScattered(), { timeout: 3000 });
+
+    // Checking the scatter rather than the word: two random words can coincide.
+    await tap();
+    await waitUntil(isScattered, { timeout: 3000 });
+
+    assert.ok(isScattered(), 'the second tap scatters the letters again');
+  });
+
   test('the letters fly back into their cell after the swap', async function (assert) {
     await render(<template><Logo /></template>);
 
-    await triggerEvent('[data-test-logo]', 'mouseenter');
+    await triggerEvent('[data-test-logo]', 'pointerenter', {
+      pointerType: 'mouse',
+    });
 
     await waitUntil(
       () =>

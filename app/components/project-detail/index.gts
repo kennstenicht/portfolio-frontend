@@ -1,3 +1,4 @@
+import { viewTransitionName } from '@cardstack/view-transitions';
 import { hash } from '@ember/helper';
 import type Owner from '@ember/owner';
 import { LinkTo } from '@ember/routing';
@@ -10,10 +11,8 @@ import ProjectSliderService from 'portfolio/services/project-slider';
 import { getBem } from 'portfolio/utils/get-bem';
 
 import Default from './default';
-import Header from './header';
 import MintEc from './mint-ec';
 import styles from './styles.module.css';
-import Summary from './summary';
 
 export interface ProjectDetailSignature {
   Element: HTMLElement;
@@ -38,15 +37,47 @@ export default class ProjectDetail extends Component<ProjectDetailSignature> {
   // Template
   <template>
     <article class={{bem (hash style=@project.id)}} ...attributes>
-      <Header @project={{@project}} />
+      <img
+        class={{bem "preview-image"}}
+        src={{@project.previewImage}}
+        alt={{@project.title}}
+        {{viewTransitionName "project-image-" @project.id}}
+      />
       <div class={{bem "content"}}>
-        <Summary @project={{@project}} />
+        <header class={{bem "header"}}>
+          <div class={{bem "intro"}}>
+            <hgroup class={{bem "heading"}}>
+              <h1
+                class={{bem "title"}}
+                {{viewTransitionName "project-title-" @project.id}}
+              >
+                {{@project.title}}
+              </h1>
+              <p
+                class={{bem "subtitle"}}
+                {{viewTransitionName "project-subtitle-" @project.id}}
+              >
+                {{@project.subtitle}}
+              </p>
+            </hgroup>
+
+            {{! template-lint-disable no-triple-curlies }}
+            {{{@project.excerpt}}}
+          </div>
+
+          <dl class={{bem "meta-info"}}>
+            {{#each-in @project.facts as |label value|}}
+              <dt>{{label}}</dt>
+              <dd>{{value}}</dd>
+            {{/each-in}}
+          </dl>
+        </header>
         <div class={{bem "wrapper"}}>
           {{#let (getContentComponent @project.id) as |ContentComponent|}}
             <ContentComponent @project={{@project}} />
           {{/let}}
           <div class={{bem "back"}}>
-            <LinkTo @route="projects" class={{bem "link"}}>
+            <LinkTo @route="projects" class={{bem "link"}} data-view-transition>
               {{t "projectDetail.backToOverview" htmlSafe=true}}
             </LinkTo>
           </div>

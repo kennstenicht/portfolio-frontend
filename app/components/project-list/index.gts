@@ -46,16 +46,16 @@ export default class ProjectList extends Component<ProjectListSignature> {
       modules: [FreeMode, Pagination, Keyboard, Mousewheel, Parallax],
       slidesPerView: 'auto',
       centeredSlides: true,
-      spaceBetween: '12%',
+      spaceBetween: '45%',
       grabCursor: true,
       simulateTouch: true,
+      touchEventsTarget: 'container',
       parallax: true,
       initialSlide: this.projectSlider.position ?? 0,
 
       freeMode: {
         enabled: true,
         minimumVelocity: 0.2,
-        momentum: false,
       },
 
       keyboard: {
@@ -65,6 +65,12 @@ export default class ProjectList extends Component<ProjectListSignature> {
 
       mousewheel: {
         releaseOnEdges: true,
+      },
+
+      breakpoints: {
+        768: {
+          spaceBetween: '12%',
+        },
       },
 
       on: {

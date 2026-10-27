@@ -23,6 +23,7 @@
   --spacing-huge: calc(var(--baseline) * 16);
   --spacing-huge-large: calc(var(--baseline) * 24);
   --spacing-giant: calc(var(--baseline) * 32);
+  --spacing-giant-huge: calc(var(--baseline) * 48);
 
   /* Typographic
   =========================================================================== */
@@ -34,7 +35,7 @@
 
   /* Heading sizes */
   --font-size-h1: clamp(40px, 6.33vw, 76px);
-  --font-size-h2: 20px;
+  --font-size-h2: 24px;
   --font-size-h3: 18px;
   --font-size-h4: 18px;
   --font-size-h5: 18px;
@@ -88,6 +89,6 @@
   --transition-slow: 0.6s ease-in-out;
 
   /* Viewport */
-  --vh: calc(100vh - var(--spacing-base));
+  --vh: calc(100svh - var(--spacing-base));
   --vw: calc(100vw - var(--spacing-base));
 }

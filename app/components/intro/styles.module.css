@@ -1,0 +1,68 @@
+.scope {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.message {
+  position: relative;
+  z-index: 2;
+  text-align: justify;
+  hyphens: auto;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+
+.title {
+  display: inline;
+  font-size: inherit;
+}
+
+.fragment:focus-visible {
+  outline: 2px solid currentcolor;
+  outline-offset: 0.1em;
+}
+
+.message:is(:hover, :focus-within) .fragment {
+  opacity: 0.1;
+}
+
+.message .fragment:is(:hover, :focus-visible),
+.message .fragment--is-selected {
+  opacity: 1 !important;
+}
+
+.huge-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: pixelated;
+  z-index: 1;
+
+  /* Hides the alt text the browser paints until the image has loaded. */
+  color: transparent;
+}
+
+/* Media Queries
+   ========================================================================== */
+
+@media (width < 768px) {
+  .message {
+    margin: var(--spacing-giant-huge) var(--spacing-base) var(--spacing-base)
+      var(--spacing-base);
+    width: calc(var(--vw) - var(--spacing-large));
+    height: calc(var(--vh) - var(--spacing-giant-huge) - var(--spacing-base));
+  }
+}
+
+@media (width >= 768px) {
+  .message {
+    margin: var(--spacing-giant-huge) var(--spacing-large) var(--spacing-large)
+      var(--spacing-large);
+    width: calc(var(--vw) - var(--spacing-huge));
+    height: calc(var(--vh) - var(--spacing-giant-huge) - var(--spacing-large));
+  }
+}

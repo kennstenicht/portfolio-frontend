@@ -9,10 +9,12 @@ import IntlService from 'ember-intl/services/intl';
 import { windowOn } from 'portfolio/modifiers/window-on';
 import { getBem } from 'portfolio/utils/get-bem';
 
-import CookieNotice from './cookie-notice';
 import Footer from './footer';
 import Header from './header';
+import PixelOverlay from './pixel-overlay';
 import styles from './styles.module.css';
+
+// import CookieNotice from './cookie-notice';
 
 export interface ApplicationSignature {
   Element: HTMLDivElement;
@@ -68,9 +70,7 @@ export default class Application extends Component<ApplicationSignature> {
   // Template
   <template>
     <div
-      class={{bem
-        (hash style=this.urlSegments navigation-is-open=this.isNavigationOpen)
-      }}
+      class={{bem (hash style=this.urlSegments)}}
       data-test-application
       {{windowOn
         "blur"
@@ -79,21 +79,21 @@ export default class Application extends Component<ApplicationSignature> {
       {{windowOn "focus" (fn this.changeMetaTitle "")}}
       ...attributes
     >
+      <Header
+        @isNavigationOpen={{this.isNavigationOpen}}
+        @setIsNavigationOpen={{this.setIsNavigationOpen}}
+      />
 
       <div class={{bem "content"}} data-test-content>
-        <Header
-          @isNavigationOpen={{this.isNavigationOpen}}
-          @setIsNavigationOpen={{this.setIsNavigationOpen}}
-        />
         <main data-test-main>
           {{yield}}
         </main>
         <Footer @isNavigationOpen={{this.isNavigationOpen}} />
       </div>
 
-      <CookieNotice />
+      {{! <CookieNotice /> }}
 
-      <div class={{bem "frame"}} data-test-frame></div>
+      <PixelOverlay />
     </div>
   </template>
 }

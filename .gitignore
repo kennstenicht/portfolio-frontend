@@ -24,3 +24,6 @@
 # Agents
 /.claude/settings.local.json
 /.claude/todos.json
+
+# pixel-art intermediates (pnpm art)
+/art/build/

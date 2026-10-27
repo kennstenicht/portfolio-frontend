@@ -2,8 +2,8 @@ route:
   application:
     meta:
       blurTitle: '>>>> Click here now <<<<'
-      description: 'i’m a berlin base web engenieer with a strong ux background and a love for details. i worked with many frameworks in different languages, but i prefer to work with ember.js or ruby on rails.'
-      title: Christoph Wiedenmann » Software Engenieer & UX Designer
+      description: 'I’m Christoph, a Berlin-based lead product engineer with a focus on frontend and roots in interface design. I build products that last and love bringing small, playful ideas to life.'
+      title: Christoph Wiedenmann » Lead Product Engineer
   error:
     title: 404 - Not Found
     message:
@@ -18,24 +18,6 @@ route:
     meta:
       description: We can't find the page you are looking for. either the page is not available anymore or you have entered a wrong url.
       title: 404 » not found
-  home:
-    title: 'Moin'
-    message:
-      'i-am': "I'm"
-      'berlin-based': 'a berlin based'
-      'senior-developer': 'senior software developer'
-      'ux-background': 'with a strong ux background'
-      'love-for-details': 'and a love for details.'
-      'currently-shipping': 'Currently shipping products with Ember.js and Next.js,'
-      'learn-svelte': 'while eager to explore Svelte.'
-    altText:
-      'i-am': 'Portrait of Christoph Wiedenmann in 16-Bit pixel art'
-      'berlin-based': 'Berlin skyline in 16-Bit pixel art'
-      'senior-developer': 'A developer in front of a monitor in 16-Bit pixel art'
-      'ux-background': 'A designer in front of a monitor in 16-Bit pixel art'
-      'love-for-details': 'visualisation of love for details in 16-Bit pixel art'
-      'currently-shipping': 'Ember.js and Next.js logo in 16-Bit pixel art'
-      'learn-svelte': 'Svelte logo in 16-Bit pixel art'
   projects:
     meta:
       description: Für unsere unsere Kunden entwickeln wir digitale Produkte, Services und Kommunikationsstrategien.

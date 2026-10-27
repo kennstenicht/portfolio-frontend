@@ -1,5 +1,6 @@
 import { loadTranslations } from '@ember-intl/vite';
 import { ember, extensions } from '@embroider/vite';
+import { responsiveImage } from '@responsive-image/vite-plugin';
 import { babel } from '@rollup/plugin-babel';
 import crypto from 'crypto';
 import path from 'path';
@@ -36,6 +37,13 @@ export default defineConfig(({ mode }) => {
       }),
       ember(),
       loadTranslations(),
+      responsiveImage({
+        // The default widths go up to 3840, but the source images stop at 2000.
+        w: [640, 1080, 1600, 2000],
+        // The fallback only reaches browsers without WebP. JPEG keeps it a
+        // fraction of the PNG size, but would flatten an image with alpha.
+        format: ['jpeg', 'webp', 'avif'],
+      }),
       // extra plugins here
       babel({
         babelHelpers: 'runtime',

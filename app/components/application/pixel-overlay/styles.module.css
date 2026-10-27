@@ -1,0 +1,53 @@
+/* ==========================================================================
+   # APPLICATION PIXEL OVERLAY
+   ========================================================================== */
+
+.scope {
+  position: fixed;
+  inset: var(--spacing-small);
+  z-index: 901;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  align-content: start;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Cells switch instantly, without a fade, so each one reads as a pixel
+   turning on; only the delay staggers them. Revealing uses the same delay,
+   so the page opens up from the origin. */
+.cell {
+  --delay: calc(
+    hypot(
+        var(--column) - var(--origin-column),
+        var(--row) - var(--origin-row)
+      ) /
+      var(--distance) * var(--sweep) + var(--jitter)
+  );
+
+  aspect-ratio: 1;
+  background-color: var(--color-primary);
+  opacity: 0;
+  transition:
+    opacity 0s linear var(--delay),
+    background-color var(--transition-slow) 0.2s;
+}
+
+.scope--is-covered .cell {
+  opacity: 1;
+  transition:
+    opacity 0s linear var(--delay),
+    background-color var(--transition-slow) 0.2s;
+}
+
+/* Media Queries
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .cell,
+  .scope--is-covered .cell {
+    transition:
+      opacity var(--transition-base),
+      background-color var(--transition-slow) 0.2s;
+  }
+}

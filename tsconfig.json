@@ -38,6 +38,7 @@
       "@glint/ember-tsc/types",
       "@ember-intl/vite/virtual",
       "vite/client",
+      "@responsive-image/vite-plugin/client",
     ]
   },
 }

@@ -6,101 +6,110 @@
   position: relative;
   color: var(--color-typo);
 
-  /* Pages */
-  &--style-default {
-    --color-primary: #fff;
-    --color-secondary: #fff;
-    --color-typo: #333;
-    --color-background: #f5f5f5;
-  }
-
-  &--style-imprint {
-    --color-primary: #fff;
-    --color-secondary: #fff;
-    --color-typo: #333;
-    --color-background: #f5f5f5;
-  }
-
-  &--style-privacy {
-    --color-primary: #fff;
-    --color-secondary: #fff;
-    --color-typo: #333;
-    --color-background: #f5f5f5;
-  }
-
-  &--style-projects {
-    --color-primary: #fff;
-    --color-secondary: #fff;
-    --color-typo: #333;
-    --color-background: #f5f5f5;
-  }
-
-  &--style-about {
-    --color-primary: #121212;
-    --color-secondary: #fff;
-    --color-typo: #f2f2f2;
-    --color-background: #111;
-  }
-
-  &--style-error {
-    --color-primary: #041aac;
-    --color-secondary: #fff;
-    --color-typo: #f2f2f2;
-    --color-background: #0015a3;
-  }
-
-  /* Projects */
-  &--style-meinezeit {
-    --color-primary: #134836;
-    --color-secondary: #df3517;
-    --color-typo: #f2f2f2;
-    --color-background: #27262d;
-  }
-
-  &--style-mint-ec {
-    --color-primary: #053440;
-    --color-secondary: #ffd400;
-    --color-typo: #f2f2f2;
-    --color-background: #181d1f;
-  }
-
-  &--style-signed {
-    --color-primary: #008d84;
-    --color-secondary: #008d84;
-    --color-typo: #f2f2f2;
-    --color-background: #181d1f;
-  }
-
-  &--style-umg-cms {
-    --color-primary: #213f6e;
-    --color-secondary: #4074a8;
-    --color-typo: #f2f2f2;
-    --color-background: #092247;
-  }
-
-  &--style-pagebuilder {
-    --color-primary: #2d2b52;
-    --color-secondary: #f1e7df;
-    --color-typo: #f2f2f2;
-    --color-background: #173c61;
-  }
-
-  &--style-chin-chin {
-    --color-primary: #333450;
-    --color-secondary: #232732;
-    --color-typo: #f2f2f2;
-    --color-background: #232732;
-  }
-
-  &--style-flimmerkasten {
-    --color-primary: #f64206;
-    --color-secondary: #182037;
-    --color-typo: #f2f2f2;
-    --color-background: #232732;
-  }
-
   --link-hover-background: var(--color-typo);
   --link-hover-color: var(--color-primary);
+}
+
+/* Themes
+   ==========================================================================
+   Declared on the root rather than on .scope so the root background, which
+   iOS paints behind the status bar and the overscroll bounce, can read them. */
+
+:global(html) {
+  --color-home-background: #2f2b2a;
+}
+
+/* Pages */
+:global(html):has(.scope--style-default) {
+  --color-primary: #222;
+  --color-secondary: #fff;
+  --color-typo: #f2f2f2;
+  --color-background: var(--color-home-background);
+}
+
+:global(html):has(.scope--style-imprint) {
+  --color-primary: #fff;
+  --color-secondary: #fff;
+  --color-typo: #333;
+  --color-background: #f4f1ea;
+}
+
+:global(html):has(.scope--style-privacy) {
+  --color-primary: #fff;
+  --color-secondary: #fff;
+  --color-typo: #333;
+  --color-background: #f4f1ea;
+}
+
+:global(html):has(.scope--style-projects) {
+  --color-primary: #222;
+  --color-secondary: #fff;
+  --color-typo: #f2f2f2;
+  --color-background: #111;
+}
+
+:global(html):has(.scope--style-about) {
+  --color-primary: #222;
+  --color-secondary: #fff;
+  --color-typo: #f2f2f2;
+  --color-background: #111;
+}
+
+:global(html):has(.scope--style-error) {
+  --color-primary: #021bbd;
+  --color-secondary: #f2f2f2;
+  --color-typo: #f2f2f2;
+  --color-background: #0015a3;
+}
+
+/* Projects */
+:global(html):has(.scope--style-meinezeit) {
+  --color-primary: #134836;
+  --color-secondary: #df3517;
+  --color-typo: #f2f2f2;
+  --color-background: #27262d;
+}
+
+:global(html):has(.scope--style-mint-ec) {
+  --color-primary: #053440;
+  --color-secondary: #ffd400;
+  --color-typo: #f2f2f2;
+  --color-background: #181d1f;
+}
+
+:global(html):has(.scope--style-signed) {
+  --color-primary: #008d84;
+  --color-secondary: #008d84;
+  --color-typo: #f2f2f2;
+  --color-background: #181d1f;
+}
+
+:global(html):has(.scope--style-umg-cms) {
+  --color-primary: #213f6e;
+  --color-secondary: #4074a8;
+  --color-typo: #f2f2f2;
+  --color-background: #092247;
+}
+
+:global(html):has(.scope--style-pagebuilder) {
+  --color-primary: #2d2b52;
+  --color-secondary: #f1e7df;
+  --color-typo: #f2f2f2;
+  --color-background: #173c61;
+}
+
+:global(html):has(.scope--style-chin-chin) {
+  --color-primary: #333450;
+  --color-secondary: #232732;
+  --color-typo: #f2f2f2;
+  --color-background: #232732;
+}
+
+:global(html):has(.scope--style-flimmerkasten) {
+  --color-primary: #f64206;
+  --color-secondary: #182037;
+  --color-typo: #f2f2f2;
+  --color-background: #232732;
 }
 
 .content {
@@ -110,27 +119,9 @@
   display: flex;
   flex-direction: column;
   overflow: auto;
-  -webkit-overflow-scrolling: touch;
   margin: var(--spacing-small);
   height: var(--vh);
-}
-
-.frame {
-  box-sizing: content-box;
-  position: fixed;
-  inset: 0;
-  z-index: 901;
-  border-color: var(--color-primary);
-  border-width: var(--spacing-small);
-  border-style: solid;
-  pointer-events: none;
-  transition:
-    border-width 0.6s cubic-bezier(1, 0, 0.67, 0.92),
-    border-color var(--transition-slow) 0.2s;
-}
-
-.scope--navigation-is-open .frame {
-  border-width: 51vw;
+  border-radius: var(--spacing-small);
 }
 
 /* Media Queries
@@ -138,7 +129,7 @@
 
 @media (width < 768px) {
   .content {
-    min-height: 101%;
+    min-height: 100%;
   }
 }
 

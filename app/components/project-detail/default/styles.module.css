@@ -1,7 +1,7 @@
 /* ==========================================================================
-   # PROJECT DETAIL AD HOC
+   # PROJECT DETAIL / DEFAULT
    ========================================================================== */
 
 .scope {
-  /* block-name: c-project-detail-ad-hoc; */
+  padding-bottom: var(--spacing-large);
 }

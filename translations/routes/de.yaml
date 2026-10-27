@@ -2,8 +2,8 @@ route:
   application:
     meta:
       blurTitle: '>>>>  Schnell hier klicken  <<<<'
-      description: Moin, ich bin Christoph und ein Berliner Software Entwickler mit einem starken UX-Hintergrund und eine liebe zu Details. Neben diversen Sprachen und Frameworks bevorzuge ich ember.js und Ruby on Rails.
-      title: Christoph Wiedenmann » Software Engenieer & UX Designer
+      description: Moin, ich bin Christoph, Lead Product Engineer aus Berlin mit Fokus auf Frontend und starkem UX-Hintergrund. Ich entwickle Produkte, die über Jahre bestehen, und setze zwischendurch kleine, verspielte Ideen um.
+      title: Christoph Wiedenmann » Lead Product Engineer
   error:
     title: 404 - Not Found
     message:
@@ -18,24 +18,6 @@ route:
     meta:
       description: Wir konnten die Seite leider nicht finden. Entweder ist die Seite nicht mehr vorhanden oder du hast in der url etwas falsches eingeben.
       title: 404 » nicht gefunden
-  home:
-    title: 'Moin'
-    message:
-      'i-am': 'Ich bin'
-      'berlin-based': 'ein Berliner'
-      'senior-developer': 'Senior Softwareentwickler'
-      'ux-background': 'mit starken UX-Hintergrund'
-      'love-for-details': 'und einer Leidenschaft zu Details.'
-      'currently-shipping': 'Derzeit entwickel ich Produkte mit Ember.js und Next.js'
-      'learn-svelte': 'und würde mich freuen Svelte zu testen.'
-    altText:
-      'i-am': 'Portrait von Christoph Wiedenmann in 16-Bit Pixel-Art'
-      'berlin-based': 'Berliner Skyline in 16-Bit Pixel-Art'
-      'senior-developer': 'Ein Progammierer vor einem Monitor in 16-Bit Pixel-Art'
-      'ux-background': 'Ein Designer vor einem Monitor 16-Bit Pixel-Art'
-      'love-for-details': 'Visualisierung von Liebe zu Details in 16-Bit Pixel-Art'
-      'currently-shipping': 'ember.js und next.js Logo in 16-Bit Pixel-Art'
-      'learn-svelte': 'Svelte Logo in 16-Bit Pixel-Art'
   projects:
     meta:
       description: Für unsere unsere Kunden entwickeln wir digitale Produkte, Services und Kommunikationsstrategien.

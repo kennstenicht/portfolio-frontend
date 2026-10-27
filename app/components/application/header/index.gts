@@ -8,6 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import { task, timeout } from 'ember-concurrency';
 import t from 'ember-intl/helpers/t';
 
+import type PixelOverlayService from 'portfolio/services/pixel-overlay';
 import { getBem } from 'portfolio/utils/get-bem';
 
 import Logo from './logo/index';
@@ -25,6 +26,7 @@ const bem = getBem(styles);
 
 export default class ApplicationHeader extends Component<ApplicationHeaderSignature> {
   // Services
+  @service declare pixelOverlay: PixelOverlayService;
   @service declare router: RouterService;
 
   // Back to overview
@@ -33,17 +35,31 @@ export default class ApplicationHeader extends Component<ApplicationHeaderSignat
   }
 
   // Navigation
-  closeNavigation = async () => {
-    if (!this.args.isNavigationOpen) {
+  // Listening on the header rather than on each link runs this after the
+  // link's own click handler, so the route sees the transition while the
+  // navigation still covers the page.
+  closeNavigationOnLink = async (event: MouseEvent) => {
+    if (
+      !this.args.isNavigationOpen ||
+      !(event.target as Element).closest('a')
+    ) {
       return;
     }
 
-    this.args.setIsNavigationOpen(false);
-    await this.randomString.perform();
+    await this.setIsNavigationOpen(false);
   };
 
   toggleNavigation = async () => {
-    this.args.setIsNavigationOpen(!this.args.isNavigationOpen);
+    await this.setIsNavigationOpen(!this.args.isNavigationOpen);
+  };
+
+  setIsNavigationOpen = async (isOpen: boolean) => {
+    this.args.setIsNavigationOpen(isOpen);
+
+    void (isOpen
+      ? this.pixelOverlay.cover('navigation')
+      : this.pixelOverlay.reveal('navigation'));
+
     await this.randomString.perform();
   };
 
@@ -75,7 +91,9 @@ export default class ApplicationHeader extends Component<ApplicationHeaderSignat
 
   // Template
   <template>
+    {{! Delegates the links' clicks, which the keyboard reaches through the links themselves. }}
     <header
+      {{! template-lint-disable no-invalid-interactive }}
       class={{bem
         (hash
           is-navigation-open=@isNavigationOpen
@@ -84,13 +102,9 @@ export default class ApplicationHeader extends Component<ApplicationHeaderSignat
       }}
       data-test-header
       ...attributes
+      {{on "click" this.closeNavigationOnLink}}
     >
-      <LinkTo
-        @route="home"
-        class={{bem "logo"}}
-        data-test-logo-link
-        {{on "click" this.closeNavigation}}
-      >
+      <LinkTo @route="home" class={{bem "logo"}} data-test-logo-link>
         <Logo />
       </LinkTo>
 
@@ -104,8 +118,8 @@ export default class ApplicationHeader extends Component<ApplicationHeaderSignat
         >
           <LinkTo
             @route="projects"
+            data-view-transition
             data-test-back-to-overview-link
-            {{on "click" this.closeNavigation}}
           >
             {{t "application.header.toOverview" htmlSafe=true}}
           </LinkTo>
@@ -136,7 +150,6 @@ export default class ApplicationHeader extends Component<ApplicationHeaderSignat
                 @route="projects"
                 class={{bem "link"}}
                 data-test-navigation-link="projects"
-                {{on "click" this.closeNavigation}}
               >
                 {{t "application.header.projects"}}
               </LinkTo>
@@ -147,7 +160,6 @@ export default class ApplicationHeader extends Component<ApplicationHeaderSignat
                 @model="about"
                 class={{bem "link"}}
                 data-test-navigation-link="about"
-                {{on "click" this.closeNavigation}}
               >
                 {{t "application.header.about"}}
               </LinkTo>
@@ -161,7 +173,6 @@ export default class ApplicationHeader extends Component<ApplicationHeaderSignat
                   @model={{pageSlug}}
                   class={{bem "link"}}
                   data-test-navigation-link={{pageSlug}}
-                  {{on "click" this.closeNavigation}}
                 >
                   {{t (concat "application.header." pageSlug)}}
                 </LinkTo>

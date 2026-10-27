@@ -32,9 +32,25 @@
 /* Media Queries
    ========================================================================== */
 
-@media (width < 768px) {
+@media (width < 668px) {
   .scope {
+    flex-direction: column;
     margin-left: 0;
+  }
+
+  .title-wrapper {
+    width: auto;
+  }
+
+  /* writing-mode instead of the rotate transform, so the title's box turns
+     with it and pushes the content down by the title's length. */
+  .title {
+    position: static;
+    writing-mode: vertical-rl;
+    transform: none;
+    margin-left: -6%;
+    font-size: clamp(60px, 25vw, 280px);
+    margin-bottom: var(--spacing-large);
   }
 }
 

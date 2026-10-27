@@ -18,7 +18,7 @@ module('Integration | Component | application', function (hooks) {
     (this.owner as unknown as { setupRouter: () => void }).setupRouter();
   });
 
-  test('it renders the frame around header, content and footer', async function (assert) {
+  test('it renders header, content and footer', async function (assert) {
     await render(
       <template>
         <Application>
@@ -30,8 +30,6 @@ module('Integration | Component | application', function (hooks) {
     assert.dom('[data-test-application]').exists();
     assert.dom('[data-test-header]').exists();
     assert.dom('[data-test-footer]').exists();
-    assert.dom('[data-test-cookie-notice]').exists();
-    assert.dom('[data-test-frame]').exists();
     assert.dom('[data-test-main] [data-test-page]').hasText(PAGE_CONTENT);
   });
 

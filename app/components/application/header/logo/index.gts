@@ -61,9 +61,16 @@ export default class ApplicationHeaderLogo extends Component<ApplicationHeaderLo
     return WORDS[0]?.split('');
   }
 
-  // Hover animation
-  explode = (event: MouseEvent) => {
-    const element = event.target as HTMLElement;
+  // Explode animation
+  explode = (event: PointerEvent) => {
+    const trigger =
+      event.pointerType === 'mouse' ? 'pointerenter' : 'pointerup';
+
+    if (event.type !== trigger) {
+      return;
+    }
+
+    const element = event.currentTarget as HTMLElement;
     const letters = element.querySelectorAll(`.${bem('letter')}`);
     const randomWord = WORDS[randomBetween(1, WORDS.length - 1)];
     const newWord = randomWord?.split('');
@@ -88,9 +95,9 @@ export default class ApplicationHeaderLogo extends Component<ApplicationHeaderLo
   <template>
     <div
       class={{(bem)}}
-      role="button"
       data-test-logo
-      {{on "mouseenter" this.explode}}
+      {{on "pointerenter" this.explode}}
+      {{on "pointerup" this.explode}}
       ...attributes
     >
       {{#each this.defaultLetters as |letter|}}

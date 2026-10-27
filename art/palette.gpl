@@ -1,0 +1,29 @@
+GIMP Palette
+Name: Portfolio pixel art
+Columns: 8
+#
+49	45	44	background
+36	33	30	outline (o)
+23	20	18	eyes, shoes (k)
+252	180	132	skin (S)
+234	149	99	skin shade (s)
+99	67	45	hair (H)
+83	58	41	beard, hair outline (B)
+59	54	51	shirt fold, shoe highlight (U)
+108	92	81	trousers (P)
+91	77	68	trousers shade (p)
+29	26	24	shoes (K)
+249	240	216	soles, teeth, highlights (W)
+164	139	122	props light (l)
+137	115	100	props mid (m)
+247	226	203	cursor, bulb (C)
+217	194	169	cursor, bulb shade (c)
+58	50	45	wall gap
+179	152	133	wall light
+141	118	103	wall fill
+126	106	92	wall shade
+74	63	56	light 1
+91	77	65	light 2
+114	93	77	light 3
+155	125	100	light 4
+195	156	123	light 5
