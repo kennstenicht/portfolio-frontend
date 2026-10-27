@@ -3,7 +3,7 @@ import { modifier } from 'ember-modifier';
 export interface WindowOnSignature {
   Element: HTMLDivElement;
   Args: {
-    Positional: [string, () => void];
+    Positional: [string, (event: Event) => void];
   };
 }
 
