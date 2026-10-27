@@ -22,7 +22,7 @@ export interface ErrorTemplateSignature {
   };
 }
 
-const COUNTDOWN_SECONDS = 50;
+const COUNTDOWN_SECONDS = 20;
 // The power-off animation in styles.module.css, plus a moment of black.
 const POWER_OFF_DURATION = 1400 + 1200;
 
