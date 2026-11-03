@@ -11,7 +11,6 @@ previewImage: '/assets/projects/meinezeit/meinezeit_preview.jpg'
 subtitle: Multiple hotels and wellness resorts, powered by one CMS
 title: MeineZeit
 visible: true
-tags: ['ember.js', 'Ruby on Rails']
 ---
 
 ## Lorem ipsum

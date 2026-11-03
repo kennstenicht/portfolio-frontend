@@ -59,15 +59,7 @@ export default class ProjectListPreview extends Component<ProjectListPreviewSign
             {{@project.subtitle}}
           </div>
         </header>
-
-        <div class={{bem "tags"}}>
-          {{join @project.tags " & "}}
-        </div>
       </LinkTo>
     </article>
   </template>
-}
-
-function join(array: unknown[], separator = ' ') {
-  return array.filter(Boolean).join(separator);
 }

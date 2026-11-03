@@ -13,7 +13,6 @@ export interface Project {
   position: number;
   previewImage: string;
   subtitle: string;
-  tags: string[];
   title: string;
   visible: boolean;
   [Type]: 'project';
@@ -30,7 +29,6 @@ export const ProjectSchema = withDefaults({
     { name: 'position', kind: 'field' },
     { name: 'previewImage', kind: 'field' },
     { name: 'subtitle', kind: 'field' },
-    { name: 'tags', kind: 'field' },
     { name: 'title', kind: 'field' },
     { name: 'visible', kind: 'field' },
   ],

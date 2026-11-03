@@ -12,7 +12,6 @@ previewImage: '/assets/projects/flimmerkasten/flimmerkasten_preview.jpg'
 subtitle: Retro games on tube TVs controlled by you phone
 title: Flimmerkasten
 visible: true
-tags: ['ember.js', 'WebRTC']
 ---
 
 The body is rendered to HTML with [marked](https://marked.js.org) and inserted

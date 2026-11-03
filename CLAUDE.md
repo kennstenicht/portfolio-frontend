@@ -468,7 +468,7 @@ lowercased by design.
 ## Adding a project
 
 1. **Content** — `content/projects/<id>.md`: frontmatter (`title`, `subtitle`,
-   `excerpt`, `facts`, `tags`, `position`, `previewImage`, `visible`, `metaTitle`,
+   `excerpt`, `facts`, `position`, `previewImage`, `visible`, `metaTitle`,
    `metaDescription`) + body → `content`. This alone gives you the data, the
    `index.json` listing entry, and the prerendered `/projects/<id>` route.
 2. **Assets** — under `public/assets/projects/<id>/`.

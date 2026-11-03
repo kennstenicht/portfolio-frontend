@@ -56,13 +56,6 @@
   text-shadow: 0 0 250px var(--color-white);
 }
 
-.tags {
-  position: absolute;
-  top: calc(var(--spacing-base) * -1);
-  right: 0;
-  text-align: right;
-}
-
 /* Media Queries
    ========================================================================== */
 

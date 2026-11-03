@@ -11,7 +11,6 @@ previewImage: '/assets/projects/umg-cms/umg-cms_preview.jpg'
 subtitle: Providing the backbone for hundreds of websites at Universal Music Germany and beyond.
 title: UMG CMS
 visible: true
-tags: ['ember.js']
 ---
 
 ## What i did
