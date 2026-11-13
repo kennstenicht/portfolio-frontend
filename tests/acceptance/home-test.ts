@@ -60,14 +60,42 @@ module('Acceptance | home', function (hooks) {
       );
   });
 
-  test('a second tap on the same fragment opens its link', async function (assert) {
+  test('a second tap on the same fragment keeps it selected', async function (assert) {
     await visit('/');
 
     await touchTap('[data-test-home-fragment="playful-ideas"]');
     await touchTap('[data-test-home-fragment="playful-ideas"]');
 
-    await waitUntil(() => currentURL() === '/projects/flimmerkasten');
-    assert.strictEqual(currentURL(), '/projects/flimmerkasten');
+    assert
+      .dom('[data-test-home-image="playful-ideas"]')
+      .exists('the image stays');
+    assert.strictEqual(currentURL(), '/', 'a tap never navigates');
+  });
+
+  test('the first tap shows a proof link that opens the project', async function (assert) {
+    await visit('/');
+
+    assert.dom('[data-test-home-proof]').doesNotExist('no link before a tap');
+
+    await touchTap('[data-test-home-fragment="products-that-last"]');
+    assert
+      .dom('[data-test-home-proof="products-that-last"]')
+      .exists('the tap shows the link of the tapped fragment');
+
+    // A tap leaves the fragment for the link before the link's click arrives.
+    await triggerEvent(
+      '[data-test-home-fragment="products-that-last"]',
+      'mouseleave',
+      { relatedTarget: document.querySelector('[data-test-home-proof]') },
+    );
+    assert
+      .dom('[data-test-home-proof]')
+      .exists('leaving the fragment for its link keeps the link');
+
+    await click('[data-test-home-proof]');
+
+    await waitUntil(() => currentURL() === '/projects/umg-cms');
+    assert.strictEqual(currentURL(), '/projects/umg-cms');
   });
 
   test('a click on a fragment opens its project', async function (assert) {
