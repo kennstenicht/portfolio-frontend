@@ -1,4 +1,6 @@
 .scope {
+  --proof-height: var(--spacing-base-small);
+
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -11,6 +13,7 @@
   hyphens: auto;
   text-transform: uppercase;
   overflow-wrap: break-word;
+  transition: translate var(--transition-base);
 }
 
 .title {
@@ -50,8 +53,55 @@
   color: transparent;
 }
 
+.proof {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  z-index: 3;
+  translate: -50% 0;
+  padding: 0 var(--spacing-small);
+  background-color: var(--color-typo);
+  color: var(--color-primary);
+  border-top-left-radius: var(--spacing-tiny);
+  border-top-right-radius: var(--spacing-tiny);
+  line-height: var(--proof-height);
+  white-space: nowrap;
+  text-decoration: none;
+  animation: proof-in var(--transition-base);
+}
+
+@keyframes proof-in {
+  from {
+    translate: -50% 100%;
+  }
+}
+
 /* Media Queries
    ========================================================================== */
+
+/* Hover devices open a fragment with a single click, so they need no hint. */
+@media (hover: hover) {
+  .proof {
+    display: none;
+  }
+}
+
+/* Makes room for the proof link, which would otherwise cover the last line. */
+@media (hover: none) {
+  .message--has-selection {
+    translate: 0 calc(-1 * var(--proof-height));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .message {
+    transition: none;
+  }
+
+  .proof {
+    animation: none;
+  }
+}
 
 @media (width < 768px) {
   .message {

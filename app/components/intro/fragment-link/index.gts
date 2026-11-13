@@ -4,7 +4,7 @@ import { service } from '@ember/service';
 import Component from '@glimmer/component';
 
 // Where each fragment leads: the page or project that backs up its claim.
-const LINKS = {
+export const LINKS = {
   'moin': ['page', 'about'],
   'i-am': ['page', 'about'],
   'lead-developer': ['projects.show', 'pagebuilder'],
@@ -19,9 +19,8 @@ export interface IntroFragmentLinkSignature {
   Element: HTMLAnchorElement;
   Args: {
     fragment: Fragment;
-    isSelected: boolean;
     select: () => void;
-    deselect: () => void;
+    deselect: (event: Event) => void;
   };
   Blocks: { default: [] };
 }
@@ -32,24 +31,23 @@ export default class IntroFragmentLink extends Component<IntroFragmentLinkSignat
 
   // Navigation
   // A plain anchor rather than LinkTo, which navigates on every click: a tap
-  // has to be held back while it only reveals the image. A tap selects the
-  // fragment before its click arrives, through the emulated mouseenter and
-  // focus, so whether it was selected already is read at pointerup, which
-  // comes before both.
-  #isFirstTap = false;
+  // only reveals the image, and the proof link is the way on from there. The
+  // click event does not tell a tap apart, so it is read at pointerup, which
+  // comes first.
+  #isTap = false;
 
   get href() {
     return this.router.urlFor(...LINKS[this.args.fragment]);
   }
 
   notePointer = (event: PointerEvent) => {
-    this.#isFirstTap = event.pointerType === 'touch' && !this.args.isSelected;
+    this.#isTap = event.pointerType === 'touch';
   };
 
   open = (event: MouseEvent) => {
-    const isFirstTap = this.#isFirstTap;
+    const isTap = this.#isTap;
 
-    this.#isFirstTap = false;
+    this.#isTap = false;
 
     if (
       event.button !== 0 ||
@@ -63,7 +61,7 @@ export default class IntroFragmentLink extends Component<IntroFragmentLinkSignat
 
     event.preventDefault();
 
-    if (!isFirstTap) {
+    if (!isTap) {
       void this.router.transitionTo(...LINKS[this.args.fragment]);
     }
   };
