@@ -23,30 +23,43 @@ function implode(letterElement: Element, newLetter: string) {
   });
 }
 
+function shuffle<T>(items: readonly T[]): T[] {
+  const result = [...items];
+
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = result[i] as T;
+
+    result[i] = result[j] as T;
+    result[j] = temp;
+  }
+
+  return result;
+}
+
 export const WORDS = [
   'Christoph Wiedenmann',
   'Handcrafted with ♥♥♥',
-  'Javascript Developer',
+  'TypeScript Developer',
   'Experience Designer ',
   'Frontend  Engineer  ',
   'Stylesheet Architect',
-  'Addicted to Ember.js',
-  'Basedin   Ber-   lin',
+  'moin  moinBer-   lin',
+  'Fine arts.Fine code.',
   '1000101101 sommelier',
   'Buildcode not  walls',
   'Pushing boundaries  ',
-  'Digital Craftsman   ',
-  'Open ··¦··mindedness',
-  'working atag—prop   ',
   'creative  </>  coder',
-  'embereño  from heart',
+  'embereño  at   heart',
   'open source lover ♥♥',
-  'master  ofdisaster  ',
+  'master of disaster  ',
   'fusion of design&dev',
-  'No border, No nation',
-  'Make Code not  war  ',
   '01100011    01110111',
   'Rescue is not acrime',
+  'Lead dev   @ag—prop ',
+  'a11y is   not  extra',
+  '404  titlenot  found',
+  'Pixelperfect   (ish)',
 ];
 
 export interface ApplicationHeaderLogoSignature {
@@ -56,9 +69,27 @@ export interface ApplicationHeaderLogoSignature {
 const bem = getBem(styles);
 
 export default class ApplicationHeaderLogo extends Component<ApplicationHeaderLogoSignature> {
+  #queue: string[] = [];
+  #currentWord = WORDS[0];
+
   // Default word
   get defaultLetters() {
     return WORDS[0]?.split('');
+  }
+
+  #nextWord() {
+    if (this.#queue.length === 0) {
+      this.#queue = shuffle(WORDS.slice(1));
+
+      // Avoid a repeat across the boundary between two shuffled rounds
+      if (this.#queue[0] === this.#currentWord) {
+        this.#queue.push(this.#queue.shift() as string);
+      }
+    }
+
+    this.#currentWord = this.#queue.shift();
+
+    return this.#currentWord;
   }
 
   // Explode animation
@@ -72,8 +103,7 @@ export default class ApplicationHeaderLogo extends Component<ApplicationHeaderLo
 
     const element = event.currentTarget as HTMLElement;
     const letters = element.querySelectorAll(`.${bem('letter')}`);
-    const randomWord = WORDS[randomBetween(1, WORDS.length - 1)];
-    const newWord = randomWord?.split('');
+    const newWord = this.#nextWord()?.split('');
 
     letters.forEach(function (letterElement, index) {
       const newLetter = newWord?.[index];
