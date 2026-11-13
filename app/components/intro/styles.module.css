@@ -24,12 +24,16 @@
 }
 
 .message:is(:hover, :focus-within) .fragment {
-  opacity: 0.1;
+  opacity: 0.3;
 }
 
 .message .fragment:is(:hover, :focus-visible),
 .message .fragment--is-selected {
   opacity: 1 !important;
+  -webkit-text-stroke: 0.09em var(--color-background);
+
+  /* Draws the stroke behind the fill, so it outlines the glyphs instead of thinning them */
+  paint-order: stroke fill;
 }
 
 .huge-image {
