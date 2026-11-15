@@ -1,4 +1,6 @@
 import { concat, fn, hash } from '@ember/helper';
+import { on } from '@ember/modifier';
+import { LinkTo } from '@ember/routing';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { t } from 'ember-intl';
@@ -6,7 +8,7 @@ import { t } from 'ember-intl';
 import fitText from 'portfolio/modifiers/fit-text';
 import { getBem } from 'portfolio/utils/get-bem';
 
-import FragmentLink, { type Fragment } from './fragment-link';
+import FragmentLink, { type Fragment, LINKS } from './fragment-link';
 import iAm from './images/i-am.png';
 import leadDeveloper from './images/lead-developer.png';
 import moin from './images/moin.png';
@@ -42,15 +44,42 @@ export default class Intro extends Component<IntroSignature> {
   // Fragments
   @tracked selectedFragment?: Fragment;
 
+  get hasSelection() {
+    return this.selectedFragment !== undefined;
+  }
+
   get selectedImage() {
     return this.selectedFragment && IMAGES[this.selectedFragment];
+  }
+
+  get proof() {
+    if (!this.selectedFragment) {
+      return;
+    }
+
+    const [route, model] = LINKS[this.selectedFragment];
+
+    return { fragment: this.selectedFragment, route, model };
   }
 
   select = (fragment: Fragment) => {
     this.selectedFragment = fragment;
   };
 
-  deselect = () => {
+  // Tapping the proof link fires the emulated mouseleave and blur on the
+  // fragment before the link's click. Deselecting then would remove the link
+  // before the click arrives, and the click is what the page transition
+  // needs.
+  deselect = (event: Event) => {
+    const { relatedTarget } = event as FocusEvent | MouseEvent;
+
+    if (
+      relatedTarget instanceof Element &&
+      relatedTarget.closest(`.${bem('proof')}`)
+    ) {
+      return;
+    }
+
     this.selectedFragment = undefined;
   };
 
@@ -69,11 +98,13 @@ export default class Intro extends Component<IntroSignature> {
           data-test-home-image={{this.selectedFragment}}
         />
       {{/if}}
-      <div class={{bem "message"}} {{fitText}}>
+      <div
+        class={{bem "message" (hash has-selection=this.hasSelection)}}
+        {{fitText}}
+      >
         <h1 class={{bem "title"}}>
           <FragmentLink
             @fragment="moin"
-            @isSelected={{this.isSelected "moin"}}
             @select={{fn this.select "moin"}}
             @deselect={{this.deselect}}
             class={{bem
@@ -88,7 +119,6 @@ export default class Intro extends Component<IntroSignature> {
           {{! Links are inline, so a fragment still wraps across lines like the rest of the sentence. }}
           <FragmentLink
             @fragment={{fragment}}
-            @isSelected={{this.isSelected fragment}}
             @select={{fn this.select fragment}}
             @deselect={{this.deselect}}
             class={{bem
@@ -100,6 +130,17 @@ export default class Intro extends Component<IntroSignature> {
           </FragmentLink>
         {{/each}}
       </div>
+      {{#if this.proof}}
+        <LinkTo
+          @route={{this.proof.route}}
+          @model={{this.proof.model}}
+          class={{bem "proof"}}
+          data-test-home-proof={{this.proof.fragment}}
+          {{on "blur" this.deselect}}
+        >
+          {{t (concat "intro.proof." this.proof.fragment)}}
+        </LinkTo>
+      {{/if}}
     </div>
   </template>
 }

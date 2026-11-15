@@ -37,6 +37,18 @@ intro:
     'ux-background': 'Christoph jongliert mit einem Schalter, einem Kalender und einem Balkendiagramm'
     'products-that-last': 'Christoph gießt einen Bonsai'
     'playful-ideas': 'Christoph springt gegen einen Block, eine Glühbirne kommt heraus'
+  proof:
+    'moin': 'Mehr über mich →'
+    'i-am': 'Mehr über mich →'
+    'lead-developer': 'Zum Projekt: PageBuilder →'
+    'ux-background': 'Zum Projekt: MINT-EC-Karte →'
+    'products-that-last': 'Zum Projekt: Universal Music CMS →'
+    'playful-ideas': 'Zum Projekt: Flimmerkasten →'
+
+projectList:
+  preview:
+    clientWork: Kundenprojekt
+    sideProject: Freies Projekt
 
 projectDetail:
   backToOverview: '&#10176; Zurück zur Übersicht'

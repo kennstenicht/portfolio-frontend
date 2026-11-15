@@ -37,6 +37,18 @@ intro:
     'ux-background': 'Christoph juggling a toggle switch, a calendar and a bar chart'
     'products-that-last': 'Christoph watering a bonsai'
     'playful-ideas': 'Christoph jumping against a block, and a light bulb pops out'
+  proof:
+    'moin': 'More about me →'
+    'i-am': 'More about me →'
+    'lead-developer': 'Proof: PageBuilder →'
+    'ux-background': 'Proof: MINT-EC map →'
+    'products-that-last': 'Proof: Universal Music CMS →'
+    'playful-ideas': 'Proof: Flimmerkasten →'
+
+projectList:
+  preview:
+    clientWork: Client work
+    sideProject: Side project
 
 projectDetail:
   backToOverview: Back to overview
